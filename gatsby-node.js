@@ -1,7 +1,20 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
+const path = require(`path`)
+const slugify = require(`slugify`)
+const itemsData = require('./src/data/products')
 
-// You can delete this file if you're not using it
+exports.createPages = ({ actions }) => {
+  const { createPage } = actions
+  const productViewTemplate = path.resolve(`src/templates/productView.js`)
+
+    // Create blog post pages.
+      itemsData.items.forEach(i => {
+      createPage({
+        // Path for this page — required
+        path: slugify(i.title),
+        component: productViewTemplate,
+        context: {
+          ...i
+        },
+      })
+    })
+  }
