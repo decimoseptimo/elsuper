@@ -1,14 +1,17 @@
-import React, { useState } from "react"
+import React, { useContext, useState } from "react"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
 import css from "styled-jsx/css"
-import slugify from "slugify"
+
 import Image from "../components/image"
 import InputNumber from "../components/inputNumber"
 import Button from "./button"
+import { CartContext } from "../state"
 
 const ShopItem = props => {
-  // const [spinner, setSpinner] = useState(2.1)
+  const { id, title, price, unit, slug, images } = props
+  const [state, dispatch] = useContext(CartContext)
+  const [inputValue, setInputValue] = useState(1)
   const { className, styles } = css.resolve`
         .row {
           margin: 0 auto 1rem auto;
@@ -19,19 +22,15 @@ const ShopItem = props => {
         }
   `
 
-  const title = props.title || "Producto no encontrado"
-  const price = props.price || "0"
-  const unit = props.unit || "pz"
-  const image = props.image ? (
-    <Img fluid={props.image.childImageSharp.fluid} alt={title} />
+  const image = images ? (
+    <Img fluid={images[0].childImageSharp.fluid} alt={title} />
   ) : (
     <Image />
   )
 
-  // console.log(props)
   return (
     <div className="shop-item">
-      <Link className={`${className} wrapper-a`} to={"/"+slugify(title)}>
+      <Link className={`${className} wrapper-a`} to={`/${slug}`}>
         {image}
         <h2 className="title row">{title}</h2>
       </Link>
@@ -42,12 +41,26 @@ const ShopItem = props => {
       <InputNumber
         className={`${className} row`}
         required={true}
-        defaultValue={1}
+        value={inputValue}
         min={1}
         max={100}
-        precision={unit == "kg" ? 2 : 0}
+        precision={unit == "Kg" ? 2 : 0}
+        onChange={value => {
+          setInputValue(value)
+        }}
       />
-      <Button className={`${className} row`}>Agregar</Button>
+      <Button
+        className={`${className} row`}
+        onClick={() => {
+          dispatch({
+            type: "ADD_CART_ITEM",
+            ...props,
+            count: inputValue,
+          })
+        }}
+      >
+        Agregar
+      </Button>
 
       {styles}
       <style jsx>{`
@@ -76,6 +89,7 @@ const ShopItem = props => {
         }
 
         .shop-item .subtitle {
+          font-size: 1.1rem;
         }
 
         .shop-item img {
@@ -94,7 +108,7 @@ ShopItem.defaultProps = {
   title: "Producto no encontrado",
   price: "0",
   unit: "pz",
-  image: null,
+  images: null,
 }
 
 export default ShopItem

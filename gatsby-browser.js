@@ -1,9 +1,15 @@
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/browser-apis/
- */
+import React from 'react'
+import "typeface-source-sans-pro"
+import "normalize.css"
+import {CartProvider} from "./src/state"
 
-// You can delete this file if you're not using it
-require('typeface-source-sans-pro')
-require('normalize.css')
+// const createStore = require("./src/state/createStore")
+// const store = createStore()
+
+export const wrapRootElement = ({ element }) => {
+  return (
+    <CartProvider>
+      {element}
+    </CartProvider>
+  )
+}

@@ -1,142 +1,278 @@
 [
   {
+    "id": "1",
     "title": "Tomate Bola",
     "price": "15.50",
-    "unit": "kg",
-    "image": "images/tomate.jpg"
+    "unit": "Kg",
+    "slug": "tomate-bola",
+    "images": [
+      "images/tomate.jpg",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ]
   },
   {
+    "id": "2",
     "title": "Platano Portalimon",
     "price": "12.50",
-    "unit": "kg",
-    "image": "images/GUEST_f5d0cfc3-9d02-4ee0-a6c6-ed5dc09971d1.jpg"
+    "unit": "Kg",
+    "slug": "platano-portalimon",
+    "images": [
+      "images/GUEST_f5d0cfc3-9d02-4ee0-a6c6-ed5dc09971d1.jpg",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ]
   },
   {
+    "id": "3",
     "title": "Cartera de Huevo Blanco c/30",
     "price": "59.99",
     "unit": "Pz",
-    "image": "images/alimento-24-cartones-de-la-cuenta-de-huevos-37152.jpg"
+    "slug": "cartera-de-huevo-blanco-c30",
+    "images": [
+      "images/alimento-24-cartones-de-la-cuenta-de-huevos-37152.jpg",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ]
   },
   {
+    "id": "23",
     "title": "Cartera de Huevo Rojo c/30",
     "price": "58.50",
     "unit": "Pz",
-    "image": "images/huevos-21.png"
+    "slug": "cartera-de-huevo-rojo-c30",
+    "images": [
+      "images/huevos-21.png",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ]
   },
   {
-    "title": "Naranja Valencia",
-    "price": "5.50",
-    "unit": "kg",
-    "image": "images/naranja-valenciana-vitaminada.png"
-  },
-  {
+    "id": "4",
     "title": "Manzana Roja",
     "price": "30",
-    "unit": "kg",
-    "image": "images/mnsi20.jpg"
+    "unit": "Kg",
+    "slug": "manzana-roja",
+    "images": [
+      "images/mnsi20.jpg",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ]
   },
   {
+    "id": "5",
+    "title": "Naranja Valencia",
+    "price": "5.50",
+    "unit": "Kg",
+    "slug": "naranja-valencia",
+    "images": [
+      "images/naranja-valenciana-vitaminada.png",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ]
+  },
+  {
+    "id": "6",
     "title": "Manzana Verde",
     "price": "30",
-    "unit": "kg",
-    "image": "images/Propiedades-de-la-manzana-para-bajar-de-peso-4_0.jpg"
+    "unit": "Kg",
+    "slug": "manzana-verde",
+    "images": [
+      "images/Propiedades-de-la-manzana-para-bajar-de-peso-4_0.jpg",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ]
   },
   {
+    "id": "7",
     "title": "Manzana Golden",
     "price": "45.50",
-    "unit": "kg",
-    "image": "images/manzana_golden_extra.jpg"
+    "unit": "Kg",
+    "slug": "manzana-golden",
+    "images": [
+      "images/manzana_golden_extra.jpg",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ]
   },
   {
+    "id": "8",
     "title": "Leche Entera Star Milk 3.785 Lts.",
     "price": "59.85",
     "unit": "Pz",
-    "image": "images/12625-Leche-entera-pasteurizada-Star-Milk-3.78-Lt-1.jpg"
+    "slug": "leche-entera-star-milk-3.785-lts.",
+    "images": [
+      "images/12625-Leche-entera-pasteurizada-Star-Milk-3.78-Lt-1.jpg",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ]
   },
   {
+    "id": "9",
     "title": "Leche Entera Lala 3.785 Lts.",
     "price": "59.95",
     "unit": "Pz",
-    "image": "images/74FLAL004_1.webp"
+    "slug": "leche-entera-lala-3.785-lts.",
+    "images": [
+      "images/74FLAL004_1.webp",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ]
   },
   {
+    "id": "10",
     "title": "Formula Lactea Bonaleche 1.892 Lts.",
     "price": "25.00",
     "unit": "Pz",
-    "image": "images/10112-Formula-lactea-Bonaleche.jpg"
+    "slug": "formula-lactea-bonaleche-1.892-lts.",
+    "images": [
+      "images/10112-Formula-lactea-Bonaleche.jpg",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ]
   },
   {
+    "id": "11",
     "title": "Formula Lactea Nutrileche 1 Lts.",
     "price": "15.00",
     "unit": "Pz",
-    "image": "images/7501020540666.jpg"
+    "slug": "formula-lactea-nutrileche-1-lts.",
+    "images": [
+      "images/7501020540666.jpg",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ]
   },
   {
+    "id": "12",
     "title": "Leche de Soya Ades Sabor Natural 1 Lts.",
     "price": "19.90",
     "unit": "Pz",
-    "image": "images/8347-bebida-soya-Ades.jpg"
+    "slug": "leche-de-soya-ades-sabor-natural-1-lts.",
+    "images": [
+      "images/8347-bebida-soya-Ades.jpg",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ]
   },
   {
+    "id": "13",
     "title": "Leche de Coco Calahua 1 Lts.",
     "price": "19.90",
     "unit": "Pz",
-    "image": "images/10231_Leche_de_coco_Calahua_1_lt.jpg"
+    "slug": "leche-de-coco-calahua-1-lts.",
+    "images": [
+      "images/10231_Leche_de_coco_Calahua_1_lt.jpg",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ]
   },
   {
+    "id": "14",
     "title": "Carnation Clavel 378 Gr.",
     "price": "19.90",
     "unit": "Pz",
-    "image": "images/abarrotes-carnation-clavel.jpg"
+    "slug": "carnation-clavel-378-gr.",
+    "images": [
+      "images/abarrotes-carnation-clavel.jpg",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ]
   },
   {
+    "id": "15",
     "title": "Aceite Capullo 840 Ml.",
     "price": "30.50",
     "unit": "Pz",
-    "image": "images/7502223772250-00-CH515Wx515H.jpg"
+    "slug": "aceite-capullo-840-ml.",
+    "images": [
+      "images/7502223772250-00-CH515Wx515H.jpg",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ]
   },
   {
+    "id": "16",
     "title": "Aceite Nutrioli 946 Ml.",
     "price": "27.80",
     "unit": "Pz",
-    "image": "images/00750103912014L.jpg"
+    "slug": "aceite-nutrioli-946-ml.",
+    "images": [
+      "images/00750103912014L.jpg",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ]
   },
   {
+    "id": "17",
     "title": "Sabrosano 946 Ml.",
     "price": "28.50",
     "unit": "Pz",
-    "image": "images/00750103912705L.jpg"
+    "slug": "sabrosano-946-ml.",
+    "images": [
+      "images/00750103912705L.jpg",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ]
   },
   {
+    "id": "18",
     "title": "Salsa Amor Picante 4 Lts.",
     "price": "45.50",
     "unit": "Pz",
-    "image": "images/000711592m_large.jpg"
+    "slug": "salsa-amor-picante-4-lts.",
+    "images": [
+      "images/000711592m_large.jpg",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ]
   },
   {
+    "id": "19",
     "title": "Salsa Amor Picante 1 Lts.",
     "price": "19.90",
     "unit": "Pz",
-    "image": "images/000051006m_large.jpg"
+    "slug": "salsa-amor-picante-1-lts.",
+    "images": [
+      "images/000051006m_large.jpg",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ]
   },
   {
+    "id": "20",
     "title": "Salsa Amor Picante 355 Ml.",
     "price": "10.00",
     "unit": "Pz",
-    "image": "images/salsa.amor.355.png"
+    "slug": "salsa-amor-picante-355-ml.",
+    "images": [
+      "images/salsa.amor.355.png",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ]
   },
   {
+    "id": "21",
     "title": "Salsa Tapatio 296 Ml.",
     "price": "19.90",
     "unit": "Pz",
-    "image": "images/34367-Salsa-picante-Tapatio-296-ml.jpg"
+    "slug": "salsa-tapatio-296-ml.",
+    "images": [
+      "images/34367-Salsa-picante-Tapatio-296-ml.jpg",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ]
   },
   {
+    "id": "22",
     "title": "Pure de tomate Val Vita 200 Gr.",
     "price": "7.50",
     "unit": "Pz",
-    "image": "images/smart-95187-salsa-val-vita.jpg"
-  },
-  {},
-  {}
+    "slug": "pure-de-tomate-val-vita-200-gr.",
+    "images": [
+      "images/smart-95187-salsa-val-vita.jpg",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ]
+  }
 ]

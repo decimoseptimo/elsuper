@@ -1,16 +1,93 @@
-import React from "react"
-import { image } from "gatsby"
+import React, { useContext, useState } from "react"
+import { image, graphql } from "gatsby"
+import css from "styled-jsx/css"
 
 import ProductGallery from "../components/productGallery"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Button from "../components/button"
-import nut from "../images/a36710ddb962166d6f11bafda448f1f1.jpg"
-import ing from "../images/Etiqueta-RC-Maxi-Adult.jpg"
+import InputNumber from "../components/inputNumber"
+import Sidebar from "../components/sidebar"
+import { CartContext, itemExists, findIndex } from "../state"
 
 const ProductView = props => {
-  const { title, price, unit, image } = props.pageContext
-  const images = ["items/" + image, nut, ing]
+  const { id, title, price, unit, images } = props.data.productsJson
+  const [state, dispatch] = useContext(CartContext)
+  const [inputValue, setInputValue] = useState(1)
+  const productInCart = itemExists(state, id)
+
+  // const productIndex = findIndex(state, id)
+  // const initState = () => {
+  //   return (productIndex >= 0) ? setInputValue(state[productIndex].count) : 1;
+  // }
+
+  const AddButton = () => {
+    const { className, styles } = css.resolve`
+    button {
+      margin-bottom: 1rem;
+    }`
+    return (
+      <Button
+        className={className}
+        onClick={() => {
+          dispatch({
+            type: "ADD_CART_ITEM",
+            ...props.data.productsJson,
+            count: inputValue,
+          })
+        }}
+      >
+        Agregar
+        {styles}
+      </Button>
+    )
+  }
+
+  const RemoveButton = () => {
+    const { className, styles } = css.resolve`
+    button {
+      margin-bottom: 1rem;
+      background-color: #613458;
+    }`
+    return (
+      <Button
+        className={className}
+        onClick={() => {
+          dispatch({
+            type: "REMOVE_CART_ITEM",
+            id,
+          })
+        }}
+      >
+        Remover
+        {styles}
+      </Button>
+    )
+  }
+
+  const UpdateInput = () => {
+    const { className, styles } = css.resolve`
+      margin-bottom: 1rem;
+    `
+    return (
+      <>
+        <InputNumber
+          className={className}
+          required={true}
+          value={inputValue}
+          min={1}
+          max={100}
+          precision={unit == "Kg" ? 2 : 0}
+          onChange={value => {
+            setInputValue(value)
+            if (productInCart)
+              dispatch({ type: "UPDATE_CART_ITEM", id, count: value })
+          }}
+        />
+        {styles}
+      </>
+    )
+  }
 
   return (
     <Layout>
@@ -23,23 +100,21 @@ const ProductView = props => {
         <div className="col col-b">
           <h1>{title}</h1>
           <p>
-            {price} {unit}
+            ${price} {unit}
           </p>
-          <Button onClick={() => {}}>Agregar</Button>
+          <UpdateInput />
+          {!productInCart ? <AddButton /> : <RemoveButton />}
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias
+            asperiores, dolorum eos excepturi id ipsa minima nam nemo odit
+            pariatur perferendis provident qui quis recusandae totam vel
+            voluptas voluptatem voluptatibus?
+          </p>
         </div>
         <div className="col col-c">
-          <div className="cart">
-            <h2>Carrito</h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. At atque
-              distinctio doloremque dolorum eligendi error id incidunt,
-              inventore maiores nostrum nulla quia tempora tempore tenetur ut.
-              Et nobis officia velit?
-            </p>
-          </div>
+          <Sidebar />
         </div>
       </div>
-
       <style jsx>
         {`
           .row {
@@ -66,10 +141,9 @@ const ProductView = props => {
             padding: 0 2rem;
           }
 
-          .cart {
-            background-color: #eee;
-            padding: 1rem 2rem 2rem;
-            min-width: 300px;
+          .col-b > * {
+            // border: 1px solid red;
+            margin-bottom: 1rem;
           }
         `}
       </style>
@@ -77,4 +151,31 @@ const ProductView = props => {
   )
 }
 
+ProductView.defaultProps = {
+  asd: "fgh"
+}
+
 export default ProductView
+
+export const query = graphql`
+  query($id: String!) {
+    productsJson(id: { eq: $id }) {
+      id
+      title
+      price
+      unit
+      slug
+      images {
+        childImageSharp {
+          fluid(maxWidth: 1080) {
+            base64
+            aspectRatio
+            src
+            srcSet
+            sizes
+          }
+        }
+      }
+    }
+  }
+`

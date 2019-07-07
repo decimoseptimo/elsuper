@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react"
 import Slider from "react-slick"
+import Image from "gatsby-image"
 import "../../node_modules/slick-carousel/slick/slick.css"
 import "../../node_modules/slick-carousel/slick/slick-theme.css"
 
@@ -16,6 +17,7 @@ const ProductGallery = props => {
     // rtl: true,
     initialSlide: activeThumb,
     arrows: false,
+    // lazyLoad: 'progressive',
     responsive: [
       {
         breakpoint: 550,
@@ -42,18 +44,22 @@ const ProductGallery = props => {
     sliderRef.current.slickGoTo(index, true)
   }
 
+  console.log(images)
   return (
     <div className="productGallery">
       <div className="col col-thumbs">
         <div className="thumbs">
           {images.map((value, index) => (
-            <img
+            <div key={index}
               onMouseOver={() => updateSlide(index)}
-              src={value}
-              alt={value}
-              key={index}
-              className={activeThumb == index ? "active" : null}
-            />
+              className={`image ${activeThumb == index ? "active" : ""}`}
+            >
+              <Image
+                fluid={value.childImageSharp.fluid}
+                alt={value.title}
+                key={index}
+              />
+            </div>
           ))}
         </div>
       </div>
@@ -61,7 +67,7 @@ const ProductGallery = props => {
         <Slider className="slider" ref={sliderRef} {...settings}>
           {images.map((value, index) => (
             <div className="slide" key={index}>
-              <img src={value} alt={value} />
+              <Image fluid={value.childImageSharp.fluid} />
             </div>
           ))}
         </Slider>
@@ -95,7 +101,7 @@ const ProductGallery = props => {
           padding-right: ${thumbsXGutter};
         }
 
-        .thumbs img {
+        .thumbs .image {
           width: 100%;
           margin-bottom: ${thumbsYGutter};
         }

@@ -7,12 +7,10 @@ import SEO from "../components/seo"
 
 const IndexPage = props => {
   const products = props.data.allProductsJson.edges
-  console.log(products)
 
   return (
     <Layout>
       <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-
       <ul className="shop-items">
         {products.map((value, index) => {
           return (
@@ -37,7 +35,7 @@ const IndexPage = props => {
           padding-bottom: 1rem;
         }
 
-        .shop-itemss li:nth-child(4) {
+        .shop-items li:nth-child(4) {
           // padding-right: 0;
         }
 
@@ -82,10 +80,12 @@ export const pageQuery = graphql`
     allProductsJson {
       edges {
         node {
+          id
           title
           price
           unit
-          image {
+          slug
+          images {
             childImageSharp {
               fluid(maxWidth: 1080) {
                 ...GatsbyImageSharpFluid

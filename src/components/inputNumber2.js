@@ -4,7 +4,7 @@ import { default as RcInputNumber } from "rc-input-number"
 import "rc-input-number/assets/index.css"
 import { FaCaretUp, FaAngleUp, FaAngleDown, FaCaretDown } from "react-icons/fa"
 
-const InputNumber = props => (
+const InputNumber2 = props => (
   <>
     <RcInputNumber
       {...props}
@@ -12,13 +12,13 @@ const InputNumber = props => (
         if(!value) return
         props.onChange(value)
       }}
-      className={`inputNumber ${props.className}`}
+      className={`inputNumber2 ${props.className}`}
       type="number"
       upHandler={<FaAngleUp />}
       downHandler={<FaAngleDown />}
     />
     <style jsx global>{`
-      .inputNumber {
+      .inputNumber2 {
         margin: 0;
         padding: 0;
         border: 1px solid #d9d9d9;
@@ -28,11 +28,12 @@ const InputNumber = props => (
         font-size: 1rem;
         border-radius: 3px;
         height: auto;
-        max-width: 7.1rem;
+        // max-width: 100px;
+        min-width: 5rem;
         background-color: white;
       }
 
-      .inputNumber .rc-input-number-handler-wrap {
+      .inputNumber2 .rc-input-number-handler-wrap {
         float: none;
         border-left: none;
         width: auto;
@@ -41,18 +42,19 @@ const InputNumber = props => (
         transition: all 0.3s;
 
         display: flex;
-        flex: 0 0 30px;
+        flex: 0 0 20px;
         flex-flow: column wrap;
         border-right: none;
         border-left: 1px solid #d9d9d9;
         order: 1;
+        font-size: .8rem;
       }
 
-      .inputNumber .rc-input-number-input::-webkit-inner-spin-button {
+      .inputNumber2 .rc-input-number-input::-webkit-inner-spin-button {
         -webkit-appearance: none;
       }
 
-      .inputNumber .rc-input-number-handler {
+      .inputNumber2 .rc-input-number-handler {
         text-align: center;
         line-height: auto;
         height: auto;
@@ -65,15 +67,15 @@ const InputNumber = props => (
         justify-content: center;
       }
 
-      .inputNumber .rc-input-number-input-wrap {
+      .inputNumber2 .rc-input-number-input-wrap {
         overflow: hidden;
         height: auto;
 
-        padding: 0.5rem;
+        padding: 0;
         flex: 1;
       }
     `}</style>
   </>
 )
 
-export default InputNumber
+export default InputNumber2
