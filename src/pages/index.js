@@ -1,9 +1,10 @@
 import React from "react"
 import { Image, Link, graphql } from "gatsby"
 
-import ShopItem from "../components/shopItem"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import ProductBase from "../components/product/ProductBase"
+import ProductCard from "../components/product/productCard"
 
 const IndexPage = props => {
   const products = props.data.allProductsJson.edges
@@ -15,7 +16,7 @@ const IndexPage = props => {
         {products.map((value, index) => {
           return (
             <li key={index}>
-              <ShopItem {...value.node} />
+              <ProductBase {...value.node}>{(data)=><ProductCard {...data} />}</ProductBase>
             </li>
           )
         })}

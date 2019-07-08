@@ -1,17 +1,21 @@
-import React, { useContext, useState } from "react"
+import React from "react"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
 import css from "styled-jsx/css"
 
-import Image from "../components/image"
-import InputNumber from "../components/inputNumber"
-import Button from "./button"
-import { CartContext } from "../state"
+import Image from "../image"
 
-const ShopItem = props => {
-  const { id, title, price, unit, slug, images } = props
-  const [state, dispatch] = useContext(CartContext)
-  const [inputValue, setInputValue] = useState(1)
+const ProductCard = props => {
+  const {
+    id,
+    title,
+    price,
+    unit,
+    slug,
+    images,
+    UpdateInput,
+    ToggleButton,
+  } = props
   const { className, styles } = css.resolve`
         .row {
           margin: 0 auto 1rem auto;
@@ -37,30 +41,8 @@ const ShopItem = props => {
       <div className="subtitle row">
         ${price} {unit}
       </div>
-
-      <InputNumber
-        className={`${className} row`}
-        required={true}
-        value={inputValue}
-        min={1}
-        max={100}
-        precision={unit == "Kg" ? 2 : 0}
-        onChange={value => {
-          setInputValue(value)
-        }}
-      />
-      <Button
-        className={`${className} row`}
-        onClick={() => {
-          dispatch({
-            type: "ADD_CART_ITEM",
-            ...props,
-            count: inputValue,
-          })
-        }}
-      >
-        Agregar
-      </Button>
+      {UpdateInput(`${className} row`)}
+      {ToggleButton()}
 
       {styles}
       <style jsx>{`
@@ -74,7 +56,6 @@ const ShopItem = props => {
         }
 
         .shop-item .row {
-          // outline: 1px solid red;
           margin: 0 auto 1rem auto;
         }
 
@@ -104,11 +85,4 @@ const ShopItem = props => {
   )
 }
 
-ShopItem.defaultProps = {
-  title: "Producto no encontrado",
-  price: "0",
-  unit: "pz",
-  images: null,
-}
-
-export default ShopItem
+export default ProductCard

@@ -1,8 +1,8 @@
 import React, { useRef, useState } from "react"
 import Slider from "react-slick"
 import Image from "gatsby-image"
-import "../../node_modules/slick-carousel/slick/slick.css"
-import "../../node_modules/slick-carousel/slick/slick-theme.css"
+import "../../../node_modules/slick-carousel/slick/slick.css"
+import "../../../node_modules/slick-carousel/slick/slick-theme.css"
 
 const ProductGallery = props => {
   const images = props.images
@@ -50,7 +50,8 @@ const ProductGallery = props => {
       <div className="col col-thumbs">
         <div className="thumbs">
           {images.map((value, index) => (
-            <div key={index}
+            <div
+              key={index}
               onMouseOver={() => updateSlide(index)}
               className={`image ${activeThumb == index ? "active" : ""}`}
             >
