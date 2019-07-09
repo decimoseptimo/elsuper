@@ -1,6 +1,5 @@
 import React, { useContext, useState } from "react"
 import { image, graphql } from "gatsby"
-import css from "styled-jsx/css"
 
 import ProductGallery from "../components/product/productGallery"
 import Layout from "../components/layout"
@@ -8,9 +7,17 @@ import SEO from "../components/seo"
 import Sidebar from "../components/sidebar"
 import ProductBase from "../components/product/ProductBase"
 import ProductSummary from "../components/product/productSummary"
+import { CartContext, findIndex } from "../state"
 
 const ProductView = props => {
-  const { title, images } = props.data.productsJson
+  const { id, title, images } = props.data.productsJson
+  const [state, dispatch] = useContext(CartContext)
+
+  let indexInCart = findIndex(state, id)
+  let countInCart
+  try {
+    countInCart = state[indexInCart].count
+  } catch {}
 
   return (
     <Layout>
@@ -21,7 +28,7 @@ const ProductView = props => {
           <ProductGallery images={images} />
         </div>
         <div className="col col-b">
-          <ProductBase {...props.data.productsJson}>{(data)=><ProductSummary {...data} />}</ProductBase>
+          <ProductBase {...props.data.productsJson} countInCart={countInCart} dispatch={dispatch}>{(data)=><ProductSummary {...data} />}</ProductBase>
         </div>
         <div className="col col-c">
           <Sidebar />

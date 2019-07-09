@@ -49,7 +49,6 @@ export const itemExists = (state, id) => {
   return false;
 }
 
-
 export const findIndex = (state, id) => {
   return state.findIndex(i=>(i.id === id))
 }

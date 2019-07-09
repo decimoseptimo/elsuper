@@ -2,7 +2,16 @@ import React from "react"
 import css from "styled-jsx/css"
 
 const ProductSummary = props => {
-  const { id, title, price, unit, images, UpdateInput, ToggleButton } = props
+  const {
+    id,
+    title,
+    price,
+    unit,
+    slug,
+    images,
+    UpdateInput,
+    ToggleButton,
+  } = props
   const { className, styles } = css.resolve`
         {
           margin-bottom: 1rem;

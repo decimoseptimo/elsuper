@@ -1,22 +1,31 @@
-import React from "react"
+import React, { useContext, useMemo } from "react"
 import { Image, Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import ProductBase from "../components/product/ProductBase"
 import ProductCard from "../components/product/productCard"
+import { CartContext, findIndex } from "../state"
 
 const IndexPage = props => {
   const products = props.data.allProductsJson.edges
+  const [state, dispatch] = useContext(CartContext)
 
   return (
     <Layout>
       <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
       <ul className="shop-items">
         {products.map((value, index) => {
+
+          let indexInCart = findIndex(state, value.node.id)
+          let countInCart
+          try {
+            countInCart = state[indexInCart].count
+          } catch {}
+
           return (
             <li key={index}>
-              <ProductBase {...value.node}>{(data)=><ProductCard {...data} />}</ProductBase>
+              {useMemo(()=><ProductBase {...value.node} countInCart={countInCart} dispatch={dispatch}>{(data)=><ProductCard {...data} />}</ProductBase>, [countInCart])}
             </li>
           )
         })}

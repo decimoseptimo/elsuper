@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react"
+import React, { useState, useEffect, useContext, useMemo } from "react"
 import Button from "../components/button"
 
 import CartItem from "../components/cartItem"
@@ -54,6 +54,7 @@ const Sidebar = props => {
               <tbody>
                 {state.map((value, index) => {
                   return <CartItem {...value} dispatch={dispatch} key={index} />
+                  // return <CartItem {...value} dispatch={dispatch} key={index} />
                 })}
               </tbody>
             </table>

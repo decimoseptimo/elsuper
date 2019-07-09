@@ -1,20 +1,15 @@
-import React, { useContext, useState } from "react"
+import React, { useState } from "react"
 import css from "styled-jsx/css"
 
 import Button from "../button"
 import InputNumber from "../inputNumber"
-import { CartContext, itemExists, findIndex } from "../../state"
 
 const ProductBase = props => {
-  const { id, title, price, unit, slug, images } = props
-  const [state, dispatch] = useContext(CartContext)
-  const [inputValue, setInputValue] = useState(1)
-  const productInCart = itemExists(state, id)
+  const { id, title, price, unit, slug, images, countInCart, dispatch } = props
+  const [count, setCount] = useState(countInCart || 1)
 
-  // const productIndex = findIndex(state, id)
-  // const initState = () => {
-  //   return (productIndex >= 0) ? setInputValue(state[productIndex].count) : 1;
-  // }
+  console.log(`INIT: ${id}`)
+  console.log(countInCart || 1)
 
   const AddButton = () => {
     const { className, styles } = css.resolve`
@@ -28,7 +23,7 @@ const ProductBase = props => {
           dispatch({
             type: "ADD_CART_ITEM",
             ...props,
-            count: inputValue,
+            count: count,
           })
         }}
       >
@@ -60,7 +55,7 @@ const ProductBase = props => {
     )
   }
 
-  const ToggleButton = !productInCart ? AddButton : RemoveButton
+  const ToggleButton = !countInCart ? AddButton : RemoveButton
 
   const UpdateInput = (className, styles) => {
     return (
@@ -68,13 +63,15 @@ const ProductBase = props => {
         <InputNumber
           className={className}
           required={true}
-          value={inputValue}
+          value={count}
           min={1}
           max={100}
           precision={unit == "Kg" ? 2 : 0}
           onChange={value => {
-            setInputValue(value)
-            if (productInCart)
+            setCount(value)
+            console.log(value)
+
+            if (countInCart)
               dispatch({ type: "UPDATE_CART_ITEM", id, count: value })
           }}
         />
