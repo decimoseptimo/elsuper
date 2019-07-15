@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react"
+import React, { useContext, useMemo } from "react"
 import { image, graphql } from "gatsby"
 
 import ProductGallery from "../components/product/productGallery"
@@ -7,7 +7,7 @@ import SEO from "../components/seo"
 import Sidebar from "../components/sidebar"
 import ProductBase from "../components/product/ProductBase"
 import ProductSummary from "../components/product/productSummary"
-import { CartContext, findIndex } from "../state"
+import { CartContext, findIndex } from "../state/state"
 
 const ProductView = props => {
   const { id, title, images } = props.data.productsJson
@@ -19,13 +19,14 @@ const ProductView = props => {
     countInCart = state[indexInCart].count
   } catch {}
 
+
   return (
     <Layout>
       <SEO title={title} keywords={[`gatsby`, `application`, `react`]} />
 
       <div className="row">
         <div className="col col-a">
-          <ProductGallery images={images} />
+          {useMemo(()=><ProductGallery images={images} />,[images])}
         </div>
         <div className="col col-b">
           <ProductBase {...props.data.productsJson} countInCart={countInCart} dispatch={dispatch}>{(data)=><ProductSummary {...data} />}</ProductBase>
@@ -43,11 +44,8 @@ const ProductView = props => {
           }
 
           .col {
-            // float: left;
-            // display: inline-block;
-            // width: 33.33%;
             flex: 1;
-            // border: 2px solid orange;
+            // border: 1px solid red;
           }
 
           .col-a {
@@ -70,9 +68,9 @@ const ProductView = props => {
   )
 }
 
-ProductView.defaultProps = {
-  asd: "fgh"
-}
+// ProductView.defaultProps = {
+//   asd: "fgh"
+// }
 
 export default ProductView
 
@@ -83,6 +81,8 @@ export const query = graphql`
       title
       price
       unit
+      min_quantity
+      max_quantity
       slug
       images {
         childImageSharp {

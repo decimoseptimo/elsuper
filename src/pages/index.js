@@ -5,7 +5,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import ProductBase from "../components/product/ProductBase"
 import ProductCard from "../components/product/productCard"
-import { CartContext, findIndex } from "../state"
+import { CartContext, findIndex } from "../state/state"
 
 const IndexPage = props => {
   const products = props.data.allProductsJson.edges
@@ -94,6 +94,8 @@ export const pageQuery = graphql`
           title
           price
           unit
+          min_quantity
+          max_quantity
           slug
           images {
             childImageSharp {

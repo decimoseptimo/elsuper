@@ -2,8 +2,10 @@
   {
     "id": "1",
     "title": "Tomate Bola",
-    "price": "15.50",
+    "price": 15.50,
     "unit": "Kg",
+    "min_quantity": 1,
+    "max_quantity": 100,
     "slug": "tomate-bola",
     "images": [
       "images/tomate.jpg",
@@ -14,8 +16,10 @@
   {
     "id": "2",
     "title": "Platano Portalimon",
-    "price": "12.50",
+    "price": 12.50,
     "unit": "Kg",
+    "min_quantity": 0.2,
+    "max_quantity": 100,
     "slug": "platano-portalimon",
     "images": [
       "images/GUEST_f5d0cfc3-9d02-4ee0-a6c6-ed5dc09971d1.jpg",
@@ -26,8 +30,10 @@
   {
     "id": "3",
     "title": "Cartera de Huevo Blanco c/30",
-    "price": "59.99",
+    "price": 59.99,
     "unit": "Pz",
+    "min_quantity": 1,
+    "max_quantity": 100,
     "slug": "cartera-de-huevo-blanco-c30",
     "images": [
       "images/alimento-24-cartones-de-la-cuenta-de-huevos-37152.jpg",
@@ -38,8 +44,10 @@
   {
     "id": "23",
     "title": "Cartera de Huevo Rojo c/30",
-    "price": "58.50",
+    "price": 58.50,
     "unit": "Pz",
+    "min_quantity": 1,
+    "max_quantity": 100,
     "slug": "cartera-de-huevo-rojo-c30",
     "images": [
       "images/huevos-21.png",
@@ -50,8 +58,10 @@
   {
     "id": "4",
     "title": "Manzana Roja",
-    "price": "30",
+    "price": 30,
     "unit": "Kg",
+    "min_quantity": 1,
+    "max_quantity": 100,
     "slug": "manzana-roja",
     "images": [
       "images/mnsi20.jpg",
@@ -62,8 +72,10 @@
   {
     "id": "5",
     "title": "Naranja Valencia",
-    "price": "5.50",
+    "price": 5.50,
     "unit": "Kg",
+    "min_quantity": 1,
+    "max_quantity": 100,
     "slug": "naranja-valencia",
     "images": [
       "images/naranja-valenciana-vitaminada.png",
@@ -74,8 +86,10 @@
   {
     "id": "6",
     "title": "Manzana Verde",
-    "price": "30",
+    "price": 30,
     "unit": "Kg",
+    "min_quantity": 1,
+    "max_quantity": 100,
     "slug": "manzana-verde",
     "images": [
       "images/Propiedades-de-la-manzana-para-bajar-de-peso-4_0.jpg",
@@ -86,8 +100,10 @@
   {
     "id": "7",
     "title": "Manzana Golden",
-    "price": "45.50",
+    "price": 45.50,
     "unit": "Kg",
+    "min_quantity": 1,
+    "max_quantity": 100,
     "slug": "manzana-golden",
     "images": [
       "images/manzana_golden_extra.jpg",
@@ -98,8 +114,10 @@
   {
     "id": "8",
     "title": "Leche Entera Star Milk 3.785 Lts.",
-    "price": "59.85",
+    "price": 59.85,
     "unit": "Pz",
+    "min_quantity": 1,
+    "max_quantity": 100,
     "slug": "leche-entera-star-milk-3.785-lts.",
     "images": [
       "images/12625-Leche-entera-pasteurizada-Star-Milk-3.78-Lt-1.jpg",
@@ -110,8 +128,10 @@
   {
     "id": "9",
     "title": "Leche Entera Lala 3.785 Lts.",
-    "price": "59.95",
+    "price": 59.95,
     "unit": "Pz",
+    "min_quantity": 1,
+    "max_quantity": 100,
     "slug": "leche-entera-lala-3.785-lts.",
     "images": [
       "images/74FLAL004_1.webp",
@@ -122,8 +142,10 @@
   {
     "id": "10",
     "title": "Formula Lactea Bonaleche 1.892 Lts.",
-    "price": "25.00",
+    "price": 25.00,
     "unit": "Pz",
+    "min_quantity": 1,
+    "max_quantity": 100,
     "slug": "formula-lactea-bonaleche-1.892-lts.",
     "images": [
       "images/10112-Formula-lactea-Bonaleche.jpg",
@@ -134,8 +156,10 @@
   {
     "id": "11",
     "title": "Formula Lactea Nutrileche 1 Lts.",
-    "price": "15.00",
+    "price": 15.00,
     "unit": "Pz",
+    "min_quantity": 1,
+    "max_quantity": 100,
     "slug": "formula-lactea-nutrileche-1-lts.",
     "images": [
       "images/7501020540666.jpg",
@@ -146,8 +170,10 @@
   {
     "id": "12",
     "title": "Leche de Soya Ades Sabor Natural 1 Lts.",
-    "price": "19.90",
+    "price": 19.90,
     "unit": "Pz",
+    "min_quantity": 1,
+    "max_quantity": 100,
     "slug": "leche-de-soya-ades-sabor-natural-1-lts.",
     "images": [
       "images/8347-bebida-soya-Ades.jpg",
@@ -158,8 +184,10 @@
   {
     "id": "13",
     "title": "Leche de Coco Calahua 1 Lts.",
-    "price": "19.90",
+    "price": 19.90,
     "unit": "Pz",
+    "min_quantity": 1,
+    "max_quantity": 100,
     "slug": "leche-de-coco-calahua-1-lts.",
     "images": [
       "images/10231_Leche_de_coco_Calahua_1_lt.jpg",
@@ -170,8 +198,10 @@
   {
     "id": "14",
     "title": "Carnation Clavel 378 Gr.",
-    "price": "19.90",
+    "price": 19.90,
     "unit": "Pz",
+    "min_quantity": 1,
+    "max_quantity": 100,
     "slug": "carnation-clavel-378-gr.",
     "images": [
       "images/abarrotes-carnation-clavel.jpg",
@@ -182,8 +212,10 @@
   {
     "id": "15",
     "title": "Aceite Capullo 840 Ml.",
-    "price": "30.50",
+    "price": 30.50,
     "unit": "Pz",
+    "min_quantity": 1,
+    "max_quantity": 100,
     "slug": "aceite-capullo-840-ml.",
     "images": [
       "images/7502223772250-00-CH515Wx515H.jpg",
@@ -194,8 +226,10 @@
   {
     "id": "16",
     "title": "Aceite Nutrioli 946 Ml.",
-    "price": "27.80",
+    "price": 27.80,
     "unit": "Pz",
+    "min_quantity": 1,
+    "max_quantity": 100,
     "slug": "aceite-nutrioli-946-ml.",
     "images": [
       "images/00750103912014L.jpg",
@@ -206,8 +240,10 @@
   {
     "id": "17",
     "title": "Sabrosano 946 Ml.",
-    "price": "28.50",
+    "price": 28.50,
     "unit": "Pz",
+    "min_quantity": 1,
+    "max_quantity": 100,
     "slug": "sabrosano-946-ml.",
     "images": [
       "images/00750103912705L.jpg",
@@ -218,8 +254,10 @@
   {
     "id": "18",
     "title": "Salsa Amor Picante 4 Lts.",
-    "price": "45.50",
+    "price": 45.50,
     "unit": "Pz",
+    "min_quantity": 1,
+    "max_quantity": 100,
     "slug": "salsa-amor-picante-4-lts.",
     "images": [
       "images/000711592m_large.jpg",
@@ -230,8 +268,10 @@
   {
     "id": "19",
     "title": "Salsa Amor Picante 1 Lts.",
-    "price": "19.90",
+    "price": 19.90,
     "unit": "Pz",
+    "min_quantity": 1,
+    "max_quantity": 100,
     "slug": "salsa-amor-picante-1-lts.",
     "images": [
       "images/000051006m_large.jpg",
@@ -242,8 +282,10 @@
   {
     "id": "20",
     "title": "Salsa Amor Picante 355 Ml.",
-    "price": "10.00",
+    "price": 10.00,
     "unit": "Pz",
+    "min_quantity": 1,
+    "max_quantity": 100,
     "slug": "salsa-amor-picante-355-ml.",
     "images": [
       "images/salsa.amor.355.png",
@@ -254,8 +296,10 @@
   {
     "id": "21",
     "title": "Salsa Tapatio 296 Ml.",
-    "price": "19.90",
+    "price": 19.90,
     "unit": "Pz",
+    "min_quantity": 1,
+    "max_quantity": 100,
     "slug": "salsa-tapatio-296-ml.",
     "images": [
       "images/34367-Salsa-picante-Tapatio-296-ml.jpg",
@@ -266,11 +310,545 @@
   {
     "id": "22",
     "title": "Pure de tomate Val Vita 200 Gr.",
-    "price": "7.50",
+    "price": 7.50,
     "unit": "Pz",
+    "min_quantity": 1,
+    "max_quantity": 100,
     "slug": "pure-de-tomate-val-vita-200-gr.",
     "images": [
       "images/smart-95187-salsa-val-vita.jpg",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ]
+  },
+  {
+    "id": "31",
+    "title": "Alitas de pollo",
+    "price": 18,
+    "unit": "Kg",
+    "min_quantity": 1,
+    "max_quantity": 100,
+    "slug": "alitas-de-pollo",
+    "images": [
+      "images/fish2go_fresh_chicken_wing_1a_1.jpg",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ]
+  },
+  {
+    "id": "24",
+    "title": "Pierna corta de pollo",
+    "price": 22.88,
+    "unit": "Kg",
+    "min_quantity": 1,
+    "max_quantity": 100,
+    "slug": "pierna-corta-de-pollo",
+    "images": [
+      "images/fish2go_fresh_chicken_drumstick_1a_1.jpg",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ]
+  },
+  {
+    "id": "25",
+    "title": "Pechuga de pollo sin piel",
+    "price": 60.00,
+    "unit": "Kg",
+    "min_quantity": 1,
+    "max_quantity": 100,
+    "slug": "pechuga-de-pollo-sin-piel",
+    "images": [
+      "images/Fresh Chicken Breast Boneless 250 g-750x750.jpg",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ]
+  },
+  {
+    "id": "26",
+    "title": "Pechuga de pollo con piel",
+    "price": 55.00,
+    "unit": "Kg",
+    "min_quantity": 1,
+    "max_quantity": 100,
+    "slug": "pechuga-de-pollo-con-piel",
+    "images": [
+      "images/Fresh Chicken Breast 250 g-750x750.jpg",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ]
+  },
+  {
+    "id": "27",
+    "title": "Pierna de pollo",
+    "price": 29.90,
+    "unit": "Kg",
+    "min_quantity": 1,
+    "max_quantity": 100,
+    "slug": "pierna-de-pollo",
+    "images": [
+      "images/Fresh Whole Legs Chicken 250 g-750x750.jpg",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ]
+  },
+  {
+    "id": "28",
+    "title": "Pollo entero con piel",
+    "price": 50.00,
+    "unit": "Kg",
+    "min_quantity": 1,
+    "max_quantity": 100,
+    "slug": "pollo-entero-con-piel",
+    "images": [
+      "images/Fresh Whole Chicken 500 g-750x750.jpg",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ]
+  },
+  {
+    "id": "29",
+    "title": "Chuleta de cerdo sin hueso",
+    "price": 30.90,
+    "unit": "Kg",
+    "min_quantity": 1,
+    "max_quantity": 100,
+    "slug": "chuleta-de-cerdo-sin-hueso",
+    "images": [
+      "images/fish2go_poulty_pork_loin_1.jpg",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ]
+  },
+  {
+    "id": "30",
+    "title": "Costilla de cerdo con hueso",
+    "price": 25.50,
+    "unit": "Kg",
+    "min_quantity": 1,
+    "max_quantity": 100,
+    "slug": "costilla-de-cerdo-con-hueso",
+    "images": [
+      "images/fish2go_poulty_pork_ribs_1.jpg",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ]
+  },
+  {
+    "id": "32",
+    "title": "Arrachera de res",
+    "price": 210.00,
+    "unit": "Kg",
+    "min_quantity": 1,
+    "max_quantity": 100,
+    "slug": "arrachera-de-res",
+    "images": [
+      "images/arrachera_2048x.png",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ]
+  },
+  {
+    "id": "33",
+    "title": "Chamorro de res con hueso",
+    "price": 60.30,
+    "unit": "Kg",
+    "min_quantity": 1,
+    "max_quantity": 100,
+    "slug": "chamorro-de-res-con-hueso",
+    "images": [
+      "images/chambarete_de_res_con_hueso_4ed99ed0-e0ed-4b35-bf69-66cd07aeb498_2048x.png",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ]
+  },
+  {
+    "id": "34",
+    "title": "Carne molida de res",
+    "price": 59.90,
+    "unit": "Kg",
+    "min_quantity": 1,
+    "max_quantity": 100,
+    "slug": "carne-molida-de-res",
+    "images": [
+      "images/fish2go_products_mincebeef4_2.jpg",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ]
+  },
+  {
+    "id": "35",
+    "title": "Cuete de res",
+    "price": 59.95,
+    "unit": "Kg",
+    "min_quantity": 1,
+    "max_quantity": 100,
+    "slug": "Cuete-de-res",
+    "images": [
+      "images/cuete_de_res_1024x1024_51367fe1-92f8-4320-9443-a9921d8f5b6d_2048x.png",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ]
+  },
+  {
+    "id": "36",
+    "title": "Chamorro de res sin hueso",
+    "price": 60.00,
+    "unit": "Kg",
+    "min_quantity": 1,
+    "max_quantity": 100,
+    "slug": "chamorro-de-res-sin-hueso",
+    "images": [
+      "images/carnicos-del-caribe-distribuidora_carnicos_cancun_28.jpg",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ]
+  },
+  {
+    "id": "37",
+    "title": "Diezmillo de res",
+    "price": 130.00,
+    "unit": "Kg",
+    "min_quantity": 1,
+    "max_quantity": 100,
+    "slug": "diezmillo-de-res",
+    "images": [
+      "images/Diezmillo-n-1.png",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ]
+  },
+  {
+    "id": "38",
+    "title": "Paleta de res",
+    "price": 109.90,
+    "unit": "Kg",
+    "min_quantity": 1,
+    "max_quantity": 100,
+    "slug": "Paleta-de-res",
+    "images": [
+      "images/paleta.png",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ]
+  },
+  {
+    "id": "39",
+    "title": "Pecho de res",
+    "price": 105.75,
+    "unit": "Kg",
+    "min_quantity": 1,
+    "max_quantity": 100,
+    "slug": "pecho-de-res",
+    "images": [
+      "images/pecho-n.png",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ]
+  },
+  {
+    "id": "40",
+    "title": "Pescueso de res",
+    "price": 95.90,
+    "unit": "Kg",
+    "min_quantity": 1,
+    "max_quantity": 100,
+    "slug": "pescueso-de-res",
+    "images": [
+      "images/pescuezo.png",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ]
+  },
+  {
+    "id": "41",
+    "title": "Pulpa larga de res",
+    "price": 119.90,
+    "unit": "Kg",
+    "min_quantity": 1,
+    "max_quantity": 100,
+    "slug": "pulpa-larga-de-res",
+    "images": [
+      "images/Pulpa-Larga.png",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ]
+  },
+  {
+    "id": "42",
+    "title": "Rib eye de res",
+    "price": 195.99,
+    "unit": "Kg",
+    "min_quantity": 1,
+    "max_quantity": 100,
+    "slug": "rib-eye-de-res",
+    "images": [
+      "images/Rib-eye.png",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ]
+  },
+  {
+    "id": "43",
+    "title": "Costilla aguja de res",
+    "price": 75.99,
+    "unit": "Kg",
+    "min_quantity": 1,
+    "max_quantity": 100,
+    "slug": "costilla-aguja-de-res",
+    "images": [
+      "images/Costilla-Aguja-.png",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ]
+  },
+  {
+    "id": "44",
+    "title": "Filete basa",
+    "price": 59.90,
+    "unit": "Kg",
+    "min_quantity": 1,
+    "max_quantity": 100,
+    "slug": "filete-basa",
+    "images": [
+      "images/filete-de-basa.jpg",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ]
+  },
+  {
+    "id": "45",
+    "title": "Filete tilapia",
+    "price": 79.90,
+    "unit": "Kg",
+    "min_quantity": 1,
+    "max_quantity": 100,
+    "slug": "filete-tilapia",
+    "images": [
+      "images/tilapia-filete.jpg",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ]
+  },
+  {
+    "id": "46",
+    "title": "Filete salmon",
+    "price": 199.90,
+    "unit": "Kg",
+    "min_quantity": 1,
+    "max_quantity": 100,
+    "slug": "filete-salmon",
+    "images": [
+      "images/FILETE_DE_SALMON_dada4d82-37c3-4072-ab34-9f777061d292_2048x2048.png",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ]
+  },
+  {
+    "id": "47",
+    "title": "Medallon de atún",
+    "price": 150.00,
+    "unit": "Kg",
+    "min_quantity": 1,
+    "max_quantity": 100,
+    "slug": "medallon-de-atun",
+    "images": [
+      "images/medallon-de-atun-importado.jpg",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ]
+  },
+  {
+    "id": "48",
+    "title": "Camaron mediano sin cabeza",
+    "price": 70.00,
+    "unit": "Kg",
+    "min_quantity": 1,
+    "max_quantity": 100,
+    "slug": "Camaron-mediano-sin-cabeza",
+    "images": [
+      "images/sin-cabeza-mediano.jpg",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ]
+  },
+  {
+    "id": "49",
+    "title": "Coca Cola 3L",
+    "price": 30.00,
+    "unit": "Pz",
+    "min_quantity": 1,
+    "max_quantity": 100,
+    "slug": "coca-cola-3l",
+    "images": [
+      "images/154_coca-cola-3-l-botella-pet.jpg",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ]
+  },
+  {
+    "id": "50",
+    "title": "Coca cola 355 ml",
+    "price": 10.00,
+    "unit": "Pz",
+    "min_quantity": 1,
+    "max_quantity": 100,
+    "slug": "coca-cola-355-ml",
+    "images": [
+      "images/161_coca-cola-355-ml-lata-aluminio.jpg",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ]
+  },
+  {
+    "id": "51",
+    "title": "Sprite 355ml",
+    "price": 10.50,
+    "unit": "Pz",
+    "min_quantity": 1,
+    "max_quantity": 100,
+    "slug": "sprite-355ml",
+    "images": [
+      "images/731_sprite-lima-limon-355-ml-lata-aluminio-12p.jpg",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ]
+  },
+  {
+    "id": "52",
+    "title": "Sidral mundet 355 ml",
+    "price": 10.50,
+    "unit": "Pz",
+    "min_quantity": 1,
+    "max_quantity": 100,
+    "slug": "sidral-mundet-355-ml",
+    "images": [
+      "images/717_sidral-mundet-355-ml-4latas_1.jpg",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ]
+  },
+  {
+    "id": "53",
+    "title": "Fanta 355ml",
+    "price": 10.00,
+    "unit": "Pz",
+    "min_quantity": 1,
+    "max_quantity": 100,
+    "slug": "Fanta-355ml",
+    "images": [
+      "images/ps-m2-fanta-335-lata_4.png",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ]
+  },
+  {
+    "id": "54",
+    "title": "Coca cola 600 ml",
+    "price": 13.00,
+    "unit": "Pz",
+    "min_quantity": 1,
+    "max_quantity": 100,
+    "slug": "coca-cola-600-ml",
+    "images": [
+      "images/168_coca-cola-600-ml-botella-pet.jpg",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ]
+  },
+  {
+    "id": "55",
+    "title": "Sprite 600 ml",
+    "price": 13.50,
+    "unit": "Pz",
+    "min_quantity": 1,
+    "max_quantity": 100,
+    "slug": "sprite-600-ml",
+    "images": [
+      "images/738_sprite-lima-limon-600-ml-botella-pet_1.jpg",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ]
+  },
+  {
+    "id": "56",
+    "title": "Sidral mundet 600ml",
+    "price": 13.50,
+    "unit": "Pz",
+    "min_quantity": 1,
+    "max_quantity": 100,
+    "slug": "sidral-mundet-600ml",
+    "images": [
+      "images/581_mundet-manzana-600-ml-botella.jpg",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ]
+  },
+  {
+    "id": "57",
+    "title": "Fanta 600ml",
+    "price": 12.50,
+    "unit": "Pz",
+    "min_quantity": 1,
+    "max_quantity": 100,
+    "slug": "fanta-600ml",
+    "images": [
+      "images/398_fanta-naranja-600-ml-botella-pet.jpg",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ]
+  },
+  {
+    "id": "58",
+    "title": "Coca cola 2 L",
+    "price": 20.00,
+    "unit": "Pz",
+    "min_quantity": 1,
+    "max_quantity": 100,
+    "slug": "coca-cola-2-l",
+    "images": [
+      "images/109_coca-cola-2-l-pet-2p.jpg",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ]
+  },
+  {
+    "id": "59",
+    "title": "Sprite 2L",
+    "price": 21.90,
+    "unit": "Pz",
+    "min_quantity": 1,
+    "max_quantity": 100,
+    "slug": "sprite-2L",
+    "images": [
+      "images/cmx-sprite_6.png",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ]
+  },
+  {
+    "id": "60",
+    "title": "Sidral mundet 2L",
+    "price": 20.80,
+    "unit": "Pz",
+    "min_quantity": 1,
+    "max_quantity": 100,
+    "slug": "sidral-mundet-2l",
+    "images": [
+      "images/715_sidral-mundet-2-l-pet-2p.jpg",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ]
+  },
+  {
+    "id": "61",
+    "title": "Fanta 2L",
+    "price": 20.00,
+    "unit": "Pz",
+    "min_quantity": 1,
+    "max_quantity": 100,
+    "slug": "Fanta-2L",
+    "images": [
+      "images/383_fanta-naranja-2-l-botella-pet.jpg",
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ]

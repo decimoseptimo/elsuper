@@ -1,9 +1,10 @@
 import React, { useContext } from "react"
 import { Link } from "gatsby"
 import css from "styled-jsx/css"
-import { CartContext } from "../state"
+import { CartContext } from "../state/state"
 
 import ButtonCart from "../components/buttonCart"
+import ButtonUser from "../components/buttonUser"
 import InputMainSearch from "../components/inputMainSearch"
 
 const { className, styles } = css.resolve`
@@ -40,7 +41,8 @@ const Header = () => {
           <InputMainSearch />
         </div>
         <div className="col-c">
-          <ButtonCart count={state.length} />
+          <ButtonUser />
+          <ButtonCart count={state.length} onClick={()=>{console.log('CCC')}}/>
         </div>
       </div>
       {styles}

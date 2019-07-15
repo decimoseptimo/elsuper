@@ -1,15 +1,28 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import css from "styled-jsx/css"
 
 import Button from "../button"
 import InputNumber from "../inputNumber"
+import { round } from "../../utils"
 
 const ProductBase = props => {
-  const { id, title, price, unit, slug, images, countInCart, dispatch } = props
+  const { id, title, unit, slug, images, min_quantity, max_quantity, countInCart, dispatch } = props
+  const price = round(props.price)
   const [count, setCount] = useState(countInCart || 1)
 
-  console.log(`INIT: ${id}`)
-  console.log(countInCart || 1)
+  // console.log(`INIT: ${id}`)
+  // console.log(`count: ${count}`)
+  // console.log(`countInCart: ${countInCart}`)
+
+  // console.log("20.00")
+  // console.log(20.00)
+  // console.log(round(20.00))
+  // console.log(props.price)
+
+  useEffect(()=>{
+    if (countInCart)
+      setCount(countInCart)
+  }, [countInCart])
 
   const AddButton = () => {
     const { className, styles } = css.resolve`
@@ -64,15 +77,15 @@ const ProductBase = props => {
           className={className}
           required={true}
           value={count}
-          min={1}
-          max={100}
+          min={min_quantity}
+          max={max_quantity}
           precision={unit == "Kg" ? 2 : 0}
           onChange={value => {
-            setCount(value)
-            console.log(value)
-
-            if (countInCart)
-              dispatch({ type: "UPDATE_CART_ITEM", id, count: value })
+            if(value >= min_quantity && value <= max_quantity){
+              setCount(value)
+              if (countInCart)
+                dispatch({ type: "UPDATE_CART_ITEM", id, count: value })
+            }
           }}
         />
         {styles}
@@ -83,12 +96,8 @@ const ProductBase = props => {
   return (
     <>
       {props.children({
-        id,
-        title,
+        ...props,
         price,
-        unit,
-        slug,
-        images,
         ToggleButton,
         UpdateInput,
       })}
@@ -96,8 +105,9 @@ const ProductBase = props => {
   )
 }
 
-// ProductView.defaultProps = {
-//   asd: "fgh"
+// ProductBase.defaultProps = {
+//   min_quantity: 1,
+//   max_quantity: 100,
 // }
 
 export default ProductBase

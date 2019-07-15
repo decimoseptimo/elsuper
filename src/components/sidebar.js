@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext, useMemo } from "react"
 import Button from "../components/button"
 
 import CartItem from "../components/cartItem"
-import { CartContext } from "../state"
+import { CartContext } from "../state/state"
 import { round } from "../utils"
 import css from "styled-jsx/css"
 
@@ -22,15 +22,6 @@ const Sidebar = props => {
     })
     return round(cartTotal)
   }
-
-  // useEffect(() => {
-  // setTimeout(() => setstate(state), 5000)
-  // state.forEach((value)=>{
-  //   value.quantity = 2.22
-  // })
-  // setstate(state)
-  // console.log("effect!")
-  // }, [])
 
   return (
     <>
@@ -54,11 +45,20 @@ const Sidebar = props => {
               <tbody>
                 {state.map((value, index) => {
                   return <CartItem {...value} dispatch={dispatch} key={index} />
-                  // return <CartItem {...value} dispatch={dispatch} key={index} />
                 })}
               </tbody>
             </table>
-            <div className="total">Total ${cartTotal()}</div>
+            <div>
+              <button
+                className="empty-cart"
+                onClick={() => {
+                  dispatch({ type: "EMPTY_CART" })
+                }}
+              >
+                Vaciar carrito
+              </button>
+              <div className="cart-total">Total ${cartTotal()}</div>
+            </div>
             <Button className={className}>Proceder al pago</Button>
           </>
         ) : (
@@ -97,11 +97,26 @@ const Sidebar = props => {
           min-width: 5.6rem;
         }
 
-        .total {
+        .empty-cart {
+          background: none;
+          border: 0;
+          color: tomato;
+          text-decoration: underline;
+          cursor: pointer;
+          opacity: 0.6;
+          float: left;
+          margin-left: 0.6rem;
+        }
+
+        .empty-cart:hover {
+          opacity: 0.7;
+        }
+
+        .cart-total {
           text-align: right;
           font-weight: bold;
           margin-top: 2rem;
-          margin-right: .6rem;
+          margin-right: 0.6rem;
         }
       `}</style>
     </>

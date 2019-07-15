@@ -5,7 +5,7 @@ import css from "styled-jsx/css"
 const inputMainSearch = props => (
   <>
     <div className="ui icon input fluid">
-      <input type="text" placeholder="¿Que estás buscando hoy?" />
+      <input type="text" placeholder="¿Que estas buscando?" />
       <i className="search link icon" />
     </div>
     <style jsx>{`

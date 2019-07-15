@@ -7,8 +7,8 @@ import Image from "../components/image"
 import { round } from "../utils"
 
 const CartItem = props => {
-  const { id, title, price, unit, slug, images, count, dispatch } = props
-  // const [count, setCount] = useState(1)
+  const { id, title, unit, slug, images, count, min_quantity, max_quantity, dispatch } = props
+  const price = round(props.price)
   const image = images ? (
     <Img
       className="thumb"
@@ -20,8 +20,7 @@ const CartItem = props => {
   )
 
   const itemTotal = () => {
-    const itemTotal = price * count
-    return round(itemTotal, 2)
+    return round(price * count, 2)
   }
 
   return (
@@ -38,11 +37,12 @@ const CartItem = props => {
           <InputNumber2
             required={true}
             value={count}
-            min={1}
-            max={100}
+            min={min_quantity}
+            max={max_quantity}
             precision={unit == "Kg" ? 2 : 0}
             onChange={value => {
-              dispatch({ type: "UPDATE_CART_ITEM", id, count: value })
+              if(value >= min_quantity && value <= max_quantity)
+                dispatch({ type: "UPDATE_CART_ITEM", id, count: value })
             }}
           />
         </td>

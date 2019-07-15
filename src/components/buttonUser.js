@@ -1,17 +1,12 @@
 import React from "react"
-import { FaShoppingCart, FaShoppingBag, FaShoppingBasket, FaUser } from "react-icons/fa"
+import { FaSearch } from "react-icons/fa"
 
 const ButtonCart = props => (
   <>
     <button {...props}>
-      <FaShoppingCart color="white" />
-      <span className="cart-count">{props.count}</span>
+      <FaSearch color="white" />
     </button>
     <style jsx>{`
-      svg {
-        font-size: 1.5rem;
-      }
-
       .cart-count {
         padding: 1px 5px;
         border-radius: 10px;
@@ -40,7 +35,7 @@ const ButtonCart = props => (
 )
 
 ButtonCart.defaultProps = {
-  count: 0,
+  userName: 'Jose!',
 }
 
 export default ButtonCart

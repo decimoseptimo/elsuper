@@ -1,6 +1,7 @@
-import React, { useRef, useState } from "react"
+import React, { useRef, useState, useMemo } from "react"
 import Slider from "react-slick"
 import Image from "gatsby-image"
+import Asd from "../image"
 import "../../../node_modules/slick-carousel/slick/slick.css"
 import "../../../node_modules/slick-carousel/slick/slick-theme.css"
 
@@ -26,10 +27,8 @@ const ProductGallery = props => {
         },
       },
     ],
-    afterChange: index => {
-      if (activeThumb != index) {
-        setActiveThumb(index)
-      }
+    beforeChange: (oldIndex, index) => {
+      setActiveThumb(index)
     },
   }
 
@@ -44,7 +43,6 @@ const ProductGallery = props => {
     sliderRef.current.slickGoTo(index, true)
   }
 
-  console.log(images)
   return (
     <div className="productGallery">
       <div className="col col-thumbs">
@@ -64,15 +62,22 @@ const ProductGallery = props => {
           ))}
         </div>
       </div>
-      <div className="col col-slider">
-        <Slider className="slider" ref={sliderRef} {...settings}>
-          {images.map((value, index) => (
-            <div className="slide" key={index}>
-              <Image fluid={value.childImageSharp.fluid} />
-            </div>
-          ))}
-        </Slider>
-      </div>
+      {useMemo(
+        () => (
+          <div className="col col-slider">
+            <Slider className="slider" ref={sliderRef} {...settings}>
+              {images.map((value, index) => (
+                <div className="slide" key={index}>
+                  <Image fluid={value.childImageSharp.fluid} />
+                  {/*<img src={value.childImageSharp.fluid.src} />*/}
+                </div>
+              ))}
+            </Slider>
+            {/*<Asd/>*/}
+          </div>
+        ),
+        []
+      )}
 
       <style jsx>{`
         .productGallery {
@@ -83,11 +88,9 @@ const ProductGallery = props => {
 
         .col {
           flex: 1;
-          // border: 2px solid orange;
         }
 
         .col-thumbs {
-          // background: green;
           display: none;
           width: 100%;
           flex: 0 0 ${thumbsWidth};
@@ -103,13 +106,15 @@ const ProductGallery = props => {
         }
 
         .thumbs .image {
+          padding: 1px;
           width: 100%;
           margin-bottom: ${thumbsYGutter};
         }
 
         .thumbs .active {
-          // box-shadow: 0 1px 8px #ddd;
-          outline: 4px solid #eee;
+          box-shadow: 0 1px 2px #ddd;
+          border: 1px solid #999;
+          padding: 0;
         }
 
         .slide img {
@@ -131,6 +136,10 @@ const ProductGallery = props => {
           max-width: ${sliderMaxWidth};
           // overflow: hidden;
           width: 100%;
+        }
+
+        .slick-slider * {
+          outline: none;
         }
       `}</style>
     </div>
