@@ -1,7 +1,12 @@
-/**
- * Implement Gatsby's SSR (Server Side Rendering) APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/ssr-apis/
- */
+import React from "react"
+import "typeface-source-sans-pro"
+import "normalize.css"
 
-// You can delete this file if you're not using it
+import { CartProvider } from "./src/state/cart"
+import { MiscProvider } from "./src/state/misc"
+
+export const wrapRootElement = ({ element }) => (
+  <MiscProvider>
+    <CartProvider>{element}</CartProvider>
+  </MiscProvider>
+)

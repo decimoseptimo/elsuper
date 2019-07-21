@@ -19,6 +19,7 @@ const ProductGallery = props => {
     initialSlide: activeThumb,
     arrows: false,
     // lazyLoad: 'progressive',
+    adaptiveHeight: true,
     responsive: [
       {
         breakpoint: 550,

@@ -1,11 +1,11 @@
 import React from "react"
-import { Input } from "semantic-ui-react"
+// import { Input } from "semantic-ui-react"
 import css from "styled-jsx/css"
 
 const inputMainSearch = props => (
   <>
-    <div className="ui icon input fluid">
-      <input type="text" placeholder="¿Que estas buscando?" />
+    <div className={`ui icon input fluid ${props.className}`}>
+      <input type="text" placeholder="¿Que estás buscando?" />
       <i className="search link icon" />
     </div>
     <style jsx>{`

@@ -1,28 +1,27 @@
 import React, { useContext } from "react"
 import { Link } from "gatsby"
 import css from "styled-jsx/css"
-import { CartContext } from "../state/state"
+import { CartContext } from "../state/cart"
+import { MiscContext } from "../state/misc"
 
 import ButtonCart from "../components/buttonCart"
 import ButtonUser from "../components/buttonUser"
 import InputMainSearch from "../components/inputMainSearch"
 
 const { className, styles } = css.resolve`
-a {
-  display: inline-block;
-  margin-left: -15px;
-  margin-top: 3px;
-}`
+  a {
+    display: inline-block;
+    margin-left: -15px;
+    margin-top: 3px;
+  }
+`
 
 const Header = () => {
   const [state, dispatch] = useContext(CartContext)
+  const [miscState, miscDispatch] = useContext(MiscContext)
 
   return (
-    <header
-      style={{
-        marginBottom: `4.45rem`,
-      }}
-    >
+    <header>
       <div className="row">
         <div className="col-a">
           <h1 style={{ padding: "1.2rem 0" }}>
@@ -38,14 +37,34 @@ const Header = () => {
           </h1>
         </div>
         <div className="col-b">
-          <InputMainSearch />
+          <InputMainSearch className="inputSearch" />
         </div>
         <div className="col-c">
-          <ButtonUser />
-          <ButtonCart count={state.length} onClick={()=>{console.log('CCC')}}/>
+          <ButtonUser className="buttonSearch" />
+          <ButtonCart
+            count={state.length}
+            onClick={() => {
+              miscDispatch({ type: "TOGGLE_CART_OPEN" })
+            }}
+          />
         </div>
       </div>
       {styles}
+      <style jsx global>{`
+        .inputSearch {
+          display: none !important;
+        }
+
+        @media screen and (min-width: 500px) {
+          .buttonSearch {
+            display: none;
+          }
+
+          .inputSearch {
+            display: flex !important;
+          }
+        }
+      `}</style>
       <style jsx>{`
         header {
           margin: 0 auto;

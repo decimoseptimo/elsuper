@@ -1,12 +1,12 @@
-import React from 'react'
+import React from "react"
 import "typeface-source-sans-pro"
 import "normalize.css"
-import {CartProvider} from "./src/state/state"
 
-export const wrapRootElement = ({ element }) => {
-  return (
-    <CartProvider>
-      {element}
-    </CartProvider>
-  )
-}
+import { CartProvider } from "./src/state/cart"
+import { MiscProvider } from "./src/state/misc"
+
+export const wrapRootElement = ({ element }) => (
+  <MiscProvider>
+    <CartProvider>{element}</CartProvider>
+  </MiscProvider>
+)

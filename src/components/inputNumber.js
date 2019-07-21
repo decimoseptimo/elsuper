@@ -9,7 +9,7 @@ const InputNumber = props => (
     <RcInputNumber
       {...props}
       onChange={value => {
-        if(!value) return
+        if (!value) return
         props.onChange(value)
       }}
       className={`inputNumber ${props.className}`}

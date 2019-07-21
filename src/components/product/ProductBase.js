@@ -6,7 +6,17 @@ import InputNumber from "../inputNumber"
 import { round } from "../../utils"
 
 const ProductBase = props => {
-  const { id, title, unit, slug, images, min_quantity, max_quantity, countInCart, dispatch } = props
+  const {
+    id,
+    title,
+    unit,
+    slug,
+    images,
+    min_quantity,
+    max_quantity,
+    countInCart,
+    dispatch,
+  } = props
   const price = round(props.price)
   const [count, setCount] = useState(countInCart || 1)
 
@@ -14,61 +24,15 @@ const ProductBase = props => {
   // console.log(`count: ${count}`)
   // console.log(`countInCart: ${countInCart}`)
 
-  // console.log("20.00")
-  // console.log(20.00)
-  // console.log(round(20.00))
-  // console.log(props.price)
-
-  useEffect(()=>{
-    if (countInCart)
-      setCount(countInCart)
+  useEffect(() => {
+    if (countInCart) setCount(countInCart)
   }, [countInCart])
 
-  const AddButton = () => {
-    const { className, styles } = css.resolve`
-    button {
-      margin-bottom: 1rem;
-    }`
-    return (
-      <Button
-        className={className}
-        onClick={() => {
-          dispatch({
-            type: "ADD_CART_ITEM",
-            ...props,
-            count: count,
-          })
-        }}
-      >
-        Agregar
-        {styles}
-      </Button>
-    )
-  }
-
-  const RemoveButton = () => {
-    const { className, styles } = css.resolve`
-    button {
-      margin-bottom: 1rem;
-      background-color: #613458;
-    }`
-    return (
-      <Button
-        className={className}
-        onClick={() => {
-          dispatch({
-            type: "REMOVE_CART_ITEM",
-            id,
-          })
-        }}
-      >
-        Remover
-        {styles}
-      </Button>
-    )
-  }
-
-  const ToggleButton = !countInCart ? AddButton : RemoveButton
+  const ToggleButton = !countInCart ? (
+    <AddButton {...props} count={count} />
+  ) : (
+    <RemoveButton {...props} />
+  )
 
   const UpdateInput = (className, styles) => {
     return (
@@ -81,7 +45,7 @@ const ProductBase = props => {
           max={max_quantity}
           precision={unit == "Kg" ? 2 : 0}
           onChange={value => {
-            if(value >= min_quantity && value <= max_quantity){
+            if (value >= min_quantity && value <= max_quantity) {
               setCount(value)
               if (countInCart)
                 dispatch({ type: "UPDATE_CART_ITEM", id, count: value })
@@ -111,3 +75,36 @@ const ProductBase = props => {
 // }
 
 export default ProductBase
+
+const AddButton = props => {
+  return (
+    <Button
+      style={{ marginBottom: "1rem" }}
+      onClick={() => {
+        props.dispatch({
+          type: "ADD_CART_ITEM",
+          ...props,
+          count: props.count,
+        })
+      }}
+    >
+      Agregar
+    </Button>
+  )
+}
+
+const RemoveButton = props => {
+  return (
+    <Button
+      style={{ marginBottom: "1rem", backgroundColor: "#613458" }}
+      onClick={() => {
+        props.dispatch({
+          type: "REMOVE_CART_ITEM",
+          id: props.id,
+        })
+      }}
+    >
+      Remover
+    </Button>
+  )
+}

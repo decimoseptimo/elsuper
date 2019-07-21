@@ -13,9 +13,9 @@ const ProductSummary = props => {
     ToggleButton,
   } = props
   const { className, styles } = css.resolve`
-        {
-          margin-bottom: 1rem;
-        }
+     {
+      margin-bottom: 1rem;
+    }
   `
 
   return (
@@ -25,7 +25,7 @@ const ProductSummary = props => {
         ${price} {unit}
       </p>
       {UpdateInput(className)}
-      {ToggleButton()}
+      {ToggleButton}
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias
         asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur

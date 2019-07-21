@@ -17,13 +17,13 @@ const ProductCard = props => {
     ToggleButton,
   } = props
   const { className, styles } = css.resolve`
-        .row {
-          margin: 0 auto 1rem auto;
-        }
+    .row {
+      margin: 0 auto 1rem auto;
+    }
 
-        .wrapper-a {
-          display: block;
-        }
+    .wrapper-a {
+      display: block;
+    }
   `
 
   const image = images ? (
@@ -42,7 +42,7 @@ const ProductCard = props => {
         ${price} {unit}
       </div>
       {UpdateInput(`${className} row`)}
-      {ToggleButton()}
+      {ToggleButton}
 
       {styles}
       <style jsx>{`

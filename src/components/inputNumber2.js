@@ -9,7 +9,7 @@ const InputNumber2 = props => (
     <RcInputNumber
       {...props}
       onChange={value => {
-        if(!value) return
+        if (!value) return
         props.onChange(value)
       }}
       className={`inputNumber2 ${props.className}`}
@@ -47,7 +47,7 @@ const InputNumber2 = props => (
         border-right: none;
         border-left: 1px solid #d9d9d9;
         order: 1;
-        font-size: .8rem;
+        font-size: 0.8rem;
       }
 
       .inputNumber2 .rc-input-number-input::-webkit-inner-spin-button {

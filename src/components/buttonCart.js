@@ -1,5 +1,5 @@
 import React from "react"
-import { FaShoppingCart, FaShoppingBag, FaShoppingBasket, FaUser } from "react-icons/fa"
+import { FaShoppingCart } from "react-icons/fa"
 
 const ButtonCart = props => (
   <>

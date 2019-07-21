@@ -5,7 +5,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import ProductBase from "../components/product/ProductBase"
 import ProductCard from "../components/product/productCard"
-import { CartContext, findIndex } from "../state/state"
+import { CartContext, findIndex } from "../state/cart"
 
 const IndexPage = props => {
   const products = props.data.allProductsJson.edges
@@ -16,7 +16,6 @@ const IndexPage = props => {
       <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
       <ul className="shop-items">
         {products.map((value, index) => {
-
           let indexInCart = findIndex(state, value.node.id)
           let countInCart
           try {
@@ -25,12 +24,23 @@ const IndexPage = props => {
 
           return (
             <li key={index}>
-              {useMemo(()=><ProductBase {...value.node} countInCart={countInCart} dispatch={dispatch}>{(data)=><ProductCard {...data} />}</ProductBase>, [countInCart])}
+              {useMemo(
+                () => (
+                  <ProductBase
+                    {...value.node}
+                    countInCart={countInCart}
+                    dispatch={dispatch}
+                  >
+                    {data => <ProductCard {...data} />}
+                  </ProductBase>
+                ),
+                [countInCart]
+              )}
             </li>
           )
         })}
       </ul>
-      <Link to="/page-2/">Go to page 2</Link>
+      {/*<Link to="/page-2/">Go to page 2</Link>*/}
       <style jsx>{`
         .shop-items {
           // outline: 1px solid black;

@@ -2,17 +2,20 @@ import React, { useState, useEffect, useContext, useMemo } from "react"
 import Button from "../components/button"
 
 import CartItem from "../components/cartItem"
-import { CartContext } from "../state/state"
+import { CartContext } from "../state/cart"
 import { round } from "../utils"
 import css from "styled-jsx/css"
 
-const Sidebar = props => {
+const Cart = props => {
   const [state, dispatch] = useContext(CartContext)
   const { className, styles } = css.resolve`
     background-color: blueviolet;
     background-color: turquoise;
     width: 100%;
-    margin-top: 3em;
+    margin: 3rem 0 0 0;
+    -webkit-box-shadow: 0px -10px 16px 10px rgb(255, 255, 255);
+    -moz-box-shadow: 0px -10px 16px 10px rgb(255, 255, 255);
+    box-shadow: 0px -10px 16px 10px rgb(255, 255, 255);
   `
 
   const cartTotal = () => {
@@ -25,9 +28,10 @@ const Sidebar = props => {
 
   return (
     <>
-      {console.log("render!")}
       <div className="cart">
-        <h2>Carrito</h2>
+        <h2>
+          Carrito <span className="price">${cartTotal()}</span>
+        </h2>
 
         {state.length ? (
           <>
@@ -59,23 +63,30 @@ const Sidebar = props => {
               </button>
               <div className="cart-total">Total ${cartTotal()}</div>
             </div>
-            <Button className={className}>Proceder al pago</Button>
+            <div className="btn-wrapper">
+              <Button className={className}>Proceder al pago</Button>
+            </div>
           </>
         ) : (
-          <p>
-            Tu carrito esta vacio. Los productos que agregues apareceran aquí.
-          </p>
+          <p>Los productos que agregues apareceran aquí.</p>
         )}
       </div>
       {styles}
       <style jsx>{`
         .cart {
-          background-color: #eee;
-          padding: 2rem;
           min-width: 300px;
+        }
 
-          background-color: #fff;
-          box-shadow: 0 1px 2px #e0e0e0;
+        .btn-wrapper {
+          position: sticky;
+          bottom: 0;
+          border-bottom: 2rem solid #fff;
+        }
+
+        h2 .price {
+          font-weight: normal;
+          // padding-left: 0.5rem;
+          font-size: 1.2rem;
         }
 
         table {
@@ -84,7 +95,6 @@ const Sidebar = props => {
         }
 
         table th.item-total {
-          // wrap: "no-wrap";
           text-align: right;
         }
 
@@ -106,6 +116,7 @@ const Sidebar = props => {
           opacity: 0.6;
           float: left;
           margin-left: 0.6rem;
+          padding: 0;
         }
 
         .empty-cart:hover {
@@ -118,9 +129,19 @@ const Sidebar = props => {
           margin-top: 2rem;
           margin-right: 0.6rem;
         }
+
+        th:first-child {
+          display: none;
+        }
+
+        @media screen and (min-width: 400px) {
+          th:first-child {
+            display: block;
+          }
+        }
       `}</style>
     </>
   )
 }
 
-export default Sidebar
+export default Cart

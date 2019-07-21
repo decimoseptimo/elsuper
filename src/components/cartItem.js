@@ -7,7 +7,17 @@ import Image from "../components/image"
 import { round } from "../utils"
 
 const CartItem = props => {
-  const { id, title, unit, slug, images, count, min_quantity, max_quantity, dispatch } = props
+  const {
+    id,
+    title,
+    unit,
+    slug,
+    images,
+    count,
+    min_quantity,
+    max_quantity,
+    dispatch,
+  } = props
   const price = round(props.price)
   const image = images ? (
     <Img
@@ -41,7 +51,7 @@ const CartItem = props => {
             max={max_quantity}
             precision={unit == "Kg" ? 2 : 0}
             onChange={value => {
-              if(value >= min_quantity && value <= max_quantity)
+              if (value >= min_quantity && value <= max_quantity)
                 dispatch({ type: "UPDATE_CART_ITEM", id, count: value })
             }}
           />
@@ -94,6 +104,16 @@ const CartItem = props => {
         td.item-total,
         td:last-child {
           padding-right: 0;
+        }
+
+        td:first-child {
+          display: none;
+        }
+
+        @media screen and (min-width: 400px) {
+          td:first-child {
+            display: block;
+          }
         }
       `}</style>
     </>

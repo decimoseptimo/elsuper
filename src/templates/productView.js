@@ -4,10 +4,9 @@ import { image, graphql } from "gatsby"
 import ProductGallery from "../components/product/productGallery"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Sidebar from "../components/sidebar"
 import ProductBase from "../components/product/ProductBase"
 import ProductSummary from "../components/product/productSummary"
-import { CartContext, findIndex } from "../state/state"
+import { CartContext, findIndex } from "../state/cart"
 
 const ProductView = props => {
   const { id, title, images } = props.data.productsJson
@@ -19,21 +18,29 @@ const ProductView = props => {
     countInCart = state[indexInCart].count
   } catch {}
 
-
   return (
     <Layout>
       <SEO title={title} keywords={[`gatsby`, `application`, `react`]} />
 
       <div className="row">
         <div className="col col-a">
-          {useMemo(()=><ProductGallery images={images} />,[images])}
+          {useMemo(
+            () => (
+              <ProductGallery images={images} />
+            ),
+            [images]
+          )}
         </div>
         <div className="col col-b">
-          <ProductBase {...props.data.productsJson} countInCart={countInCart} dispatch={dispatch}>{(data)=><ProductSummary {...data} />}</ProductBase>
+          <ProductBase
+            {...props.data.productsJson}
+            countInCart={countInCart}
+            dispatch={dispatch}
+          >
+            {data => <ProductSummary {...data} />}
+          </ProductBase>
         </div>
-        <div className="col col-c">
-          <Sidebar />
-        </div>
+        <div className="col col-c">{/*<Sidebar />*/}</div>
       </div>
       <style jsx>
         {`

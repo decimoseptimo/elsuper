@@ -2,7 +2,7 @@
   {
     "id": "1",
     "title": "Tomate Bola",
-    "price": 15.50,
+    "price": 15.5,
     "unit": "Kg",
     "min_quantity": 1,
     "max_quantity": 100,
@@ -16,7 +16,7 @@
   {
     "id": "2",
     "title": "Platano Portalimon",
-    "price": 12.50,
+    "price": 12.5,
     "unit": "Kg",
     "min_quantity": 0.2,
     "max_quantity": 100,
@@ -44,7 +44,7 @@
   {
     "id": "23",
     "title": "Cartera de Huevo Rojo c/30",
-    "price": 58.50,
+    "price": 58.5,
     "unit": "Pz",
     "min_quantity": 1,
     "max_quantity": 100,
@@ -72,7 +72,7 @@
   {
     "id": "5",
     "title": "Naranja Valencia",
-    "price": 5.50,
+    "price": 5.5,
     "unit": "Kg",
     "min_quantity": 1,
     "max_quantity": 100,
@@ -100,7 +100,7 @@
   {
     "id": "7",
     "title": "Manzana Golden",
-    "price": 45.50,
+    "price": 45.5,
     "unit": "Kg",
     "min_quantity": 1,
     "max_quantity": 100,
@@ -142,7 +142,7 @@
   {
     "id": "10",
     "title": "Formula Lactea Bonaleche 1.892 Lts.",
-    "price": 25.00,
+    "price": 25.0,
     "unit": "Pz",
     "min_quantity": 1,
     "max_quantity": 100,
@@ -156,7 +156,7 @@
   {
     "id": "11",
     "title": "Formula Lactea Nutrileche 1 Lts.",
-    "price": 15.00,
+    "price": 15.0,
     "unit": "Pz",
     "min_quantity": 1,
     "max_quantity": 100,
@@ -170,7 +170,7 @@
   {
     "id": "12",
     "title": "Leche de Soya Ades Sabor Natural 1 Lts.",
-    "price": 19.90,
+    "price": 19.9,
     "unit": "Pz",
     "min_quantity": 1,
     "max_quantity": 100,
@@ -184,7 +184,7 @@
   {
     "id": "13",
     "title": "Leche de Coco Calahua 1 Lts.",
-    "price": 19.90,
+    "price": 19.9,
     "unit": "Pz",
     "min_quantity": 1,
     "max_quantity": 100,
@@ -198,7 +198,7 @@
   {
     "id": "14",
     "title": "Carnation Clavel 378 Gr.",
-    "price": 19.90,
+    "price": 19.9,
     "unit": "Pz",
     "min_quantity": 1,
     "max_quantity": 100,
@@ -212,7 +212,7 @@
   {
     "id": "15",
     "title": "Aceite Capullo 840 Ml.",
-    "price": 30.50,
+    "price": 30.5,
     "unit": "Pz",
     "min_quantity": 1,
     "max_quantity": 100,
@@ -226,7 +226,7 @@
   {
     "id": "16",
     "title": "Aceite Nutrioli 946 Ml.",
-    "price": 27.80,
+    "price": 27.8,
     "unit": "Pz",
     "min_quantity": 1,
     "max_quantity": 100,
@@ -240,7 +240,7 @@
   {
     "id": "17",
     "title": "Sabrosano 946 Ml.",
-    "price": 28.50,
+    "price": 28.5,
     "unit": "Pz",
     "min_quantity": 1,
     "max_quantity": 100,
@@ -254,7 +254,7 @@
   {
     "id": "18",
     "title": "Salsa Amor Picante 4 Lts.",
-    "price": 45.50,
+    "price": 45.5,
     "unit": "Pz",
     "min_quantity": 1,
     "max_quantity": 100,
@@ -268,7 +268,7 @@
   {
     "id": "19",
     "title": "Salsa Amor Picante 1 Lts.",
-    "price": 19.90,
+    "price": 19.9,
     "unit": "Pz",
     "min_quantity": 1,
     "max_quantity": 100,
@@ -282,7 +282,7 @@
   {
     "id": "20",
     "title": "Salsa Amor Picante 355 Ml.",
-    "price": 10.00,
+    "price": 10.0,
     "unit": "Pz",
     "min_quantity": 1,
     "max_quantity": 100,
@@ -296,7 +296,7 @@
   {
     "id": "21",
     "title": "Salsa Tapatio 296 Ml.",
-    "price": 19.90,
+    "price": 19.9,
     "unit": "Pz",
     "min_quantity": 1,
     "max_quantity": 100,
@@ -310,7 +310,7 @@
   {
     "id": "22",
     "title": "Pure de tomate Val Vita 200 Gr.",
-    "price": 7.50,
+    "price": 7.5,
     "unit": "Pz",
     "min_quantity": 1,
     "max_quantity": 100,
@@ -352,7 +352,7 @@
   {
     "id": "25",
     "title": "Pechuga de pollo sin piel",
-    "price": 60.00,
+    "price": 60.0,
     "unit": "Kg",
     "min_quantity": 1,
     "max_quantity": 100,
@@ -366,7 +366,7 @@
   {
     "id": "26",
     "title": "Pechuga de pollo con piel",
-    "price": 55.00,
+    "price": 55.0,
     "unit": "Kg",
     "min_quantity": 1,
     "max_quantity": 100,
@@ -380,7 +380,7 @@
   {
     "id": "27",
     "title": "Pierna de pollo",
-    "price": 29.90,
+    "price": 29.9,
     "unit": "Kg",
     "min_quantity": 1,
     "max_quantity": 100,
@@ -394,7 +394,7 @@
   {
     "id": "28",
     "title": "Pollo entero con piel",
-    "price": 50.00,
+    "price": 50.0,
     "unit": "Kg",
     "min_quantity": 1,
     "max_quantity": 100,
@@ -408,7 +408,7 @@
   {
     "id": "29",
     "title": "Chuleta de cerdo sin hueso",
-    "price": 30.90,
+    "price": 30.9,
     "unit": "Kg",
     "min_quantity": 1,
     "max_quantity": 100,
@@ -422,7 +422,7 @@
   {
     "id": "30",
     "title": "Costilla de cerdo con hueso",
-    "price": 25.50,
+    "price": 25.5,
     "unit": "Kg",
     "min_quantity": 1,
     "max_quantity": 100,
@@ -436,7 +436,7 @@
   {
     "id": "32",
     "title": "Arrachera de res",
-    "price": 210.00,
+    "price": 210.0,
     "unit": "Kg",
     "min_quantity": 1,
     "max_quantity": 100,
@@ -450,7 +450,7 @@
   {
     "id": "33",
     "title": "Chamorro de res con hueso",
-    "price": 60.30,
+    "price": 60.3,
     "unit": "Kg",
     "min_quantity": 1,
     "max_quantity": 100,
@@ -464,7 +464,7 @@
   {
     "id": "34",
     "title": "Carne molida de res",
-    "price": 59.90,
+    "price": 59.9,
     "unit": "Kg",
     "min_quantity": 1,
     "max_quantity": 100,
@@ -492,7 +492,7 @@
   {
     "id": "36",
     "title": "Chamorro de res sin hueso",
-    "price": 60.00,
+    "price": 60.0,
     "unit": "Kg",
     "min_quantity": 1,
     "max_quantity": 100,
@@ -506,7 +506,7 @@
   {
     "id": "37",
     "title": "Diezmillo de res",
-    "price": 130.00,
+    "price": 130.0,
     "unit": "Kg",
     "min_quantity": 1,
     "max_quantity": 100,
@@ -520,7 +520,7 @@
   {
     "id": "38",
     "title": "Paleta de res",
-    "price": 109.90,
+    "price": 109.9,
     "unit": "Kg",
     "min_quantity": 1,
     "max_quantity": 100,
@@ -548,7 +548,7 @@
   {
     "id": "40",
     "title": "Pescueso de res",
-    "price": 95.90,
+    "price": 95.9,
     "unit": "Kg",
     "min_quantity": 1,
     "max_quantity": 100,
@@ -562,7 +562,7 @@
   {
     "id": "41",
     "title": "Pulpa larga de res",
-    "price": 119.90,
+    "price": 119.9,
     "unit": "Kg",
     "min_quantity": 1,
     "max_quantity": 100,
@@ -604,7 +604,7 @@
   {
     "id": "44",
     "title": "Filete basa",
-    "price": 59.90,
+    "price": 59.9,
     "unit": "Kg",
     "min_quantity": 1,
     "max_quantity": 100,
@@ -618,7 +618,7 @@
   {
     "id": "45",
     "title": "Filete tilapia",
-    "price": 79.90,
+    "price": 79.9,
     "unit": "Kg",
     "min_quantity": 1,
     "max_quantity": 100,
@@ -632,7 +632,7 @@
   {
     "id": "46",
     "title": "Filete salmon",
-    "price": 199.90,
+    "price": 199.9,
     "unit": "Kg",
     "min_quantity": 1,
     "max_quantity": 100,
@@ -646,7 +646,7 @@
   {
     "id": "47",
     "title": "Medallon de atún",
-    "price": 150.00,
+    "price": 150.0,
     "unit": "Kg",
     "min_quantity": 1,
     "max_quantity": 100,
@@ -660,7 +660,7 @@
   {
     "id": "48",
     "title": "Camaron mediano sin cabeza",
-    "price": 70.00,
+    "price": 70.0,
     "unit": "Kg",
     "min_quantity": 1,
     "max_quantity": 100,
@@ -674,7 +674,7 @@
   {
     "id": "49",
     "title": "Coca Cola 3L",
-    "price": 30.00,
+    "price": 30.0,
     "unit": "Pz",
     "min_quantity": 1,
     "max_quantity": 100,
@@ -688,7 +688,7 @@
   {
     "id": "50",
     "title": "Coca cola 355 ml",
-    "price": 10.00,
+    "price": 10.0,
     "unit": "Pz",
     "min_quantity": 1,
     "max_quantity": 100,
@@ -702,7 +702,7 @@
   {
     "id": "51",
     "title": "Sprite 355ml",
-    "price": 10.50,
+    "price": 10.5,
     "unit": "Pz",
     "min_quantity": 1,
     "max_quantity": 100,
@@ -716,7 +716,7 @@
   {
     "id": "52",
     "title": "Sidral mundet 355 ml",
-    "price": 10.50,
+    "price": 10.5,
     "unit": "Pz",
     "min_quantity": 1,
     "max_quantity": 100,
@@ -730,7 +730,7 @@
   {
     "id": "53",
     "title": "Fanta 355ml",
-    "price": 10.00,
+    "price": 10.0,
     "unit": "Pz",
     "min_quantity": 1,
     "max_quantity": 100,
@@ -744,7 +744,7 @@
   {
     "id": "54",
     "title": "Coca cola 600 ml",
-    "price": 13.00,
+    "price": 13.0,
     "unit": "Pz",
     "min_quantity": 1,
     "max_quantity": 100,
@@ -758,7 +758,7 @@
   {
     "id": "55",
     "title": "Sprite 600 ml",
-    "price": 13.50,
+    "price": 13.5,
     "unit": "Pz",
     "min_quantity": 1,
     "max_quantity": 100,
@@ -772,7 +772,7 @@
   {
     "id": "56",
     "title": "Sidral mundet 600ml",
-    "price": 13.50,
+    "price": 13.5,
     "unit": "Pz",
     "min_quantity": 1,
     "max_quantity": 100,
@@ -786,7 +786,7 @@
   {
     "id": "57",
     "title": "Fanta 600ml",
-    "price": 12.50,
+    "price": 12.5,
     "unit": "Pz",
     "min_quantity": 1,
     "max_quantity": 100,
@@ -800,7 +800,7 @@
   {
     "id": "58",
     "title": "Coca cola 2 L",
-    "price": 20.00,
+    "price": 20.0,
     "unit": "Pz",
     "min_quantity": 1,
     "max_quantity": 100,
@@ -814,7 +814,7 @@
   {
     "id": "59",
     "title": "Sprite 2L",
-    "price": 21.90,
+    "price": 21.9,
     "unit": "Pz",
     "min_quantity": 1,
     "max_quantity": 100,
@@ -828,7 +828,7 @@
   {
     "id": "60",
     "title": "Sidral mundet 2L",
-    "price": 20.80,
+    "price": 20.8,
     "unit": "Pz",
     "min_quantity": 1,
     "max_quantity": 100,
@@ -842,7 +842,7 @@
   {
     "id": "61",
     "title": "Fanta 2L",
-    "price": 20.00,
+    "price": 20.0,
     "unit": "Pz",
     "min_quantity": 1,
     "max_quantity": 100,

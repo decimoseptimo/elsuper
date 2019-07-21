@@ -1,18 +1,18 @@
 export function getLocalState() {
-    try{
-        const serializedState = localStorage.getItem('state');
-        if(serializedState === null){
-            return undefined;
-        }
-        return JSON.parse(serializedState);
-    } catch(e){
-        return undefined;
+  try {
+    const serializedData = localStorage.getItem("state")
+    if (serializedData === null) {
+      return undefined
     }
+    return JSON.parse(serializedData)
+  } catch (e) {
+    return undefined
+  }
 }
 
-export function setLocalState(state){
-    try{
-        const serializedState = JSON.stringify(state);
-        localStorage.setItem('state', serializedState);
-    } catch(e){}
+export function setLocalState(data) {
+  try {
+    const serializedData = JSON.stringify(data)
+    localStorage.setItem("state", serializedData)
+  } catch (e) {}
 }

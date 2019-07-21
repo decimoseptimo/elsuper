@@ -16,3 +16,20 @@ ul {
   margin: 0;
   padding: 0;
 }
+
+/*body ::-webkit-scrollbar {*/
+/*-webkit-appearance: unset;*/
+/*width: auto;*/
+/*height: auto;*/
+/*}*/
+/*body ::-webkit-scrollbar-thumb {*/
+/*cursor: unset;*/
+/*border-radius: unset;*/
+/*background: unset;*/
+/*-webkit-transition: unset;*/
+/*transition: unset;*/
+/*}*/
+/*body ::-webkit-scrollbar-track {*/
+/*background: unset;*/
+/*border-radius: unset;*/
+/*}*/
