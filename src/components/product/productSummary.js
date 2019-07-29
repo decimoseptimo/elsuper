@@ -52,7 +52,7 @@ const ProductSummary = props => {
 
         .updateInput {
           display: inline-flex;
-                    margin-bottom: 0;
+          margin-bottom: 0;
         }
 
         .toggleButton {
@@ -60,16 +60,21 @@ const ProductSummary = props => {
           flex: 1;
         }
 
-        @media screen and (min-width: 450px) {
-
-        .title {
-          // margin-bottom: 1rem;
+        @media screen and (min-width: 1100px) {
+        .toggleButton {
+          flex: 0;
         }
+        }
+        @media screen and (min-width: 450px) {
+          .title {
+            // margin-bottom: 1rem;
+          }
 
-        .cartInputs {
-          display: block;
-                    margin-bottom: 1.8rem;
-          // margin-bottom: 0;
+          .cartInputs {
+            // display: block;
+                      margin-bottom: 1.8rem;
+            // margin-bottom: 0;
+          }
         }
       `}</style>
     </div>

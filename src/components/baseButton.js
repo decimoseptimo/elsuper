@@ -1,10 +1,10 @@
 import React from "react"
-import { FaSearch } from "react-icons/fa"
+import PropTypes from "prop-types"
 
-const ButtonSearch = props => (
+const BaseButton = props => (
   <>
     <button {...props}>
-      <FaSearch color="white" />
+      {props.children}
     </button>
     <style jsx>{`
       button {
@@ -17,8 +17,8 @@ const ButtonSearch = props => (
   </>
 )
 
-ButtonSearch.defaultProps = {
-  // userName: 'Jose!',
+BaseButton.propTypes = {
+  children: PropTypes.element.isRequired
 }
 
-export default ButtonSearch
+export default BaseButton

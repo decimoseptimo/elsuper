@@ -59,7 +59,7 @@ const ProductView = props => {
           }
 
           .col-b {
-            margin-bottom: 1rem;
+            margin-bottom: 5rem;
           }
 
           .col-c {}
@@ -70,12 +70,15 @@ const ProductView = props => {
             grid-template-columns: 1fr 1fr;
             grid-template-rows: auto;
             grid-column-gap: 1rem;
-            grid-row-gap: 1rem;
+            grid-row-gap: 5rem;
           }
 
-          .col-a ,
-          .col-b {
+          .col-a {
             margin-bottom 0;
+          }
+
+          .col-b {
+            margin-bottom: 0;
           }
 
           .col-c {
@@ -84,13 +87,24 @@ const ProductView = props => {
 
         }
 
-        @media screen and (min-width: 750px) {
+        @media screen and (min-width: 850px) {
           .row {
-            grid-template-columns: 2fr 1fr 1fr;
+            grid-column-gap: 2rem;
+          }
+
+          main {
+            padding: 8.5rem 3rem 0;
+          }
+        }
+
+        @media screen and (min-width: 1100px) {
+          .row {
+            grid-template-columns: 4fr 3fr 2fr;
           }
 
           .col-c {
             grid-column: auto;
+            margin-left: 4rem;
           }
 
         }

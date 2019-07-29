@@ -37,7 +37,7 @@ const ProductGallery = props => {
   const thumbsXGutter = "1.5rem"
   const thumbsYGutter = "1.2rem"
   const sliderMaxWidth = null
-  const desktopBreakpoint = "450px"
+  const desktopBreakpoint = "1050px"
 
   const updateSlide = index => {
     setActiveThumb(index)

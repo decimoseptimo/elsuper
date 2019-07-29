@@ -34,7 +34,9 @@ const Layout = ({ children }) => {
     <>
       <div className="body">
         <div className="header-wrapper">
-          <Header />
+          <header>
+            <Header />
+          </header>
         </div>
         <BgMenu
           isOpen={state.isCartOpen}
@@ -50,7 +52,9 @@ const Layout = ({ children }) => {
         >
           <Cart />
         </BgMenu>
-        <main>{children}</main>
+        <div className="main-wrapper">
+          <main>{children}</main>
+        </div>
         <div className="footer-wrapper">
           <footer>
             ELSUPER ©{new Date().getFullYear()} - Todos los derechos reservados.
@@ -71,41 +75,50 @@ const Layout = ({ children }) => {
           z-index: 9999;
         }
 
-        .footer-wrapper {
-          overflow: auto;
-          background: #f0f0f0;
+        header {
+          margin: 0 auto;
+          max-width: 1500px;
+          padding: 0 2rem;
         }
 
         main {
           margin: 0 auto 4rem;
           max-width: 1500px;
-          padding: 0 1rem;
-          padding-top: 8rem;
+          padding: 8rem 1rem 0;
+        }
+
+        .footer-wrapper {
+          overflow: auto;
+          background: #f0f0f0;
         }
 
         footer {
           margin: 2rem auto;
-          max-width: 1500px;
           padding: 0 1rem;
+          max-width: 1500px;
         }
 
         @media screen and (min-width: 600px) {
-          main {
-            padding: 8.5rem 3rem 0;
-          }
-
+          header,
           footer {
             padding: 0 3rem;
+          }
+        }
+
+        @media screen and (min-width: 850px) {
+          main {
+            padding: 8.5rem 2rem 0;
           }
         }
 
         @media screen and (min-width: 1000px) {
-          main {
-            padding: 9rem 3rem 0;
-          }
-
+          header,
           footer {
             padding: 0 3rem;
+          }
+
+          main {
+            padding: 9rem 3rem 0;
           }
         }
       `}</style>

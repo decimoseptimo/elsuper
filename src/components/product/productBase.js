@@ -51,6 +51,7 @@ const UpdateInput = props => {
     <>
       <InputNumber
         className={`${props.className}`}
+        aria-label="quantity"
         required={true}
         value={props.count}
         min={props.min_quantity}
