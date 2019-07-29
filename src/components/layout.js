@@ -80,7 +80,7 @@ const Layout = ({ children }) => {
           margin: 0 auto 4rem;
           max-width: 1500px;
           padding: 0 1rem;
-          padding-top: 9rem;
+          padding-top: 8rem;
         }
 
         footer {
@@ -89,10 +89,19 @@ const Layout = ({ children }) => {
           padding: 0 1rem;
         }
 
+        @media screen and (min-width: 600px) {
+          main {
+            padding: 8.5rem 3rem 0;
+          }
+
+          footer {
+            padding: 0 3rem;
+          }
+        }
+
         @media screen and (min-width: 1000px) {
           main {
-            padding: 0 3rem;
-            padding-top: 9rem;
+            padding: 9rem 3rem 0;
           }
 
           footer {

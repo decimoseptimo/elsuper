@@ -3,7 +3,7 @@ import { Image, Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import ProductBase from "../components/product/ProductBase"
+import ProductBase from "../components/product/productBase"
 import ProductCard from "../components/product/productCard"
 import { CartContext, findIndex } from "../state/cart"
 

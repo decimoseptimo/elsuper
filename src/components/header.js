@@ -91,6 +91,12 @@ const Header = () => {
           font-size: 1.3rem;
         }
 
+        @media screen and (min-width: 600px) {
+          header {
+            padding: 0 3rem;
+          }
+        }
+
         @media screen and (min-width: 1000px) {
           header {
             padding: 0 3rem;

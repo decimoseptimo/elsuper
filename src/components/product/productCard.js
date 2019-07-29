@@ -16,15 +16,6 @@ const ProductCard = props => {
     UpdateInput,
     ToggleButton,
   } = props
-  const { className, styles } = css.resolve`
-    .row {
-      margin: 0 auto 1rem auto;
-    }
-
-    .wrapper-a {
-      display: block;
-    }
-  `
 
   const image = images ? (
     <Img fluid={images[0].childImageSharp.fluid} alt={title} />
@@ -34,20 +25,23 @@ const ProductCard = props => {
 
   return (
     <div className="shop-item">
-      <Link className={`${className} wrapper-a`} to={`/${slug}`}>
+      <Link to={`/${slug}`}>
         {image}
         <h2 className="title row">{title}</h2>
       </Link>
       <div className="subtitle row">
         ${price} {unit}
       </div>
-      {UpdateInput(`${className} row`)}
-      {ToggleButton}
+      <UpdateInput {...props} className="updateInput" />
+      <ToggleButton {...props} />
 
-      {styles}
       <style jsx>{`
+        .updateInput {
+          margin: 0 auto 1rem auto;
+        }
+
         .shop-item {
-          padding: 1rem;
+          padding: 1rem 1rem 2rem;
           background-color: #fff;
           /* box-shadow: 0 1px 2px rgba(0,0,0,.1); */
           box-shadow: 0 1px 2px #e0e0e0;

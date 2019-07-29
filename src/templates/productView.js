@@ -4,8 +4,9 @@ import { image, graphql } from "gatsby"
 import ProductGallery from "../components/product/productGallery"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import ProductBase from "../components/product/ProductBase"
+import ProductBase from "../components/product/productBase"
 import ProductSummary from "../components/product/productSummary"
+import ProductSidebar from "../components/product/productSidebar"
 import { CartContext, findIndex } from "../state/cart"
 
 const ProductView = props => {
@@ -40,35 +41,59 @@ const ProductView = props => {
             {data => <ProductSummary {...data} />}
           </ProductBase>
         </div>
-        <div className="col col-c">{/*<Sidebar />*/}</div>
+        <div className="col col-c">
+          <ProductSidebar />
+        </div>
       </div>
       <style jsx>
         {`
-          .row {
-            display: flex;
-            flex-flow: row wrap;
-            // border: 2px solid red;
-          }
+          .row {}
 
           .col {
-            flex: 1;
             // border: 1px solid red;
           }
 
           .col-a {
-            width: 100%;
-            //max-width: 600px;
+            margin-bottom: 1rem;
+            overflow: hidden;
           }
 
           .col-b {
-            // flex: 1;
-            padding: 0 2rem;
-          }
-
-          .col-b > * {
-            // border: 1px solid red;
             margin-bottom: 1rem;
           }
+
+          .col-c {}
+
+        @media screen and (min-width: 500px) {
+          .row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto;
+            grid-column-gap: 1rem;
+            grid-row-gap: 1rem;
+          }
+
+          .col-a ,
+          .col-b {
+            margin-bottom 0;
+          }
+
+          .col-c {
+            grid-column: 1 / span 2;
+          }
+
+        }
+
+        @media screen and (min-width: 750px) {
+          .row {
+            grid-template-columns: 2fr 1fr 1fr;
+          }
+
+          .col-c {
+            grid-column: auto;
+          }
+
+        }
         `}
       </style>
     </Layout>

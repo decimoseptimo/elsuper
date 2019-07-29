@@ -24,7 +24,7 @@ const ProductGallery = props => {
       {
         breakpoint: 550,
         settings: {
-          arrows: false,
+          // arrows: true,
         },
       },
     ],
@@ -36,7 +36,7 @@ const ProductGallery = props => {
   const thumbsWidth = "90px"
   const thumbsXGutter = "1.5rem"
   const thumbsYGutter = "1.2rem"
-  const sliderMaxWidth = "450px"
+  const sliderMaxWidth = null
   const desktopBreakpoint = "450px"
 
   const updateSlide = index => {
@@ -134,7 +134,7 @@ const ProductGallery = props => {
       `}</style>
       <style jsx global>{`
         .slick-slider.slider {
-          max-width: ${sliderMaxWidth};
+          max-width: ${sliderMaxWidth || "none" };
           // overflow: hidden;
           width: 100%;
         }
