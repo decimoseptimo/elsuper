@@ -12,7 +12,7 @@ const IndexPage = props => {
   const [state, dispatch] = useContext(CartContext)
 
   return (
-    <Layout>
+    <>
       <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
       <ul className="shop-items">
         {products.map((value, index) => {
@@ -89,7 +89,7 @@ const IndexPage = props => {
           }
         }
       `}</style>
-    </Layout>
+    </>
   )
 }
 

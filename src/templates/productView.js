@@ -20,7 +20,7 @@ const ProductView = props => {
   } catch {}
 
   return (
-    <Layout>
+    <>
       <SEO title={title} keywords={[`gatsby`, `application`, `react`]} />
 
       <div className="row">
@@ -110,7 +110,7 @@ const ProductView = props => {
         }
         `}
       </style>
-    </Layout>
+    </>
   )
 }
 
