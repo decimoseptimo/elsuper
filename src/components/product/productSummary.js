@@ -1,6 +1,7 @@
 import React from "react"
 import css from "styled-jsx/css"
 import { Test as Test3 } from "./productBase"
+import nl2br from "react-nl2br"
 
 const ProductSummary = props => {
   const {
@@ -10,6 +11,7 @@ const ProductSummary = props => {
     unit,
     slug,
     images,
+    description,
     UpdateInput,
     ToggleButton,
   } = props
@@ -24,12 +26,7 @@ const ProductSummary = props => {
       <UpdateInput {...props} className="updateInput" />
       <ToggleButton {...props} className="toggleButton" />
       </div>
-      <p className="item">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias
-        asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur
-        perferendis provident qui quis recusandae totam vel voluptas voluptatem
-        voluptatibus?
-      </p>
+      <p className="item">{nl2br(description)}</p>
 
       <style jsx>{`
         .item {

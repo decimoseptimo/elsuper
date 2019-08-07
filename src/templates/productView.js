@@ -130,6 +130,7 @@ export const query = graphql`
       min_quantity
       max_quantity
       slug
+      description
       images {
         childImageSharp {
           fluid(maxWidth: 1080) {
