@@ -25,7 +25,7 @@ const ProductCard = props => {
 
   return (
     <div className="shop-item">
-      <Link to={`/${slug}`}>
+      <Link to={`/${slug}/`}>
         {image}
         <h2 className="title row">{title}</h2>
       </Link>

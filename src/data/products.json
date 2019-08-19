@@ -4,7 +4,7 @@
     "title": "Tomate Bola",
     "price": 15.5,
     "unit": "Kg",
-    "min_quantity": 1,
+    "min_quantity": 0.5,
     "max_quantity": 100,
     "slug": "tomate-bola",
     "images": [
@@ -92,7 +92,7 @@
   {
     "id": "62",
     "title": "Limon Verde",
-    "price": 12.00,
+    "price": 12.0,
     "unit": "Kg",
     "min_quantity": 1,
     "max_quantity": 100,
@@ -107,7 +107,7 @@
   {
     "id": "63",
     "title": "Limon Amarillo",
-    "price": 15.00,
+    "price": 15.0,
     "unit": "Kg",
     "min_quantity": 1,
     "max_quantity": 100,

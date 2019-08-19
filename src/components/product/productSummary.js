@@ -23,8 +23,8 @@ const ProductSummary = props => {
         ${price} {unit}
       </p>
       <div className="item cartInputs">
-      <UpdateInput {...props} className="updateInput" />
-      <ToggleButton {...props} className="toggleButton" />
+        <UpdateInput {...props} className="updateInput" />
+        <ToggleButton {...props} className="toggleButton" />
       </div>
       <p className="item">{nl2br(description)}</p>
 
@@ -58,9 +58,9 @@ const ProductSummary = props => {
         }
 
         @media screen and (min-width: 1100px) {
-        .toggleButton {
-          flex: 0;
-        }
+          .toggleButton {
+            flex: 0;
+          }
         }
         @media screen and (min-width: 450px) {
           .title {
@@ -69,7 +69,7 @@ const ProductSummary = props => {
 
           .cartInputs {
             // display: block;
-                      margin-bottom: 1.8rem;
+            margin-bottom: 1.8rem;
             // margin-bottom: 0;
           }
         }

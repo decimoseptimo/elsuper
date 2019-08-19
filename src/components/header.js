@@ -3,11 +3,11 @@ import { Link } from "gatsby"
 import css from "styled-jsx/css"
 import { CartContext } from "../state/cart"
 import { MiscContext } from "../state/misc"
-import { FaSearch } from "react-icons/fa"
+import { FaSearch, FaUser } from "react-icons/fa"
 
 import BaseButton from "../components/baseButton"
 import ButtonCart from "../components/buttonCart"
-import InputMainSearch from "../components/inputMainSearch"
+import InputSearch from "./inputSearchMain"
 
 const { className, styles } = css.resolve`
   a {
@@ -17,39 +17,42 @@ const { className, styles } = css.resolve`
   }
 `
 
-const Header = () => {
+const Header = props => {
   const [state, dispatch] = useContext(CartContext)
   const [miscState, miscDispatch] = useContext(MiscContext)
 
   return (
-      <div className="row">
-        <div className="col-a">
-          <h1 style={{ padding: "1.2rem 0" }}>
-            <Link
-              to="/"
-              style={{
-                color: `white`,
-                textDecoration: `none`,
-              }}
-            >
-              ELSUPER
-            </Link>
-          </h1>
-        </div>
-        <div className="col-b">
-          <InputMainSearch className="inputSearch" />
-        </div>
-        <div className="col-c">
-          <BaseButton className="buttonSearch" aria-label="search button"><FaSearch color="white"/></BaseButton>
-          <ButtonCart
-            count={state.length}
-            onClick={() => {
-              miscDispatch({ type: "TOGGLE_CART_OPEN" })
+    <div className="row">
+      <div className="col-a">
+        <h1 style={{ padding: "1.2rem 0" }}>
+          <Link
+            to="/"
+            style={{
+              color: `white`,
+              textDecoration: `none`,
             }}
-          />
-        </div>
-        {styles}
-        <style jsx global>{`
+          >
+            ELSUPER
+          </Link>
+        </h1>
+      </div>
+      <div className="col-b">
+        <InputSearch className="inputSearch" />
+      </div>
+      <div className="col-c">
+        {/*<BaseButton className="buttonUser" aria-label="search button"><FaUser color="white"/></BaseButton>*/}
+        <BaseButton className="buttonSearch" aria-label="search button">
+          <FaSearch color="white" />
+        </BaseButton>
+        <ButtonCart
+          count={state.length}
+          onClick={() => {
+            miscDispatch({ type: "TOGGLE_CART_OPEN" })
+          }}
+        />
+      </div>
+      {styles}
+      <style jsx global>{`
         .inputSearch {
           display: none !important;
         }
@@ -64,7 +67,7 @@ const Header = () => {
           }
         }
       `}</style>
-        <style jsx>{`
+      <style jsx>{`
         .row {
           display: flex;
           margin: 0 auto;
@@ -84,7 +87,7 @@ const Header = () => {
           font-size: 1.3rem;
         }
       `}</style>
-      </div>
+    </div>
   )
 }
 

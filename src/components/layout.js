@@ -1,4 +1,4 @@
-import React, { useContext, useMemo, useEffect, useRef } from "react"
+import React, { useContext, useState, useEffect, useRef } from "react"
 import PropTypes from "prop-types"
 import BgMenu from "react-burger-menu/lib/menus/slide"
 

@@ -5,7 +5,11 @@ export const MiscContext = React.createContext()
 export const MiscProvider = props => {
   return (
     <MiscContext.Provider
-      value={useReducer(miscReducer, { isCartOpen: false })}
+      value={useReducer(miscReducer, {
+        isCartOpen: false,
+        localSearchProducts: null,
+        query: "",
+      })}
     >
       {props.children}
     </MiscContext.Provider>
@@ -18,9 +22,15 @@ const miscReducer = (state, action) => {
     case "TOGGLE_CART_OPEN":
       console.log(`TOGGLE_CART_OPEN: ${!state.isCartOpen}`)
       return { ...state, isCartOpen: !state.isCartOpen }
-    case "SET_CART_OPEN":
-      // console.log(`SET_CART_OPEN: ${action.isOpen}`)
-      return { ...state, isCartOpen: action.isOpen }
+    case "SET_LSP":
+      console.log("SET_LSP!")
+      console.log(action)
+
+      return {
+        ...state,
+        localSearchProducts: action.localSearchProducts,
+        query: action.query,
+      }
     default:
       return state
   }

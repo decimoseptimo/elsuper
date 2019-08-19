@@ -112,7 +112,6 @@ const SecondPage = props => {
 
 export default SecondPage
 
-
 export const pageQuery = graphql`
   query {
     allProductsJson {

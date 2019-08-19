@@ -134,7 +134,7 @@ const ProductGallery = props => {
       `}</style>
       <style jsx global>{`
         .slick-slider.slider {
-          max-width: ${sliderMaxWidth || "none" };
+          max-width: ${sliderMaxWidth || "none"};
           // overflow: hidden;
           width: 100%;
         }

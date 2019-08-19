@@ -3,9 +3,7 @@ import PropTypes from "prop-types"
 
 const BaseButton = props => (
   <>
-    <button {...props}>
-      {props.children}
-    </button>
+    <button {...props}>{props.children}</button>
     <style jsx>{`
       button {
         background: none;
@@ -18,7 +16,7 @@ const BaseButton = props => (
 )
 
 BaseButton.propTypes = {
-  children: PropTypes.element.isRequired
+  children: PropTypes.element.isRequired,
 }
 
 export default BaseButton
