@@ -98,7 +98,7 @@ const ProductGallery = props => {
         }
 
         .col-slider {
-          flex: 1;
+          flex: 1 1 auto;
           width: 100%;
         }
 

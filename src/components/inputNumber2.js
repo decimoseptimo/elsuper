@@ -50,6 +50,10 @@ const InputNumber2 = props => (
         font-size: 0.8rem;
       }
 
+      .inputNumber2 .rc-input-number-input:invalid {
+        box-shadow: none;
+      }
+
       .inputNumber2 .rc-input-number-input::-webkit-inner-spin-button {
         -webkit-appearance: none;
       }
