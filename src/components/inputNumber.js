@@ -48,6 +48,10 @@ const InputNumber = props => (
         order: 1;
       }
 
+      .inputNumber .rc-input-number-input:invalid {
+        box-shadow: none;
+      }
+
       .inputNumber .rc-input-number-input::-webkit-inner-spin-button {
         -webkit-appearance: none;
       }
