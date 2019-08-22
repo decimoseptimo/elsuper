@@ -22,8 +22,8 @@ const inputSearch = props => {
             placeholder={props.placeholder || "Buscar"}
           />
         }
-        className={`inputSearch ${props.className || ""}`}
         {...propsClone}
+        className={`inputSearch ${props.className || ""}`}
       />
       <style jsx global>{`
         .ui.input {
