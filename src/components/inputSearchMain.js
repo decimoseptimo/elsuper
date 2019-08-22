@@ -109,6 +109,8 @@ const InputSearchMain = props => {
             handleSearch()
           }
         }}
+        placeholder="¿Que estás buscando?"
+        className="inputSearchMain"
       />
     </>
   )

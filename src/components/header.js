@@ -37,7 +37,7 @@ const Header = props => {
         </h1>
       </div>
       <div className="col-b">
-        <InputSearch className="inputSearch" />
+        <InputSearch />
       </div>
       <div className="col-c">
         {/*<BaseButton className="buttonUser" aria-label="search button"><FaUser color="white"/></BaseButton>*/}
