@@ -19,9 +19,10 @@ const inputSearch = props => {
               icon: "search",
               onClick: props.onButtonClick,
             }}
-            placeholder="¿Que estás buscando?"
+            placeholder={props.placeholder || "Buscar"}
           />
         }
+        className={`inputSearch ${props.className || ""}`}
         {...propsClone}
       />
       <style jsx global>{`
