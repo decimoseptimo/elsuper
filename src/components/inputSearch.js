@@ -1,5 +1,6 @@
 import React from "react"
 import { Search, Input } from "semantic-ui-react"
+import { MdSearch } from "react-icons/md"
 
 const inputSearch = props => {
   const propsClone = Object.assign({}, props)
@@ -16,7 +17,8 @@ const inputSearch = props => {
         input={
           <Input
             action={{
-              icon: "search",
+              content: <MdSearch />,
+              // icon: "search",
               onClick: props.onButtonClick,
             }}
             placeholder={props.placeholder || "Buscar"}
@@ -36,6 +38,9 @@ const inputSearch = props => {
           // font-style: italic;
           // width: 100%;
           flex: 1;
+          padding: 0.55rem 1rem 0.65rem;
+          border: 1px solid #3a3a3a;
+          background: #363636;
         }
 
         .ui.input > input:focus {
@@ -101,8 +106,24 @@ const inputSearch = props => {
           background: none;
         }
 
-        .ui.button {
+        .ui.action.input > .button {
+          // background: #393939;
+          background: #363636;
+          border: 1px solid #3e3e3e;
+          border-left: none;
+          font-size: 130%;
+          padding: 0.55rem 0.65rem 0.65rem 0.75rem;
+          // color: white;
+          color: #737373;
+        }
+
+        .ui.button .icon svg {
+          position: relative;
+          top: 1px;
           background: #393939;
+          // color: #111;
+          // color: #666;
+          color: white;
         }
 
         .ui.active.button:active,

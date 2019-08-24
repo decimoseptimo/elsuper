@@ -137,7 +137,7 @@ const Layout = ({ children }) => {
         }
 
         .bm-menu-wrap {
-          height: calc(100% - 5rem) !important;
+          height: calc(100% - 4.8rem) !important;
           bottom: 0;
           width: 100% !important;
         }
