@@ -1,24 +1,15 @@
 import React, { useContext } from "react"
 import { Link } from "gatsby"
-import css from "styled-jsx/css"
-import { CartContext } from "../state/cart"
-import { MiscContext } from "../state/misc"
 import { FaSearch, FaUser, FaRegUser, FaRegUserCircle } from "react-icons/fa"
 import { FiShoppingCart, FiUser, FiSearch } from "react-icons/fi"
-import { MdSearch } from "react-icons/md"
 import { IoMdSearch, IoIosSearch } from "react-icons/io"
+import { MdSearch } from "react-icons/md"
 
-import BaseButton from "../components/baseButton"
-import ButtonCart from "../components/buttonCart"
-import InputSearch from "./inputSearchMain"
-
-const { className, styles } = css.resolve`
-  a {
-    display: inline-block;
-    margin-left: -15px;
-    margin-top: 3px;
-  }
-`
+import { CartContext } from "../state/cart"
+import { MiscContext } from "../state/misc"
+import BaseButton from "./baseButton"
+import ButtonCart from "./buttonCart"
+import Search from "./search"
 
 const Header = props => {
   const [state, dispatch] = useContext(CartContext)
@@ -41,11 +32,20 @@ const Header = props => {
       </div>
       <div className="col-b">
         <div className="inputSearchWrapper">
-          <InputSearch />
+          <Search />
         </div>
       </div>
       <div className="col-c">
-        <BaseButton className="buttonSearch" aria-label="search button">
+        <BaseButton
+          onClick={() => {
+            miscDispatch({
+              type: "SET_MOBILE_SEARCH_OPEN",
+              isMobileSearchOpen: true,
+            })
+          }}
+          className="buttonSearch"
+          aria-label="search button"
+        >
           <MdSearch color="white" />
         </BaseButton>
         <BaseButton className="buttonUser" aria-label="search button">
@@ -58,16 +58,15 @@ const Header = props => {
           }}
         />
       </div>
-      {styles}
       <style jsx global>{`
         .inputSearchWrapper {
-          display: none;
           margin: 0 2rem;
           padding-left: 6px;
         }
 
         .inputSearch {
           margin: 0 auto;
+          display: none;
         }
 
         .buttonSearch {
@@ -81,7 +80,11 @@ const Header = props => {
             display: none;
           }
 
-          .inputSearchWrapper {
+          .inputSearchMobile {
+            display: none;
+          }
+
+          .inputSearch {
             display: block;
           }
         }

@@ -1,22 +1,22 @@
 import React from "react"
 import { FaShoppingCart } from "react-icons/fa"
 
+import BaseButton from "./baseButton"
+
 const ButtonCart = props => (
   <>
-    <button {...props}>
-      <FaShoppingCart color="white" />
-      <span className="cart-count">{props.count}</span>
-    </button>
-    <style jsx>{`
-      button {
-        background: none;
-        border: 0;
-        outline: 0;
-        cursor: pointer;
-
+    <BaseButton {...props} className="buttonCart">
+      <>
+        <FaShoppingCart color="white" />
+        <span className="cart-count">{props.count}</span>
+      </>
+    </BaseButton>
+    <style jsx global>{`
+      .buttonCart {
         padding-right: 0;
       }
-
+    `}</style>
+    <style jsx>{`
       svg {
         font-size: 1.5rem;
       }

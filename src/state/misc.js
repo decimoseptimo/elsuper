@@ -7,6 +7,7 @@ export const MiscProvider = props => {
     <MiscContext.Provider
       value={useReducer(miscReducer, {
         isCartOpen: false,
+        isMobileSearchOpen: false,
         localSearchProducts: null,
         query: "",
       })}
@@ -20,12 +21,10 @@ export const MiscProvider = props => {
 const miscReducer = (state, action) => {
   switch (action.type) {
     case "TOGGLE_CART_OPEN":
-      console.log(`TOGGLE_CART_OPEN: ${!state.isCartOpen}`)
       return { ...state, isCartOpen: !state.isCartOpen }
+    case "SET_MOBILE_SEARCH_OPEN":
+      return { ...state, isMobileSearchOpen: action.isMobileSearchOpen }
     case "SET_LSP":
-      console.log("SET_LSP!")
-      console.log(action)
-
       return {
         ...state,
         localSearchProducts: action.localSearchProducts,

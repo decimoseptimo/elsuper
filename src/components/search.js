@@ -7,9 +7,10 @@ import { Location, navigate } from "@reach/router"
 import queryString from "query-string"
 
 import InputSearch from "../components/inputSearch"
+import InputSearchMobile from "../components/inputSearchMobile"
 import { MiscContext } from "../state/misc"
 
-const InputSearchMain = props => {
+const Search = props => {
   console.log("mainInputSearch!")
   const data = useStaticQuery(graphql`
     query {
@@ -52,6 +53,10 @@ const InputSearchMain = props => {
   console.log("state.localSearchProducts:")
   console.log(state.localSearchProducts)
 
+  // const mql = window.matchMedia("(min-width: 570px)")
+  // console.log("mql:")
+  // console.log(mql.matches)
+
   const normalizeResults = results.map(({ title, slug }) => {
     return { title, slug }
   })
@@ -80,38 +85,54 @@ const InputSearchMain = props => {
   )
   const handleSearch = () => {
     if (query.trim() != "") {
+      dispatch({
+        type: "SET_MOBILE_SEARCH_OPEN",
+        isMobileSearchOpen: false,
+      })
       navigate(`/buscar/?p=${query}`, {
         state: { query: query, products: results },
       })
     }
   }
 
+  const inputSearchProps = {
+    resultRenderer: highlightResultRenderer,
+    results: normalizeResults.slice(0, 10),
+    value: query,
+    onSearchChange: (e, { value }) => {
+      setQuery(value)
+    },
+    onResultSelect: (e, { result }) => {
+      dispatch({
+        type: "SET_MOBILE_SEARCH_OPEN",
+        isMobileSearchOpen: false,
+      })
+      navigate(`/${result.slug}/?p=${query}`)
+    },
+    onButtonClick: () => {
+      console.log("click")
+      handleSearch()
+    },
+    onKeyDown: e => {
+      if (e.key === "Enter") {
+        console.log("down")
+        e.target.blur()
+        handleSearch()
+      }
+    },
+  }
+
   return (
     <>
-      <InputSearch
-        resultRenderer={highlightResultRenderer}
-        results={normalizeResults.slice(0, 10)}
-        value={query}
-        onSearchChange={(e, { value }) => {
-          setQuery(value)
-        }}
-        onResultSelect={(e, { result }) => {
-          navigate(`/${result.slug}/?p=${query}`)
-        }}
-        onButtonClick={() => {
-          console.log("click")
-          handleSearch()
-        }}
-        onKeyDown={e => {
-          if (e.key === "Enter") {
-            console.log("down")
-            e.target.blur()
-            handleSearch()
-          }
-        }}
-        placeholder="¿Que estás buscando?"
-        className="inputSearchMain"
-      />
+      <InputSearch {...inputSearchProps} placeholder="¿Que estás buscando?" />
+      {state.isMobileSearchOpen && (
+        <InputSearchMobile
+          {...inputSearchProps}
+          dispatch={dispatch}
+          setQuery={setQuery}
+          placeholder="¿Que estás buscando?"
+        />
+      )}
     </>
   )
 }
@@ -120,7 +141,7 @@ const InputSearchMain = props => {
 export default props => (
   <Location>
     {locationProps => (
-      <InputSearchMain
+      <Search
         location={locationProps.location}
         search={
           locationProps.location.search
