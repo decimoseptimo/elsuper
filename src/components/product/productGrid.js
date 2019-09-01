@@ -6,7 +6,7 @@ import { CartContext, findIndex } from "../../state/cart"
 
 const ProductGrid = ({ products }) => {
   const [state, dispatch] = useContext(CartContext)
-  console.log("search!")
+  //console.log("search!")
   return (
     <>
       <ul className="shop-items">

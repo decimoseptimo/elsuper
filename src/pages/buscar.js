@@ -5,17 +5,17 @@ import ProductGrid from "../components/product/productGrid"
 import { MiscContext } from "../state/misc"
 
 const Buscar = props => {
-  console.log("buscar!")
+  //console.log("buscar!")
   const [state, dispatch] = useContext(MiscContext)
-  console.log(state)
+  //console.log(state)
   let products, query
 
   try {
-    console.log("1")
+    //console.log("1")
     products = props.location.state.products
     query = props.location.state.query
   } catch {
-    console.log("2")
+    //console.log("2")
     products = state.localSearchProducts || []
     query = state.query || ""
   }

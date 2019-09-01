@@ -11,7 +11,7 @@ import InputSearchMobile from "../components/inputSearchMobile"
 import { MiscContext } from "../state/misc"
 
 const Search = props => {
-  console.log("mainInputSearch!")
+  //console.log("mainInputSearch!")
   const data = useStaticQuery(graphql`
     query {
       localSearchProducts {
@@ -23,7 +23,7 @@ const Search = props => {
   const { index, store } = data.localSearchProducts
   const [state, dispatch] = useContext(MiscContext)
   const [query, setQuery] = useState(() => {
-    console.log("useState")
+    //console.log("useState")
     if (props.search && props.search.p) {
       return props.search.p
     }
@@ -39,7 +39,7 @@ const Search = props => {
     results.length &&
     !state.localSearchProducts
   ) {
-    console.log("@")
+    //console.log("@")
     dispatch({
       type: "SET_LSP",
       localSearchProducts: results,
@@ -47,11 +47,11 @@ const Search = props => {
     })
   }
 
-  console.log(`query: ${query}`)
-  console.log("results:")
-  console.log(results)
-  console.log("state.localSearchProducts:")
-  console.log(state.localSearchProducts)
+  //console.log(`query: ${query}`)
+  //console.log("results:")
+  //console.log(results)
+  //console.log("state.localSearchProducts:")
+  //console.log(state.localSearchProducts)
 
   // const mql = window.matchMedia("(min-width: 570px)")
   // console.log("mql:")
@@ -110,12 +110,12 @@ const Search = props => {
       navigate(`/${result.slug}/?p=${query}`)
     },
     onButtonClick: () => {
-      console.log("click")
+      //console.log("click")
       handleSearch()
     },
     onKeyDown: e => {
       if (e.key === "Enter") {
-        console.log("down")
+        //console.log("down")
         e.target.blur()
         handleSearch()
       }

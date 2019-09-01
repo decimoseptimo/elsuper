@@ -37,7 +37,7 @@ const inputSearchMobile = props => {
     MdArrowBack,
   ]
 
-  console.log("inputSearchMobile")
+  //console.log("inputSearchMobile")
 
   return (
     <div className="inputSearchMobile">
@@ -76,19 +76,18 @@ const inputSearchMobile = props => {
             }
           },
         }}
-        onBlur={
-          () => console.log("--blur")
+        // onBlur={
           // props.dispatch({
           //   type: "SET_MOBILE_SEARCH_OPEN",
           //   isMobileSearchOpen: false,
           // })
-        }
+        //}
         {...propsClone}
       />
       {props.value && (
         <BaseButton
           onClick={() => {
-            console.log("empty")
+            //console.log("empty")
             props.setQuery("")
           }}
           className="emptyButton"

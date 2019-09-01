@@ -36,7 +36,7 @@ const SecondPage = props => {
 
   const products = props.data.allProductsJson.edges
   const images = products[0].node.images
-  console.log(images)
+  //console.log(images)
 
   return (
     <>
