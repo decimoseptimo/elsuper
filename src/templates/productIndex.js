@@ -1,10 +1,10 @@
-import React, { useContext, useMemo } from "react"
+import React from "react"
 import { Image, graphql } from "gatsby"
 
 import SEO from "../components/seo"
 import ProductGrid from "../components/product/productGrid"
 
-const IndexPage = props => {
+const ProductIndex = props => {
   const products = props.data.allProductsJson.edges
 
   return (
@@ -15,11 +15,11 @@ const IndexPage = props => {
   )
 }
 
-export default IndexPage
+export default ProductIndex
 
 export const pageQuery = graphql`
-  query {
-    allProductsJson {
+  query($skip: Int!, $limit: Int!) {
+    allProductsJson(skip: $skip, limit: $limit) {
       edges {
         node {
           id

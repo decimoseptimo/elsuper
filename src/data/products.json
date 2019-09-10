@@ -360,6 +360,111 @@
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
+    "id": "101",
+    "title": "Salsa valentina 1l",
+    "price": 20.0,
+    "unit": "Pz",
+    "min_quantity": 1,
+    "max_quantity": 100,
+    "slug": "salsa-valentina-1l",
+    "images": [
+      "images/salsa-picante-etiqueta-amarilla-1l-valentina.jpg",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ],
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
+  },
+  {
+    "id": "102",
+    "title": "Salsa valentina 370ml",
+    "price": 12.5,
+    "unit": "Pz",
+    "min_quantity": 1,
+    "max_quantity": 100,
+    "slug": "salsa-valentina-370ml",
+    "images": [
+      "images/Valentina-370.webp",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ],
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
+  },
+  {
+    "id": "103",
+    "title": "Salsa valentina 370ml (etiqueta negra)",
+    "price": 12.9,
+    "unit": "Pz",
+    "min_quantity": 1,
+    "max_quantity": 100,
+    "slug": "salsa-valentina-370ml-(etiqueta-negra)",
+    "images": [
+      "images/Picado_-_General_Product_Shot_-048_1024x1024.jpg",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ],
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
+  },
+  {
+    "id": "104",
+    "title": "Salsa búfalo clásica 150g",
+    "price": 15.0,
+    "unit": "Pz",
+    "min_quantity": 1,
+    "max_quantity": 100,
+    "slug": "salsa-bufalo-clasica-150g",
+    "images": [
+      "images/Picado_-_General_Product_Shot_-005_1024x1024.jpg",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ],
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
+  },
+  {
+    "id": "105",
+    "title": "Salsa de huacamole Herdez 240g",
+    "price": 19.99,
+    "unit": "Pz",
+    "min_quantity": 1,
+    "max_quantity": 100,
+    "slug": "salsa-de-huacamole-herdez-240g",
+    "images": [
+      "images/Picado_-_General_Product_Shot_-018_1024x1024.jpg",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ],
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
+  },
+  {
+    "id": "106",
+    "title": "Jugo sasonador maggi 100ml",
+    "price": 16.6,
+    "unit": "Pz",
+    "min_quantity": 1,
+    "max_quantity": 100,
+    "slug": "jugo-sasonador-maggi-100ml",
+    "images": [
+      "images/00750100160410L.jpg",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ],
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
+  },
+  {
+    "id": "107",
+    "title": "Jugo sasonador maggi 200ml",
+    "price": 23.9,
+    "unit": "Pz",
+    "min_quantity": 1,
+    "max_quantity": 100,
+    "slug": "jugo-sasonador-maggi-200ml",
+    "images": [
+      "images/00750100160411L.jpg",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ],
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
+  },
+  {
     "id": "22",
     "title": "Pure de tomate Val Vita 200 Gr.",
     "price": 7.5,
@@ -377,7 +482,7 @@
   {
     "id": "91",
     "title": "Pure de tomate la costeña 210 gr.",
-    "price": 10.00,
+    "price": 10.0,
     "unit": "Pz",
     "min_quantity": 1,
     "max_quantity": 100,
@@ -392,7 +497,7 @@
   {
     "id": "92",
     "title": "Pure de tomate la costeña 350 gr.",
-    "price": 15.00,
+    "price": 15.0,
     "unit": "Pz",
     "min_quantity": 1,
     "max_quantity": 100,
@@ -407,7 +512,7 @@
   {
     "id": "93",
     "title": "Atún dolores en agua",
-    "price": 19.90,
+    "price": 19.9,
     "unit": "Pz",
     "min_quantity": 1,
     "max_quantity": 100,
@@ -422,7 +527,7 @@
   {
     "id": "94",
     "title": "Atún dolores en aceite",
-    "price": 19.90,
+    "price": 19.9,
     "unit": "Pz",
     "min_quantity": 1,
     "max_quantity": 100,
@@ -482,7 +587,7 @@
   {
     "id": "98",
     "title": "Sopa Maruchan sabor camaron sobre 85 g",
-    "price": 7.80,
+    "price": 7.8,
     "unit": "Pz",
     "min_quantity": 1,
     "max_quantity": 100,
@@ -497,7 +602,7 @@
   {
     "id": "99",
     "title": "Sopa Maruchan sabor carne de res sobre 85 g",
-    "price": 7.80,
+    "price": 7.8,
     "unit": "Pz",
     "min_quantity": 1,
     "max_quantity": 100,
@@ -512,7 +617,7 @@
   {
     "id": "100",
     "title": "Sopa Maruchan sabor pollo sobre 85 g",
-    "price": 7.80,
+    "price": 7.8,
     "unit": "Pz",
     "min_quantity": 1,
     "max_quantity": 100,

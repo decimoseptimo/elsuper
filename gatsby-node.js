@@ -1,8 +1,10 @@
 const path = require(`path`)
+const { paginate } = require("gatsby-awesome-pagination")
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
-  const productViewTemplate = path.resolve(`src/templates/productView.js`)
+  const productIndex = path.resolve(`./src/templates/productIndex.js`)
+  const productView = path.resolve(`./src/templates/productView.js`)
   return graphql(`
     query {
       allProductsJson {
@@ -15,11 +17,21 @@ exports.createPages = ({ graphql, actions }) => {
       }
     }
   `).then(result => {
-    console.log(result)
-    result.data.allProductsJson.edges.forEach(({ node }) => {
+    const products = result.data.allProductsJson.edges
+
+    paginate({
+      createPage,
+      items: products,
+      component: productIndex,
+      itemsPerPage: 50,
+      // itemsPerFirstPage: 3,
+      pathPrefix: "/"
+    })
+
+    products.forEach(({ node }) => {
       createPage({
         path: node.slug,
-        component: productViewTemplate,
+        component: productView,
         context: {
           // Data passed to context is available
           // in page queries as GraphQL variables.
