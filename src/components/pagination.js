@@ -40,7 +40,6 @@ const Pagination = props => {
         opacity: .5;
       }
 
-
       .ui.menu a.item[type = "ellipsisItem"]:hover {
         cursor: normal;
         color: inherit;
