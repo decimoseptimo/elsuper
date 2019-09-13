@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect, useRef } from "react"
+import React, { useContext, useEffect } from "react"
 import PropTypes from "prop-types"
 import BgMenu from "react-burger-menu/lib/menus/slide"
 
@@ -96,6 +96,8 @@ const Layout = ({ children }) => {
           margin: 2rem auto;
           padding: 0 1rem;
           max-width: 1500px;
+          text-align: center;
+          opacity: .8;
         }
 
         @media screen and (min-width: 600px) {
