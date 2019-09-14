@@ -53,7 +53,7 @@
     "max_quantity": 100,
     "slug": "naranja-valencia",
     "images": [
-      "images/naranja-valenciana-vitaminada.png",
+      "images/naranja-valenciana-vitaminada.webp",
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
@@ -143,7 +143,7 @@
     "max_quantity": 100,
     "slug": "cartera-de-huevo-rojo-c30",
     "images": [
-      "images/huevos-21.png",
+      "images/huevos-21.webp",
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
@@ -338,7 +338,7 @@
     "max_quantity": 100,
     "slug": "salsa-amor-picante-355-ml.",
     "images": [
-      "images/salsa.amor.355.png",
+      "images/salsa.amor.355.webp",
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
@@ -758,7 +758,7 @@
     "max_quantity": 100,
     "slug": "arrachera-de-res",
     "images": [
-      "images/arrachera_2048x.png",
+      "images/arrachera_2048x.webp",
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
@@ -773,7 +773,7 @@
     "max_quantity": 100,
     "slug": "chamorro-de-res-con-hueso",
     "images": [
-      "images/chambarete_de_res_con_hueso_4ed99ed0-e0ed-4b35-bf69-66cd07aeb498_2048x.png",
+      "images/chambarete_de_res_con_hueso_4ed99ed0-e0ed-4b35-bf69-66cd07aeb498_2048x.webp",
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
@@ -803,7 +803,7 @@
     "max_quantity": 100,
     "slug": "Cuete-de-res",
     "images": [
-      "images/cuete_de_res_1024x1024_51367fe1-92f8-4320-9443-a9921d8f5b6d_2048x.png",
+      "images/cuete_de_res_1024x1024_51367fe1-92f8-4320-9443-a9921d8f5b6d_2048x.webp",
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
@@ -833,7 +833,7 @@
     "max_quantity": 100,
     "slug": "diezmillo-de-res",
     "images": [
-      "images/Diezmillo-n-1.png",
+      "images/Diezmillo-n-1.webp",
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
@@ -848,7 +848,7 @@
     "max_quantity": 100,
     "slug": "Paleta-de-res",
     "images": [
-      "images/paleta.png",
+      "images/paleta.webp",
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
@@ -863,7 +863,7 @@
     "max_quantity": 100,
     "slug": "pecho-de-res",
     "images": [
-      "images/pecho-n.png",
+      "images/pecho-n.webp",
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
@@ -878,7 +878,7 @@
     "max_quantity": 100,
     "slug": "pescueso-de-res",
     "images": [
-      "images/pescuezo.png",
+      "images/pescuezo.webp",
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
@@ -893,7 +893,7 @@
     "max_quantity": 100,
     "slug": "pulpa-larga-de-res",
     "images": [
-      "images/Pulpa-Larga.png",
+      "images/Pulpa-Larga.webp",
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
@@ -908,7 +908,7 @@
     "max_quantity": 100,
     "slug": "rib-eye-de-res",
     "images": [
-      "images/Rib-eye.png",
+      "images/Rib-eye.webp",
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
@@ -923,7 +923,7 @@
     "max_quantity": 100,
     "slug": "costilla-aguja-de-res",
     "images": [
-      "images/Costilla-Aguja-.png",
+      "images/Costilla-Aguja-.webp",
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
@@ -968,7 +968,7 @@
     "max_quantity": 100,
     "slug": "filete-salmon",
     "images": [
-      "images/FILETE_DE_SALMON_dada4d82-37c3-4072-ab34-9f777061d292_2048x2048.png",
+      "images/FILETE_DE_SALMON_dada4d82-37c3-4072-ab34-9f777061d292_2048x2048.webp",
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
@@ -1073,7 +1073,7 @@
     "max_quantity": 100,
     "slug": "Fanta-355ml",
     "images": [
-      "images/ps-m2-fanta-335-lata_4.png",
+      "images/ps-m2-fanta-335-lata_4.webp",
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
@@ -1163,7 +1163,7 @@
     "max_quantity": 100,
     "slug": "sprite-2L",
     "images": [
-      "images/cmx-sprite_6.png",
+      "images/cmx-sprite_6.webp",
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
@@ -1313,7 +1313,7 @@
     "max_quantity": 100,
     "slug": "brocoli",
     "images": [
-      "images/broccoli_commodity-page.png",
+      "images/broccoli_commodity-page.webp",
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
@@ -1433,7 +1433,7 @@
     "max_quantity": 100,
     "slug": "chile-guajillo",
     "images": [
-      "images/guajillo_chile_600x.png",
+      "images/guajillo_chile_600x.webp",
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
@@ -1448,7 +1448,7 @@
     "max_quantity": 100,
     "slug": "chile-ancho",
     "images": [
-      "images/pasilla_chile_grande.png",
+      "images/pasilla_chile_grande.webp",
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
@@ -1538,7 +1538,7 @@
     "max_quantity": 100,
     "slug": "avena",
     "images": [
-      "images/kisspng-rolled-oats-breakfast-cereal-organic-food-oats-5abef3ecc609a5.4718406815224637248112.png",
+      "images/kisspng-rolled-oats-breakfast-cereal-organic-food-oats-5abef3ecc609a5.4718406815224637248112.webp",
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
@@ -1568,7 +1568,7 @@
     "max_quantity": 100,
     "slug": "soya",
     "images": [
-      "images/soya2.png",
+      "images/soya2.webp",
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
@@ -1583,7 +1583,7 @@
     "max_quantity": 100,
     "slug": "cacahuate",
     "images": [
-      "images/PEANUTS-WITHOUT-SHELL-PEANUTS.png",
+      "images/PEANUTS-WITHOUT-SHELL-PEANUTS.webp",
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
