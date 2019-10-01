@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic&subset=latin&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic&subset=latin&display=swap");
 
 html {
   box-sizing: border-box;
@@ -11,7 +11,7 @@ html {
 
 body {
   font-family: "Source Sans Pro", HelveticaNeue-Light, "Helvetica Neue Light",
-  "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 }
 
 ul {

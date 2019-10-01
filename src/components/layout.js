@@ -97,7 +97,7 @@ const Layout = ({ children }) => {
           padding: 0 1rem;
           max-width: 1500px;
           text-align: center;
-          opacity: .8;
+          opacity: 0.8;
         }
 
         @media screen and (min-width: 600px) {
