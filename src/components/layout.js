@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react"
 import PropTypes from "prop-types"
 import BgMenu from "react-burger-menu/lib/menus/slide"
 
+import Menu from "./categoriesMenu"
 import Cart from "./cart"
 import Header from "./header"
 import "semantic-ui-css/semantic.min.css"
@@ -25,7 +26,7 @@ const Layout = ({ children }) => {
 
   useEffect(() => {
     const md = new MobileDetect(window.navigator.userAgent)
-    const el = document.querySelector(".bm-menu")
+    const el = document.querySelector(".ss-hook-class")
 
     if (!md.mobile()) SimpleScrollbar.initEl(el)
   }, [])
@@ -39,12 +40,29 @@ const Layout = ({ children }) => {
           </header>
         </div>
         <BgMenu
+          className="catalog"
+          menuClassName="catalog"
+          isOpen={state.isCatalogOpen}
+          // left
+          customBurgerIcon={false}
+          customCrossIcon={false}
+          onStateChange={s => {
+            if (s.isOpen != state.isCatalogOpen)
+              dispatch({ type: "TOGGLE_CATALOG_OPEN" })
+          }}
+        >
+          <div className="ss-content">
+            <Menu onMenuClick={() => dispatch({ type: "CLOSE_CATALOG" })} />
+          </div>
+        </BgMenu>
+        <BgMenu
+          className="cart"
+          menuClassName="cart ss-hook-class"
           isOpen={state.isCartOpen}
           right
           customBurgerIcon={false}
           customCrossIcon={false}
           onStateChange={s => {
-            // console.log(s)
             if (s.isOpen != state.isCartOpen)
               // dispatch({ type: "SET_CART_OPEN", isOpen: s.isOpen })
               dispatch({ type: "TOGGLE_CART_OPEN" })
@@ -133,6 +151,10 @@ const Layout = ({ children }) => {
           width: 100%;
         }
 
+        .catalog .ss-content {
+          width: auto;
+        }
+
         .ss-scroll {
           opacity: 1;
           width: 7px;
@@ -144,32 +166,67 @@ const Layout = ({ children }) => {
           width: 100% !important;
         }
 
+        .bm-item-list,
+        .bm-item {
+          outline: none !important;
+        }
+
         .bm-menu {
           background-color: #fff;
-          box-shadow: 2px 0 6px 2px #e0e0e0;
+          // box-shadow: 2px 0 6px 2px #e0e0e0;
+          box-shadow: 0px 0 6px 0px #e0e0e0;
+        }
+
+        // .bm-menu.catalog {
+        //   padding: 2rem 4rem 3rem 3rem;
+        // }
+
+        .bm-menu.cart {
           padding: 2rem 1rem 0;
         }
+
         .bm-menu.ss-container {
           padding: 0;
         }
+
         .ss-content {
           padding: 2rem 1rem 0;
         }
 
+        .catalog .ss-content {
+          padding: 2rem 2rem 2rem;
+        }
+
+        @media screen and (min-width: 300px) {
+          .bm-menu-wrap.catalog {
+            width: 270px !important;
+          }
+        }
+
         @media screen and (min-width: 550px) {
-          .bm-menu-wrap {
+          .bm-menu-wrap.cart {
             width: 500px !important;
           }
 
-          .bm-menu {
+          .bm-menu.cart {
             margin-left: 5px;
             padding: 2rem 2rem 0;
           }
+
+          .bm-menu.catalog {
+            margin-right: 5px;
+          }
+
           .bm-menu.ss-container {
             padding: 0;
           }
+
           .ss-content {
             padding: 2rem 2rem 0;
+          }
+
+          .catalog .ss-content {
+            padding: 2rem 2rem 2rem;
           }
         }
       `}</style>

@@ -1,12 +1,24 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
+import { graphql, Link, useStaticQuery } from "gatsby"
 import slugify from "slugify"
 
-import SEO from "../components/seo"
 import { getChildren, getCategoryTree } from "../utils"
 
 const Categorias = props => {
-  const propsCategories = props.data.allCategoriesJson.edges
+  const data = useStaticQuery(graphql`
+    query {
+      allCategoriesJson {
+        edges {
+          node {
+            id
+            name
+          }
+        }
+      }
+    }
+  `)
+
+  const propsCategories = data.allCategoriesJson.edges
   const categories = propsCategories.map(i => i.node)
   const rootCategories = getChildren(categories, null)
   const categoryTree = []
@@ -24,7 +36,12 @@ const Categorias = props => {
 
           return (
             <li key={id}>
-              <Link to={`/${slugify(name.toLowerCase())}`}>{name}</Link>
+              <Link
+                to={`/${slugify(name.toLowerCase())}`}
+                onClick={() => props.onMenuClick()}
+              >
+                {name}
+              </Link>
               {categoryList}
             </li>
           )
@@ -36,8 +53,7 @@ const Categorias = props => {
 
   return (
     <>
-      <SEO title="Categorias" />
-      <h1>Categorias</h1>
+      <h2>Categorias</h2>
       {categoriesList}
       <style jsx global>{`
         .categoryList {
@@ -49,16 +65,3 @@ const Categorias = props => {
 }
 
 export default Categorias
-
-export const pageQuery = graphql`
-  query {
-    allCategoriesJson {
-      edges {
-        node {
-          id
-          name
-        }
-      }
-    }
-  }
-`
