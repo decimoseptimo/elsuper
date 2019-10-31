@@ -1,0 +1,160 @@
+[
+  {
+    "name": "Frutas y verduras",
+    "_children": [
+      { "name": "Frutas" },
+      {
+        "name": "Verduras",
+        "_children": [{ "name": "Chiles frescos" }]
+      }
+    ]
+  },
+  {
+    "name": "Leches",
+    "_children": [
+      { "name": "Leche de vaca" },
+      { "name": "Leche de coco" },
+      { "name": "Leche de almendra" },
+      { "name": "Leche de soya" }
+    ]
+  },
+  {
+    "name": "Lacteos",
+    "_children": [
+      {
+        "name": "Leches",
+        "_children": [
+          { "name": "Leche entera" },
+          { "name": "Leche semidescremada" },
+          { "name": "Leche evaporada" },
+          { "name": "Formula lactea" }
+        ]
+      },
+      { "name": "Yogurt" },
+      { "name": "Mantequilla" },
+      { "name": "Queso" }
+    ]
+  },
+  {
+    "name": "Carnes",
+    "_children": [
+      { "name": "Carnes de res" },
+      { "name": "Carnes de cerdo" },
+      { "name": "Pollo" },
+      {
+        "name": "Pescados y mariscos",
+        "_children": [{ "name": "Pescados" }, { "name": "Mariscos" }]
+      },
+      {
+        "name": "Carnes procesadas",
+        "_children": [
+          { "name": "Salchicha" },
+          { "name": "Bolonia" },
+          { "name": "Jamon" },
+          { "name": "Tocino" }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Condimentos y especias",
+    "_children": [{ "name": "Chiles secos" }]
+  },
+  {
+    "name": "Sopas",
+    "_children": [
+      {
+        "name": "Trigo duro",
+        "_children": [
+          {
+            "name": "Sopas instantaneas",
+            "_children": [
+              { "name": "Sopas de vaso" },
+              { "name": "Sopas de sobre" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Alimentos enlatados",
+    "_children": [
+      { "name": "Champinones" },
+      { "name": "Elotes" },
+      { "name": "Salsas" },
+      {
+        "name": "Atunes",
+        "_children": [{ "name": "Atún en agua" }, { "name": "Atún en aceite" }]
+      }
+    ]
+  },
+  {
+    "name": "Salsas",
+    "_children": [
+      { "name": "Salsa de tomate" },
+      { "name": "Salsa de soya" },
+      { "name": "Salsa de huacamole" },
+      { "name": "Salsa picante" },
+      { "name": "Otras salsas" }
+    ]
+  },
+  {
+    "name": "Grasas y aceites comestibles",
+    "_children": [
+      {
+        "name": "Grasas",
+        "_children": [
+          { "name": "Manteca vegetal" },
+          { "name": "Manteca de puerco" },
+          { "name": "Mantequilla" },
+          { "name": "Margarina" }
+        ]
+      },
+      {
+        "name": "Aceites",
+        "_children": [
+          { "name": "Aceite de oliva" },
+          { "name": "Aceite de coco" },
+          { "name": "Aceite de soya" },
+          { "name": "Aceite de canola" },
+          { "name": "Aceite de maiz" },
+          { "name": "Aceite de girasol" },
+          { "name": "Aceite de cartamo" }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Granos y cereales",
+    "_children": [
+      {
+        "name": "Granos",
+        "_children": [
+          { "name": "Frijol" },
+          { "name": "Soya" },
+          { "name": "Lenteja" },
+          { "name": "Maíz" }
+        ]
+      },
+      {
+        "name": "Cereales",
+        "_children": [
+          { "name": "Trigo" },
+          { "name": "Avena" },
+          { "name": "Arroz" }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Bebidas",
+    "_children": [
+      { "name": "Agua" },
+      { "name": "Cafe" },
+      { "name": "Refresco" },
+      { "name": "Jugo" },
+      { "name": "Te" }
+    ]
+  }
+]

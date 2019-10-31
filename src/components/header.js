@@ -9,6 +9,7 @@ import { CartContext } from "../state/cart"
 import { MiscContext } from "../state/misc"
 import BaseButton from "./baseButton"
 import ButtonCart from "./buttonCart"
+import ButtonCatalog from "./buttonCatalog"
 import Search from "./search"
 
 const Header = props => {
@@ -18,6 +19,15 @@ const Header = props => {
   return (
     <div className="row">
       <div className="col-a">
+        <BaseButton
+          className="buttonCatalog"
+          aria-label="search button"
+          onClick={() => {
+            miscDispatch({ type: "TOGGLE_CATALOG_OPEN" })
+          }}
+        >
+          <ButtonCatalog />
+        </BaseButton>
         <h1>
           <Link
             to="/"
@@ -59,9 +69,18 @@ const Header = props => {
         />
       </div>
       <style jsx global>{`
+        .buttonCatalog {
+          padding: 0 5px 0 0;
+        }
+
+        h1 {
+          display: inline-flex;
+        }
+
         .inputSearchWrapper {
           margin: 0 2rem;
-          padding-left: 6px;
+          // padding-left: 6px;
+          width: 100%;
         }
 
         .inputSearch {
@@ -97,11 +116,12 @@ const Header = props => {
         }
 
         .col-a {
-          // flex: 1;
+          flex: 1;
         }
 
         .col-b {
-          flex: 1;
+          // display: none;
+          width: 0;
         }
 
         .col-c {
@@ -110,6 +130,18 @@ const Header = props => {
 
         h1 {
           margin: 1.1rem 0;
+        }
+
+        @media screen and (min-width: 570px) {
+          .col-a {
+            display: block;
+            flex: none;
+          }
+
+          .col-b {
+            display: flex;
+            flex: 1;
+          }
         }
       `}</style>
     </div>

@@ -1,20 +1,5 @@
 [
   {
-    "id": "1",
-    "title": "Tomate Bola",
-    "price": 15.5,
-    "unit": "Kg",
-    "min_quantity": 0.5,
-    "max_quantity": 100,
-    "slug": "tomate-bola",
-    "images": [
-      "images/tomate.jpg",
-      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
-      "images/Etiqueta-RC-Maxi-Adult.jpg"
-    ],
-    "description": "Solanum lycopersicum, conocido comúnmente como tomate, tomatera o jitomate, es una especie de planta herbácea del género Solanum de la familia Solanaceae; es nativa de Centro, del norte y noroeste de Sudamérica y su uso como comida se habría originado en México hace unos 2500 años.5\u200B El nombre proviene de la palabra náhuatl xītomatl.\n\nLa planta es cultivada en el mundo entero para su consumo tanto fresco como procesado de diferentes modos (salsa, puré, zumo, deshidratado, enlatado)."
-  },
-  {
     "id": "2",
     "title": "Platano Portalimon",
     "price": 12.5,
@@ -27,6 +12,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "2",
+    "tags": ["frutas"],
     "description": "La banana (término utilizado en Argentina, Honduras, Paraguay, Puerto Rico, Uruguay y República Dominicana),1\u200B plátano2\u200B (en el Perú, Chile, México, occidente-centro de Cuba y España), guineo (en Panamá, El Salvador, oriente de Cuba, Puerto Rico, el Perú, República Dominicana y el Ecuador continental), banano (Costa Rica y Guatemala) o cambur en Venezuela (salvo la variedad más grande conocida como plátano macho que en este país se conoce como plátano), es un fruto comestible, botánicamente una baya, de varios tipos de grandes plantas herbáceas del género Musa. A estas plantas de gran porte que tienen aspecto de arbolillo se las denomina plataneras, bananeros, bananeras, plátanos o bananos.3\u200B\n\nEs un fruto con cualidades variables en tamaño (10cm), color y firmeza, alargado, generalmente curvado y carnoso, rico en almidón cubierto con una cáscara, que puede ser verde, amarilla, roja, púrpura o marrón cuando está madura. Los frutos crecen en piñas que cuelgan de la parte superior de la planta. Casi todos los plátanos en la actualidad son frutos estériles que no producen semillas fructificantes y provienen de dos especies silvestres: Musa acuminata y Musa balbisiana. El nombre científico de la mayoría de los plátanos cultivados es Musa × paradisiaca, el híbrido Musa acuminata × M. balbisiana, con distintas denominaciones var. o cultivares, dependiendo de su constitución genómica."
   },
   {
@@ -42,6 +29,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "2",
+    "tags": ["frutas"],
     "description": "La manzana es un tipo de fruta pomácea comestible, fruta del manzano comestible (Malus domestica), otros manzanos (especies del género Malus) o híbridos de aquel. En algunas zonas de España se le suele llamar pero cuando tiene forma alargada."
   },
   {
@@ -57,6 +46,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "2",
+    "tags": ["frutas"],
     "description": "La naranja es una fruta cítrica obtenida del naranjo dulce (Citrus × sinensis), del naranjo amargo (Citrus × aurantium) y de naranjos de otras variedades o híbridos, de origen asiático.1\u200B Es un hesperidio carnoso de cáscara más o menos gruesa y endurecida, y su pulpa está formada típicamente por once gajos u hollejos llenos de jugo, el cual contiene mucha vitamina C, flavonoides y aceites esenciales. Se cultiva como un antiguo árbol ornamental y para obtener fragancias de sus frutos. Es más pequeña y dulce que el pomelo o toronja y más grande, aunque menos perfumada que la mandarina. Existen numerosas variedades de naranjas, siendo la mayoría híbridos producidos a partir de las especies Citrus maxima (pamplemusa), Citrus reticulata (mandarina) y Citrus medica (cidro)."
   },
   {
@@ -72,6 +63,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "2",
+    "tags": ["frutas"],
     "description": "El limón verde es la especie Citrus aurantifolia y se conoce como limón verde o lima. Es proveniente de Asia y fue introducido a Europa durante las Cruzadas, cuando se empezaron a importar productos y especies de Africa del Norte y el Medio Oriente por personas emprendedoras.\n\nEste limón es pequeño y se consume cuando esta verde, ya que cambia de color a un verde amarillento al madurar. Tiene muchas semillas y no da mucho jugo. Tiene un sabor ácido y es muy aromático, sirviendo muy bien en bebidas que tienen una base fuerte y limpia, como en la margarita y el daiquiri que usan alcoholes que no se añejan mucho y contienen sabores fuertes y que recuerdan de donde provienen más de donde se hubieran podido madurar."
   },
   {
@@ -87,6 +80,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "2",
+    "tags": ["frutas"],
     "description": "El limón amarillo es la especie Citrus limón y se conoce en Estados Unidos como lemon. No se sabe exactamente de donde viene, aunque se cree que es del sur de India y China. Estos limones se empezarón a importar a Italia en el siglo 1 d.C. durante el imperio romano, aunque su uso culinario no era extenso. Su uso creció en el siglo XV y fue llevado a las Americas por Cristobal Colón. Estos fueron después cultivados en Florida y California, que es donde las plantaciones más grandes de limón amarillo están en Estados Unidos.\n\nEl limón amarillo no es tan ácido como el verde, resultando en un sabor agrio y un poco más dulce y aromático. Tiene menos ácido cítrico que el limón verde, evidente en sus usos culinarios como la limonada, que no usa tanta azúcar para quitar el sabor fuerte del limón verde."
   },
   {
@@ -102,6 +97,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "2",
+    "tags": ["frutas"],
     "description": "La Granny Smith o manzana verde de la Abuela Smith es una variedad de manzana creada artificialmente, la cual se cree que proviene de la hibridación entre las especies Malus domestica y M. sylvestris. La primera vez que se tuvo conocimiento de ella, fue en Australia en 1868, después de que María Ann Smith Sherwood, de quien viene el nombre de \"Granny Smith\" (Abuela Smith), creara el primer injerto.1\u200B Más tarde se introdujeron en el Reino Unido, alrededor del año 1935, y en los Estados Unidos en 1972 por Grady Auvil. Además, se pueden encontrar silvestres en Nueva Zelanda."
   },
   {
@@ -117,6 +114,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "2",
+    "tags": ["frutas"],
     "description": "Golden Delicious es un cultivar de manzana Malus domestica de color amarillo. Es una de las variedades de manzana más cultivadas en todo el mundo. En su estado óptimo de maduración tiene una forma redondeada, color de la piel amarillo, carne de consistencia crujiente, jugosa, ligeramente amargo y es rica en fructosa. En climas templados del hemisferio norte, se cosecha a partir de septiembre."
   },
   {
@@ -132,6 +131,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "64",
+    "tags": ["huevos"],
     "description": "Los huevos de gallina pueden ser de variados tamaños, siendo muy pequeños en aves jóvenes y grandes en aves adultas. La diferencia radica en que, al ser más grandes, la cáscara es más frágil y propensa a romperse. Como curiosidad, estos huevos grandes pueden venir con doble yema, debido a una doble ovulación del ave.\n\nLa cáscara del huevo se compone mayormente de carbonato de calcio. Puede ser de color blanco o castaño claro (marrón), según la variedad de la gallina ponedora. El color de la cáscara no afecta su calidad, sabor, características al cocinar, valor nutricional o grosor.5\u200B Un huevo medio de gallina suele pesar entre 60 y 70 gramos."
   },
   {
@@ -147,6 +148,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "64",
+    "tags": ["huevos"],
     "description": "Los huevos de gallina pueden ser de variados tamaños, siendo muy pequeños en aves jóvenes y grandes en aves adultas. La diferencia radica en que, al ser más grandes, la cáscara es más frágil y propensa a romperse. Como curiosidad, estos huevos grandes pueden venir con doble yema, debido a una doble ovulación del ave.\n\nLa cáscara del huevo se compone mayormente de carbonato de calcio. Puede ser de color blanco o castaño claro (marrón), según la variedad de la gallina ponedora. El color de la cáscara no afecta su calidad, sabor, características al cocinar, valor nutricional o grosor.5\u200B Un huevo medio de gallina suele pesar entre 60 y 70 gramos."
   },
   {
@@ -162,6 +165,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "15",
+    "tags": ["leche", "leche entera"],
     "description": "Contiene una proporción importante de agua (cerca del 87 %). El resto constituye el extracto seco que representa 130 gramos (g) por l y en el que hay de 35 a 45 g de materia grasa.\n\nOtros componentes principales son los glúcidos lactosa, las proteínas y los lípidos. Los componentes orgánicos (glúcidos, lípidos, proteínas, vitaminas), y los componentes minerales (Ca, Na, K, Mg, Cl). La leche contiene diferentes grupos de nutrientes. Las sustancias orgánicas (glúcidos, lípidos, proteínas) están presentes en cantidades más o menos iguales y constituyen la principal fuente de energía. Estos nutrientes se reparten en elementos constructores, las proteínas, y en compuestos energéticos, los glúcidos y los lípidos."
   },
   {
@@ -177,6 +182,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "15",
+    "tags": ["leche", "leche entera"],
     "description": "Contiene una proporción importante de agua (cerca del 87 %). El resto constituye el extracto seco que representa 130 gramos (g) por l y en el que hay de 35 a 45 g de materia grasa.\n\nOtros componentes principales son los glúcidos lactosa, las proteínas y los lípidos. Los componentes orgánicos (glúcidos, lípidos, proteínas, vitaminas), y los componentes minerales (Ca, Na, K, Mg, Cl). La leche contiene diferentes grupos de nutrientes. Las sustancias orgánicas (glúcidos, lípidos, proteínas) están presentes en cantidades más o menos iguales y constituyen la principal fuente de energía. Estos nutrientes se reparten en elementos constructores, las proteínas, y en compuestos energéticos, los glúcidos y los lípidos."
   },
   {
@@ -192,6 +199,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "18",
+    "tags": ["leche", "formula lactea"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -207,6 +216,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "18",
+    "tags": ["leche", "formula lactea"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -222,6 +233,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "8",
+    "tags": ["leche", "leche de soya"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -237,6 +250,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "6",
+    "tags": ["leche", "leche de coco"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -252,6 +267,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "17",
+    "tags": ["leche", "leche evaporada"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -267,6 +284,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "54",
+    "tags": ["aceite de cocina", "aceite vegetal", "aceite de canola"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -282,6 +301,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "54",
+    "tags": ["aceite de cocina", "aceite vegetal", "aceite de soya"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -296,6 +317,13 @@
       "images/00750103912705L.jpg",
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ],
+    "category_id": "54",
+    "tags": [
+      "aceite de cocina",
+      "aceite vegetal",
+      "aceite de soya",
+      "aceite de canola"
     ],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
@@ -312,6 +340,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "47",
+    "tags": ["salsa picante"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -327,6 +357,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "47",
+    "tags": ["salsa picante"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -342,6 +374,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "47",
+    "tags": ["salsa picante"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -357,6 +391,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "47",
+    "tags": ["salsa picante"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -372,6 +408,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "47",
+    "tags": ["salsa picante"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -387,6 +425,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "47",
+    "tags": ["salsa picante"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -402,6 +442,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "47",
+    "tags": ["salsa picante"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -417,6 +459,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "47",
+    "tags": ["salsa picante"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -432,6 +476,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "48",
+    "tags": ["salsa de huacamole"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -447,6 +493,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "48",
+    "tags": ["salsas otras"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -462,6 +510,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "48",
+    "tags": ["salsas otras"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -477,6 +527,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "44",
+    "tags": ["salsa de tomate"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -492,6 +544,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "44",
+    "tags": ["salsa de tomate"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -507,6 +561,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "44",
+    "tags": ["salsa de tomate"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -522,6 +578,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "41",
+    "tags": ["atun en lata", "atun en agua"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -537,6 +595,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "42",
+    "tags": ["atun en lata", "atun en aceite"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -552,6 +612,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "36",
+    "tags": ["sopa", "sopa instantanea", "maruchan"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -567,6 +629,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "36",
+    "tags": ["sopa", "sopa instantanea", "maruchan"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -582,6 +646,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "36",
+    "tags": ["sopa", "sopa instantanea", "maruchan"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -597,6 +663,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "37",
+    "tags": ["sopa", "sopa instantanea", "maruchan"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -612,6 +680,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "37",
+    "tags": ["sopa", "sopa instantanea", "maruchan"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -627,6 +697,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "37",
+    "tags": ["sopa", "sopa instantanea", "maruchan"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -642,6 +714,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "22",
+    "tags": ["carne", "carne de pollo"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -657,6 +731,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "22",
+    "tags": ["carne", "carne de pollo"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -672,6 +748,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "22",
+    "tags": ["carne", "carne de pollo"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -687,6 +765,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "22",
+    "tags": ["carne", "carne de pollo"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -702,6 +782,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "22",
+    "tags": ["carne", "carne de pollo"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -717,6 +799,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "22",
+    "tags": ["carne", "carne de pollo"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -732,6 +816,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "21",
+    "tags": ["carne", "carne de cerdo"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -747,6 +833,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "21",
+    "tags": ["carne", "carne de cerdo"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -762,6 +850,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "20",
+    "tags": ["carne", "carne de res"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -777,6 +867,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "20",
+    "tags": ["carne", "carne de res"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -792,6 +884,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "20",
+    "tags": ["carne", "carne de res"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -807,6 +901,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "20",
+    "tags": ["carne", "carne de res"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -822,6 +918,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "20",
+    "tags": ["carne", "carne de res"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -837,6 +935,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "20",
+    "tags": ["carne", "carne de res"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -852,6 +952,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "20",
+    "tags": ["carne", "carne de res"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -867,6 +969,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "20",
+    "tags": ["carne", "carne de res"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -882,6 +986,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "20",
+    "tags": ["carne", "carne de res"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -897,6 +1003,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "20",
+    "tags": ["carne", "carne de res"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -912,6 +1020,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "20",
+    "tags": ["carne", "carne de res"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -927,6 +1037,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "20",
+    "tags": ["carne", "carne de res"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -942,6 +1054,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "24",
+    "tags": ["carne", "pescado"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -957,6 +1071,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "24",
+    "tags": ["carne", "pescado"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -972,6 +1088,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "24",
+    "tags": ["carne", "pescado"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -987,6 +1105,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "24",
+    "tags": ["carne", "pescado"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -1002,6 +1122,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "25",
+    "tags": ["carne", "pescado"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -1017,6 +1139,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "59",
+    "tags": ["refrescos", "coca cola"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -1032,6 +1156,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "59",
+    "tags": ["refrescos", "coca cola"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -1047,6 +1173,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "59",
+    "tags": ["refrescos", "coca cola"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -1062,6 +1190,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "59",
+    "tags": ["refrescos", "coca cola"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -1077,6 +1207,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "59",
+    "tags": ["refrescos", "coca cola"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -1092,6 +1224,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "59",
+    "tags": ["refrescos", "coca cola"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -1107,6 +1241,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "59",
+    "tags": ["refrescos", "coca cola"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -1122,6 +1258,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "59",
+    "tags": ["refrescos", "coca cola"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -1137,6 +1275,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "59",
+    "tags": ["refrescos", "coca cola"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -1152,6 +1292,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "59",
+    "tags": ["refrescos", "coca cola"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -1167,6 +1309,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "59",
+    "tags": ["refrescos", "coca cola"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -1182,6 +1326,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "59",
+    "tags": ["refrescos", "coca cola"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -1197,6 +1343,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "59",
+    "tags": ["refrescos", "coca cola"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -1212,6 +1360,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "3",
+    "tags": ["verduras"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -1227,6 +1377,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "3",
+    "tags": ["verduras"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -1242,6 +1394,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "3",
+    "tags": ["verduras"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -1257,6 +1411,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "3",
+    "tags": ["verduras"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -1272,6 +1428,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "3",
+    "tags": ["verduras"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -1287,6 +1445,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "3",
+    "tags": ["verduras"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -1302,6 +1462,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "3",
+    "tags": ["verduras"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -1317,6 +1479,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "3",
+    "tags": ["verduras"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -1332,6 +1496,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "3",
+    "tags": ["verduras"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -1347,6 +1513,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "3",
+    "tags": ["verduras"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -1362,6 +1530,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "3",
+    "tags": ["verduras"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -1377,6 +1547,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "9",
+    "tags": ["verduras", "chiles frescos"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -1392,6 +1564,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "9",
+    "tags": ["verduras", "chiles frescos"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -1407,6 +1581,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "32",
+    "tags": ["verduras", "chiles secos"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -1422,6 +1598,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "32",
+    "tags": ["verduras", "chiles secos"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -1437,6 +1615,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "32",
+    "tags": ["verduras", "chiles secos"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -1452,6 +1632,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "32",
+    "tags": ["verduras", "chiles secos"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -1467,6 +1649,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "32",
+    "tags": ["verduras", "chiles secos"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -1482,6 +1666,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "32",
+    "tags": ["verduras", "chiles secos"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -1497,6 +1683,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "56",
+    "tags": ["granos"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -1512,6 +1700,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "56",
+    "tags": ["granos"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -1527,6 +1717,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "56",
+    "tags": ["granos"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -1542,6 +1734,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "57",
+    "tags": ["granos"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -1557,6 +1751,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "56",
+    "tags": ["granos"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -1572,6 +1768,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "56",
+    "tags": ["granos"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -1587,6 +1785,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "63",
+    "tags": ["nueces"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   },
   {
@@ -1602,6 +1802,8 @@
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
+    "category_id": "63",
+    "tags": ["nueces"],
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores, dolorum eos excepturi id ipsa minima nam nemo odit pariatur perferendis provident qui quis recusandae totam vel voluptas voluptatem voluptatibus?"
   }
 ]
