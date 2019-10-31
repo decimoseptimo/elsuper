@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `ELSUPER`,
+    description: `Grandes productos a precios bajos. Con ELSUPER ahorras más.`,
+    author: `azulacero.mx`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -23,16 +23,17 @@ module.exports = {
     `gatsby-transformer-json`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-favicon`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `ELSUPER`,
+        short_name: `ELSUPER`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#2a2a2a`,
+        theme_color: `#2a2a2a`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/favicon.png`, // This path is relative to the root of the site.
       },
     },
     `gatsby-plugin-styled-jsx`,
@@ -89,7 +90,17 @@ module.exports = {
         // List of keys to store and make available in your UI. The values of
         // the keys are taken from the normalizer function below.
         // Default: all fields
-        store: ["id", "title", "price", "unit", "min_quantity", "max_quantity", "slug", "description", "images"],
+        store: [
+          "id",
+          "title",
+          "price",
+          "unit",
+          "min_quantity",
+          "max_quantity",
+          "slug",
+          "description",
+          "images",
+        ],
 
         // Function used to map the result from the GraphQL query. This should
         // return an array of items to index in the form of flat objects
