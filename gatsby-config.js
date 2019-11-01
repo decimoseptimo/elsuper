@@ -30,7 +30,7 @@ module.exports = {
         short_name: `ELSUPER`,
         start_url: `/`,
         background_color: `#2a2a2a`,
-        theme_color: `#2a2a2a`,
+        theme_color: `#000000`,
         display: `minimal-ui`,
         icon: `src/favicon.png`, // This path is relative to the root of the site.
       },
