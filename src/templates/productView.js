@@ -1,9 +1,9 @@
 import React, { useContext, useMemo } from "react"
-import { image, graphql } from "gatsby"
+import { graphql } from "gatsby"
 
 import ProductGallery from "../components/product/productGallery"
-import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Breadcrumbs from "../components/breadcrumbs"
 import ProductBase from "../components/product/productBase"
 import ProductSummary from "../components/product/productSummary"
 import ProductSidebar from "../components/product/productSidebar"
@@ -12,6 +12,7 @@ import { CartContext, findIndex } from "../state/cart"
 const ProductView = props => {
   const { id, title, images } = props.data.productsJson
   const [state, dispatch] = useContext(CartContext)
+  const { allSupercategories } = props.pageContext
 
   let indexInCart = findIndex(state, id)
   let countInCart
@@ -22,7 +23,7 @@ const ProductView = props => {
   return (
     <>
       <SEO title={title} keywords={[`gatsby`, `application`, `react`]} />
-
+      <Breadcrumbs data={allSupercategories} />
       <div className="row">
         <div className="col col-a">
           {useMemo(

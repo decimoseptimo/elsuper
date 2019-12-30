@@ -23,6 +23,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           node {
             id
             slug
+            parent_id
           }
         }
       }
@@ -76,6 +77,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         // Data passed to context is available
         // in page queries as GraphQL variables.
         id: node.id,
+        allSupercategories: getParentRecursively(categories, node).reverse(),
       },
     })
   })
@@ -89,7 +91,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     const result2 = await graphql(
       `
         query($allSubcategoriesIds: [String]) {
-          allProductsJson(filter: { category_id: { in: $allSubcategoriesIds } }) {
+          allProductsJson(filter: { parent_id: { in: $allSubcategoriesIds } }) {
             edges {
               node {
                 id
@@ -117,7 +119,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         allSupercategories,
         subcategories,
         allSubcategoriesIds,
-        productsCount: products.length
+        productsCount: products.length,
       },
       pathPrefix: `/${slugify(i.name.toLowerCase())}`,
     })

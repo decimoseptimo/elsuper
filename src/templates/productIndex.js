@@ -1,10 +1,10 @@
 import React from "react"
-import { Image, graphql, navigate } from "gatsby"
+import { graphql, navigate } from "gatsby"
+import { Icon } from "semantic-ui-react"
 
 import SEO from "../components/seo"
 import ProductGrid from "../components/product/productGrid"
 import Pagination from "../components/pagination"
-import { Icon } from "semantic-ui-react"
 
 const ProductIndex = props => {
   const products = props.data.allProductsJson.edges

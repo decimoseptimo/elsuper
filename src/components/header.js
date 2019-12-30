@@ -1,8 +1,8 @@
 import React, { useContext } from "react"
 import { Link } from "gatsby"
-import { FaSearch, FaUser, FaRegUser, FaRegUserCircle } from "react-icons/fa"
+// import { FaSearch, FaUser, FaRegUser, FaRegUserCircle } from "react-icons/fa"
 import { FiShoppingCart, FiUser, FiSearch } from "react-icons/fi"
-import { IoMdSearch, IoIosSearch } from "react-icons/io"
+// import { IoMdSearch, IoIosSearch } from "react-icons/io"
 import { MdSearch } from "react-icons/md"
 
 import { CartContext } from "../state/cart"
@@ -12,7 +12,7 @@ import ButtonCart from "./buttonCart"
 import ButtonCatalog from "./buttonCatalog"
 import Search from "./search"
 
-const Header = props => {
+const Header = () => {
   const [state, dispatch] = useContext(CartContext)
   const [miscState, miscDispatch] = useContext(MiscContext)
 

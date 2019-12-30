@@ -1,10 +1,11 @@
 import React from "react"
 import slugify from "slugify"
-import { Link, Image, graphql, navigate } from "gatsby"
+import { graphql, navigate } from "gatsby"
 import { Icon } from "semantic-ui-react"
 
 import SEO from "../components/seo"
 import ProductGrid from "../components/product/productGrid"
+import Breadcrumbs from "../components/breadcrumbs"
 import Pagination from "../components/pagination"
 import SubcategoryLink from "../components/subcategoryLink"
 
@@ -16,18 +17,6 @@ const CategoryView = props => {
     allSupercategories,
     productsCount,
   } = props.pageContext
-
-  const breadcrumbs = (
-    <div className="breadcrumbs">
-      <div className="breadcrumbs-wrapper">
-        {allSupercategories.map(i => (
-          <span class="item" key={i.id}>
-            <Link to={`/${slugify(i.name.toLowerCase())}`}>{i.name}</Link>
-          </span>
-        ))}
-      </div>
-    </div>
-  )
 
   const subcategories2 = (
     <div className="subcategories">
@@ -51,8 +40,8 @@ const CategoryView = props => {
         title={category.name}
         keywords={[`gatsby`, `application`, `react`]}
       />
-      {allSupercategories.length > 0 && breadcrumbs}
-      <h1>
+      <Breadcrumbs data={allSupercategories} />
+      <h1 className="categoryViewTitle">
         {category.name} ({productsCount})
       </h1>
       {subcategories2}
@@ -73,37 +62,12 @@ const CategoryView = props => {
         onPageChange={handlePageChange}
       />
       <style jsx global>{`
-        .breadcrumbs {
-          margin-top: -2.5rem;
-          margin-bottom: -0.65rem;
-        }
-
-        .breadcrumbs-wrapper {
-          background: #eee;
-          display: inline-block;
-          padding-left: 5px;
-          padding-right: 1px;
-        }
-        .breadcrumbs .item {
-          background-color: #eee;
-          color: #aaa;
-        }
-
-        .breadcrumbs .item a {
-          text-transform: uppercase;
-          font-size: 11px;
-          color: #aaa;
-          position: relative;
-          top: -1px;
-        }
-        .breadcrumbs .item a:after {
-          content: "/";
-          position: relative;
-          padding: 0 3px;
-        }
-
         .subcategories {
           margin-bottom: 1rem;
+        }
+
+        .categoryViewTitle {
+          margin-top: 0;
         }
       `}</style>
     </>
@@ -115,7 +79,7 @@ export default CategoryView
 export const pageQuery = graphql`
   query($allSubcategoriesIds: [String], $skip: Int!, $limit: Int!) {
     allProductsJson(
-      filter: { category_id: { in: $allSubcategoriesIds } }
+      filter: { parent_id: { in: $allSubcategoriesIds } }
       skip: $skip
       limit: $limit
     ) {

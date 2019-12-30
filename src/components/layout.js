@@ -1,12 +1,13 @@
 import React, { useContext, useEffect } from "react"
 import PropTypes from "prop-types"
 import BgMenu from "react-burger-menu/lib/menus/slide"
+import "antd/dist/antd.css"
+import "semantic-ui-css/semantic.min.css"
 
+import "./layout2.css"
 import Menu from "./categoriesMenu"
 import Cart from "./cart"
 import Header from "./header"
-import "semantic-ui-css/semantic.min.css"
-import "./layout2.css"
 import { MiscContext } from "../state/misc"
 
 // import SimpleBar from 'simplebar';
@@ -47,7 +48,7 @@ const Layout = ({ children }) => {
           customBurgerIcon={false}
           customCrossIcon={false}
           onStateChange={s => {
-            if (s.isOpen != state.isCatalogOpen)
+            if (s.isOpen !== state.isCatalogOpen)
               dispatch({ type: "TOGGLE_CATALOG_OPEN" })
           }}
         >
@@ -63,7 +64,7 @@ const Layout = ({ children }) => {
           customBurgerIcon={false}
           customCrossIcon={false}
           onStateChange={s => {
-            if (s.isOpen != state.isCartOpen)
+            if (s.isOpen !== state.isCartOpen)
               // dispatch({ type: "SET_CART_OPEN", isOpen: s.isOpen })
               dispatch({ type: "TOGGLE_CART_OPEN" })
           }}
