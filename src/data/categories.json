@@ -7,6 +7,7 @@
   { "name": "Leches", "id": "11", "parent_id": 10 },
   { "name": "Leche entera", "id": "15", "parent_id": 11 },
   { "name": "Leche semidescremada", "id": "16", "parent_id": 11 },
+  { "name": "Leche deslactosada", "id": "67", "parent_id": 11 },
   { "name": "Leche evaporada", "id": "17", "parent_id": 11 },
   { "name": "Formula lactea", "id": "18", "parent_id": 11 },
   { "name": "Sustitutos de leche", "id": "4", "parent_id": 10 },
