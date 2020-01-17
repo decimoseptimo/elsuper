@@ -35,7 +35,7 @@ const Categorias = () => {
   const { Panel } = Collapse
 
   const expandIcon = ({ isActive }) => (
-    <Icon type="right" rotate={isActive ? -90 : 90} />
+    <Icon type="right" rotate={isActive ? 0 : 90} />
   )
 
   const ItemLink = ({ id, name, className }) => (
@@ -43,6 +43,7 @@ const Categorias = () => {
       key={id}
       to={`/${slugify(name.toLowerCase())}`}
       className={className}
+      activeClassName="active"
       onClick={event => {
         //prevent trigger collapse
         event.stopPropagation()
@@ -80,7 +81,7 @@ const Categorias = () => {
           text-transform: uppercase;
           font-size: 1rem;
         }
-        
+
         /* First level */
 
         .ant-collapse {
@@ -106,7 +107,11 @@ const Categorias = () => {
         .ant-collapse a:last-child {
           border-bottom: none;
         }
-
+        .ant-collapse a.active {
+          color: #ab4594;
+          font-weight: 600;
+        }
+        
         .ant-collapse > .ant-collapse-item {
           border-color: #f6f6f6;
         }
