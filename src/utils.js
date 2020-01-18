@@ -9,7 +9,7 @@ exports.capitalize = string => {
 }
 
 const getParent = (arr, id) => {
-  const arrayIndex = arr.findIndex(i => i.id == id)
+  const arrayIndex = arr.findIndex(i => i.id === id)
   // if (arrayIndex >= 0) return arr[arrayIndex]
   // return null
   return arr[arrayIndex]
@@ -17,7 +17,7 @@ const getParent = (arr, id) => {
 exports.getParent = getParent
 
 const getChildren = (arr, id) => {
-  return arr.filter(i => i.parent_id == id)
+  return arr.filter(i => i.parent_id === id)
 }
 exports.getChildren = getChildren
 

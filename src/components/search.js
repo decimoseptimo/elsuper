@@ -33,7 +33,7 @@ const Search = props => {
   const results = useFlexSearch(query, index, JSON.parse(store))
 
   if (
-    props.location.pathname == "/buscar/" &&
+    props.location.pathname === "/buscar/" &&
     props.search &&
     props.search.p &&
     results.length &&
@@ -84,7 +84,7 @@ const Search = props => {
     </div>
   )
   const handleSearch = () => {
-    if (query.trim() != "") {
+    if (query.trim() !== "") {
       dispatch({
         type: "SET_MOBILE_SEARCH_OPEN",
         isMobileSearchOpen: false,

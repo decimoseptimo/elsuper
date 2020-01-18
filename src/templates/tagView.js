@@ -13,7 +13,7 @@ const TagView = props => {
   const { tag } = props.pageContext
 
   const handlePageChange = (e, d) => {
-    d.activePage == 1
+    d.activePage === 1
       ? navigate(`/tags/${slugify(tag)}`)
       : navigate(`/tags/${slugify(tag)}/${d.activePage}`)
   }

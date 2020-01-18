@@ -10,7 +10,7 @@ const ProductIndex = props => {
   const products = props.data.allProductsJson.edges
 
   const handlePageChange = (e, d) => {
-    d.activePage == 1 ? navigate(`/`) : navigate(`/${d.activePage}`)
+    d.activePage === 1 ? navigate(`/`) : navigate(`/${d.activePage}`)
   }
 
   return (

@@ -56,7 +56,7 @@ const UpdateInput = props => {
         value={props.count}
         min={props.min_quantity}
         max={props.max_quantity}
-        precision={props.unit == "Kg" ? 2 : 0}
+        precision={props.unit === "Kg" ? 2 : 0}
         onChange={value => {
           if (value >= props.min_quantity && value <= props.max_quantity) {
             props.setCount(value)

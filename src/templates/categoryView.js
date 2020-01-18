@@ -29,7 +29,7 @@ const CategoryView = props => {
   )
 
   const handlePageChange = (e, d) => {
-    d.activePage == 1
+    d.activePage === 1
       ? navigate(`/${slugify(category.name.toLowerCase())}`)
       : navigate(`/${slugify(category.name.toLowerCase())}/${d.activePage}`)
   }

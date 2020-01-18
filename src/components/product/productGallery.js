@@ -52,7 +52,7 @@ const ProductGallery = props => {
             <div
               key={index}
               onMouseOver={() => updateSlide(index)}
-              className={`image ${activeThumb == index ? "active" : ""}`}
+              className={`image ${activeThumb === index ? "active" : ""}`}
             >
               <Image
                 fluid={value.childImageSharp.fluid}

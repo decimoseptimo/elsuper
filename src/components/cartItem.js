@@ -49,7 +49,7 @@ const CartItem = props => {
             value={count}
             min={min_quantity}
             max={max_quantity}
-            precision={unit == "Kg" ? 2 : 0}
+            precision={unit === "Kg" ? 2 : 0}
             onChange={value => {
               if (value >= min_quantity && value <= max_quantity)
                 dispatch({ type: "UPDATE_CART_ITEM", id, count: value })

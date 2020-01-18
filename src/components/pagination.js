@@ -1,10 +1,10 @@
 import React from "react"
-import { Pagination as SUI_Pagination } from "semantic-ui-react"
+import { Pagination as SuiPagination } from "semantic-ui-react"
 
 const Pagination = props => {
   return (
     <div className="paginationWrapper">
-      <SUI_Pagination {...props} />
+      <SuiPagination {...props} />
       <style jsx global>{`
       .paginationWrapper {
         display: flex;
