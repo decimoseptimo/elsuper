@@ -1,36 +1,26 @@
-import React, { useContext, useEffect } from "react"
+import React, { useContext /*, useEffect*/ } from "react"
 import PropTypes from "prop-types"
 import BgMenu from "react-burger-menu/lib/menus/slide"
 import "antd/dist/antd.css"
 import "semantic-ui-css/semantic.min.css"
 
-import "./layout2.css"
+// import BgMenu2 from "./BgMenu2"
 import Menu from "./categoriesMenu"
 import Cart from "./cart"
 import Header from "./header"
 import { MiscContext } from "../state/misc"
+import "./layout2.css"
 
-// import SimpleBar from 'simplebar';
-// import 'simplebar/dist/simplebar.css';
-// import SimpleScrollbar from "simple-scrollbar"
-// import SimpleScrollbar from "../lib/simple-scrollbar"
-import "simple-scrollbar/simple-scrollbar.css"
-import MobileDetect from "mobile-detect"
-
-let SimpleScrollbar
-if (typeof window !== `undefined`) {
-  SimpleScrollbar = require("../lib/simple-scrollbar")
-}
+import SimpleBar from "simplebar-react"
+import "simplebar/dist/simplebar.min.css"
+// import MobileDetect from "mobile-detect"
 
 const Layout = ({ children }) => {
   const [state, dispatch] = useContext(MiscContext)
 
-  useEffect(() => {
-    const md = new MobileDetect(window.navigator.userAgent)
-    const el = document.querySelector(".ss-hook-class")
-
-    if (!md.mobile()) SimpleScrollbar.initEl(el)
-  }, [])
+  // useEffect(() => {
+  //   const md = new MobileDetect(window.navigator.userAgent)
+  // }, [])
 
   return (
     <>
@@ -42,7 +32,6 @@ const Layout = ({ children }) => {
         </div>
         <BgMenu
           className="catalog"
-          menuClassName="catalog"
           isOpen={state.isCatalogOpen}
           // left
           customBurgerIcon={false}
@@ -52,13 +41,14 @@ const Layout = ({ children }) => {
               dispatch({ type: "TOGGLE_CATALOG_OPEN" })
           }}
         >
-          <div className="ss-content">
+          {/*<SimpleBar style={{ maxHeight: "100%", width: "100%" }}>*/}
+          <div className="bm-item">
             <Menu onMenuClick={() => dispatch({ type: "CLOSE_CATALOG" })} />
           </div>
+          {/*</SimpleBar>*/}
         </BgMenu>
         <BgMenu
           className="cart"
-          menuClassName="cart ss-hook-class"
           isOpen={state.isCartOpen}
           right
           customBurgerIcon={false}
@@ -69,8 +59,28 @@ const Layout = ({ children }) => {
               dispatch({ type: "TOGGLE_CART_OPEN" })
           }}
         >
-          <Cart />
+          {/*<SimpleBar style={{ maxHeight: "100%", width: "100%" }}>*/}
+          <div className="bm-item">
+            <Cart />
+          </div>
+          {/*</SimpleBar>*/}
         </BgMenu>
+
+        {/*<BgMenu2*/}
+        {/*  className="catalog2"*/}
+        {/*  isOpen={state.isCatalogOpen}*/}
+        {/*  onStateChange={s => {*/}
+        {/*    if (s.isOpen !== state.isCatalogOpen)*/}
+        {/*      dispatch({ type: "TOGGLE_CATALOG_OPEN" })*/}
+        {/*  }}*/}
+        {/*>*/}
+        {/*  <SimpleBar style={{ maxHeight: "100%", width: "100%" }}>*/}
+        {/*    <Menu onMenuClick={() => dispatch({ type: "CLOSE_CATALOG" })} />*/}
+        {/*  </SimpleBar>*/}
+        {/*</BgMenu2>*/}
+        {/*<SimpleBar style={{ maxHeight: "100%", width: "100%" }}>*/}
+        {/*  <Cart />*/}
+        {/*</SimpleBar>*/}
         <div className="main-wrapper">
           <main>{children}</main>
         </div>
@@ -144,27 +154,24 @@ const Layout = ({ children }) => {
         }
       `}</style>
       <style jsx global>{`
-        .ss-container.is-hidden .ss-content {
-          width: 100%;
-        }
-
-        .ss-container.is-hidden .ss-content.rtl {
-          width: 100%;
-        }
-
-        .catalog .ss-content {
-          width: auto;
-        }
-
-        .ss-scroll {
-          opacity: 1;
-          width: 7px;
+        .simplebar-content {
+          padding: 2rem 2rem 2rem !important;
+          // padding: 0 1rem !important;
         }
 
         .bm-menu-wrap {
-          height: calc(100% - 4.8rem) !important;
+          position: fixed;
+          top: 0;
           bottom: 0;
+          // border: 1px solid red;
           width: 100% !important;
+          // margin-top: 4.8em;
+          padding-top: 4.8em;
+        }
+
+        .bm-menu {
+          background-color: #fff;
+          box-shadow: 0px 0 6px 0px #e0e0e0;
         }
 
         .bm-item-list,
@@ -172,34 +179,17 @@ const Layout = ({ children }) => {
           outline: none !important;
         }
 
-        .bm-menu {
-          background-color: #fff;
-          // box-shadow: 2px 0 6px 2px #e0e0e0;
-          box-shadow: 0px 0 6px 0px #e0e0e0;
-        }
-
-        // .bm-menu.catalog {
-        //   padding: 2rem 4rem 3rem 3rem;
-        // }
-
-        .bm-menu.cart {
-          padding: 2rem 1rem 0;
-        }
-
-        .bm-menu.ss-container {
-          padding: 0;
-        }
-
-        .ss-content {
-          padding: 2rem 1rem 0;
-        }
-
-        .catalog .ss-content {
+        //Catalog
+        .catalog .bm-item {
           padding: 2rem 2rem 2rem;
         }
 
+        .cart .bm-item {
+          padding: 2rem 1rem 0;
+        }
+
         @media screen and (min-width: 300px) {
-          .bm-menu-wrap.catalog {
+          .catalog {
             width: 270px !important;
           }
         }
@@ -209,25 +199,12 @@ const Layout = ({ children }) => {
             width: 500px !important;
           }
 
-          .bm-menu.cart {
-            margin-left: 5px;
-            padding: 2rem 2rem 0;
-          }
-
-          .bm-menu.catalog {
-            margin-right: 5px;
-          }
-
-          .bm-menu.ss-container {
-            padding: 0;
-          }
-
-          .ss-content {
-            padding: 2rem 2rem 0;
-          }
-
-          .catalog .ss-content {
+          .catalog .bm-item {
             padding: 2rem 2rem 2rem;
+          }
+
+          .cart .bm-item {
+            padding: 2rem 2rem 0;
           }
         }
       `}</style>

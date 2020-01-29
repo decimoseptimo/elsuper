@@ -80,6 +80,7 @@ const Cart = props => {
         .btn-wrapper {
           position: sticky;
           bottom: 0;
+          // margin-bottom: 4.8rem;
           border-bottom: 2rem solid #fff;
         }
 
