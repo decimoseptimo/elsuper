@@ -23,7 +23,8 @@ const Header = () => {
           className="buttonCatalog"
           aria-label="search button"
           onClick={() => {
-            miscDispatch({ type: "TOGGLE_CATALOG_OPEN" })
+            miscDispatch({ type: "TOGGLE_CATEGORIES_OPEN" })
+            miscDispatch({ type: "CLOSE_CART" })
           }}
         >
           <ButtonCatalog />
@@ -65,6 +66,7 @@ const Header = () => {
           count={state.length}
           onClick={() => {
             miscDispatch({ type: "TOGGLE_CART_OPEN" })
+            miscDispatch({ type: "CLOSE_CATEGORIES" })
           }}
         />
       </div>

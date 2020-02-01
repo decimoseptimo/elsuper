@@ -45,7 +45,7 @@ const Categorias = () => {
       onClick={event => {
         //prevent trigger collapse
         event.stopPropagation()
-        miscDispatch({ type: "TOGGLE_CATALOG_OPEN" })
+        miscDispatch({ type: "TOGGLE_CATEGORIES_OPEN" })
       }}
     >
       {name}

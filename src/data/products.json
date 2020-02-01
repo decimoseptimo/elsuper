@@ -37,5 +37,158 @@
     "parent_id": "2",
     "tags": ["frutas"],
     "description": "La naranja es una fruta cítrica obtenida del naranjo dulce (Citrus × sinensis), del naranjo amargo (Citrus × aurantium) y de naranjos de otras variedades o híbridos, de origen asiático.1\u200B Es un hesperidio carnoso de cáscara más o menos gruesa y endurecida, y su pulpa está formada típicamente por once gajos u hollejos llenos de jugo, el cual contiene mucha vitamina C, flavonoides y aceites esenciales. Se cultiva como un antiguo árbol ornamental y para obtener fragancias de sus frutos. Es más pequeña y dulce que el pomelo o toronja y más grande, aunque menos perfumada que la mandarina. Existen numerosas variedades de naranjas, siendo la mayoría híbridos producidos a partir de las especies Citrus maxima (pamplemusa), Citrus reticulata (mandarina) y Citrus medica (cidro)."
+  },
+  {
+    "id": "62",
+    "title": "Limon Verde",
+    "price": 12.0,
+    "unit": "Kg",
+    "min_quantity": 1,
+    "max_quantity": 100,
+    "slug": "limon-verde",
+    "images": ["images/1415138-lime_2.jpg"],
+    "parent_id": "2",
+    "tags": ["frutas"],
+    "description": "El limón verde es la especie Citrus aurantifolia y se conoce como limón verde o lima. Es proveniente de Asia y fue introducido a Europa durante las Cruzadas, cuando se empezaron a importar productos y especies de Africa del Norte y el Medio Oriente por personas emprendedoras.\n\nEste limón es pequeño y se consume cuando esta verde, ya que cambia de color a un verde amarillento al madurar. Tiene muchas semillas y no da mucho jugo. Tiene un sabor ácido y es muy aromático, sirviendo muy bien en bebidas que tienen una base fuerte y limpia, como en la margarita y el daiquiri que usan alcoholes que no se añejan mucho y contienen sabores fuertes y que recuerdan de donde provienen más de donde se hubieran podido madurar."
+  },
+  {
+    "id": "63",
+    "title": "Limon Amarillo",
+    "price": 15.0,
+    "unit": "Kg",
+    "min_quantity": 1,
+    "max_quantity": 100,
+    "slug": "limon-amarillo",
+    "images": ["images/6000200094504.jpg"],
+    "parent_id": "2",
+    "tags": ["frutas"],
+    "description": "El limón amarillo es la especie Citrus limón y se conoce en Estados Unidos como lemon. No se sabe exactamente de donde viene, aunque se cree que es del sur de India y China. Estos limones se empezarón a importar a Italia en el siglo 1 d.C. durante el imperio romano, aunque su uso culinario no era extenso. Su uso creció en el siglo XV y fue llevado a las Americas por Cristobal Colón. Estos fueron después cultivados en Florida y California, que es donde las plantaciones más grandes de limón amarillo están en Estados Unidos.\n\nEl limón amarillo no es tan ácido como el verde, resultando en un sabor agrio y un poco más dulce y aromático. Tiene menos ácido cítrico que el limón verde, evidente en sus usos culinarios como la limonada, que no usa tanta azúcar para quitar el sabor fuerte del limón verde."
+  },
+  {
+    "id": "6",
+    "title": "Manzana Verde",
+    "price": 30,
+    "unit": "Kg",
+    "min_quantity": 1,
+    "max_quantity": 100,
+    "slug": "manzana-verde",
+    "images": ["images/Propiedades-de-la-manzana-para-bajar-de-peso-4_0.jpg"],
+    "parent_id": "2",
+    "tags": ["frutas"],
+    "description": "La Granny Smith o manzana verde de la Abuela Smith es una variedad de manzana creada artificialmente, la cual se cree que proviene de la hibridación entre las especies Malus domestica y M. sylvestris. La primera vez que se tuvo conocimiento de ella, fue en Australia en 1868, después de que María Ann Smith Sherwood, de quien viene el nombre de \"Granny Smith\" (Abuela Smith), creara el primer injerto.1\u200B Más tarde se introdujeron en el Reino Unido, alrededor del año 1935, y en los Estados Unidos en 1972 por Grady Auvil. Además, se pueden encontrar silvestres en Nueva Zelanda."
+  },
+  {
+    "id": "7",
+    "title": "Manzana Golden",
+    "price": 45.5,
+    "unit": "Kg",
+    "min_quantity": 1,
+    "max_quantity": 100,
+    "slug": "manzana-golden",
+    "images": ["images/manzana_golden_extra.jpg"],
+    "parent_id": "2",
+    "tags": ["frutas"],
+    "description": "Golden Delicious es un cultivar de manzana Malus domestica de color amarillo. Es una de las variedades de manzana más cultivadas en todo el mundo. En su estado óptimo de maduración tiene una forma redondeada, color de la piel amarillo, carne de consistencia crujiente, jugosa, ligeramente amargo y es rica en fructosa. En climas templados del hemisferio norte, se cosecha a partir de septiembre."
+  },
+  {
+    "id": "200",
+    "title": "Melon chino",
+    "price": 15.5,
+    "unit": "Kg",
+    "min_quantity": 1,
+    "max_quantity": 100,
+    "slug": "melon-chino",
+    "images": ["images/large_7141bee7-5730-4347-a032-339c0beac2e4.jpg"],
+    "parent_id": "2",
+    "tags": ["frutas"],
+    "description": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
+  },
+  {
+    "id": "201",
+    "title": "Sandia",
+    "price": 5,
+    "unit": "Kg",
+    "min_quantity": 1,
+    "max_quantity": 100,
+    "slug": "sandia",
+    "images": [
+      "images/1636632163495618617_828474e5-95b2-4f01-8b13-30ce077739cb.jpg"
+    ],
+    "parent_id": "2",
+    "tags": ["frutas"],
+    "description": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
+  },
+  {
+    "id": "202",
+    "title": "Uva sin semilla",
+    "price": 88.9,
+    "unit": "Kg",
+    "min_quantity": 1,
+    "max_quantity": 100,
+    "slug": "uva-sin-semilla",
+    "images": ["images/0000000004022L.jpg"],
+    "parent_id": "2",
+    "tags": ["frutas"],
+    "description": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
+  },
+  {
+    "id": "208",
+    "title": "Uva roja sin semilla",
+    "price": 89.9,
+    "unit": "Kg",
+    "min_quantity": 1,
+    "max_quantity": 100,
+    "slug": "uva-roja-sin-semilla",
+    "images": ["images/35.png"],
+    "parent_id": "2",
+    "tags": ["frutas"],
+    "description": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
+  },
+  {
+    "id": "203",
+    "title": "Durazno",
+    "price": 12.85,
+    "unit": "Kg",
+    "min_quantity": 1,
+    "max_quantity": 100,
+    "slug": "durazno",
+    "images": ["images/KIqgJoC.jpg"],
+    "parent_id": "2",
+    "tags": ["frutas"],
+    "description": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
+  },
+  {
+    "id": "3",
+    "title": "Cartera de Huevo Blanco c/30",
+    "price": 59.99,
+    "unit": "Pz",
+    "min_quantity": 1,
+    "max_quantity": 100,
+    "slug": "cartera-de-huevo-blanco-c30",
+    "images": [
+      "images/alimento-24-cartones-de-la-cuenta-de-huevos-37152.jpg",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ],
+    "parent_id": "64",
+    "tags": ["huevos"],
+    "description": "Los huevos de gallina pueden ser de variados tamaños, siendo muy pequeños en aves jóvenes y grandes en aves adultas. La diferencia radica en que, al ser más grandes, la cáscara es más frágil y propensa a romperse. Como curiosidad, estos huevos grandes pueden venir con doble yema, debido a una doble ovulación del ave.\n\nLa cáscara del huevo se compone mayormente de carbonato de calcio. Puede ser de color blanco o castaño claro (marrón), según la variedad de la gallina ponedora. El color de la cáscara no afecta su calidad, sabor, características al cocinar, valor nutricional o grosor.5\u200B Un huevo medio de gallina suele pesar entre 60 y 70 gramos."
+  },
+  {
+    "id": "23",
+    "title": "Cartera de Huevo Rojo c/30",
+    "price": 58.5,
+    "unit": "Pz",
+    "min_quantity": 1,
+    "max_quantity": 100,
+    "slug": "cartera-de-huevo-rojo-c30",
+    "images": [
+      "images/huevos-21.webp",
+      "images/a36710ddb962166d6f11bafda448f1f1.jpg",
+      "images/Etiqueta-RC-Maxi-Adult.jpg"
+    ],
+    "parent_id": "64",
+    "tags": ["huevos"],
+    "description": "Los huevos de gallina pueden ser de variados tamaños, siendo muy pequeños en aves jóvenes y grandes en aves adultas. La diferencia radica en que, al ser más grandes, la cáscara es más frágil y propensa a romperse. Como curiosidad, estos huevos grandes pueden venir con doble yema, debido a una doble ovulación del ave.\n\nLa cáscara del huevo se compone mayormente de carbonato de calcio. Puede ser de color blanco o castaño claro (marrón), según la variedad de la gallina ponedora. El color de la cáscara no afecta su calidad, sabor, características al cocinar, valor nutricional o grosor.5\u200B Un huevo medio de gallina suele pesar entre 60 y 70 gramos."
   }
 ]
