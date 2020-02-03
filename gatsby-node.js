@@ -82,7 +82,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     })
   })
 
-  for (const i of categories) {
+  await Promise.all(categories.map(async i => {
     const allSupercategories = getParentRecursively(categories, i).reverse()
     const allSubcategories = getChildrenRecursively(categories, i)
     const allSubcategoriesIds = [i.id, ...allSubcategories.map(i => i.id)]
@@ -123,7 +123,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       },
       pathPrefix: `/${slugify(i.name.toLowerCase())}`,
     })
-  }
+  }))
 
   tags.forEach(tag => {
     paginate({
