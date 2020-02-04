@@ -82,48 +82,66 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     })
   })
 
-  await Promise.all(categories.map(async i => {
-    const allSupercategories = getParentRecursively(categories, i).reverse()
-    const allSubcategories = getChildrenRecursively(categories, i)
-    const allSubcategoriesIds = [i.id, ...allSubcategories.map(i => i.id)]
-    const subcategories = getChildren(allSubcategories, i.id)
+  const categoriesData = await Promise.all(
+    categories.map(async i => {
+      const allSupercategories = getParentRecursively(categories, i).reverse()
+      const allSubcategories = getChildrenRecursively(categories, i)
+      const allSubcategoriesIds = [i.id, ...allSubcategories.map(i => i.id)]
+      const subcategories = getChildren(allSubcategories, i.id)
 
-    const result2 = await graphql(
-      `
-        query($allSubcategoriesIds: [String]) {
-          allProductsJson(filter: { parent_id: { in: $allSubcategoriesIds } }) {
-            edges {
-              node {
-                id
+      const result = await graphql(
+        `
+          query($allSubcategoriesIds: [String]) {
+            allProductsJson(
+              filter: { parent_id: { in: $allSubcategoriesIds } }
+            ) {
+              edges {
+                node {
+                  id
+                }
               }
             }
           }
-        }
-      `,
-      { allSubcategoriesIds }
-    )
-    if (result2.errors) {
-      reporter.panicOnBuild(`2 Error while running GraphQL query.`)
-      return
-    }
+        `,
+        { allSubcategoriesIds }
+      )
 
-    const products = result2.data.allProductsJson.edges
-
-    paginate({
-      createPage,
-      items: products,
-      component: categoryView,
-      itemsPerPage: 50,
-      context: {
+      return {
         category: i,
         allSupercategories,
-        subcategories,
+        allSubcategories,
         allSubcategoriesIds,
-        productsCount: products.length,
-      },
-      pathPrefix: `/${slugify(i.name.toLowerCase())}`,
+        subcategories,
+        products: result.data.allProductsJson.edges,
+      }
     })
-  }))
+  )
+
+  categoriesData.forEach(
+    ({
+      category,
+      allSupercategories,
+      allSubcategories,
+      allSubcategoriesIds,
+      subcategories,
+      products,
+    }) => {
+      paginate({
+        createPage,
+        items: products,
+        component: categoryView,
+        itemsPerPage: 50,
+        context: {
+          category,
+          subcategories,
+          allSupercategories,
+          allSubcategoriesIds,
+          productsCount: products.length,
+        },
+        pathPrefix: `/${slugify(category.name.toLowerCase())}`,
+      })
+    }
+  )
 
   tags.forEach(tag => {
     paginate({
