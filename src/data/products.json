@@ -139,7 +139,7 @@
     "min_quantity": 1,
     "max_quantity": 100,
     "slug": "uva-roja-sin-semilla",
-    "images": ["images/35.png"],
+    "images": ["images/35.webp"],
     "parent_id": "2",
     "tags": ["frutas"],
     "description": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
@@ -540,7 +540,7 @@
     "max_quantity": 100,
     "slug": "leche-de-almendras-silk-946-ml",
     "images": [
-      "images/almendra.png",
+      "images/almendra.webp",
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
@@ -557,7 +557,7 @@
     "max_quantity": 100,
     "slug": "leche-de-almendras-sin-azucar-silk-946-ml",
     "images": [
-      "images/almendra-sinazucar.png",
+      "images/almendra-sinazucar.webp",
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
@@ -574,7 +574,7 @@
     "max_quantity": 100,
     "slug": "leche-de-almendras-vainilla-silk-946-ml",
     "images": [
-      "images/silk-almendra-vainilla2-1.png",
+      "images/silk-almendra-vainilla2-1.webp",
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
@@ -591,7 +591,7 @@
     "max_quantity": 100,
     "slug": "leche-de-almendras-chocolate-silk-946-ml",
     "images": [
-      "images/almendra-chocolate.png",
+      "images/almendra-chocolate.webp",
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
@@ -1033,7 +1033,7 @@
     "max_quantity": 100,
     "slug": "margarina-con-sal-country-crock-425gr",
     "images": [
-      "images/637926.png",
+      "images/637926.webp",
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
@@ -1067,7 +1067,7 @@
     "max_quantity": 100,
     "slug": "margarina-con-sal-iberia-400g",
     "images": [
-      "images/331824.png",
+      "images/331824.webp",
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
@@ -1135,7 +1135,7 @@
     "max_quantity": 100,
     "slug": "margarina-sin-sal-chantilly-primavera-400g",
     "images": [
-      "images/Nueva Imagen (2).png",
+      "images/Nueva Imagen (2).webp",
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
@@ -1254,7 +1254,7 @@
     "max_quantity": 100,
     "slug": "margarina-sin-sal-primavera-90g",
     "images": [
-      "images/Nueva Imagen (1).png",
+      "images/Nueva Imagen (1).webp",
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
@@ -1271,7 +1271,7 @@
     "max_quantity": 100,
     "slug": "queso-tipo-asadero-la-villita-1Kg",
     "images": [
-      "images/355535.png",
+      "images/355535.webp",
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
@@ -1288,7 +1288,7 @@
     "max_quantity": 100,
     "slug": "queso-tipo-panela-la-villita-1Kg",
     "images": [
-      "images/132014.png",
+      "images/132014.webp",
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
@@ -1305,7 +1305,7 @@
     "max_quantity": 100,
     "slug": "queso-pepper-jack-crystal-farms-227g",
     "images": [
-      "images/344280.png",
+      "images/344280.webp",
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
@@ -1322,7 +1322,7 @@
     "max_quantity": 100,
     "slug": "queso-menonita-tipo-chester-con-jalapeno-lacmeno-550gr",
     "images": [
-      "images/391238.png",
+      "images/391238.webp",
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
@@ -1339,7 +1339,7 @@
     "max_quantity": 100,
     "slug": "queso-tipo-chester-san-angel-500gr",
     "images": [
-      "images/391242.png",
+      "images/391242.webp",
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
@@ -1356,7 +1356,7 @@
     "max_quantity": 100,
     "slug": "queso-tipo-cheddar-san-angel-500gr",
     "images": [
-      "images/388832.png",
+      "images/388832.webp",
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
@@ -1373,7 +1373,7 @@
     "max_quantity": 100,
     "slug": "queso-menonita-tipo-chester-el-campito-1kg",
     "images": [
-      "images/366566.png",
+      "images/366566.webp",
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
@@ -1390,7 +1390,7 @@
     "max_quantity": 100,
     "slug": "queso-panela-light-lala-400gr",
     "images": [
-      "images/358902.png",
+      "images/358902.webp",
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
@@ -1407,7 +1407,7 @@
     "max_quantity": 100,
     "slug": "queso-panela-caperucita-400g",
     "images": [
-      "images/418353.png",
+      "images/418353.webp",
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
@@ -1424,7 +1424,7 @@
     "max_quantity": 100,
     "slug": "queso-oaxaca-swan-400g",
     "images": [
-      "images/424049.png",
+      "images/424049.webp",
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
@@ -1441,7 +1441,7 @@
     "max_quantity": 100,
     "slug": "queso-tipo-manchego-swan-400g",
     "images": [
-      "images/424050.png",
+      "images/424050.webp",
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
@@ -1458,7 +1458,7 @@
     "max_quantity": 100,
     "slug": "queso-tipo-americano-franja-144g",
     "images": [
-      "images/376427.png",
+      "images/376427.webp",
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
@@ -1492,7 +1492,7 @@
     "max_quantity": 100,
     "slug": "queso-tipo-americano-Burr-144g",
     "images": [
-      "images/319498.png",
+      "images/319498.webp",
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
@@ -1543,7 +1543,7 @@
     "max_quantity": 100,
     "slug": "queso-ricotta-crystal-farms-425g",
     "images": [
-      "images/366548.png",
+      "images/366548.webp",
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
@@ -1560,7 +1560,7 @@
     "max_quantity": 100,
     "slug": "queso-ricotta-sin-grasa-crystal-farms-425g",
     "images": [
-      "images/366547.png",
+      "images/366547.webp",
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
@@ -1577,7 +1577,7 @@
     "max_quantity": 100,
     "slug": "queso-azul-danes-tradicional-rosenburg-100gr",
     "images": [
-      "images/347463.png",
+      "images/347463.webp",
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
@@ -1594,7 +1594,7 @@
     "max_quantity": 100,
     "slug": "queso-parmesano-belbioioso-5oz",
     "images": [
-      "images/370278.png",
+      "images/370278.webp",
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
@@ -1611,7 +1611,7 @@
     "max_quantity": 100,
     "slug": "salsa-de-queso-tipo-cheddar-ricos-3Kg",
     "images": [
-      "images/360688.png",
+      "images/360688.webp",
       "images/a36710ddb962166d6f11bafda448f1f1.jpg",
       "images/Etiqueta-RC-Maxi-Adult.jpg"
     ],
