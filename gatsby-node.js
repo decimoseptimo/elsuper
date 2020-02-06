@@ -21,7 +21,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       products: allProductsJson {
         edges {
           node {
-            id
+            _id
             slug
             parent_id
           }
@@ -33,7 +33,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           totalCount
           edges {
             node {
-              id
+              _id
             }
           }
         }
@@ -41,7 +41,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       categories: allCategoriesJson {
         edges {
           node {
-            id
+            _id
             name
             parent_id
           }
@@ -56,9 +56,12 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   }
 
   const products = result.data.products.edges
-  const the_categories = result.data.categories.edges
-  const categories = the_categories.map(i => i.node)
+  const _categories = result.data.categories.edges
+  const categories = _categories.map(i => i.node)
   const tags = result.data.tags.group
+
+  console.log("products:" + products.length)
+  console.log("categories:" + categories.length)
 
   paginate({
     createPage,
@@ -76,7 +79,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       context: {
         // Data passed to context is available
         // in page queries as GraphQL variables.
-        id: node.id,
+        _id: node._id,
         allSupercategories: getParentRecursively(categories, node).reverse(),
       },
     })
@@ -85,8 +88,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   categories.forEach(async i => {
     const allSupercategories = getParentRecursively(categories, i).reverse()
     const allSubcategories = getChildrenRecursively(categories, i)
-    const allSubcategoriesIds = [i.id, ...allSubcategories.map(i => i.id)]
-    const subcategories = getChildren(allSubcategories, i.id)
+    const allSubcategoriesIds = [i._id, ...allSubcategories.map(i => i._id)]
+    const subcategories = getChildren(allSubcategories, i._id)
 
     const result2 = await graphql(
       `
@@ -94,7 +97,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           allProductsJson(filter: { parent_id: { in: $allSubcategoriesIds } }) {
             edges {
               node {
-                id
+                _id
               }
             }
           }

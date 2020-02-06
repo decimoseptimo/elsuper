@@ -23,7 +23,7 @@ const cartReducer = (state, action) => {
       return [
         ...state,
         {
-          id: action.id,
+          _id: action._id,
           title: action.title,
           price: action.price,
           unit: action.unit,
@@ -36,13 +36,13 @@ const cartReducer = (state, action) => {
       ]
     case "REMOVE_CART_ITEM":
       return state.filter(i => {
-        return i.id !== action.id
+        return i._id !== action._id
       })
     case "EMPTY_CART":
       return []
     case "UPDATE_CART_ITEM":
       return state.map(i => {
-        if (i.id === action.id) {
+        if (i._id === action._id) {
           return { ...i, count: action.count }
         }
         return i
@@ -52,12 +52,12 @@ const cartReducer = (state, action) => {
   }
 }
 
-const itemExists = (state, id) => {
-  let index = state.findIndex(i => i.id === id)
+const itemExists = (state, _id) => {
+  let index = state.findIndex(i => i._id === _id)
   if (index >= 0) return true
   return false
 }
 
-export const findIndex = (state, id) => {
-  return state.findIndex(i => i.id === id)
+export const findIndex = (state, _id) => {
+  return state.findIndex(i => i._id === _id)
 }

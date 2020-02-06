@@ -42,7 +42,7 @@ export const pageQuery = graphql`
     allProductsJson(skip: $skip, limit: $limit) {
       edges {
         node {
-          id
+          _id
           title
           price
           unit

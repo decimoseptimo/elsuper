@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
 
@@ -8,7 +8,7 @@ import { round } from "../utils"
 
 const CartItem = props => {
   const {
-    id,
+    _id,
     title,
     unit,
     slug,
@@ -52,7 +52,7 @@ const CartItem = props => {
             precision={unit === "Kg" ? 2 : 0}
             onChange={value => {
               if (value >= min_quantity && value <= max_quantity)
-                dispatch({ type: "UPDATE_CART_ITEM", id, count: value })
+                dispatch({ type: "UPDATE_CART_ITEM", _id, count: value })
             }}
           />
         </td>
@@ -61,7 +61,7 @@ const CartItem = props => {
           <button
             className="delete-button"
             onClick={() => {
-              dispatch({ type: "REMOVE_CART_ITEM", id })
+              dispatch({ type: "REMOVE_CART_ITEM", _id })
             }}
           >
             ×

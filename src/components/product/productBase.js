@@ -29,7 +29,7 @@ const RemoveButton = props => {
       onClick={() => {
         props.dispatch({
           type: "REMOVE_CART_ITEM",
-          id: props.id,
+          _id: props._id,
         })
       }}
     >
@@ -63,7 +63,7 @@ const UpdateInput = props => {
             if (props.countInCart)
               props.dispatch({
                 type: "UPDATE_CART_ITEM",
-                id: props.id,
+                _id: props._id,
                 count: value,
               })
           }

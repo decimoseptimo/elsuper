@@ -10,11 +10,11 @@ import ProductSidebar from "../components/product/productSidebar"
 import { CartContext, findIndex } from "../state/cart"
 
 const ProductView = props => {
-  const { id, title, images } = props.data.productsJson
+  const { _id, title, images } = props.data.productsJson
   const [state, dispatch] = useContext(CartContext)
   const { allSupercategories } = props.pageContext
 
-  let indexInCart = findIndex(state, id)
+  let indexInCart = findIndex(state, _id)
   let countInCart
   try {
     countInCart = state[indexInCart].count
@@ -115,16 +115,12 @@ const ProductView = props => {
   )
 }
 
-// ProductView.defaultProps = {
-//   asd: "fgh"
-// }
-
 export default ProductView
 
 export const query = graphql`
-  query($id: String!) {
-    productsJson(id: { eq: $id }) {
-      id
+  query($_id: String!) {
+    productsJson(_id: { eq: $_id }) {
+      _id
       title
       price
       unit

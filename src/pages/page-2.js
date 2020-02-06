@@ -1,13 +1,10 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
-
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import Image from "../components/image"
-import Slider from "react-slick"
-import ProductGallery from "../components/product/productGallery"
 import "../../node_modules/slick-carousel/slick/slick.css"
 import "../../node_modules/slick-carousel/slick/slick-theme.css"
+
+import SEO from "../components/seo"
+import ProductGallery from "../components/product/productGallery"
 
 const SecondPage = props => {
   const settings = {
@@ -36,7 +33,6 @@ const SecondPage = props => {
 
   const products = props.data.allProductsJson.edges
   const images = products[0].node.images
-  //console.log(images)
 
   return (
     <>
@@ -117,7 +113,7 @@ export const pageQuery = graphql`
     allProductsJson {
       edges {
         node {
-          id
+          _id
           title
           price
           unit

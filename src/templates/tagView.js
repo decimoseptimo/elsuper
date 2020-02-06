@@ -1,6 +1,6 @@
 import React from "react"
 import slugify from "slugify"
-import { Image, graphql, navigate } from "gatsby"
+import { graphql, navigate } from "gatsby"
 import { Icon } from "semantic-ui-react"
 
 import { capitalize } from "../utils"
@@ -53,7 +53,7 @@ export const pageQuery = graphql`
       totalCount
       edges {
         node {
-          id
+          _id
           title
           price
           unit

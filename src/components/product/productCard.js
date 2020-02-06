@@ -1,13 +1,11 @@
 import React from "react"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
-import css from "styled-jsx/css"
 
 import Image from "../image"
 
 const ProductCard = props => {
   const {
-    id,
     title,
     price,
     unit,

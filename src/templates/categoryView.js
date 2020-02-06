@@ -21,7 +21,7 @@ const CategoryView = props => {
   const subcategories2 = (
     <div className="subcategories">
       {subcategories.map(i => (
-        <SubcategoryLink to={`/${slugify(i.name.toLowerCase())}`} key={i.id}>
+        <SubcategoryLink to={`/${slugify(i.name.toLowerCase())}`} key={i._id}>
           {i.name}
         </SubcategoryLink>
       ))}
@@ -85,7 +85,7 @@ export const pageQuery = graphql`
     ) {
       edges {
         node {
-          id
+          _id
           title
           price
           unit
