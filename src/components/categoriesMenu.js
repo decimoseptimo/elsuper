@@ -1,12 +1,15 @@
 import React, { useContext } from "react"
 import { graphql, Link, useStaticQuery } from "gatsby"
 import slugify from "slugify"
-import { Collapse, Icon } from "antd"
+import Collapse, { Panel } from "rc-collapse"
+import "rc-collapse/assets/index.css"
+import { IconContext } from "react-icons"
+import { AiOutlineRight } from "react-icons/ai"
 
 import { getChildren, getCategoryTree } from "../utils"
 import { MiscContext } from "../state/misc"
 
-const Categorias = () => {
+const CategoriesMenu = () => {
   const data = useStaticQuery(graphql`
     query {
       allCategoriesJson {
@@ -35,7 +38,11 @@ const Categorias = () => {
   const { Panel } = Collapse
 
   const expandIcon = ({ isActive }) => (
-    <Icon type="right" rotate={isActive ? 0 : 90} />
+    <IconContext.Provider
+      value={!isActive ? { style: { transform: "rotate(90deg)" } } : {}}
+    >
+      <AiOutlineRight />
+    </IconContext.Provider>
   )
 
   const ItemLink = ({ id, name, className }) => (
@@ -66,7 +73,7 @@ const Categorias = () => {
         return children ? (
           getPanel(id, name, children)
         ) : (
-          <ItemLink id={id} name={name} className="ant-collapse-item" />
+          <ItemLink key={id} id={id} name={name} className="rc-collapse-item" />
         )
       })}
     </Collapse>
@@ -84,16 +91,16 @@ const Categorias = () => {
 
         /* First level */
 
-        .ant-collapse {
+        .rc-collapse {
           background: none;
           border: none;
         }
 
-        .ant-collapse .ant-collapse-content-box {
-          padding: 0;
+        .rc-collapse .rc-collapse-content-box {
+          margin: 0;
         }
 
-        .ant-collapse a {
+        .rc-collapse a {
           display: block;
           position: relative;
           padding: 12px 16px;
@@ -104,66 +111,77 @@ const Categorias = () => {
           color: rgba(0, 0, 0, 0.85);
           text-decoration: none;
         }
-        .ant-collapse a:last-child {
+        .rc-collapse a:last-child {
           border-bottom: none;
         }
-        .ant-collapse a.active {
+        .rc-collapse a.active {
           color: #ab4594;
           font-weight: 600;
         }
-        
-        .ant-collapse > .ant-collapse-item {
+
+        .rc-collapse > .rc-collapse-item {
           border-color: #f6f6f6;
         }
-        .ant-collapse > .ant-collapse-item:last-child {
+        .rc-collapse > .rc-collapse-item:last-child {
           border-bottom: none;
         }
 
-        .ant-collapse > .ant-collapse-item > .ant-collapse-header {
+        .rc-collapse > .rc-collapse-item > .rc-collapse-header {
           padding: 0;
         }
 
-        .ant-collapse .ant-collapse-header a {
-          padding-left: 0;
-          margin-left: 45px;
+        .rc-collapse .rc-collapse-header:focus {
+          outline: none;
         }
 
-        .ant-collapse .ant-collapse-header[aria-expanded="true"] i path {
+        .rc-collapse .rc-collapse-header a {
+          padding-left: 0;
+          margin-left: 1rem;
+        }
+
+        .rc-collapse svg {
+          margin-left: 1rem;
+          color: #222;
+          transition: transform 0.24s;
+        }
+
+        .rc-collapse .rc-collapse-header[aria-expanded="true"] svg path {
           stroke-width: 30px;
           stroke: black;
         }
 
         /* Second level */
 
-        .ant-collapse .ant-collapse-item-active > .ant-collapse-header {
+        .rc-collapse .rc-collapse-item-active > .rc-collapse-header {
           background: #f6f6f6;
           font-weight: 600;
         }
 
-        .ant-collapse .ant-collapse-content {
+        .rc-collapse .rc-collapse-content {
           border-top: 1px solid #eee;
           background: #f6f6f6;
+          padding: 0;
         }
 
-        .ant-collapse .ant-collapse > .ant-collapse-item {
+        .rc-collapse .rc-collapse > .rc-collapse-item {
           border-color: #f6f6f6;
         }
 
         /* Third level */
 
-        .ant-collapse
-          .ant-collapse
-          .ant-collapse-item-active
-          > .ant-collapse-header {
+        .rc-collapse
+          .rc-collapse
+          .rc-collapse-item-active
+          > .rc-collapse-header {
           background: #eaeaea;
         }
 
-        .ant-collapse .ant-collapse .ant-collapse-content {
+        .rc-collapse .rc-collapse .rc-collapse-content {
           border-color: #dfdfdf;
           background: #eaeaea;
         }
 
-        .ant-collapse .ant-collapse .ant-collapse > .ant-collapse-item {
+        .rc-collapse .rc-collapse .rc-collapse > .rc-collapse-item {
           border-color: #eaeaea;
         }
       `}</style>
@@ -171,4 +189,4 @@ const Categorias = () => {
   )
 }
 
-export default Categorias
+export default CategoriesMenu
