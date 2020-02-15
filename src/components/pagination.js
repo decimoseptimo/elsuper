@@ -1,66 +1,86 @@
 import React from "react"
-import { Pagination as SuiPagination } from "semantic-ui-react"
+import { default as RcPagination } from "rc-pagination"
+import "rc-pagination/assets/index.css"
 
 const Pagination = props => {
   return (
     <div className="paginationWrapper">
-      <SuiPagination {...props} />
+      <RcPagination {...props} />
       <style jsx global>{`
-      .paginationWrapper {
-        display: flex;
-      }
+        .rc-pagination {
+          font-family: Lato, Helvetica Neue, Arial, Helvetica, sans-serif;
+          font-size: 1rem;
+        }
 
-      .ui.pagination.menu {
-        margin: 0 auto;
-        margin-top: 3rem;
-      }
+        .rc-pagination-prev,
+        .rc-pagination-next {
+          border: none;
+        }
 
-      .ui.menu {
-        background: none;
-        box-shadow: none;
-        border: none;
-      }
+        .rc-pagination-prev,
+        .rc-pagination-jump-prev,
+        .rc-pagination-jump-next {
+          margin-right: 0;
+        }
+        
+        .rc-pagination-prev,
+        .rc-pagination-next,
+        .rc-pagination-jump-prev,
+        .rc-pagination-jump-next {
+          min-width: 2.5rem;
+          height: 2.5rem;
+          line-height: 2.5rem;
+        }
 
-      .ui.pagination.menu .item {
-          font-weight: bold;
+        .rc-pagination-prev a,
+        .rc-pagination-next a {
           color: #96588a;
-      }
+        }
+        .rc-pagination-prev a:after,
+        .rc-pagination-next a:after {
+          margin-top: -3px;
+        }
+        .rc-pagination-prev a:after {
+          font-size: 2.5rem;
+        }
+        .rc-pagination-next a:after {
+          font-size: 2.5rem;
+        }
 
-      .ui.pagination.menu .active.item {
-        color: #96588a;
-      }
+        .rc-pagination-disabled a {
+          color: #ccc;
+        }
 
-      .ui.menu .item:before {
-        width: 0;
-      }
+        .rc-pagination-item {
+          min-width: 2.5rem;
+          height: 2.5rem;
+          line-height: 2.5rem;
+          background: none;
+          border: none;
+          margin-right: 0;
+        }
+        .rc-pagination-item:hover {
+          background-color: rgba(0, 0, 0, 0.05);
+          border-radius: 0;
+        }
 
-      .ui.pagination.menu .item[type = "ellipsisItem"] {
-        padding: 0 !important;
-        min-width: auto;
-        opacity: .5;
-      }
+        .rc-pagination-item a {
+          color: #96588a;
+          font-weight: bold;
+        }
+        .rc-pagination-item:hover a {
+          color: #2db7f5;
+          color: #96588a;
+        }
 
-      .ui.menu a.item[type = "ellipsisItem"]:hover {
-        cursor: normal;
-        color: inherit;
-      }
+        .rc-pagination-item-active {
+          background-color: rgba(0, 0, 0, 0.05);
+          border-radius: 0;
+        }
 
-      .ui.pagination.menu .item[type = "ellipsisItem"]:hover {
-        background: none;
-        color: #96588a;
-        cursor: default;
-      }
-
-      .ui.pagination.menu .icon.item[type = "ellipsisItem"] i.icon {
-        font-size: .3rem;
-      }
-
-      a.active.item::after {
-        // content: "_";
-        // position: absolute;
-        // top: 1.5rem;
-        // left: 1.2rem;
-        // font-size: 1.4rem;
+        .rc-pagination-item-active a {
+          color: #96588a;
+        }
       `}</style>
     </div>
   )

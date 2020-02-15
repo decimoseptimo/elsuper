@@ -1,36 +1,43 @@
 import React from "react"
 import { graphql, navigate } from "gatsby"
-import { Icon } from "semantic-ui-react"
 
 import SEO from "../components/seo"
 import ProductGrid from "../components/product/productGrid"
 import Pagination from "../components/pagination"
+import { default as RcPagination } from "rc-pagination"
 
 const ProductIndex = props => {
   const products = props.data.allProductsJson.edges
 
-  const handlePageChange = (e, d) => {
-    d.activePage === 1 ? navigate(`/`) : navigate(`/${d.activePage}`)
+  const handlePageChange = page => {
+    page === 1 ? navigate(`/`) : navigate(`/${page}`)
   }
 
   return (
     <>
       <SEO title="Inicio" keywords={[`gatsby`, `application`, `react`]} />
       <ProductGrid products={products} />
-      <Pagination
-        activePage={props.pageContext.humanPageNumber}
-        ellipsisItem={{
-          content: <Icon name="circle" />,
-          icon: true,
-        }}
-        prevItem={{ content: <Icon name="angle left" />, icon: true }}
-        nextItem={{ content: <Icon name="angle right" />, icon: true }}
-        totalPages={props.pageContext.numberOfPages}
-        firstItem={null}
-        lastItem={null}
-        // ellipsisItem={null}
-        onPageChange={handlePageChange}
-      />
+      <div className="paginationWrapper">
+        <Pagination
+          current={props.pageContext.humanPageNumber}
+          // ellipsisItem={{
+          //   content: <Icon name="circle" />,
+          //   icon: true,
+          // }}
+          // prevIcon={{ content: <Icon name="angle left" />, icon: true }}
+          // nextIcon={{ content: <Icon name="angle right" />, icon: true }}
+          total={props.pageContext.numberOfPages}
+          pageSize={1}
+          onChange={handlePageChange}
+        />
+      </div>
+      <style jsx>{`
+        .paginationWrapper {
+          display: flex;
+          justify-content: center;
+          margin-top: 3rem;
+        }
+      `}</style>
     </>
   )
 }

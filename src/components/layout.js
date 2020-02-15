@@ -1,6 +1,5 @@
 import React, { useContext } from "react"
 import PropTypes from "prop-types"
-// import "semantic-ui-css/semantic.min.css"
 import SimpleBar from "simplebar-react"
 import "simplebar/dist/simplebar.min.css"
 

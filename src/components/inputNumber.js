@@ -1,7 +1,7 @@
 import React from "react"
 import { default as RcInputNumber } from "rc-input-number"
-
 import "rc-input-number/assets/index.css"
+
 import { FaCaretUp, FaAngleUp, FaAngleDown, FaCaretDown } from "react-icons/fa"
 
 const InputNumber = props => (
@@ -22,14 +22,12 @@ const InputNumber = props => (
         margin: 0;
         padding: 0;
         border: 1px solid #d9d9d9;
-
         display: flex;
         line-height: 1.9rem;
         font-size: 1rem;
         border-radius: 3px;
         height: auto;
-        max-width: 7.1rem;
-        background-color: white;
+    max-width: 6.2rem;        background-color: white;
       }
 
       .inputNumber .rc-input-number-handler-wrap {
@@ -39,13 +37,13 @@ const InputNumber = props => (
         height: auto;
         -webkit-transition: all 0.3s;
         transition: all 0.3s;
-
         display: flex;
         flex: 0 0 30px;
         flex-flow: column wrap;
         border-right: none;
         border-left: 1px solid #d9d9d9;
         order: 1;
+        font-size: 14px;
       }
 
       .inputNumber .rc-input-number-input:invalid {
@@ -72,9 +70,9 @@ const InputNumber = props => (
       .inputNumber .rc-input-number-input-wrap {
         overflow: hidden;
         height: auto;
-
         padding: 0.5rem;
         flex: 1;
+        padding: .35rem 0;
       }
     `}</style>
   </>

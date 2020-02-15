@@ -11,6 +11,7 @@ import BaseButton from "./baseButton"
 import ButtonCart from "./buttonCart"
 import ButtonCatalog from "./buttonCatalog"
 import Search from "./search"
+import SearchBox from "./searchBox"
 
 const Header = () => {
   const [state, dispatch] = useContext(CartContext)
@@ -43,7 +44,8 @@ const Header = () => {
       </div>
       <div className="col-b">
         <div className="inputSearchWrapper">
-          <Search />
+          {/*<Search />*/}
+          <SearchBox/>
         </div>
       </div>
       <div className="col-c">
@@ -131,7 +133,9 @@ const Header = () => {
         }
 
         h1 {
-          margin: 1.1rem 0;
+          margin: 1rem 0;
+          font-weight: 600;
+          letter-spacing: -1px;
         }
 
         @media screen and (min-width: 570px) {

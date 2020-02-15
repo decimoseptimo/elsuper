@@ -57,6 +57,7 @@ const inputSearch = props => {
 
         .inputSearch .ui.input {
           width: 100%;
+          display: inline-flex;
         }
 
         .inputSearch .ui.input > input {

@@ -1,7 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
-import css from "styled-jsx/css"
 
 import Image from "../image"
 
@@ -35,7 +34,7 @@ const ProductCard = props => {
       <UpdateInput {...props} className="updateInput" />
       <ToggleButton {...props} />
 
-      <style jsx>{`
+      <style jsx global>{`
         .updateInput {
           margin: 0 auto 1rem auto;
         }
@@ -50,7 +49,11 @@ const ProductCard = props => {
         }
 
         .shop-item .row {
-          margin: 0 auto 1rem auto;
+          margin: 0 auto 0.9rem;
+        }
+
+        .shop-item a {
+          text-decoration: none;
         }
 
         .shop-item .wrapper-a {
@@ -60,19 +63,24 @@ const ProductCard = props => {
         .shop-item .title {
           font-weight: bold;
           font-size: 1.1rem;
-          color: #222;
+          color: #333;
+          font-size: 1em;
+          font-weight: 600;
         }
 
         .shop-item .subtitle {
-          font-size: 1.1rem;
         }
 
         .shop-item img {
           max-width: 100%;
         }
 
-        .shop-item .button {
+        .shop-item button {
           margin-bottom: 0.3rem;
+          font-style: italic;
+          font-size: 0.9rem;
+          padding: 0.8rem 1.5rem;
+          margin-bottom: 0;
         }
       `}</style>
     </div>
