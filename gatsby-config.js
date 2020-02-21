@@ -59,23 +59,6 @@ module.exports = {
                 node {
                   id
                   title
-                  price
-                  unit
-                  min_quantity
-                  max_quantity
-                  slug
-                  description
-                  images {
-                    childImageSharp {
-                      fluid(maxWidth: 1080) {
-                        base64
-                        aspectRatio
-                        src
-                        srcSet
-                        sizes
-                      }
-                    }
-                  }
                 }
               }
             }
@@ -92,13 +75,6 @@ module.exports = {
         store: [
           "id",
           "title",
-          "price",
-          "unit",
-          "min_quantity",
-          "max_quantity",
-          "slug",
-          "description",
-          "images",
         ],
 
         // Function used to map the result from the GraphQL query. This should
@@ -108,13 +84,6 @@ module.exports = {
           data.allProductsJson.edges.map(({ node }) => ({
             id: node.id,
             title: node.title,
-            price: node.price,
-            unit: node.unit,
-            min_quantity: node.min_quantity,
-            max_quantity: node.max_quantity,
-            slug: node.slug,
-            description: node.description,
-            images: node.images,
           })),
       },
     },

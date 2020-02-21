@@ -19,8 +19,8 @@ const ProductGrid = ({ products }) => {
 
           return (
             <li key={index}>
-              {/*{useMemo(*/}
-              {/*() => (*/}
+              {useMemo(
+              () => (
               <ProductBase
                 {...value.node}
                 countInCart={countInCart}
@@ -28,9 +28,9 @@ const ProductGrid = ({ products }) => {
               >
                 {data => <ProductCard {...data} />}
               </ProductBase>
-              {/*),*/}
-              {/*[countInCart]*/}
-              {/*)}*/}
+              ),
+              [countInCart]
+              )}
             </li>
           )
         })}

@@ -1,6 +1,4 @@
 import React from "react"
-import css from "styled-jsx/css"
-import { Test as Test3 } from "./productBase"
 import nl2br from "react-nl2br"
 
 const ProductSummary = props => {

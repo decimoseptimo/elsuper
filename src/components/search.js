@@ -1,17 +1,14 @@
 import React, { useContext, useState } from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import { useLunr } from "react-lunr"
 import { useFlexSearch } from "react-use-flexsearch"
 import Highlighter from "react-highlight-words"
 import { Location, navigate } from "@reach/router"
 import queryString from "query-string"
 
-import InputSearch from "../components/inputSearch"
-import InputSearchMobile from "../components/inputSearchMobile"
+import SearchBox from "./searchBox"
 import { MiscContext } from "../state/misc"
 
 const Search = props => {
-  //console.log("mainInputSearch!")
   const data = useStaticQuery(graphql`
     query {
       localSearchProducts {
@@ -23,7 +20,6 @@ const Search = props => {
   const { index, store } = data.localSearchProducts
   const [state, dispatch] = useContext(MiscContext)
   const [query, setQuery] = useState(() => {
-    //console.log("useState")
     if (props.search && props.search.p) {
       return props.search.p
     }
@@ -39,19 +35,12 @@ const Search = props => {
     results.length &&
     !state.localSearchProducts
   ) {
-    //console.log("@")
     dispatch({
       type: "SET_LSP",
       localSearchProducts: results,
       query: query,
     })
   }
-
-  //console.log(`query: ${query}`)
-  //console.log("results:")
-  //console.log(results)
-  //console.log("state.localSearchProducts:")
-  //console.log(state.localSearchProducts)
 
   // const mql = window.matchMedia("(min-width: 570px)")
   // console.log("mql:")
@@ -99,6 +88,7 @@ const Search = props => {
     resultRenderer: highlightResultRenderer,
     results: normalizeResults.slice(0, 10),
     value: query,
+    placeholder: "¿Que estás buscando?",
     onSearchChange: (e, { value }) => {
       setQuery(value)
     },
@@ -124,15 +114,7 @@ const Search = props => {
 
   return (
     <>
-      <InputSearch {...inputSearchProps} placeholder="¿Que estás buscando?" />
-      {state.isMobileSearchOpen && (
-        <InputSearchMobile
-          {...inputSearchProps}
-          dispatch={dispatch}
-          setQuery={setQuery}
-          placeholder="¿Que estás buscando?"
-        />
-      )}
+      <SearchBox {...inputSearchProps} />
     </>
   )
 }

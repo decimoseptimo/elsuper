@@ -1,7 +1,6 @@
 import React from "react"
 import slugify from "slugify"
-import { Image, graphql, navigate } from "gatsby"
-import { Icon } from "semantic-ui-react"
+import { graphql, navigate } from "gatsby"
 
 import { capitalize } from "../utils"
 import SEO from "../components/seo"
@@ -24,18 +23,10 @@ const TagView = props => {
       <h1>{capitalize(tag)}</h1>
       <ProductGrid products={products} />
       <Pagination
-        activePage={props.pageContext.humanPageNumber}
-        ellipsisItem={{
-          content: <Icon name="circle" />,
-          icon: true,
-        }}
-        prevItem={{ content: <Icon name="angle left" />, icon: true }}
-        nextItem={{ content: <Icon name="angle right" />, icon: true }}
-        totalPages={props.pageContext.numberOfPages}
-        firstItem={null}
-        lastItem={null}
-        // ellipsisItem={null}
-        onPageChange={handlePageChange}
+        current={props.pageContext.humanPageNumber}
+        total={props.pageContext.numberOfPages}
+        pageSize={1}
+        onChange={handlePageChange}
       />
     </>
   )

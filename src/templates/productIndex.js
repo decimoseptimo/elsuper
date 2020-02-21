@@ -4,7 +4,6 @@ import { graphql, navigate } from "gatsby"
 import SEO from "../components/seo"
 import ProductGrid from "../components/product/productGrid"
 import Pagination from "../components/pagination"
-import { default as RcPagination } from "rc-pagination"
 
 const ProductIndex = props => {
   const products = props.data.allProductsJson.edges
@@ -20,12 +19,6 @@ const ProductIndex = props => {
       <div className="paginationWrapper">
         <Pagination
           current={props.pageContext.humanPageNumber}
-          // ellipsisItem={{
-          //   content: <Icon name="circle" />,
-          //   icon: true,
-          // }}
-          // prevIcon={{ content: <Icon name="angle left" />, icon: true }}
-          // nextIcon={{ content: <Icon name="angle right" />, icon: true }}
           total={props.pageContext.numberOfPages}
           pageSize={1}
           onChange={handlePageChange}

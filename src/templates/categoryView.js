@@ -1,7 +1,6 @@
 import React from "react"
 import slugify from "slugify"
 import { graphql, navigate } from "gatsby"
-import { Icon } from "semantic-ui-react"
 
 import SEO from "../components/seo"
 import ProductGrid from "../components/product/productGrid"
@@ -48,18 +47,10 @@ const CategoryView = props => {
 
       <ProductGrid products={products} />
       <Pagination
-        activePage={props.pageContext.humanPageNumber}
-        ellipsisItem={{
-          content: <Icon name="circle" />,
-          icon: true,
-        }}
-        prevItem={{ content: <Icon name="angle left" />, icon: true }}
-        nextItem={{ content: <Icon name="angle right" />, icon: true }}
-        totalPages={props.pageContext.numberOfPages}
-        firstItem={null}
-        lastItem={null}
-        // ellipsisItem={null}
-        onPageChange={handlePageChange}
+        current={props.pageContext.humanPageNumber}
+        total={props.pageContext.numberOfPages}
+        pageSize={1}
+        onChange={handlePageChange}
       />
       <style jsx global>{`
         .subcategories {
