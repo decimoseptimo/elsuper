@@ -85,13 +85,13 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     })
   })
 
-  categories.forEach(async i => {
+  for (const i of categories) {
     const allSupercategories = getParentRecursively(categories, i).reverse()
     const allSubcategories = getChildrenRecursively(categories, i)
     const allSubcategoriesIds = [i._id, ...allSubcategories.map(i => i._id)]
     const subcategories = getChildren(allSubcategories, i._id)
 
-    const result2 = await graphql(
+    const result = await graphql(
       `
         query($allSubcategoriesIds: [String]) {
           allProductsJson(filter: { parent_id: { in: $allSubcategoriesIds } }) {
@@ -105,12 +105,12 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       `,
       { allSubcategoriesIds }
     )
-    if (result2.errors) {
+    if (result.errors) {
       reporter.panicOnBuild(`2 Error while running GraphQL query.`)
       return
     }
 
-    const products = result2.data.allProductsJson.edges
+    const products = result.data.allProductsJson.edges
 
     paginate({
       createPage,
@@ -126,7 +126,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       },
       pathPrefix: `/${slugify(i.name.toLowerCase())}`,
     })
-  })
+  }
 
   tags.forEach(tag => {
     paginate({
