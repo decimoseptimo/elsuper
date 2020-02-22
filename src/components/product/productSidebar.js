@@ -1,9 +1,4 @@
 import React from "react"
-import { Link } from "gatsby"
-import Img from "gatsby-image"
-import css from "styled-jsx/css"
-
-import Image from "../image"
 
 const ProductSidebar = props => {
   return (
@@ -40,7 +35,6 @@ const ProductSidebar = props => {
         .shop-item .button {
           margin-bottom: 0.3rem;
         }
-
 
         @media screen and (min-width: 500px) {
           .col-thumbs {

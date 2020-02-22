@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, useMemo } from "react"
+import React, { useContext } from "react"
 import Button from "../components/button"
 
 import CartItem from "../components/cartItem"

@@ -8,16 +8,16 @@ exports.capitalize = string => {
   return string.charAt(0).toUpperCase() + string.slice(1)
 }
 
-const getParent = (arr, id) => {
-  const arrayIndex = arr.findIndex(i => i.id === id)
+const getParent = (arr, _id) => {
+  const arrayIndex = arr.findIndex(i => i._id === _id)
   // if (arrayIndex >= 0) return arr[arrayIndex]
   // return null
   return arr[arrayIndex]
 }
 exports.getParent = getParent
 
-const getChildren = (arr, id) => {
-  return arr.filter(i => i.parent_id === id)
+const getChildren = (arr, _id) => {
+  return arr.filter(i => i.parent_id === _id)
 }
 exports.getChildren = getChildren
 
@@ -38,7 +38,7 @@ exports.getCategoryTree = (arr, el) => {
 
   const recurse = el => {
     el.forEach((v, i) => {
-      let temp = getChildren(arr, v.id)
+      let temp = getChildren(arr, v._id)
       if (temp.length > 0) {
         el[i].children = temp
         recurse(temp)
@@ -59,7 +59,7 @@ exports.getChildrenRecursively = (arr, el) => {
 
   const recurse = el => {
     el.forEach((v, i) => {
-      let temp = getChildren(arr, v.id)
+      let temp = getChildren(arr, v._id)
       if (temp.length > 0) {
         children.push(...temp)
         recurse(temp)

@@ -15,7 +15,7 @@ const CategoriesMenu = () => {
       allCategoriesJson {
         edges {
           node {
-            id
+            _id
             name
             parent_id
           }
@@ -45,9 +45,9 @@ const CategoriesMenu = () => {
     </IconContext.Provider>
   )
 
-  const ItemLink = ({ id, name, className }) => (
+  const ItemLink = ({ _id, name, className }) => (
     <Link
-      key={id}
+      key={_id}
       to={`/${slugify(name.toLowerCase())}`}
       className={className}
       activeClassName="active"
@@ -61,19 +61,19 @@ const CategoriesMenu = () => {
     </Link>
   )
 
-  const getPanel = (id, name, children) => (
-    <Panel key={id} header={<ItemLink id={id} name={name} />}>
+  const getPanel = (_id, name, children) => (
+    <Panel key={_id} header={<ItemLink _id={_id} name={name} />}>
       {generateCollapse(children)}
     </Panel>
   )
 
   const generateCollapse = obj => (
     <Collapse accordion expandIcon={expandIcon}>
-      {obj.map(({ id, name, children }) => {
+      {obj.map(({ _id, name, children }) => {
         return children ? (
-          getPanel(id, name, children)
+          getPanel(_id, name, children)
         ) : (
-          <ItemLink key={id} id={id} name={name} className="rc-collapse-item" />
+          <ItemLink key={_id} id={_id} name={name} className="rc-collapse-item" />
         )
       })}
     </Collapse>

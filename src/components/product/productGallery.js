@@ -1,7 +1,6 @@
 import React, { useRef, useState, useMemo } from "react"
 import Slider from "react-slick"
 import Image from "gatsby-image"
-import Asd from "../image"
 import "../../../node_modules/slick-carousel/slick/slick.css"
 import "../../../node_modules/slick-carousel/slick/slick-theme.css"
 

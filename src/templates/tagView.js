@@ -44,7 +44,7 @@ export const pageQuery = graphql`
       totalCount
       edges {
         node {
-          id
+          _id
           title
           price
           unit

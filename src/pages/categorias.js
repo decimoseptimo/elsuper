@@ -19,11 +19,11 @@ const Categorias = props => {
   const getCategoriesList = obj => {
     return (
       <ul className="categoryList">
-        {obj.map(({ id, name, children }) => {
+        {obj.map(({ _id, name, children }) => {
           const categoryList = children ? getCategoriesList(children) : null
 
           return (
-            <li key={id}>
+            <li key={_id}>
               <Link to={`/${slugify(name.toLowerCase())}`}>{name}</Link>
               {categoryList}
             </li>
@@ -55,7 +55,7 @@ export const pageQuery = graphql`
     allCategoriesJson {
       edges {
         node {
-          id
+          _id
           name
         }
       }
