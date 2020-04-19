@@ -1,5 +1,4 @@
 import React from "react"
-import { Link } from "gatsby"
 
 const Button = props => {
   const propsClone = Object.assign({}, props)
@@ -10,21 +9,18 @@ const Button = props => {
       <button {...propsClone}>{props.children}</button>
       <style jsx>{`
         button {
-          // padding: 0.9rem 1.5rem;
           display: inline-block;
           background-color: ${props.backgroundColor};
+          padding: 0.9rem 1.8rem;
+          border: 1px solid #96588a;
+          cursor: pointer;
           color: #fff;
           text-decoration: none;
           font-weight: 600;
-          // font-size: 0.875rem;
           font-size: 1rem;
-          border: 1px solid #96588a;
-          cursor: pointer;
-
           font-family: "Source Sans Pro", HelveticaNeue-Light,
             "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial,
             "Lucida Grande", sans-serif;
-          padding: 0.9rem 1.8rem;
           font-style: italic;
         }
       `}</style>

@@ -4,21 +4,16 @@ import { FaBars } from "react-icons/fa"
 const ButtonCatalog = props => (
   <>
     <div className="barsButton">
-      <FaBars color="white" />
+      <FaBars color="#e0b324" />
     </div>
     <style jsx>{`
       .barsButton {
-        border: 1px solid white;
-        padding .2rem .3rem;
+        border: 1px solid #e0b324;
+        padding: .2rem .3rem;
         border-radius: 3px;
+        padding: 4px 4px 1px 4px;
         position: relative;
-        top: -5px;
-      }
-    `}</style>
-    <style jsx global>{`
-      .barsButton svg {
-        position: relative;
-        top: 2px;
+        top: -3px;
       }
     `}</style>
   </>

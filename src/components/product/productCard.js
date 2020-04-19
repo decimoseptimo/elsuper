@@ -63,11 +63,12 @@ const ProductCard = props => {
           font-weight: bold;
           font-size: 1.1rem;
           color: #333;
-          font-size: 1em;
+          font-size: 1.1rem;
           font-weight: 600;
         }
 
         .shop-item .subtitle {
+          font-size: 1.1rem;
         }
 
         .shop-item img {
@@ -77,9 +78,7 @@ const ProductCard = props => {
         .shop-item button {
           margin-bottom: 0.3rem;
           font-style: italic;
-          font-size: 0.9rem;
-          padding: 0.8rem 1.5rem;
-          margin-bottom: 0;
+          padding: 0.9rem 1.8rem;
         }
       `}</style>
     </div>

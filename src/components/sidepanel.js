@@ -14,7 +14,7 @@ const Sidepanel = props => (
         position: fixed;
         top: 0;
         bottom: 0;
-        margin-top: 4.8em;
+        margin-top: 4.6rem;
         transition: all 0.5s ease 0s;
         z-index: 110;
         width: 100%;

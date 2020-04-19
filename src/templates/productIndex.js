@@ -16,21 +16,12 @@ const ProductIndex = props => {
     <>
       <SEO title="Inicio" keywords={[`gatsby`, `application`, `react`]} />
       <ProductGrid products={products} />
-      <div className="paginationWrapper">
-        <Pagination
-          current={props.pageContext.humanPageNumber}
-          total={props.pageContext.numberOfPages}
-          pageSize={1}
-          onChange={handlePageChange}
-        />
-      </div>
-      <style jsx>{`
-        .paginationWrapper {
-          display: flex;
-          justify-content: center;
-          margin-top: 3rem;
-        }
-      `}</style>
+      <Pagination
+        current={props.pageContext.humanPageNumber}
+        total={props.pageContext.numberOfPages}
+        pageSize={1}
+        onChange={handlePageChange}
+      />
     </>
   )
 }

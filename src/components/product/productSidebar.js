@@ -5,14 +5,14 @@ const ProductSidebar = props => {
     <div className="product-sidebar">
       <div className="block">
         <h3>Sidebar #1</h3>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquid,
-        animi dicta dolores eaque facere in.
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquid,
+        animi dicta dolores eaque facere in.</p>
       </div>
 
       <div className="block">
         <h3>Sidebar #2</h3>
-        Iure nemo pariatur possimus quaerat quam quidem ratione reiciendis
-        repellendus? Corporis incidunt perspiciatis quae?
+      <p>Iure nemo pariatur possimus quaerat quam quidem ratione reiciendis
+        repellendus? Corporis incidunt perspiciatis quae?</p>
       </div>
 
       <style jsx>{`
@@ -30,6 +30,12 @@ const ProductSidebar = props => {
 
         h3 {
           margin-bottom: 1rem;
+          font-family: Lato,Helvetica Neue,Arial,Helvetica,sans-serif;
+          color: #333;
+        }
+        
+        p {
+         margin: 0;
         }
 
         .shop-item .button {

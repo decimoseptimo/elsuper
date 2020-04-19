@@ -75,10 +75,6 @@ const Header = () => {
           padding: 0 5px 0 0;
         }
 
-        h1 {
-          display: inline-flex;
-        }
-
         .inputSearchWrapper {
           margin: 0 2rem;
           // padding-left: 6px;
@@ -131,8 +127,13 @@ const Header = () => {
         }
 
         h1 {
+          display: inline-flex;
+        }
+
+        h1 {
           margin: 1rem 0;
           font-weight: 600;
+          font-size: 2.3rem;
           letter-spacing: -1px;
         }
 

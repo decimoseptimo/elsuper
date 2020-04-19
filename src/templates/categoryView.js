@@ -41,7 +41,7 @@ const CategoryView = props => {
       />
       <Breadcrumbs data={allSupercategories} />
       <h1 className="categoryViewTitle">
-        {category.name} ({productsCount})
+        {category.name} <span className="productsCount">{productsCount}</span>
       </h1>
       {subcategories2}
 
@@ -59,6 +59,13 @@ const CategoryView = props => {
 
         .categoryViewTitle {
           margin-top: 0;
+          font-family: Lato,Helvetica Neue,Arial,Helvetica,sans-serif;
+          color: #222;
+        }
+        
+        .productsCount {
+          font-weight: 300;
+          font-size: 1.7rem;
         }
       `}</style>
     </>

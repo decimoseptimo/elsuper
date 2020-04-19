@@ -27,7 +27,8 @@ const InputNumber = props => (
         font-size: 1rem;
         border-radius: 3px;
         height: auto;
-    max-width: 6.2rem;        background-color: white;
+        max-width: 7.1rem;
+        background-color: white;
       }
 
       .inputNumber .rc-input-number-handler-wrap {
@@ -43,7 +44,6 @@ const InputNumber = props => (
         border-right: none;
         border-left: 1px solid #d9d9d9;
         order: 1;
-        font-size: 14px;
       }
 
       .inputNumber .rc-input-number-input:invalid {
@@ -60,7 +60,6 @@ const InputNumber = props => (
         height: auto;
         overflow: hidden;
         touch-action: none;
-
         display: flex;
         flex: 1;
         align-items: center;
@@ -72,7 +71,7 @@ const InputNumber = props => (
         height: auto;
         padding: 0.5rem;
         flex: 1;
-        padding: .35rem 0;
+        font-family: sans-serif;
       }
     `}</style>
   </>

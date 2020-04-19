@@ -30,11 +30,12 @@ const ProductSummary = props => {
 
         .title {
           margin-bottom: 0;
+          font-family: Lato,Helvetica Neue,Arial,Helvetica,sans-serif;
         }
 
         .price {
           font-size: 1.5rem;
-          margin-bottom: 1.5rem;
+          margin: .5rem 0 1rem;
         }
 
         .cartInputs {

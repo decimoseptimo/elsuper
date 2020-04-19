@@ -87,6 +87,7 @@ const CategoriesMenu = () => {
         .categoryTitle {
           text-transform: uppercase;
           font-size: 1rem;
+          font-family: Lato,Helvetica Neue,Arial,Helvetica,sans-serif;
         }
 
         /* First level */

@@ -22,11 +22,11 @@ const ButtonCart = props => (
       }
 
       .cart-count {
+        margin-left: 1px;
         border-radius: 10px;
         font-family: Arial, Helvetica, sans-serif;
         font-weight: bold;
         font-size: 1rem;
-        margin-left: 1px;
         font-size: 1.2rem;
         color: coral;
       }

@@ -43,7 +43,7 @@ const SearchBox = props => {
   }
 
   const inputProps = {
-    placeholder: "Buscar",
+    placeholder: "Buscar productos",
     value,
     onChange,
   }
@@ -76,7 +76,7 @@ const SearchBox = props => {
           padding: 0.5rem 1rem 0.65rem;
           border: 1px solid #3a3a3a;
           background: #363636;
-          font-size: 0.9rem;
+          font-size: 1.1rem;
           color: darkseagreen;
           border-radius: 0.28571429rem;
         }
@@ -119,7 +119,7 @@ const SearchBox = props => {
           border: 1px solid #d4d4d5;
           border-top-left-radius: 0;
           border-top-right-radius: 0;
-          font-size: 0.9rem;
+          font-size: 1rem;
         }
 
         .react-autosuggest__suggestion {

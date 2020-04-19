@@ -80,13 +80,16 @@ const Cart = props => {
         .btn-wrapper {
           position: sticky;
           bottom: 0;
-          // margin-bottom: 4.8rem;
           border-bottom: 2rem solid #fff;
         }
 
+        h2 {
+          font-size: 1.7rem;
+          font-family: Lato,Helvetica Neue,Arial,Helvetica,sans-serif;
+        }
+        
         h2 .price {
           font-weight: normal;
-          // padding-left: 0.5rem;
           font-size: 1.2rem;
         }
 
