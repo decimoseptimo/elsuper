@@ -25,6 +25,8 @@ const Buscar = props => {
     return { node: value }
   })
 
+  console.log(products)
+
   return (
     <>
       <SEO title="Buscar" keywords={[`gatsby`, `application`, `react`]} />

@@ -1,10 +1,73 @@
-import React  from "react"
+import React, { useState } from "react"
 import Autosuggest from "react-autosuggest"
+import Highlighter from "react-highlight-words"
+import { navigate } from "@reach/router"
+
+const getSuggestionValue = suggestion => suggestion.title
+
+const renderSuggestion = ({title}, asd) => <div className="title">
+  <Highlighter
+    highlightTag={({ children, highlightIndex }) => (
+      <b className="highlighted-text">{children}</b>
+    )}
+    searchWords={asd.query.split(" ")}
+    autoEscape={true}
+    textToHighlight={title}
+  />
+</div>
+
+const handleSearch = (query, results) => {
+  console.log('hanldeSearch')
+  // console.log(query)
+  // navigate(`/buscar/?p=${query}`,{
+  //   state: { query, products: results },
+  // })
+}
 
 const SearchBox = props => {
-  const {inputProps, suggestions, onSuggestionsFetchRequested, onSuggestionsClearRequested, onSuggestionSelected, getSuggestionValue, renderSuggestion} = props
+  const {results, query, setQuery, handleSearch2} = props
+  const [value, setValue] = useState(query)
+  let suggestions = results
+
+  const onChange = (event, { newValue }) => {
+    setValue(newValue)
+  }
+
+  const onKeyDown = (event) => {
+    console.log('onKeyDown')
+    if (event.key === 'Enter' && value !== "") {
+    //   onSuggestionsClearRequested()
+      handleSearch2(value)
+    }
+  }
+
+  const inputProps = {
+    placeholder: "Buscar productos",
+    value,
+    onChange,
+    onKeyDown
+  }
+
+  const onSuggestionsFetchRequested = ({ value }) => {
+    console.log('onSuggestionsFetchRequested')
+    setQuery(value)
+  }
+
+  const onSuggestionsClearRequested = () => {
+    console.log('onSuggestionsClearRequested')
+    suggestions = []
+  }
+
+  const onSuggestionSelected = (e, asd) => {
+    console.log('onSuggestionSelected')
+    console.log(asd)
+    // setValue("")
+    // onSuggestionsClearRequested()
+    navigate(`/${asd.suggestion.slug}`)
+  }
+
   return (
-    <div className="searchBox">
+    <>
       <Autosuggest
         suggestions={suggestions}
         onSuggestionsFetchRequested={onSuggestionsFetchRequested}
@@ -82,7 +145,7 @@ const SearchBox = props => {
           background-color: #f3f4f5;
         }
       `}</style>
-    </div>
+    </>
   )
 }
 

@@ -42,7 +42,7 @@ const Header = () => {
         </h1>
       </div>
       <div className="col-b">
-        <div className="inputSearchWrapper">
+        <div className="searchBoxWrapper">
           <Search />
         </div>
       </div>
@@ -75,13 +75,13 @@ const Header = () => {
           padding: 0 5px 0 0;
         }
 
-        .inputSearchWrapper {
+        .searchBoxWrapper {
           margin: 0 2rem;
           // padding-left: 6px;
           width: 100%;
         }
 
-        .inputSearch {
+        .searchBox {
           margin: 0 auto;
           display: none;
         }
@@ -97,11 +97,11 @@ const Header = () => {
             display: none;
           }
 
-          .inputSearchMobile {
+          .searchBoxMobile {
             display: none;
           }
 
-          .inputSearch {
+          .searchBox {
             display: block;
           }
         }

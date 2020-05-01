@@ -157,10 +157,7 @@ const inputSearchMobile = props => {
           transition: opacity 0.3s ease 0s;
         }
 
-        .inputSearchMobile .ui.search {
-        }
-
-        .inputSearchMobile .ui.search > .results {
+        .inputSearchMobile .react-autosuggest__container {
           width: 100%;
           margin-top: 0;
           border-top-left-radius: 0;
@@ -170,37 +167,37 @@ const inputSearchMobile = props => {
           left: 0;
         }
 
-        .inputSearchMobile .ui.search .prompt {
+        .inputSearchMobile .react-autosuggest__container .prompt {
           border-radius: 0.28571429rem;
         }
 
-        .inputSearchMobile .ui.search > .results .result {
+        .inputSearchMobile .react-autosuggest__suggestions-list {
           border-bottom: none;
         }
-        .inputSearchMobile .ui.search > .results .result:first-child {
+        .inputSearchMobile .react-autosuggest__suggestions-list:first-child {
           padding-top: 1.3rem;
         }
-        .inputSearchMobile .ui.search > .results .result:last-child {
+        .inputSearchMobile .react-autosuggest__suggestions-list:last-child {
           padding-bottom: 1.3rem;
         }
 
-        .inputSearchMobile .ui.search > .results .result .title {
+        .inputSearchMobile .react-autosuggest__suggestions-list .title {
           font-weight: normal;
         }
 
-        .inputSearchMobile .ui.search .action {
+        .inputSearchMobile .react-autosuggest__container .action {
           background: none;
         }
 
-        .inputSearchMobile .ui.search .action:hover {
+        .inputSearchMobile .react-autosuggest__container .action:hover {
           background: none;
         }
 
-        .inputSearchMobile .ui.input {
+        .inputSearchMobile .react-autosuggest__container {
           width: 100%;
         }
 
-        .inputSearchMobile .ui.input > input {
+        .inputSearchMobile .react-autosuggest__container > input {
           color: #888;
           padding: 0.55rem 1rem 0.65rem;
           background: #2a2a2a;
@@ -210,26 +207,26 @@ const inputSearchMobile = props => {
           padding-left: 0.2rem;
         }
 
-        .inputSearchMobile .ui.input > input:focus {
+        .inputSearchMobile .react-autosuggest__container > input:focus {
         }
 
-        .inputSearchMobile .ui.input > input::-webkit-input-placeholder {
+        .inputSearchMobile .react-autosuggest__container > input::-webkit-input-placeholder {
           /* Chrome/Opera/Safari */
           color: #888;
         }
-        .inputSearchMobile .ui.input > input:focus::-webkit-input-placeholder {
+        .inputSearchMobile .react-autosuggest__container > input:focus::-webkit-input-placeholder {
           /* Chrome/Opera/Safari */
           color: #888;
         }
-        .inputSearchMobile .ui.input > input::-moz-placeholder {
+        .inputSearchMobile .react-autosuggest__container > input::-moz-placeholder {
           /* Firefox 19+ */
           color: #888;
         }
-        .inputSearchMobile .ui.input > input:-ms-input-placeholder {
+        .inputSearchMobile .react-autosuggest__container > input:-ms-input-placeholder {
           /* IE 10+ */
           color: #888;
         }
-        .inputSearchMobile .ui.input > input:-moz-placeholder {
+        .inputSearchMobile .react-autosuggest__container > input:-moz-placeholder {
           /* Firefox 18- */
           color: #888;
         }

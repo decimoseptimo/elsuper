@@ -1,11 +1,12 @@
 import React, { useContext, useState } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { useFlexSearch } from "react-use-flexsearch"
-import Highlighter from "react-highlight-words"
 import { Location, navigate } from "@reach/router"
 import queryString from "query-string"
 
+import SearchBoxBase from "./searchBoxBase"
 import SearchBox from "./searchBox"
+import SearchBoxMobile from "./searchBoxMobile"
 import { MiscContext } from "../state/misc"
 
 const Search = props => {
@@ -25,7 +26,8 @@ const Search = props => {
     }
     return ""
   })
-  const keywords = query.split(" ")
+
+  // const keywords = query.split(" ")
   const results = useFlexSearch(query, index, JSON.parse(store))
 
   if (
@@ -49,72 +51,67 @@ const Search = props => {
   const normalizeResults = results.map(({ title, slug }) => {
     return { title, slug }
   })
-  // const results2 = [
-  //   { title: "pineapple application apptitude" },
-  //   { title: "apple app" },
-  // ]
-  const simpleResultRenderer = ({ title }) => (
-    <div key={title} className="content">
-      <div className="title">{title}</div>
-    </div>
-  )
-  const highlightResultRenderer = ({ title }) => (
-    <div key={title} className="content">
-      <div className="title">
-        <Highlighter
-          highlightTag={({ children, highlightIndex }) => (
-            <b className="highlighted-text">{children}</b>
-          )}
-          searchWords={keywords}
-          autoEscape={true}
-          textToHighlight={title}
-        />
-      </div>
-    </div>
-  )
-  const handleSearch = () => {
-    if (query.trim() !== "") {
-      dispatch({
-        type: "SET_MOBILE_SEARCH_OPEN",
-        isMobileSearchOpen: false,
-      })
-      navigate(`/buscar/?p=${query}`, {
-        state: { query: query, products: results },
-      })
-    }
+
+  // const handleSearch = () => {
+  //   if (query.trim() !== "") {
+  //     dispatch({
+  //       type: "SET_MOBILE_SEARCH_OPEN",
+  //       isMobileSearchOpen: false,
+  //     })
+  //     navigate(`/buscar/?p=${query}`, {
+  //       state: { query: query, products: results },
+  //     })
+  //   }
+  // }
+
+  console.log("Search")
+  console.log(query)
+  console.log(results)
+
+  const handleSearch2 = (query) => {
+    console.log('handleSearch2')
+    console.log(query)
+
+    navigate(`/buscar/?p=${query}`,{
+      state: { query: "", products: results },
+    })
   }
 
-  const inputSearchProps = {
-    resultRenderer: highlightResultRenderer,
+  const searchBoxProps = {
     results: normalizeResults.slice(0, 10),
-    value: query,
-    placeholder: "¿Que estás buscando?",
-    onSearchChange: (e, { value }) => {
-      setQuery(value)
-    },
-    onResultSelect: (e, { result }) => {
-      dispatch({
-        type: "SET_MOBILE_SEARCH_OPEN",
-        isMobileSearchOpen: false,
-      })
-      navigate(`/${result.slug}/?p=${query}`)
-    },
-    onButtonClick: () => {
+    query,
+    setQuery,
+    dispatch,
+    handleSearch2,
+    // onSearchChange: (e, { value }) => {
+    //   setQuery(value)
+    // },
+    // onResultSelect: (e, { result }) => {
+    //   dispatch({
+    //     type: "SET_MOBILE_SEARCH_OPEN",
+    //     isMobileSearchOpen: false,
+    //   })
+    //   navigate(`/${result.slug}/?p=${query}`)
+    // },
+    // onButtonClick: () => {
       //console.log("click")
-      handleSearch()
-    },
-    onKeyDown: e => {
-      if (e.key === "Enter") {
-        //console.log("down")
-        e.target.blur()
-        handleSearch()
-      }
-    },
+      // handleSearch()
+    // },
+    // onKeyDown: e => {
+    //   if (e.key === "Enter") {
+    //     //console.log("down")
+    //     e.target.blur()
+    //     // handleSearch()
+    //   }
+    // },
   }
 
   return (
     <>
-      <SearchBox {...inputSearchProps} />
+      <SearchBoxBase {...searchBoxProps} view={SearchBox} />
+      {state.isMobileSearchOpen && (
+      <SearchBoxBase {...searchBoxProps} view={SearchBoxMobile} />
+      )}
     </>
   )
 }
