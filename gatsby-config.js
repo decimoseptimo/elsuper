@@ -57,7 +57,7 @@ module.exports = {
             allProductsJson {
               edges {
                 node {
-                  id
+                  _id
                   title
                   price
                   unit
@@ -84,7 +84,7 @@ module.exports = {
 
         // Field used as the reference value for each document.
         // Default: 'id'.
-        ref: "id",
+        ref: "_id",
 
         // List of keys to index. The values of the keys are taken from the
         // normalizer function below.
@@ -95,7 +95,7 @@ module.exports = {
         // the keys are taken from the normalizer function below.
         // Default: all fields
         store: [
-          "id",
+          "_id",
           "title",
           "price",
           "unit",
@@ -111,7 +111,7 @@ module.exports = {
         // containing properties to index. This is required.
         normalizer: ({ data }) =>
           data.allProductsJson.edges.map(({ node }) => ({
-            id: node.id,
+            _id: node._id,
             title: node.title,
             price: node.price,
             unit: node.unit,

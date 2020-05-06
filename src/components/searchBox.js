@@ -1,19 +1,15 @@
 import React  from "react"
 import Autosuggest from "react-autosuggest"
 
-const SearchBox = props => {
-  const {inputProps, suggestions, onSuggestionsFetchRequested, onSuggestionsClearRequested, onSuggestionSelected, getSuggestionValue, renderSuggestion} = props
+// const SearchBox = props => {
+// https://github.com/reactjs/reactjs.org/issues/2120#issuecomment-589207766
+const SearchBox = React.forwardRef((props, ref) => {
+  //console.log("SearchBox")
+
   return (
     <div className="searchBox">
-      <Autosuggest
-        suggestions={suggestions}
-        onSuggestionsFetchRequested={onSuggestionsFetchRequested}
-        onSuggestionsClearRequested={onSuggestionsClearRequested}
-        onSuggestionSelected={onSuggestionSelected}
-        getSuggestionValue={getSuggestionValue}
-        renderSuggestion={renderSuggestion}
-        inputProps={inputProps}
-      />
+      {/*<Autosuggest {...props} />*/}
+      <Autosuggest {...props} ref={ref} />
       <style jsx global>{`
         .react-autosuggest__container {
           position: relative;
@@ -84,6 +80,7 @@ const SearchBox = props => {
       `}</style>
     </div>
   )
-}
+// }
+})
 
 export default SearchBox

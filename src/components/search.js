@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { useFlexSearch } from "react-use-flexsearch"
 import { Location, navigate } from "@reach/router"
@@ -10,6 +10,8 @@ import SearchBoxMobile from "./searchBoxMobile"
 import { MiscContext } from "../state/misc"
 
 const Search = props => {
+  //console.log("Search")
+
   const data = useStaticQuery(graphql`
     query {
       localSearchProducts {
@@ -20,29 +22,29 @@ const Search = props => {
   `)
   const { index, store } = data.localSearchProducts
   const [state, dispatch] = useContext(MiscContext)
-  const [query, setQuery] = useState(() => {
-    if (props.search && props.search.p) {
-      return props.search.p
-    }
-    return ""
-  })
-
-  // const keywords = query.split(" ")
-  const results = useFlexSearch(query, index, JSON.parse(store))
+  const querystring = (() => {try { return props.search.p } catch { return "" }})()
+  const [query, setQuery] = useState(querystring)
+  useEffect(
+    () => {
+      //console.log("useEffect")
+      setQuery(querystring)
+    }, [querystring]
+  )
 
   if (
     props.location.pathname === "/buscar/" &&
     props.search &&
     props.search.p &&
-    results.length &&
-    !state.localSearchProducts
+    !state.query
   ) {
+    //console.log('dispatch')
     dispatch({
-      type: "SET_LSP",
-      localSearchProducts: results,
+      type: "SET_QUERY",
       query: query,
     })
   }
+
+  const results = useFlexSearch(query, index, JSON.parse(store))
 
   // const mql = window.matchMedia("(min-width: 570px)")
   // console.log("mql:")
@@ -52,28 +54,15 @@ const Search = props => {
     return { title, slug }
   })
 
-  // const handleSearch = () => {
-  //   if (query.trim() !== "") {
-  //     dispatch({
-  //       type: "SET_MOBILE_SEARCH_OPEN",
-  //       isMobileSearchOpen: false,
-  //     })
-  //     navigate(`/buscar/?p=${query}`, {
-  //       state: { query: query, products: results },
-  //     })
-  //   }
-  // }
-
-  console.log("Search")
-  console.log(query)
-  console.log(results)
-
-  const handleSearch2 = (query) => {
-    console.log('handleSearch2')
-    console.log(query)
-
+  const handleSearch = (query) => {
+    //console.log('handleSearch')
+    //console.log(query)
+    dispatch({
+      type: "SET_MOBILE_SEARCH_OPEN",
+      isMobileSearchOpen: false,
+    })
     navigate(`/buscar/?p=${query}`,{
-      state: { query: "", products: results },
+      state: { query },
     })
   }
 
@@ -82,35 +71,14 @@ const Search = props => {
     query,
     setQuery,
     dispatch,
-    handleSearch2,
-    // onSearchChange: (e, { value }) => {
-    //   setQuery(value)
-    // },
-    // onResultSelect: (e, { result }) => {
-    //   dispatch({
-    //     type: "SET_MOBILE_SEARCH_OPEN",
-    //     isMobileSearchOpen: false,
-    //   })
-    //   navigate(`/${result.slug}/?p=${query}`)
-    // },
-    // onButtonClick: () => {
-      //console.log("click")
-      // handleSearch()
-    // },
-    // onKeyDown: e => {
-    //   if (e.key === "Enter") {
-    //     //console.log("down")
-    //     e.target.blur()
-    //     // handleSearch()
-    //   }
-    // },
+    handleSearch,
   }
 
   return (
     <>
       <SearchBoxBase {...searchBoxProps} view={SearchBox} />
       {state.isMobileSearchOpen && (
-      <SearchBoxBase {...searchBoxProps} view={SearchBoxMobile} />
+        <SearchBoxBase {...searchBoxProps} view={SearchBoxMobile} />
       )}
     </>
   )

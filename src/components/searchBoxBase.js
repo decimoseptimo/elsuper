@@ -1,6 +1,5 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import Highlighter from "react-highlight-words"
-import { navigate } from "@reach/router"
 
 const getSuggestionValue = suggestion => suggestion.title
 
@@ -15,33 +14,62 @@ const renderSuggestion = ({title}, asd) => <div className="title">
   />
 </div>
 
-const handleSearch = (query, results) => {
-  console.log('hanldeSearch')
-  // console.log(query)
-  // navigate(`/buscar/?p=${query}`,{
-  //   state: { query, products: results },
-  // })
-}
-
 const SearchBoxBase = props => {
-  const {view:View, results, query, setQuery, handleSearch2, dispatch} = props
+  const {view:View, query, setQuery, handleSearch, dispatch} = props
+  let {results:suggestions} = props
+  const [inputRef, setInputRef] = useState()
   const [value, setValue] = useState(query)
-  let suggestions = results
 
-  const onChange = (event, { newValue }) => {
-    setValue(newValue)
+  //console.log("SearchBoxBase")
+
+  useEffect(
+    () => {
+      //console.log("useEffect")
+      setValue(query)
+    }, [query]
+  )
+
+  const setInputRef2 = (autosuggest) => {
+    //console.log("setInputRef2:")
+    if (autosuggest !== null) {
+      setInputRef(autosuggest.input)
+      //console.log(inputRef)
+    }
   }
 
   const clearInput = () => {
+    //console.log('clearInput')
     setValue("")
   }
 
+  const onChange = (event, { newValue }) => {
+    //console.log('onChange')
+    setValue(newValue)
+  }
+
   const onKeyDown = (event) => {
-    console.log('onKeyDown')
+    //console.log('onKeyDown')
     if (event.key === 'Enter' && value !== "") {
-    //   onSuggestionsClearRequested()
-      handleSearch2(value)
+      inputRef.blur()
+      handleSearch(value)
     }
+  }
+
+  const onSuggestionsFetchRequested = ({ value }) => {
+    //console.log('onSuggestionsFetchRequested')
+    setQuery(value)
+  }
+
+  const onSuggestionsClearRequested = () => {
+    //console.log('onSuggestionsClearRequested')
+    suggestions = []
+  }
+
+  const onSuggestionSelected = (e, asd) => {
+    //console.log('onSuggestionSelected')
+    inputRef.blur()
+    setQuery(asd.suggestionValue)
+    handleSearch(asd.suggestionValue)
   }
 
   const inputProps = {
@@ -51,26 +79,23 @@ const SearchBoxBase = props => {
     onKeyDown
   }
 
-  const onSuggestionsFetchRequested = ({ value }) => {
-    console.log('onSuggestionsFetchRequested')
-    setQuery(value)
-  }
-
-  const onSuggestionsClearRequested = () => {
-    console.log('onSuggestionsClearRequested')
-    suggestions = []
-  }
-
-  const onSuggestionSelected = (e, asd) => {
-    console.log('onSuggestionSelected')
-    console.log(asd)
-    // setValue("")
-    // onSuggestionsClearRequested()
-    navigate(`/${asd.suggestion.slug}`)
+  const autosuggestProps = {
+    suggestions,
+    onSuggestionsFetchRequested,
+    onSuggestionsClearRequested,
+    onSuggestionSelected,
+    getSuggestionValue,
+    renderSuggestion,
+    inputProps,
+    dispatch,
+    clearInput,
+    inputRef,
+    focusInputOnSuggestionClick: false,
+    ref: setInputRef2
   }
 
   return (
-    <View inputProps={inputProps} suggestions={suggestions} onSuggestionsFetchRequested={onSuggestionsFetchRequested} onSuggestionsClearRequested={onSuggestionsClearRequested} onSuggestionSelected={onSuggestionSelected} getSuggestionValue={getSuggestionValue} renderSuggestion={renderSuggestion} dispatch={dispatch} clearInput={clearInput} />
+    <View {...autosuggestProps} />
   )
 }
 

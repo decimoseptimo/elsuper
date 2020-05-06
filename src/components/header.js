@@ -10,7 +10,11 @@ import { MiscContext } from "../state/misc"
 import BaseButton from "./baseButton"
 import ButtonCart from "./buttonCart"
 import ButtonCatalog from "./buttonCatalog"
+
 import Search from "./search"
+import SearchBoxBase from "./searchBoxBase"
+import SearchBox from "./searchBox"
+import SearchBoxMobile from "./searchBoxMobile"
 
 const Header = () => {
   const [state, dispatch] = useContext(CartContext)

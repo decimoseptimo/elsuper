@@ -1,18 +1,18 @@
 import React, { useEffect } from "react"
 import Autosuggest from "react-autosuggest"
 import { TiArrowLeft } from "react-icons/ti"
-import {
-  IoIosArrowBack,
-} from "react-icons/io"
+import { IoIosArrowBack } from "react-icons/io"
 import { MdClear, MdClose, MdChevronLeft, MdArrowBack } from "react-icons/md"
+
 import BaseButton from "../components/baseButton"
 
-const SearchBoxMobile = props => {
-  const {inputProps, suggestions, onSuggestionsFetchRequested, onSuggestionsClearRequested, onSuggestionSelected, getSuggestionValue, renderSuggestion, dispatch, clearInput} = props
-  // const propsClone = Object.assign({}, props)
-  // delete propsClone.onButtonClick
-  // delete propsClone.setQuery
-  // delete propsClone.dispatch
+// const SearchBoxMobile = props => {
+// https://github.com/reactjs/reactjs.org/issues/2120#issuecomment-589207766
+const SearchBoxMobile = React.forwardRef((props, ref) => {
+
+  // console.log('SearchBoxMobile!')
+  // console.log('inputRef:')
+  // console.log(props.inputRef)
 
   const icons = [
     TiArrowLeft,
@@ -23,18 +23,12 @@ const SearchBoxMobile = props => {
     MdArrowBack,
   ]
 
-  let inputRef
-
-  const setInputRef = autosuggest => {
-    if (autosuggest !== null) {
-      inputRef = autosuggest.input;
-    }
-  }
-
   useEffect(
     () => {
-      console.log('FCS!')
-      inputRef.focus();
+      // console.log('--useEffect!')
+      if (props.inputRef !== undefined) {
+        props.inputRef.focus()
+      }
     },
   )
 
@@ -42,7 +36,7 @@ const SearchBoxMobile = props => {
     <div className="searchBoxMobile">
       <BaseButton
         onClick={() => {
-          dispatch({
+          props.dispatch({
             type: "SET_MOBILE_SEARCH_OPEN",
             isMobileSearchOpen: false,
           })
@@ -52,19 +46,11 @@ const SearchBoxMobile = props => {
       >
         <IoIosArrowBack />
       </BaseButton>
-      <Autosuggest
-        suggestions={suggestions}
-        onSuggestionsFetchRequested={onSuggestionsFetchRequested}
-        onSuggestionsClearRequested={onSuggestionsClearRequested}
-        onSuggestionSelected={onSuggestionSelected}
-        getSuggestionValue={getSuggestionValue}
-        renderSuggestion={renderSuggestion}
-        inputProps={inputProps}
-        ref={setInputRef}
-      />
-      {inputProps.value && (
+      {/*<Autosuggest {...props} />*/}
+      <Autosuggest {...props} ref={ref} id="mobile" />
+      {props.inputProps.value && (
         <BaseButton
-          onClick={clearInput}
+          onClick={props.clearInput}
           className="emptyButton"
           aria-label="empty button"
         >
@@ -74,7 +60,7 @@ const SearchBoxMobile = props => {
       <div
         className="searchOverlay"
         onClick={() => {
-          dispatch({
+          props.dispatch({
             type: "SET_MOBILE_SEARCH_OPEN",
             isMobileSearchOpen: false,
           })
@@ -251,6 +237,7 @@ const SearchBoxMobile = props => {
       `}</style>
     </div>
   )
-}
+// }
+})
 
 export default SearchBoxMobile

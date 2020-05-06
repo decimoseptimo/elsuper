@@ -9,8 +9,8 @@ export const MiscProvider = props => {
         isCartOpen: false,
         isCategoriesOpen: false,
         isMobileSearchOpen: false,
-        localSearchProducts: null,
-        query: "",
+        // localSearchProducts: null,
+        query: null,
       })}
     >
       {props.children}
@@ -31,12 +31,8 @@ const miscReducer = (state, action) => {
       return { ...state, isCartOpen: false }
     case "SET_MOBILE_SEARCH_OPEN":
       return { ...state, isMobileSearchOpen: action.isMobileSearchOpen }
-    case "SET_LSP":
-      return {
-        ...state,
-        localSearchProducts: action.localSearchProducts,
-        query: action.query,
-      }
+    case "SET_QUERY":
+      return { ...state, query: action.query }
     default:
       return state
   }
