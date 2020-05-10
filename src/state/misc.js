@@ -23,10 +23,14 @@ const miscReducer = (state, action) => {
   switch (action.type) {
     case "TOGGLE_CART_OPEN":
       return { ...state, isCartOpen: !state.isCartOpen }
+    case "TOGGLE_MY_ACCOUNT_OPEN":
+      return { ...state, isMyAccountOpen: !state.isMyAccountOpen }
     case "TOGGLE_CATEGORIES_OPEN":
       return { ...state, isCategoriesOpen: !state.isCategoriesOpen }
     case "CLOSE_CATEGORIES":
       return { ...state, isCategoriesOpen: false }
+    case "CLOSE_MY_ACCOUNT":
+      return { ...state, isMyAccountOpen: false }
     case "CLOSE_CART":
       return { ...state, isCartOpen: false }
     case "SET_MOBILE_SEARCH_OPEN":

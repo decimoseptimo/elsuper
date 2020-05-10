@@ -4,11 +4,12 @@ import PropTypes from "prop-types"
 const Overlay = props => (
   <>
     <div
-      className={`overlay ${(props.isCategoriesOpen || props.isCartOpen) &&
+      className={`overlay ${(props.isCategoriesOpen || props.isMyAccountOpen || props.isCartOpen) &&
         "visible"}`}
       onClick={e => {
         props.dispatch({ type: "CLOSE_CATEGORIES" })
         props.dispatch({ type: "CLOSE_CART" })
+        props.dispatch({ type: "CLOSE_MY_ACCOUNT" })
       }}
     >
       {props.children}
@@ -35,6 +36,7 @@ const Overlay = props => (
 
 Overlay.propTypes = {
   isCategoriesOpen: PropTypes.bool.isRequired,
+  isMyAccountOpen: PropTypes.bool.isRequired,
   isCartOpen: PropTypes.bool.isRequired,
   dispatch: PropTypes.func.isRequired,
 }

@@ -6,6 +6,7 @@ import "simplebar/dist/simplebar.min.css"
 import Overlay from "./overlay"
 import Sidepanel from "./sidepanel"
 import Menu from "./categoriesMenu"
+import MyAccount from "./myAccount"
 import Cart from "./cart"
 import Header from "./header"
 import { MiscContext } from "../state/misc"
@@ -24,12 +25,18 @@ const Layout = ({ children }) => {
         </div>
         <Overlay
           isCategoriesOpen={state.isCategoriesOpen}
+          isMyAccountOpen={state.isMyAccountOpen}
           isCartOpen={state.isCartOpen}
           dispatch={dispatch}
         />
         <Sidepanel isOpen={state.isCategoriesOpen}>
           <SimpleBar style={{ maxHeight: "100%", width: "100%" }}>
             <Menu />
+          </SimpleBar>
+        </Sidepanel>
+        <Sidepanel right isOpen={state.isMyAccountOpen}>
+          <SimpleBar style={{ maxHeight: "100%", width: "100%" }}>
+            <MyAccount />
           </SimpleBar>
         </Sidepanel>
         <Sidepanel right isOpen={state.isCartOpen}>

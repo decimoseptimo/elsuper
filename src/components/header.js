@@ -28,6 +28,7 @@ const Header = () => {
           aria-label="search button"
           onClick={() => {
             miscDispatch({ type: "TOGGLE_CATEGORIES_OPEN" })
+            miscDispatch({ type: "CLOSE_MY_ACCOUNT" })
             miscDispatch({ type: "CLOSE_CART" })
           }}
         >
@@ -63,7 +64,15 @@ const Header = () => {
         >
           <MdSearch color="white" />
         </BaseButton>
-        <BaseButton className="buttonUser" aria-label="search button">
+        <BaseButton
+          className="buttonUser"
+          aria-label="my-account button"
+          onClick={() => {
+            miscDispatch({ type: "TOGGLE_MY_ACCOUNT_OPEN" })
+            miscDispatch({ type: "CLOSE_CART" })
+            miscDispatch({ type: "CLOSE_CATEGORIES" })
+          }}
+        >
           <FiUser color="white" />
         </BaseButton>
         <ButtonCart
@@ -71,6 +80,7 @@ const Header = () => {
           onClick={() => {
             miscDispatch({ type: "TOGGLE_CART_OPEN" })
             miscDispatch({ type: "CLOSE_CATEGORIES" })
+            miscDispatch({ type: "CLOSE_MY_ACCOUNT" })
           }}
         />
       </div>
