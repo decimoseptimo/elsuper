@@ -7,6 +7,7 @@ export const MiscProvider = props => {
     <MiscContext.Provider
       value={useReducer(miscReducer, {
         isCartOpen: false,
+        isMyAccountOpen: false,
         isCategoriesOpen: false,
         isMobileSearchOpen: false,
         // localSearchProducts: null,
