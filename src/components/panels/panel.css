@@ -1,0 +1,9 @@
+.panel .title {
+    font-size: 1.7rem;
+    font-family: Lato,Helvetica Neue,Arial,Helvetica,sans-serif;
+}
+
+.panel .subtitle {
+    font-weight: normal;
+    font-size: 1.2rem;
+}

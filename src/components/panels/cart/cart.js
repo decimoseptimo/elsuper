@@ -1,22 +1,13 @@
 import React, { useContext } from "react"
-import Button from "../components/button"
+import Button from "../../button"
 
-import CartItem from "../components/cartItem"
-import { CartContext } from "../state/cart"
-import { round } from "../utils"
-import css from "styled-jsx/css"
+import CartItem from "./cartItem"
+import { CartContext } from "../../../state/cart"
+import { round } from "../../../utils"
+import "../panel.css"
 
 const Cart = props => {
   const [state, dispatch] = useContext(CartContext)
-  const { className, styles } = css.resolve`
-    background-color: blueviolet;
-    background-color: turquoise;
-    width: 100%;
-    margin: 3rem 0 0 0;
-    -webkit-box-shadow: 0px -10px 16px 10px rgb(255, 255, 255);
-    -moz-box-shadow: 0px -10px 16px 10px rgb(255, 255, 255);
-    box-shadow: 0px -10px 16px 10px rgb(255, 255, 255);
-  `
 
   const cartTotal = () => {
     let cartTotal = 0
@@ -28,9 +19,9 @@ const Cart = props => {
 
   return (
     <>
-      <div className="cart">
-        <h2>
-          Carrito <span className="price">${cartTotal()}</span>
+      <div className="panel cart">
+        <h2 className="title">
+          Carrito <span className="subtitle">${cartTotal()}</span>
         </h2>
 
         {state.length ? (
@@ -64,14 +55,13 @@ const Cart = props => {
               <div className="cart-total">Total ${cartTotal()}</div>
             </div>
             <div className="btn-wrapper">
-              <Button className={className}>Proceder al pago</Button>
+              <Button className="fluid primary">Proceder al pago</Button>
             </div>
           </>
         ) : (
           <p>Los productos que agregues apareceran aquí.</p>
         )}
       </div>
-      {styles}
       <style jsx>{`
         .cart {
           min-width: 300px;
@@ -81,16 +71,10 @@ const Cart = props => {
           position: sticky;
           bottom: 0;
           border-bottom: 2rem solid #fff;
-        }
-
-        h2 {
-          font-size: 1.7rem;
-          font-family: Lato,Helvetica Neue,Arial,Helvetica,sans-serif;
-        }
-        
-        h2 .price {
-          font-weight: normal;
-          font-size: 1.2rem;
+          margin-top: 3rem;
+          -webkit-box-shadow: 0px -10px 16px 10px rgb(255,255,255);
+          -moz-box-shadow: 0px -10px 16px 10px rgb(255,255,255);
+          box-shadow: 0px -10px 16px 10px rgb(255,255,255);
         }
 
         table {

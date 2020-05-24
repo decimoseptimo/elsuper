@@ -58,15 +58,10 @@ const ProductSummary = props => {
             flex: 0;
           }
         }
+        
         @media screen and (min-width: 450px) {
-          .title {
-            // margin-bottom: 1rem;
-          }
-
           .cartInputs {
-            // display: block;
             margin-bottom: 1.8rem;
-            // margin-bottom: 0;
           }
         }
       `}</style>

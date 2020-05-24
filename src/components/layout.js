@@ -3,14 +3,14 @@ import PropTypes from "prop-types"
 import SimpleBar from "simplebar-react"
 import "simplebar/dist/simplebar.min.css"
 
+import Header from "./header"
 import Overlay from "./overlay"
 import Sidepanel from "./sidepanel"
-import Menu from "./categoriesMenu"
-import MyAccount from "./myAccount"
-import Cart from "./cart"
-import Header from "./header"
+import Menu from "./panels/categoriesMenu"
+import UserAccount from "./panels/userAccount/userAccount"
+import Cart from "./panels/cart/cart"
 import { MiscContext } from "../state/misc"
-import "./layout2.css"
+import "./layout.css"
 
 const Layout = ({ children }) => {
   const [state, dispatch] = useContext(MiscContext)
@@ -36,7 +36,7 @@ const Layout = ({ children }) => {
         </Sidepanel>
         <Sidepanel right isOpen={state.isMyAccountOpen}>
           <SimpleBar style={{ maxHeight: "100%", width: "100%" }}>
-            <MyAccount />
+            <UserAccount />
           </SimpleBar>
         </Sidepanel>
         <Sidepanel right isOpen={state.isCartOpen}>

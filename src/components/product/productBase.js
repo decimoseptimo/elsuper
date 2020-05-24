@@ -7,7 +7,7 @@ import { round } from "../../utils"
 const AddButton = props => {
   return (
     <Button
-      className={`${props.className}`}
+      className={`primary ${props.className}`}
       onClick={() => {
         props.dispatch({
           type: "ADD_CART_ITEM",
@@ -22,10 +22,9 @@ const AddButton = props => {
 }
 
 const RemoveButton = props => {
-  return (
+  return <>
     <Button
-      className={`${props.className}`}
-      style={{ backgroundColor: "#613458" }}
+      className={`primary primary-active ${props.className}`}
       onClick={() => {
         props.dispatch({
           type: "REMOVE_CART_ITEM",
@@ -35,7 +34,12 @@ const RemoveButton = props => {
     >
       Remover
     </Button>
-  )
+    <style jsx global>{`
+    .button.primary-active {
+      background-color: #613458;
+    }
+    `}</style>
+  </>
 }
 
 const ToggleButton = props => {

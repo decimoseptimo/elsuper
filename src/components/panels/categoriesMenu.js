@@ -6,8 +6,8 @@ import "rc-collapse/assets/index.css"
 import { IconContext } from "react-icons"
 import { AiOutlineRight } from "react-icons/ai"
 
-import { getChildren, getCategoryTree } from "../utils"
-import { MiscContext } from "../state/misc"
+import { getChildren, getCategoryTree } from "../../utils"
+import { MiscContext } from "../../state/misc"
 
 const CategoriesMenu = () => {
   const data = useStaticQuery(graphql`

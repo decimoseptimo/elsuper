@@ -2,9 +2,9 @@ import React from "react"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
 
-import InputNumber2 from "../components/inputNumber2"
-import Image from "../components/image"
-import { round } from "../utils"
+import InputNumber2 from "../../inputNumber2"
+import Image from "../../image"
+import { round } from "../../../utils"
 
 const CartItem = props => {
   const {
@@ -85,7 +85,7 @@ const CartItem = props => {
         .delete-button {
           color: tomato;
           font-weight: bold;
-          font-size: 1.5rem;
+          font-size: 1.7rem;
           opacity: 0.5;
           background: none;
           border: 0;
