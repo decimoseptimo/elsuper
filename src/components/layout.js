@@ -23,27 +23,6 @@ const Layout = ({ children }) => {
             <Header />
           </header>
         </div>
-        <Overlay
-          isCategoriesOpen={state.isCategoriesOpen}
-          isMyAccountOpen={state.isMyAccountOpen}
-          isCartOpen={state.isCartOpen}
-          dispatch={dispatch}
-        />
-        <Sidepanel isOpen={state.isCategoriesOpen}>
-          <SimpleBar style={{ maxHeight: "100%", width: "100%" }}>
-            <Menu />
-          </SimpleBar>
-        </Sidepanel>
-        <Sidepanel right isOpen={state.isMyAccountOpen}>
-          <SimpleBar style={{ maxHeight: "100%", width: "100%" }}>
-            <UserAccount />
-          </SimpleBar>
-        </Sidepanel>
-        <Sidepanel right isOpen={state.isCartOpen}>
-          <SimpleBar style={{ maxHeight: "100%", width: "100%" }}>
-            <Cart />
-          </SimpleBar>
-        </Sidepanel>
         <div className="main-wrapper">
           <main>{children}</main>
         </div>
