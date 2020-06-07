@@ -15,7 +15,6 @@ const ProductIndex = props => {
   return (
     <>
       <SEO title="Inicio" keywords={[`gatsby`, `application`, `react`]} />
-      <ProductGrid products={products} />
       <Pagination
         current={props.pageContext.humanPageNumber}
         total={props.pageContext.numberOfPages}
