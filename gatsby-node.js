@@ -67,7 +67,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     createPage,
     items: products,
     component: productIndex,
-    itemsPerPage: 50,
+    itemsPerPage: 10,
     // itemsPerFirstPage: 3,
     pathPrefix: "/",
   })
