@@ -30,8 +30,6 @@ const ProductCard = props => {
       <div className="subtitle row">
         ${price} {unit}
       </div>
-      <UpdateInput {...props} className="updateInput" />
-      <ToggleButton {...props} />
 
       <style jsx global>{`
         .updateInput {

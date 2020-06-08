@@ -11,11 +11,6 @@ const ProductGrid = ({ products }) => {
     <>
       <ul className="shop-items">
         {products.map((value, index) => {
-          let indexInCart = findIndex(state, value.node._id)
-          let countInCart
-          try {
-            countInCart = state[indexInCart].count
-          } catch {}
 
           return (
             <li key={index}>
@@ -23,8 +18,6 @@ const ProductGrid = ({ products }) => {
               {/*() => (*/}
               <ProductBase
                 {...value.node}
-                countInCart={countInCart}
-                dispatch={dispatch}
               >
                 {data => <ProductCard {...data} />}
               </ProductBase>
