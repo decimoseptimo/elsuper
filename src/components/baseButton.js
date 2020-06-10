@@ -3,9 +3,9 @@ import PropTypes from "prop-types"
 
 const BaseButton = props => (
   <>
-    <button {...props}>{props.children}</button>
+    <button {...props} className={`baseButton ${props.className}`}>{props.children}</button>
     <style jsx>{`
-      button {
+      .baseButton {
         background: none;
         border: 0;
         outline: 0;

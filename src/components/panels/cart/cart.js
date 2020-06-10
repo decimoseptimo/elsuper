@@ -72,9 +72,9 @@ const Cart = props => {
           bottom: 0;
           border-bottom: 2rem solid #fff;
           margin-top: 3rem;
-          -webkit-box-shadow: 0px -10px 16px 10px rgb(255,255,255);
-          -moz-box-shadow: 0px -10px 16px 10px rgb(255,255,255);
-          box-shadow: 0px -10px 16px 10px rgb(255,255,255);
+          -webkit-box-shadow: 0px -10px 16px 10px rgb(255, 255, 255);
+          -moz-box-shadow: 0px -10px 16px 10px rgb(255, 255, 255);
+          box-shadow: 0px -10px 16px 10px rgb(255, 255, 255);
         }
 
         table {
@@ -93,6 +93,10 @@ const Cart = props => {
 
         table th:nth-child(3) {
           min-width: 5.6rem;
+        }
+
+        table th:nth-child(4) {
+          min-width: 6.6rem;
         }
 
         .empty-cart {

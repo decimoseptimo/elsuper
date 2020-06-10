@@ -1,8 +1,8 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
 
-import InputNumber2 from "../../inputNumber2"
+import InputNumber from "../../inputNumber"
 import Image from "../../image"
 import { round } from "../../../utils"
 
@@ -18,6 +18,7 @@ const CartItem = props => {
     max_quantity,
     dispatch,
   } = props
+
   const price = round(props.price)
   const image = images ? (
     <Img
@@ -44,15 +45,21 @@ const CartItem = props => {
           ${price} {unit}
         </td>
         <td>
-          <InputNumber2
-            required={true}
+          <InputNumber
+            className="style4"
+            aria-label="quantity"
             value={count}
             min={min_quantity}
             max={max_quantity}
             precision={unit === "Kg" ? 2 : 0}
             onChange={value => {
-              if (value >= min_quantity && value <= max_quantity)
-                dispatch({ type: "UPDATE_CART_ITEM", _id, count: value })
+              // console.log(`onChange: ${value}`)
+              if (count)
+                dispatch({
+                  type: "UPDATE_CART_ITEM",
+                  _id: _id,
+                  count: value,
+                })
             }}
           />
         </td>

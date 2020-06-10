@@ -6,7 +6,9 @@ const Button = props => {
 
   return (
     <>
-      <button {...props} className={`button ${props.className}`}>{props.children}</button>
+      <button {...props} className={`button ${props.className}`}>
+        {props.children}
+      </button>
       {/*<button className={`button ${props.className}`} {...propsClone}>{props.children}</button>*/}
       <style jsx global>{`
         .button {
@@ -19,21 +21,41 @@ const Button = props => {
             "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial,
             "Lucida Grande", sans-serif;
         }
-        
+
         .button.fluid {
           width: 100%;
         }
-        
+
         .button.round {
           border-radius: 3px;
         }
-        
+
         .button.primary {
           color: #fff;
           font-weight: 600;
           background-color: #96588a;
           border-color: #96588a;
           font-style: italic;
+        }
+
+        .button.primary-active {
+          background-color: #613458;
+          color: #fff;
+        }
+
+        /* Style2 */
+        .button.style2 {
+          text-transform: uppercase;
+          font-style: normal;
+          background: #fff;
+          width: 100%;
+          color: #96588a;
+          border-color: #eee;
+        }
+
+        .button.style2.primary-active {
+          // background-color: #613458;
+          color: indianred;
         }
       `}</style>
     </>

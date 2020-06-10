@@ -1,4 +1,4 @@
-import React, { useContext, useMemo } from "react"
+import React, { useContext } from "react"
 
 import ProductBase from "./productBase"
 import ProductCard from "./productCard"
@@ -11,31 +11,22 @@ const ProductGrid = ({ products }) => {
     <>
       <ul className="shop-items">
         {products.map((value, index) => {
-          let indexInCart = findIndex(state, value.node._id)
-          let countInCart
-          try {
-            countInCart = state[indexInCart].count
-          } catch {}
+          const indexInCart = findIndex(state, value.node._id)
+          const countInCart = state[indexInCart]?.count
 
           return (
             <li key={index}>
-              {/*{useMemo(*/}
-              {/*() => (*/}
               <ProductBase
-                {...value.node}
+                data={value.node}
                 countInCart={countInCart}
                 dispatch={dispatch}
-              >
-                {data => <ProductCard {...data} />}
-              </ProductBase>
-              {/*),*/}
-              {/*[countInCart]*/}
-              {/*)}*/}
+                view={ProductCard}
+              />
             </li>
           )
         })}
       </ul>
-      <style jsx>{`
+      <style jsx global>{`
         .shop-items {
           // outline: 1px solid black;
           margin: 0;

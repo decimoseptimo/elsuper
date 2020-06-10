@@ -35,12 +35,11 @@ const ProductView = props => {
         </div>
         <div className="col col-b">
           <ProductBase
-            {...props.data.productsJson}
+            data={props.data.productsJson}
             countInCart={countInCart}
             dispatch={dispatch}
-          >
-            {data => <ProductSummary {...data} />}
-          </ProductBase>
+            view={ProductSummary}
+          />
         </div>
         <div className="col col-c">
           <ProductSidebar />

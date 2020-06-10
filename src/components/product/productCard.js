@@ -3,43 +3,73 @@ import { Link } from "gatsby"
 import Img from "gatsby-image"
 
 import Image from "../image"
+import useHasMounted from "../useHasMounted"
 
 const ProductCard = props => {
   const {
-    title,
-    price,
-    unit,
-    slug,
-    images,
-    UpdateInput,
+    data,
+    count,
+    setCount,
+    dispatch,
+    countInCart,
+    InputNumber,
     ToggleButton,
   } = props
 
-  const image = images ? (
-    <Img fluid={images[0].childImageSharp.fluid} alt={title} />
+  const image = data.images ? (
+    <Img fluid={data.images[0].childImageSharp.fluid} alt={data.title} />
   ) : (
     <Image />
   )
 
+  //see: https://github.com/gatsbyjs/gatsby/issues/17914
+  // https://joshwcomeau.com/react/the-perils-of-rehydration/
+  const hasMounted = useHasMounted()
+
   return (
-    <div className="shop-item">
-      <Link to={`/${slug}/`}>
-        {image}
-        <h2 className="title row">{title}</h2>
-      </Link>
+    <div
+      key={hasMounted}
+      className={`productCard ${countInCart ? "active" : ""}`}
+    >
+      <Link to={`/${data.slug}/`}>{image}</Link>
       <div className="subtitle row">
-        ${price} {unit}
+        <span className="price">
+          <span className="symbol">$</span>
+          {data.price}
+        </span>{" "}
+        <span className="unit">{data.unit}</span>
       </div>
-      <UpdateInput {...props} className="updateInput" />
-      <ToggleButton {...props} />
+      <h2 className="title row">{data.title}</h2>
+      <InputNumber
+        className="style2"
+        data={data}
+        value={countInCart}
+        dispatch={dispatch}
+        onChange={value => {
+          // console.log(`onChange: ${value}`)
+          if (countInCart)
+            dispatch({
+              type: "UPDATE_CART_ITEM",
+              _id: data._id,
+              count: value,
+            })
+        }}
+        onDelete={() => {
+          dispatch({ type: "REMOVE_CART_ITEM", _id: data._id })
+        }}
+      />
+      <ToggleButton
+        addClassName="style2 round"
+        removeClassName="style2 round"
+        data={data}
+        count={countInCart || 1}
+        dispatch={dispatch}
+        countInCart={countInCart}
+      />
 
       <style jsx global>{`
-        .updateInput {
-          margin: 0 auto 1rem auto;
-        }
-
-        .shop-item {
-          padding: 1rem 1rem 2rem;
+        .productCard {
+          padding: 1rem 1rem 1rem;
           background-color: #fff;
           /* box-shadow: 0 1px 2px rgba(0,0,0,.1); */
           box-shadow: 0 1px 2px #e0e0e0;
@@ -47,38 +77,57 @@ const ProductCard = props => {
           color: #484c51;
         }
 
-        .shop-item .row {
+        .productCard .row {
           margin: 0 auto 0.9rem;
         }
 
-        .shop-item a {
+        .productCard a {
           text-decoration: none;
         }
 
-        .shop-item .wrapper-a {
+        .productCard .wrapper-a {
           display: block;
         }
 
-        .shop-item .title {
-          font-weight: bold;
+        .productCard .title {
           font-size: 1.1rem;
           color: #333;
           font-size: 1.1rem;
-          font-weight: 600;
+          font-weight: 500;
+          margin-bottom: 2rem;
         }
 
-        .shop-item .subtitle {
+        .productCard .subtitle {
           font-size: 1.1rem;
         }
 
-        .shop-item img {
+        .productCard .price {
+          font-weight: 600;
+          font-size: 1.2rem;
+        }
+
+        .productCard .symbol {
+          font-size: 1.2rem;
+          margin-left: 0.3rem;
+        }
+
+        .productCard .unit {
+          // font-weight: 600;
+        }
+
+        .productCard img {
           max-width: 100%;
         }
 
-        .shop-item button {
-          margin-bottom: 0.3rem;
-          font-style: italic;
-          padding: 0.9rem 1.8rem;
+        .productCard.active .toggleButton {
+          display: none;
+        }
+
+        .productCard .inputNumber {
+          display: none;
+        }
+        .productCard.active .inputNumber {
+          display: block;
         }
       `}</style>
     </div>
