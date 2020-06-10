@@ -35,6 +35,15 @@ const Button = props => {
           border-color: #96588a;
           font-style: italic;
         }
+        
+        .button.product {
+          text-transform: uppercase;
+          font-style: normal;
+          background: #fff;
+          width: 100%;
+          color: #96588a;
+          border-color: #eee;
+        }
       `}</style>
     </>
   )

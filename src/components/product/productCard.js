@@ -25,11 +25,11 @@ const ProductCard = props => {
     <div className="shop-item">
       <Link to={`/${slug}/`}>
         {image}
-        <h2 className="title row">{title}</h2>
       </Link>
       <div className="subtitle row">
-        ${price} {unit}
+        <span className="price"><span className="symbol">$</span>{price}</span> <span className="unit">{unit}</span>
       </div>
+      <h2 className="title row">{title}</h2>
       <UpdateInput {...props} className="updateInput" />
       <ToggleButton {...props} />
 
@@ -39,7 +39,7 @@ const ProductCard = props => {
         }
 
         .shop-item {
-          padding: 1rem 1rem 2rem;
+          padding: 1rem 1rem 1rem;
           background-color: #fff;
           /* box-shadow: 0 1px 2px rgba(0,0,0,.1); */
           box-shadow: 0 1px 2px #e0e0e0;
@@ -60,25 +60,37 @@ const ProductCard = props => {
         }
 
         .shop-item .title {
-          font-weight: bold;
           font-size: 1.1rem;
           color: #333;
           font-size: 1.1rem;
-          font-weight: 600;
+          font-weight: 500;
+          margin-bottom: 2rem;
         }
 
         .shop-item .subtitle {
           font-size: 1.1rem;
+        }
+        
+        .shop-item .price {
+          font-weight: 600;
+          font-size: 1.2rem;
+        }
+        
+        .shop-item .symbol {
+          font-size: 1.2rem;
+          margin-left: .3rem;
+        }
+
+        .shop-item .unit {
+          // font-weight: 600;
         }
 
         .shop-item img {
           max-width: 100%;
         }
 
-        .shop-item button {
-          margin-bottom: 0.3rem;
-          font-style: italic;
-          padding: 0.9rem 1.8rem;
+        .shop-item .inputNumber {
+          display: none;
         }
       `}</style>
     </div>

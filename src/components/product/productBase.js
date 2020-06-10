@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react"
 
 import Button from "../button"
+import useHasMounted from "../useHasMounted"
 import InputNumber from "../inputNumber"
 import { round } from "../../utils"
+// import { FaShoppingCart } from "react-icons/fa"
 
 const AddButton = props => {
   return (
     <Button
-      className={`primary ${props.className}`}
+      className={`round primary product ${props.className}`}
       onClick={() => {
         props.dispatch({
           type: "ADD_CART_ITEM",
@@ -24,7 +26,7 @@ const AddButton = props => {
 const RemoveButton = props => {
   return <>
     <Button
-      className={`primary primary-active ${props.className}`}
+      className={`round primary product primary-active ${props.className}`}
       onClick={() => {
         props.dispatch({
           type: "REMOVE_CART_ITEM",
@@ -37,16 +39,21 @@ const RemoveButton = props => {
     <style jsx global>{`
     .button.primary-active {
       background-color: #613458;
+      color: #fff;
     }
     `}</style>
   </>
 }
 
 const ToggleButton = props => {
+  //see: https://github.com/gatsbyjs/gatsby/issues/17914
+  // https://joshwcomeau.com/react/the-perils-of-rehydration/
+  const hasMounted = useHasMounted()
+
   return !props.countInCart ? (
-    <AddButton {...props} />
+    <AddButton key={hasMounted} {...props} />
   ) : (
-    <RemoveButton {...props} />
+    <RemoveButton key={hasMounted} {...props} />
   )
 }
 
@@ -78,7 +85,7 @@ const UpdateInput = props => {
 }
 
 const ProductBase = props => {
-  const { countInCart } = props
+  const { view:View, countInCart } = props
   const price = round(props.price)
   const [count, setCount] = useState(countInCart || 1)
 
@@ -86,28 +93,19 @@ const ProductBase = props => {
     if (countInCart) setCount(countInCart)
   }, [countInCart])
 
-  // console.log(`INIT: ${props.id}`)
-  // console.log(`count: ${props.count}`)
-  // console.log(`countInCart: ${countInCart}`)
+  const viewProps = {
+    ...props,
+    price,
+    count,
+    setCount,
+    countInCart,
+    ToggleButton,
+    UpdateInput,
+  }
 
   return (
-    <>
-      {props.children({
-        ...props,
-        price,
-        count,
-        setCount,
-        countInCart,
-        ToggleButton,
-        UpdateInput,
-      })}
-    </>
+      <View {...viewProps} />
   )
 }
 
-// ProductBase.defaultProps = {
-//   min_quantity: 1,
-//   max_quantity: 100,
-// }
-
-export default ProductBase
+export default React.memo(ProductBase)
