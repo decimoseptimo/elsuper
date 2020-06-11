@@ -16,7 +16,7 @@ const ProductGrid = ({ products }) => {
 
           return <li key={index}>
             <ProductBase
-              {...value.node}
+              data={value.node}
               countInCart={countInCart}
               dispatch={dispatch}
               view={ProductCard}

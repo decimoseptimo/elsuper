@@ -6,39 +6,35 @@ import Image from "../image"
 
 const ProductCard = props => {
   const {
-    title,
-    price,
-    unit,
-    slug,
-    images,
+    data,
+    count,
+    setCount,
+    dispatch,
+    countInCart,
     UpdateInput,
     ToggleButton,
   } = props
 
-  const image = images ? (
-    <Img fluid={images[0].childImageSharp.fluid} alt={title} />
+  const image = data.images ? (
+    <Img fluid={data.images[0].childImageSharp.fluid} alt={data.title} />
   ) : (
     <Image />
   )
 
   return (
-    <div className="shop-item">
-      <Link to={`/${slug}/`}>
+    <div className="productCard">
+      <Link to={`/${data.slug}/`}>
         {image}
       </Link>
       <div className="subtitle row">
-        <span className="price"><span className="symbol">$</span>{price}</span> <span className="unit">{unit}</span>
+        <span className="price"><span className="symbol">$</span>{data.price}</span> <span className="unit">{data.unit}</span>
       </div>
-      <h2 className="title row">{title}</h2>
-      <UpdateInput {...props} className="updateInput" />
-      <ToggleButton {...props} />
+      <h2 className="title row">{data.title}</h2>
+      <UpdateInput data={data} count={count} setCount={setCount} dispatch={dispatch} countInCart={countInCart} />
+      <ToggleButton data={data} count={count} dispatch={dispatch} countInCart={countInCart} />
 
       <style jsx global>{`
-        .updateInput {
-          margin: 0 auto 1rem auto;
-        }
-
-        .shop-item {
+        .productCard {
           padding: 1rem 1rem 1rem;
           background-color: #fff;
           /* box-shadow: 0 1px 2px rgba(0,0,0,.1); */
@@ -47,19 +43,19 @@ const ProductCard = props => {
           color: #484c51;
         }
 
-        .shop-item .row {
+        .productCard .row {
           margin: 0 auto 0.9rem;
         }
 
-        .shop-item a {
+        .productCard a {
           text-decoration: none;
         }
 
-        .shop-item .wrapper-a {
+        .productCard .wrapper-a {
           display: block;
         }
 
-        .shop-item .title {
+        .productCard .title {
           font-size: 1.1rem;
           color: #333;
           font-size: 1.1rem;
@@ -67,29 +63,30 @@ const ProductCard = props => {
           margin-bottom: 2rem;
         }
 
-        .shop-item .subtitle {
+        .productCard .subtitle {
           font-size: 1.1rem;
         }
         
-        .shop-item .price {
+        .productCard .price {
           font-weight: 600;
           font-size: 1.2rem;
         }
         
-        .shop-item .symbol {
+        .productCard .symbol {
           font-size: 1.2rem;
           margin-left: .3rem;
         }
 
-        .shop-item .unit {
+        .productCard .unit {
           // font-weight: 600;
         }
 
-        .shop-item img {
+        .productCard img {
           max-width: 100%;
         }
 
-        .shop-item .inputNumber {
+        .productCard .updateInput {
+          margin: 0 auto 1rem auto;
           display: none;
         }
       `}</style>

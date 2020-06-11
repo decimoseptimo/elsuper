@@ -3,64 +3,65 @@ import nl2br from "react-nl2br"
 
 const ProductSummary = props => {
   const {
-    title,
-    price,
-    unit,
-    description,
+    data,
+    count,
+    setCount,
+    dispatch,
+    countInCart,
     UpdateInput,
     ToggleButton,
   } = props
 
   return (
-    <div className="pSummary">
-      <h1 className="item title">{title}</h1>
+    <div className="productSummary">
+      <h1 className="item title">{data.title}</h1>
       <p className="item price">
-        ${price} {unit}
+        ${data.price} {data.unit}
       </p>
       <div className="item cartInputs">
-        <UpdateInput {...props} className="updateInput" />
-        <ToggleButton {...props} className="toggleButton" />
+        <UpdateInput data={data} count={count} setCount={setCount} dispatch={dispatch} countInCart={countInCart} />
+        <ToggleButton data={data} count={count} dispatch={dispatch} countInCart={countInCart} />
       </div>
-      <p className="item">{nl2br(description)}</p>
+      <p className="item">{nl2br(data.description)}</p>
 
-      <style jsx>{`
-        .item {
+      <style jsx global>{`
+        .productSummary .item {
           margin-bottom: 1rem;
         }
 
-        .title {
+        .productSummary .title {
           margin-bottom: 0;
           font-family: Lato,Helvetica Neue,Arial,Helvetica,sans-serif;
         }
 
-        .price {
+        .productSummary .price {
           font-size: 1.5rem;
           margin: .5rem 0 1rem;
         }
 
-        .cartInputs {
+        .productSummary .cartInputs {
           display: flex;
           margin-bottom: 1.6rem;
         }
 
-        .updateInput {
+        .productSummary .updateInput {
           display: inline-flex;
           margin-bottom: 0;
         }
 
-        .toggleButton {
+        .productSummary .toggleButton {
           margin-left: 1rem;
           flex: 1;
         }
 
         @media screen and (min-width: 1100px) {
-          .toggleButton {
+          .productSummary .toggleButton {
             flex: 0;
           }
         }
         
         @media screen and (min-width: 450px) {
-          .cartInputs {
+          .productSummary .cartInputs {
             margin-bottom: 1.8rem;
           }
         }
