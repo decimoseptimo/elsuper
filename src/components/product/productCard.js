@@ -22,7 +22,7 @@ const ProductCard = props => {
   )
 
   return (
-    <div className="productCard">
+    <div className={`productCard ${countInCart?'active':''}`}>
       <Link to={`/${data.slug}/`}>
         {image}
       </Link>
@@ -30,8 +30,10 @@ const ProductCard = props => {
         <span className="price"><span className="symbol">$</span>{data.price}</span> <span className="unit">{data.unit}</span>
       </div>
       <h2 className="title row">{data.title}</h2>
-      <UpdateInput data={data} count={count} setCount={setCount} dispatch={dispatch} countInCart={countInCart} />
-      <ToggleButton data={data} count={count} dispatch={dispatch} countInCart={countInCart} />
+      {/*<input type="number" placeholder="1.00" step="1.00" min="1" max="100" />*/}
+
+      <UpdateInput className="style2" data={data} count={count} setCount={setCount} dispatch={dispatch} countInCart={countInCart} />
+      <ToggleButton addClassName="style2 round" removeClassName="style2 round" data={data} count={count} dispatch={dispatch} countInCart={countInCart} />
 
       <style jsx global>{`
         .productCard {
@@ -85,9 +87,15 @@ const ProductCard = props => {
           max-width: 100%;
         }
 
-        .productCard .updateInput {
-          margin: 0 auto 1rem auto;
+        .productCard.active .toggleButton {
           display: none;
+        }        
+        
+        .productCard .updateInput {
+          display: none;
+        }
+        .productCard.active .updateInput {
+          display: block;
         }
       `}</style>
     </div>

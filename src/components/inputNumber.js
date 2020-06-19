@@ -2,7 +2,9 @@ import React from "react"
 import { default as RcInputNumber } from "rc-input-number"
 import "rc-input-number/assets/index.css"
 
-import { FaCaretUp, FaAngleUp, FaAngleDown, FaCaretDown } from "react-icons/fa"
+import { FaAngleUp, FaAngleDown, FaCaretDown } from "react-icons/fa"
+import { MdAdd, MdRemove } from "react-icons/md"
+// import { RiAddLine, RiSubtractLine } from "react-icons/ri"
 
 const InputNumber = props => (
   <>
@@ -14,21 +16,17 @@ const InputNumber = props => (
       }}
       className={`inputNumber ${props.className}`}
       type="number"
-      upHandler={<FaAngleUp />}
-      downHandler={<FaAngleDown />}
+      // upHandler={<FaAngleUp />}
+      // downHandler={<FaAngleDown />}
+      upHandler={<MdAdd />}
+      downHandler={<MdRemove />}
     />
     <style jsx global>{`
-      .inputNumber {
-        margin: 0;
-        padding: 0;
-        border: 1px solid #d9d9d9;
-        display: flex;
-        line-height: 1.9rem;
-        font-size: 1rem;
-        border-radius: 3px;
+      .rc-input-number {
+        vertical-align: inherit;
+        border: 0;
+        line-height: inherit;
         height: auto;
-        max-width: 7.1rem;
-        background-color: white;
       }
 
       .inputNumber .rc-input-number-handler-wrap {
@@ -44,6 +42,7 @@ const InputNumber = props => (
         border-right: none;
         border-left: 1px solid #d9d9d9;
         order: 1;
+        display: none;
       }
 
       .inputNumber .rc-input-number-input:invalid {
@@ -67,11 +66,54 @@ const InputNumber = props => (
       }
 
       .inputNumber .rc-input-number-input-wrap {
-        overflow: hidden;
         height: auto;
-        padding: 0.5rem;
         flex: 1;
         font-family: sans-serif;
+        overflow: inherit;
+      }
+      
+      .inputNumber .rc-input-number-input-wrap input {
+        font-size: 1rem;
+        line-height: inherit;
+        padding: .91rem .1rem;
+        border-radius: 0;
+      }
+      
+      /* Style2 */      
+      .updateInput.style2 {
+        border: 1px solid #eee;
+        border-radius: 3px;
+      }
+      
+      .updateInput.style2 .in-button {
+        color: indianred;
+        padding: .8rem .5rem;
+      }
+      
+      .updateInput.style2 .in-button svg {
+        position: relative;
+        top: 2px;
+      }
+
+      /* Style3 */
+      .style3.updateInput {
+        background: #fff;
+      }
+      
+      .style3.updateInput .inputNumber .rc-input-number-input-wrap input {
+        border: 1px solid #ddd;
+      }
+      
+      .style3.updateInput .in-button.remove {
+        border: 1px solid #ddd;
+        border-right: 0;
+        border-radius: 3px 0 0 3px;
+      }
+
+      .style3.updateInput .in-button.add {
+        border: 1px solid #ddd;
+        border-left: 0;
+        border-radius: 0 3px 3px 0;
       }
     `}</style>
   </>

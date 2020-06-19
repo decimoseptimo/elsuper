@@ -19,7 +19,7 @@ const ProductSummary = props => {
         ${data.price} {data.unit}
       </p>
       <div className="item cartInputs">
-        <UpdateInput data={data} count={count} setCount={setCount} dispatch={dispatch} countInCart={countInCart} />
+        <UpdateInput className="style3" data={data} count={count} setCount={setCount} dispatch={dispatch} countInCart={countInCart} />
         <ToggleButton data={data} count={count} dispatch={dispatch} countInCart={countInCart} />
       </div>
       <p className="item">{nl2br(data.description)}</p>

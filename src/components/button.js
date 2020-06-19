@@ -36,13 +36,24 @@ const Button = props => {
           font-style: italic;
         }
         
-        .button.product {
+        .button.primary-active {
+          background-color: #613458;
+          color: #fff;
+        }
+        
+        /* Style2 */
+        .button.style2 {
           text-transform: uppercase;
           font-style: normal;
           background: #fff;
           width: 100%;
           color: #96588a;
           border-color: #eee;
+        }
+        
+        .button.style2.primary-active {
+          background-color: #613458;
+          color: indianred;
         }
       `}</style>
     </>
