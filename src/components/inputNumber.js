@@ -1,122 +1,212 @@
-import React from "react"
-import { default as RcInputNumber } from "rc-input-number"
-import "rc-input-number/assets/index.css"
-
-import { FaAngleUp, FaAngleDown, FaCaretDown } from "react-icons/fa"
+import React, { useState } from "react"
 import { MdAdd, MdRemove } from "react-icons/md"
-// import { RiAddLine, RiSubtractLine } from "react-icons/ri"
 
-const InputNumber = props => (
-  <>
-    <RcInputNumber
-      {...props}
-      onChange={value => {
-        if (!value) return
-        props.onChange(value)
-      }}
-      className={`inputNumber ${props.className}`}
-      type="number"
-      // upHandler={<FaAngleUp />}
-      // downHandler={<FaAngleDown />}
-      upHandler={<MdAdd />}
-      downHandler={<MdRemove />}
-    />
+import BaseButton from "./baseButton"
+
+const InputNumber = ({ className, value:asValue=1, precision=0, step=1, min, max }) => {
+
+  const formatValue = (value, precision) => {
+    console.log("formatValue:")
+    console.log(value)
+    console.log(precision)
+    console.log(parseFloat(value).toFixed(precision))
+    return parseFloat(value).toFixed(precision)
+  }
+
+  const [value, setValue2] = useState(formatValue(asValue, precision))
+
+  const getValue = () => parseFloat(value)
+
+  const setValue = (value) => {
+    setValue2(formatValue(value, precision))
+    console.log('setValue:')
+    console.log(value)
+    // console.log(formatValue(value, 0))
+    // console.log(formatValue(value, 1))
+    // console.log(formatValue(value, 2))
+  }
+
+  const updateValue = (theValue) => {
+    const value = parseFloat(theValue)
+
+    console.log('--value')
+    console.log(value)
+
+    if (Number.isNaN(value)) return setValue(0)
+
+    if (theValue === min) return
+    if (value-step < min) return setValue(min)
+
+    if (theValue === max) return
+    if (value+step > max) return setValue(max)
+
+    setValue(value)
+  }
+
+  //Handlers
+  const handleClickDown = () => {
+    const value = getValue()
+
+    if (value === min) return
+    if (value-step < min) return setValue(min)
+    setValue(value-step)
+  }
+
+  const handleClickUp = () => {
+    const value = getValue()
+
+    if (value === max) return
+    if (value+step > max) return setValue(max)
+    setValue(value+step)
+  }
+
+  const handleChange = (e) => {
+    setValue2(e.target.value)
+  }
+
+  const handleBlur = (e) => {
+    updateValue(e.target.value)
+  }
+
+  return <>
+    <div className={`inputNumber ${className}`}>
+      <BaseButton
+        className="in-button remove"
+        aria-label="remove button"
+        onClick={handleClickDown}
+      >
+        <MdRemove />
+      </BaseButton>
+      <input
+        className="input"
+        value={value}
+        type="number"
+        min={min}
+        max={max}
+        step="any"
+        onChange={handleChange}
+        onBlur={handleBlur}
+      />
+      <BaseButton
+        className="in-button add"
+        aria-label="add button"
+        onClick={handleClickUp}
+      >
+        <MdAdd />
+      </BaseButton>
+    </div>
     <style jsx global>{`
-      .rc-input-number {
-        vertical-align: inherit;
-        border: 0;
-        line-height: inherit;
-        height: auto;
-      }
-
-      .inputNumber .rc-input-number-handler-wrap {
-        float: none;
-        border-left: none;
-        width: auto;
-        height: auto;
-        -webkit-transition: all 0.3s;
-        transition: all 0.3s;
-        display: flex;
-        flex: 0 0 30px;
-        flex-flow: column wrap;
-        border-right: none;
-        border-left: 1px solid #d9d9d9;
-        order: 1;
-        display: none;
-      }
-
-      .inputNumber .rc-input-number-input:invalid {
-        box-shadow: none;
-      }
-
-      .inputNumber .rc-input-number-input::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-      }
-
-      .inputNumber .rc-input-number-handler {
+      .inputNumber input {
         text-align: center;
-        line-height: auto;
-        height: auto;
-        overflow: hidden;
-        touch-action: none;
-        display: flex;
-        flex: 1;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .inputNumber .rc-input-number-input-wrap {
-        height: auto;
-        flex: 1;
-        font-family: sans-serif;
-        overflow: inherit;
-      }
-      
-      .inputNumber .rc-input-number-input-wrap input {
-        font-size: 1rem;
-        line-height: inherit;
+        border: none;
         padding: .91rem .1rem;
-        border-radius: 0;
+        // font-family: arial, sans-serif;
+        // color: #666;
       }
       
-      /* Style2 */      
-      .updateInput.style2 {
+      .inputNumber input[type=number]::-webkit-inner-spin-button, 
+      .inputNumber input[type=number]::-webkit-outer-spin-button { 
+        -webkit-appearance: none; 
+        margin: 0; 
+      }
+      
+      /* Style2 */
+      .inputNumber.style2 input {
+        max-width: 4rem;
+        color: #666;
+        font-family: arial, sans-serif;
+      }
+            
+      .inputNumber.style2 {
         border: 1px solid #eee;
         border-radius: 3px;
       }
       
-      .updateInput.style2 .in-button {
+      .inputNumber.style2 .in-button {
         color: indianred;
         padding: .8rem .5rem;
       }
       
-      .updateInput.style2 .in-button svg {
+      .inputNumber.style2 .in-button svg {
         position: relative;
         top: 2px;
+        stroke-width: 2;
       }
 
       /* Style3 */
-      .style3.updateInput {
+      .inputNumber.style3 {
         background: #fff;
       }
       
-      .style3.updateInput .inputNumber .rc-input-number-input-wrap input {
+      .inputNumber.style3 input {
         border: 1px solid #ddd;
+        max-width: 5rem;
+        vertical-align: top;
+        font-size: 1.1rem;
       }
       
-      .style3.updateInput .in-button.remove {
+      .inputNumber.style3 .in-button {
+        padding: .8rem .5rem;
+        height 100%;
+      }
+      
+      .inputNumber.style3 .in-button svg {
+        position: relative;
+        top: 2px;
+        stroke-width: 2;
+      }
+      
+      .inputNumber.style3 .in-button.remove {
         border: 1px solid #ddd;
         border-right: 0;
         border-radius: 3px 0 0 3px;
       }
 
-      .style3.updateInput .in-button.add {
+      .inputNumber.style3 .in-button.add {
         border: 1px solid #ddd;
         border-left: 0;
         border-radius: 0 3px 3px 0;
       }
+      
+      /* Style4 */
+      .inputNumber.style4 {
+        height: 28px;
+      }
+      
+      .inputNumber.style4 input {
+        max-width: 3rem;
+        border: 1px solid #eee;
+        padding: 0;
+        height: 100%;
+        vertical-align: top;
+        color: #444;
+      }
+      
+      .inputNumber.style4 .in-button svg {
+        stroke-width: 2px;
+        position: relative;
+        top: 1px;
+        font-size: 12px;
+        color: #444;
+      }
+     
+      .inputNumber.style4 .in-button.remove {
+        border: 1px solid #eee;
+        border-right: 0;
+        border-radius: 3px 0 0 3px;
+        padding: 0.35rem .15rem;
+        height: 100%;
+      }
+
+      .inputNumber.style4 .in-button.add {
+        border: 1px solid #eee;
+        border-left: 0;
+        border-radius: 0 3px 3px 0;
+        padding: 0.35rem .15rem;
+        height: 100%;
+      }
     `}</style>
   </>
-)
+}
 
 export default InputNumber

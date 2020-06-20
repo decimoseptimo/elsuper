@@ -4,11 +4,6 @@ import Button from "../button"
 import useHasMounted from "../useHasMounted"
 import InputNumber from "../inputNumber"
 import { round } from "../../utils"
-// import { FaShoppingCart } from "react-icons/fa"
-
-import { AiOutlineDelete } from "react-icons/ai"
-import { MdDelete, MdRemoveCircle, MdRemoveCircleOutline, MdAdd, MdRemove, MdClose } from "react-icons/md"
-import BaseButton from "../baseButton"
 
 const AddButton = props => {
   return (
@@ -61,46 +56,30 @@ const UpdateInput = props => {
   const {data, className, countInCart, count, setCount, dispatch} = props
 
   return (
-    <div className={`updateInput ${className}`}>
-      <BaseButton
-        className="in-button remove"
-        aria-label="remove button"
-        onClick={() => {
-          dispatch({ type: "REMOVE_CART_ITEM", _id: data._id })
-        }}
-      >
-        <MdRemove strokeWidth={2} />
-      </BaseButton>
       <InputNumber
         className={` ${className}`}
         aria-label="quantity"
-        required={true}
-        value={count}
-        min={data.min_quantity}
-        max={data.max_quantity}
+        // value={count}
+        // min={data.min_quantity}
+        // max={data.max_quantity}
         precision={data.unit === "Kg" ? 2 : 0}
-        onChange={value => {
-          if (value >= data.min_quantity && value <= data.max_quantity) {
-            setCount(value)
-            if (countInCart)
-              dispatch({
-                type: "UPDATE_CART_ITEM",
-                _id: data._id,
-                count: value,
-              })
-          }
-        }}
+        // onChange={value => {
+        //   if (value >= data.min_quantity && value <= data.max_quantity) {
+        //     setCount(value)
+        //     if (countInCart)
+        //       dispatch({
+        //         type: "UPDATE_CART_ITEM",
+        //         _id: data._id,
+        //         count: value,
+        //       })
+        //   }
+        // }}
+
+        min={0}
+        max={10}
+        // step={1}
+        // precision={2}
       />
-      <BaseButton
-        className="in-button add"
-        aria-label="add button"
-        onClick={() => {
-          //miscDispatch({ type: "TOGGLE_CATEGORIES_OPEN" })
-        }}
-      >
-        <MdAdd strokeWidth={2} />
-      </BaseButton>
-    </div>
   )
 }
 

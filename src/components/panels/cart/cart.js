@@ -95,6 +95,10 @@ const Cart = props => {
           min-width: 5.6rem;
         }
 
+        table th:nth-child(4) {
+          min-width: 6.6rem;
+        }
+
         .empty-cart {
           background: none;
           border: 0;

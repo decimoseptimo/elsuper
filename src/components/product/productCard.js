@@ -91,10 +91,10 @@ const ProductCard = props => {
           display: none;
         }        
         
-        .productCard .updateInput {
+        .productCard .inputNumber {
           display: none;
         }
-        .productCard.active .updateInput {
+        .productCard.active .inputNumber {
           display: block;
         }
       `}</style>

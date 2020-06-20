@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
 
-import InputNumber from "../../inputNumber2"
+import InputNumber from "../../inputNumber"
 import Image from "../../image"
 import { round } from "../../../utils"
 
@@ -45,7 +45,8 @@ const CartItem = props => {
         </td>
         <td>
           <InputNumber
-            required={true}
+            // required={true}
+            className="style4"
             value={count}
             min={min_quantity}
             max={max_quantity}
@@ -91,7 +92,7 @@ const CartItem = props => {
           border: 0;
           outline: 0;
         }
-
+        
         td {
           padding-right: 1rem;
         }
