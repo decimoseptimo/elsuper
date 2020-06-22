@@ -8,7 +8,7 @@ const ProductSummary = props => {
     setCount,
     dispatch,
     countInCart,
-    UpdateInput,
+    InputNumber,
     ToggleButton,
   } = props
 
@@ -19,8 +19,30 @@ const ProductSummary = props => {
         ${data.price} {data.unit}
       </p>
       <div className="item cartInputs">
-        <UpdateInput className="style3" data={data} count={count} setCount={setCount} dispatch={dispatch} countInCart={countInCart} />
-        <ToggleButton data={data} count={count} dispatch={dispatch} countInCart={countInCart} />
+        <InputNumber
+          className="style3"
+          data={data}
+          value={count}
+          setValue={setCount}
+          dispatch={dispatch}
+          countInCart={countInCart}
+          onChange={value => {
+            console.log(`updating to ${value}`)
+            setCount(value)
+            if (countInCart)
+              dispatch({
+                type: "UPDATE_CART_ITEM",
+                _id: data._id,
+                count: value,
+              })
+          }}
+        />
+        <ToggleButton
+          data={data}
+          count={count}
+          dispatch={dispatch}
+          countInCart={countInCart}
+        />
       </div>
       <p className="item">{nl2br(data.description)}</p>
 
@@ -31,12 +53,12 @@ const ProductSummary = props => {
 
         .productSummary .title {
           margin-bottom: 0;
-          font-family: Lato,Helvetica Neue,Arial,Helvetica,sans-serif;
+          font-family: Lato, Helvetica Neue, Arial, Helvetica, sans-serif;
         }
 
         .productSummary .price {
           font-size: 1.5rem;
-          margin: .5rem 0 1rem;
+          margin: 0.5rem 0 1rem;
         }
 
         .productSummary .cartInputs {
@@ -59,7 +81,7 @@ const ProductSummary = props => {
             flex: 0;
           }
         }
-        
+
         @media screen and (min-width: 450px) {
           .productSummary .cartInputs {
             margin-bottom: 1.8rem;

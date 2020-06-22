@@ -72,9 +72,9 @@ const Cart = props => {
           bottom: 0;
           border-bottom: 2rem solid #fff;
           margin-top: 3rem;
-          -webkit-box-shadow: 0px -10px 16px 10px rgb(255,255,255);
-          -moz-box-shadow: 0px -10px 16px 10px rgb(255,255,255);
-          box-shadow: 0px -10px 16px 10px rgb(255,255,255);
+          -webkit-box-shadow: 0px -10px 16px 10px rgb(255, 255, 255);
+          -moz-box-shadow: 0px -10px 16px 10px rgb(255, 255, 255);
+          box-shadow: 0px -10px 16px 10px rgb(255, 255, 255);
         }
 
         table {

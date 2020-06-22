@@ -1,101 +1,180 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { MdAdd, MdRemove } from "react-icons/md"
 
 import BaseButton from "./baseButton"
 
-const InputNumber = ({ className, value:asValue=1, precision=0, step=1, min, max }) => {
+const InputNumber = ({
+  className,
+  value = 1,
+  /*setValue,*/ precision = 0,
+  step = 1,
+  min,
+  max,
+  onChange,
+  onDelete,
+}) => {
+  console.log("\nInputNumber!")
+  console.log(value)
 
-  const formatValue = (value, precision) => {
-    console.log("formatValue:")
-    console.log(value)
-    console.log(precision)
-    console.log(parseFloat(value).toFixed(precision))
+  //returns formatted string (e.g. if precision=1, formats 1.01 to "1.0")
+  const formatToString = value => {
     return parseFloat(value).toFixed(precision)
   }
 
-  const [value, setValue2] = useState(formatValue(asValue, precision))
-
-  const getValue = () => parseFloat(value)
-
-  const setValue = (value) => {
-    setValue2(formatValue(value, precision))
-    console.log('setValue:')
-    console.log(value)
-    // console.log(formatValue(value, 0))
-    // console.log(formatValue(value, 1))
-    // console.log(formatValue(value, 2))
+  //returns formatted number (e.g. if precision=1, formats 1.01 to 1)
+  const formatToNumber = value => {
+    return parseFloat(parseFloat(value).toFixed(precision))
   }
 
-  const updateValue = (theValue) => {
-    const value = parseFloat(theValue)
+  // const [numberValue, setNumberValue] = useState(value)
+  const [numberValue, setNumberValue] = useState(() => {
+    console.log(`-----useState ${value}`)
+    return value
+  })
+  const [stringValue, setStringValue] = useState(() => formatToString(value))
 
-    console.log('--value')
+  useEffect(() => initializeValue(value), [value])
+
+  //returns float number (e.g. 1, 1.1)
+  const getValue = value => parseFloat(value)
+
+  const setValues = value => {
+    console.log("--setValues")
+    console.log(value)
+    console.log(formatToNumber(value))
+    console.log(formatToString(value))
+    //Js math is buggy (e.g. result = 2.2 - 1 = 1.2000000000000002)
+    setNumberValue(formatToNumber(value))
+    setStringValue(formatToString(value))
+    if (onChange) onChange(formatToNumber(value))
+  }
+
+  //TODO: add validation
+  const initializeValue = value => {
+    setNumberValue(getValue(value))
+    setStringValue(formatToString(value))
+  }
+
+  const getValidatedValue = value => {
+    console.log("getValidatedValue")
     console.log(value)
 
-    if (Number.isNaN(value)) return setValue(0)
+    //check valid number
+    if (value === "" || Number.isNaN(value)) return 0
 
-    if (theValue === min) return
-    if (value-step < min) return setValue(min)
+    //check repeated updates
+    if (formatToString(value) === formatToString(value))
+      return setStringValue(formatToString(value)) //bail update
 
-    if (theValue === max) return
-    if (value+step > max) return setValue(max)
+    //check lower limit
+    if (getValue(value) < min) {
+      if (value === min) return setStringValue(formatToString(value)) //bail update
+      return min
+    }
 
-    setValue(value)
+    //check upper limit
+    if (getValue(value) > max) {
+      if (value === max) return setStringValue(formatToString(value)) //bail update
+      return max
+    }
+
+    return value //update to value
+  }
+
+  const updateValue = stringValue => {
+    console.log("updateValue")
+    console.log(stringValue)
+
+    //check valid number
+    if (stringValue === "" || Number.isNaN(stringValue)) return setValues(0) //update to 0
+
+    //check repeated updates
+    if (formatToString(stringValue) === formatToString(value))
+      return setStringValue(formatToString(value)) //bail update
+
+    //check lower limit
+    if (getValue(stringValue) < min) {
+      if (value === min) return setStringValue(formatToString(value)) //bail update
+      return setValues(min) //update to min
+    }
+
+    //check upper limit
+    if (getValue(stringValue) > max) {
+      if (value === max) return setStringValue(formatToString(value)) //bail update
+      return setValues(max) //update to max
+    }
+
+    setValues(stringValue) //update to value
   }
 
   //Handlers
   const handleClickDown = () => {
-    const value = getValue()
-
-    if (value === min) return
-    if (value-step < min) return setValue(min)
-    setValue(value-step)
+    // console.log('handleClickDown')
+    // console.log(value-step)
+    if (value === min) {
+      if (onDelete) onDelete()
+      return
+    }
+    if (value - step < min) return setValues(min)
+    setValues(value - step)
   }
 
   const handleClickUp = () => {
-    const value = getValue()
-
+    // console.log('handleClickUp')
+    // console.log(value+step)
     if (value === max) return
-    if (value+step > max) return setValue(max)
-    setValue(value+step)
+    if (value + step > max) return setValues(max)
+    setValues(value + step)
   }
 
-  const handleChange = (e) => {
-    setValue2(e.target.value)
+  const handleChange = e => {
+    setStringValue(e.target.value)
   }
 
-  const handleBlur = (e) => {
+  const handleKeyDown = e => {
+    if (e.key === "Enter") {
+      e.target.blur()
+    } else if (e.key === "Escape") {
+      //TODO: esc should bail update
+      //setStringValue(formatToString(value)) //bail update
+      e.target.blur()
+    }
+  }
+
+  const handleBlur = e => {
     updateValue(e.target.value)
   }
 
-  return <>
-    <div className={`inputNumber ${className}`}>
-      <BaseButton
-        className="in-button remove"
-        aria-label="remove button"
-        onClick={handleClickDown}
-      >
-        <MdRemove />
-      </BaseButton>
-      <input
-        className="input"
-        value={value}
-        type="number"
-        min={min}
-        max={max}
-        step="any"
-        onChange={handleChange}
-        onBlur={handleBlur}
-      />
-      <BaseButton
-        className="in-button add"
-        aria-label="add button"
-        onClick={handleClickUp}
-      >
-        <MdAdd />
-      </BaseButton>
-    </div>
-    <style jsx global>{`
+  return (
+    <>
+      <div className={`inputNumber ${className}`}>
+        <BaseButton
+          className="in-button subtract"
+          aria-label="subtract button"
+          onClick={handleClickDown}
+        >
+          <MdRemove />
+        </BaseButton>
+        <input
+          className="input"
+          value={stringValue}
+          type="number"
+          min={min}
+          max={max}
+          step="any"
+          onChange={handleChange}
+          onKeyDown={handleKeyDown}
+          onBlur={handleBlur}
+        />
+        <BaseButton
+          className="in-button add"
+          aria-label="add button"
+          onClick={handleClickUp}
+        >
+          <MdAdd />
+        </BaseButton>
+      </div>
+      <style jsx global>{`
       .inputNumber input {
         text-align: center;
         border: none;
@@ -156,7 +235,7 @@ const InputNumber = ({ className, value:asValue=1, precision=0, step=1, min, max
         stroke-width: 2;
       }
       
-      .inputNumber.style3 .in-button.remove {
+      .inputNumber.style3 .in-button.subtract {
         border: 1px solid #ddd;
         border-right: 0;
         border-radius: 3px 0 0 3px;
@@ -190,7 +269,7 @@ const InputNumber = ({ className, value:asValue=1, precision=0, step=1, min, max
         color: #444;
       }
      
-      .inputNumber.style4 .in-button.remove {
+      .inputNumber.style4 .in-button.subtract {
         border: 1px solid #eee;
         border-right: 0;
         border-radius: 3px 0 0 3px;
@@ -206,7 +285,8 @@ const InputNumber = ({ className, value:asValue=1, precision=0, step=1, min, max
         height: 100%;
       }
     `}</style>
-  </>
+    </>
+  )
 }
 
 export default InputNumber

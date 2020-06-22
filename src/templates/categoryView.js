@@ -59,10 +59,10 @@ const CategoryView = props => {
 
         .categoryViewTitle {
           margin-top: 0;
-          font-family: Lato,Helvetica Neue,Arial,Helvetica,sans-serif;
+          font-family: Lato, Helvetica Neue, Arial, Helvetica, sans-serif;
           color: #222;
         }
-        
+
         .productsCount {
           font-weight: 300;
           font-size: 1.7rem;

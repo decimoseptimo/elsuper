@@ -3,6 +3,7 @@ import { Link } from "gatsby"
 import Img from "gatsby-image"
 
 import Image from "../image"
+import useHasMounted from "../useHasMounted"
 
 const ProductCard = props => {
   const {
@@ -11,7 +12,7 @@ const ProductCard = props => {
     setCount,
     dispatch,
     countInCart,
-    UpdateInput,
+    InputNumber,
     ToggleButton,
   } = props
 
@@ -21,19 +22,52 @@ const ProductCard = props => {
     <Image />
   )
 
+  //see: https://github.com/gatsbyjs/gatsby/issues/17914
+  // https://joshwcomeau.com/react/the-perils-of-rehydration/
+  const hasMounted = useHasMounted()
+
   return (
-    <div className={`productCard ${countInCart?'active':''}`}>
-      <Link to={`/${data.slug}/`}>
-        {image}
-      </Link>
+    <div
+      key={hasMounted}
+      className={`productCard ${countInCart ? "active" : ""}`}
+    >
+      <Link to={`/${data.slug}/`}>{image}</Link>
       <div className="subtitle row">
-        <span className="price"><span className="symbol">$</span>{data.price}</span> <span className="unit">{data.unit}</span>
+        <span className="price">
+          <span className="symbol">$</span>
+          {data.price}
+        </span>{" "}
+        <span className="unit">{data.unit}</span>
       </div>
       <h2 className="title row">{data.title}</h2>
-      {/*<input type="number" placeholder="1.00" step="1.00" min="1" max="100" />*/}
-
-      <UpdateInput className="style2" data={data} count={count} setCount={setCount} dispatch={dispatch} countInCart={countInCart} />
-      <ToggleButton addClassName="style2 round" removeClassName="style2 round" data={data} count={count} dispatch={dispatch} countInCart={countInCart} />
+      <InputNumber
+        className="style2"
+        data={data}
+        value={countInCart}
+        setValue={setCount}
+        dispatch={dispatch}
+        countInCart={countInCart}
+        onChange={value => {
+          console.log(`updating to ${value}`)
+          if (countInCart)
+            dispatch({
+              type: "UPDATE_CART_ITEM",
+              _id: data._id,
+              count: value,
+            })
+        }}
+        onDelete={() => {
+          dispatch({ type: "REMOVE_CART_ITEM", _id: data._id })
+        }}
+      />
+      <ToggleButton
+        addClassName="style2 round"
+        removeClassName="style2 round"
+        data={data}
+        count={countInCart || 1}
+        dispatch={dispatch}
+        countInCart={countInCart}
+      />
 
       <style jsx global>{`
         .productCard {
@@ -68,15 +102,15 @@ const ProductCard = props => {
         .productCard .subtitle {
           font-size: 1.1rem;
         }
-        
+
         .productCard .price {
           font-weight: 600;
           font-size: 1.2rem;
         }
-        
+
         .productCard .symbol {
           font-size: 1.2rem;
-          margin-left: .3rem;
+          margin-left: 0.3rem;
         }
 
         .productCard .unit {
@@ -89,8 +123,8 @@ const ProductCard = props => {
 
         .productCard.active .toggleButton {
           display: none;
-        }        
-        
+        }
+
         .productCard .inputNumber {
           display: none;
         }

@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
 
@@ -13,11 +13,18 @@ const CartItem = props => {
     unit,
     slug,
     images,
-    count,
+    count: countInCart,
+    // setCount,
     min_quantity,
     max_quantity,
     dispatch,
   } = props
+
+  // const [count, setCount] = useState(countInCart || 1)
+  // useEffect(() => {
+  //   if (countInCart) setCount(countInCart)
+  // }, [countInCart])
+
   const price = round(props.price)
   const image = images ? (
     <Img
@@ -30,7 +37,7 @@ const CartItem = props => {
   )
 
   const itemTotal = () => {
-    return round(price * count, 2)
+    return round(price * countInCart, 2)
   }
 
   return (
@@ -45,16 +52,25 @@ const CartItem = props => {
         </td>
         <td>
           <InputNumber
-            // required={true}
             className="style4"
-            value={count}
+            aria-label="quantity"
+            value={countInCart}
+            // setValue={setCount}
             min={min_quantity}
             max={max_quantity}
             precision={unit === "Kg" ? 2 : 0}
             onChange={value => {
-              if (value >= min_quantity && value <= max_quantity)
-                dispatch({ type: "UPDATE_CART_ITEM", _id, count: value })
+              console.log(`updating to ${value}`)
+              if (countInCart)
+                dispatch({
+                  type: "UPDATE_CART_ITEM",
+                  _id: _id,
+                  count: value,
+                })
             }}
+            // min={-10}
+            // max={10}
+            // precision={2}
           />
         </td>
         <td className="item-total">${itemTotal()}</td>
@@ -92,7 +108,7 @@ const CartItem = props => {
           border: 0;
           outline: 0;
         }
-        
+
         td {
           padding-right: 1rem;
         }

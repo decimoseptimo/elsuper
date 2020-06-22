@@ -14,18 +14,20 @@ const ProductGrid = ({ products }) => {
           const indexInCart = findIndex(state, value.node._id)
           const countInCart = state[indexInCart]?.count
 
-          return <li key={index}>
-            <ProductBase
-              data={value.node}
-              countInCart={countInCart}
-              dispatch={dispatch}
-              view={ProductCard}
-            />
-          </li>
+          return (
+            <li key={index}>
+              <ProductBase
+                data={value.node}
+                countInCart={countInCart}
+                dispatch={dispatch}
+                view={ProductCard}
+              />
+            </li>
+          )
         })}
       </ul>
       <style jsx global>{`
-       .shop-items {
+        .shop-items {
           // outline: 1px solid black;
           margin: 0;
           list-style: none;

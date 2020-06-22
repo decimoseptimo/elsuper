@@ -45,7 +45,7 @@
   },
   "devDependencies": {
     "mark.js": "^8.11.1",
-    "prettier": "^1.19.1"
+    "prettier": "1.19.1"
   },
   "keywords": [
     "gatsby"
