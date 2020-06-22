@@ -66,31 +66,18 @@ const ToggleButton = props => {
 }
 
 const InputNumber = props => {
-  const {
-    data,
-    className,
-    countInCart,
-    value,
-    setValue,
-    dispatch,
-    onDelete,
-    onChange,
-  } = props
+  const { data, className, value, onDelete, onChange } = props
 
   return (
     <AsInputNumber
       className={className}
       aria-label="quantity"
       value={value}
-      setValue={setValue}
       min={data.min_quantity}
       max={data.max_quantity}
       precision={data.unit === "Kg" ? 2 : 0}
       onChange={onChange}
       onDelete={onDelete}
-      // min={-10}
-      // max={10}
-      // precision={2}
     />
   )
 }

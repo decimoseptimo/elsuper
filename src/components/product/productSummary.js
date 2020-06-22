@@ -23,11 +23,9 @@ const ProductSummary = props => {
           className="style3"
           data={data}
           value={count}
-          setValue={setCount}
           dispatch={dispatch}
-          countInCart={countInCart}
           onChange={value => {
-            console.log(`updating to ${value}`)
+            // console.log(`onChange: ${value}`)
             setCount(value)
             if (countInCart)
               dispatch({

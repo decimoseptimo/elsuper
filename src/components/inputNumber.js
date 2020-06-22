@@ -2,19 +2,21 @@ import React, { useState, useEffect } from "react"
 import { MdAdd, MdRemove } from "react-icons/md"
 
 import BaseButton from "./baseButton"
+// import { number } from "prop-types"
 
 const InputNumber = ({
   className,
+  // defaultValue = 1,
   value = 1,
-  /*setValue,*/ precision = 0,
+  precision = 0,
   step = 1,
   min,
   max,
   onChange,
   onDelete,
 }) => {
-  console.log("\nInputNumber!")
-  console.log(value)
+  // console.log("\nInputNumber!")
+  // console.log(value)
 
   //returns formatted string (e.g. if precision=1, formats 1.01 to "1.0")
   const formatToString = value => {
@@ -26,86 +28,49 @@ const InputNumber = ({
     return parseFloat(parseFloat(value).toFixed(precision))
   }
 
-  // const [numberValue, setNumberValue] = useState(value)
-  const [numberValue, setNumberValue] = useState(() => {
-    console.log(`-----useState ${value}`)
-    return value
-  })
-  const [stringValue, setStringValue] = useState(() => formatToString(value))
+  //TODO should validate 'value' prop?
+  const [numberValue, setNumberValue] = useState(value) //valid value as float number
+  const [stringValue, setStringValue] = useState(formatToString(value)) //input value as string
 
-  useEffect(() => initializeValue(value), [value])
+  //TODO should validate 'value' prop?
+  useEffect(() => setValues(value, true), [value])
 
-  //returns float number (e.g. 1, 1.1)
-  const getValue = value => parseFloat(value)
+  const revertStringValue = () => setStringValue(formatToString(numberValue))
 
-  const setValues = value => {
-    console.log("--setValues")
-    console.log(value)
-    console.log(formatToNumber(value))
-    console.log(formatToString(value))
-    //Js math is buggy (e.g. result = 2.2 - 1 = 1.2000000000000002)
+  const setValues = (value, skipOnChange = false) => {
+    // console.log("setValues")
+    // console.log(value)
+    // console.log(formatToNumber(value))
+    // console.log(formatToString(value))
     setNumberValue(formatToNumber(value))
     setStringValue(formatToString(value))
-    if (onChange) onChange(formatToNumber(value))
+    if (onChange && !skipOnChange) onChange(formatToNumber(value))
   }
 
-  //TODO: add validation
-  const initializeValue = value => {
-    setNumberValue(getValue(value))
-    setStringValue(formatToString(value))
-  }
-
-  const getValidatedValue = value => {
-    console.log("getValidatedValue")
-    console.log(value)
+  const getValidValue = value => {
+    // console.log("getValidValue")
+    // console.log(value)
 
     //check valid number
-    if (value === "" || Number.isNaN(value)) return 0
+    if (value === "" || Number.isNaN(value)) return false
 
-    //check repeated updates
-    if (formatToString(value) === formatToString(value))
-      return setStringValue(formatToString(value)) //bail update
-
-    //check lower limit
-    if (getValue(value) < min) {
-      if (value === min) return setStringValue(formatToString(value)) //bail update
-      return min
-    }
-
-    //check upper limit
-    if (getValue(value) > max) {
-      if (value === max) return setStringValue(formatToString(value)) //bail update
-      return max
-    }
-
-    return value //update to value
-  }
-
-  const updateValue = stringValue => {
-    console.log("updateValue")
-    console.log(stringValue)
-
-    //check valid number
-    if (stringValue === "" || Number.isNaN(stringValue)) return setValues(0) //update to 0
-
-    //check repeated updates
-    if (formatToString(stringValue) === formatToString(value))
-      return setStringValue(formatToString(value)) //bail update
+    //check repeated value
+    if (formatToString(value) === formatToString(numberValue)) return false
 
     //check lower limit
-    if (getValue(stringValue) < min) {
-      if (value === min) return setStringValue(formatToString(value)) //bail update
-      return setValues(min) //update to min
-    }
+    if (value < min) return min
 
     //check upper limit
-    if (getValue(stringValue) > max) {
-      if (value === max) return setStringValue(formatToString(value)) //bail update
-      return setValues(max) //update to max
-    }
+    if (value > max) return max
 
-    setValues(stringValue) //update to value
+    return value
   }
+
+  // const initializeValue = value => {
+  //   const validValue = getValidValue(value)
+  //   if (validValue) setValues(validValue, true)
+  //   else setValues(defaultValue)
+  // }
 
   //Handlers
   const handleClickDown = () => {
@@ -120,8 +85,8 @@ const InputNumber = ({
   }
 
   const handleClickUp = () => {
-    // console.log('handleClickUp')
-    // console.log(value+step)
+    // console.log("handleClickUp")
+    // console.log(value + step)
     if (value === max) return
     if (value + step > max) return setValues(max)
     setValues(value + step)
@@ -131,18 +96,24 @@ const InputNumber = ({
     setStringValue(e.target.value)
   }
 
+  let skipHandleBlur = false
+
   const handleKeyDown = e => {
     if (e.key === "Enter") {
       e.target.blur()
     } else if (e.key === "Escape") {
-      //TODO: esc should bail update
-      //setStringValue(formatToString(value)) //bail update
+      revertStringValue()
+      skipHandleBlur = true
       e.target.blur()
     }
   }
 
   const handleBlur = e => {
-    updateValue(e.target.value)
+    if (!skipHandleBlur) {
+      const validValue = getValidValue(e.target.value)
+      if (validValue) setValues(validValue)
+      else revertStringValue()
+    } else skipHandleBlur = false
   }
 
   return (

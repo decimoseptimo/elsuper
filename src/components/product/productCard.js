@@ -44,11 +44,9 @@ const ProductCard = props => {
         className="style2"
         data={data}
         value={countInCart}
-        setValue={setCount}
         dispatch={dispatch}
-        countInCart={countInCart}
         onChange={value => {
-          console.log(`updating to ${value}`)
+          // console.log(`onChange: ${value}`)
           if (countInCart)
             dispatch({
               type: "UPDATE_CART_ITEM",
