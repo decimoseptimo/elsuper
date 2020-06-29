@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 
-const SubcategoryLink = props => {
+const SubcategoryLink = (props) => {
   // const propsClone = Object.assign({}, props)
   // delete propsClone.backgroundColor
 

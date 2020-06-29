@@ -5,7 +5,7 @@ import Img from "gatsby-image"
 import Image from "../image"
 import useHasMounted from "../useHasMounted"
 
-const ProductCard = props => {
+const ProductCard = (props) => {
   const {
     data,
     count,
@@ -45,7 +45,7 @@ const ProductCard = props => {
         data={data}
         value={countInCart}
         dispatch={dispatch}
-        onChange={value => {
+        onChange={(value) => {
           // console.log(`onChange: ${value}`)
           if (countInCart)
             dispatch({

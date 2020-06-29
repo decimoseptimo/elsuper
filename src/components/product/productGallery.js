@@ -4,7 +4,7 @@ import Image from "gatsby-image"
 import "../../../node_modules/slick-carousel/slick/slick.css"
 import "../../../node_modules/slick-carousel/slick/slick-theme.css"
 
-const ProductGallery = props => {
+const ProductGallery = (props) => {
   const images = props.images
   const sliderRef = useRef(null)
   const [activeThumb, setActiveThumb] = useState(0)
@@ -38,7 +38,7 @@ const ProductGallery = props => {
   const sliderMaxWidth = null
   const desktopBreakpoint = "1050px"
 
-  const updateSlide = index => {
+  const updateSlide = (index) => {
     setActiveThumb(index)
     sliderRef.current.slickGoTo(index, true)
   }

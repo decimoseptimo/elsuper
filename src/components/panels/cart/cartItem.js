@@ -6,7 +6,7 @@ import InputNumber from "../../inputNumber"
 import Image from "../../image"
 import { round } from "../../../utils"
 
-const CartItem = props => {
+const CartItem = (props) => {
   const {
     _id,
     title,
@@ -52,7 +52,7 @@ const CartItem = props => {
             min={min_quantity}
             max={max_quantity}
             precision={unit === "Kg" ? 2 : 0}
-            onChange={value => {
+            onChange={(value) => {
               // console.log(`onChange: ${value}`)
               if (count)
                 dispatch({

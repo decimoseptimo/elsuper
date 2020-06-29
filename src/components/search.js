@@ -9,7 +9,7 @@ import SearchBox from "./searchBox"
 import SearchBoxMobile from "./searchBoxMobile"
 import { MiscContext } from "../state/misc"
 
-const Search = props => {
+const Search = (props) => {
   //console.log("Search")
 
   const data = useStaticQuery(graphql`
@@ -85,9 +85,9 @@ const Search = props => {
 }
 
 // export default InputSearchMain
-export default props => (
+export default (props) => (
   <Location>
-    {locationProps => (
+    {(locationProps) => (
       <Search
         location={locationProps.location}
         search={

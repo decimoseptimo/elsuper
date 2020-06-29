@@ -4,7 +4,7 @@ import Button from "../button"
 import AsInputNumber from "../inputNumber"
 import { round } from "../../utils"
 
-const AddButton = props => {
+const AddButton = (props) => {
   return (
     <Button
       className={`primary ${props.className}`}
@@ -21,7 +21,7 @@ const AddButton = props => {
   )
 }
 
-const RemoveButton = props => {
+const RemoveButton = (props) => {
   return (
     <>
       <Button
@@ -39,7 +39,7 @@ const RemoveButton = props => {
   )
 }
 
-const ToggleButton = props => {
+const ToggleButton = (props) => {
   const {
     data,
     countInCart,
@@ -65,7 +65,7 @@ const ToggleButton = props => {
   )
 }
 
-const InputNumber = props => {
+const InputNumber = (props) => {
   const { data, className, value, onDelete, onChange } = props
 
   return (
@@ -82,7 +82,7 @@ const InputNumber = props => {
   )
 }
 
-const ProductBase = props => {
+const ProductBase = (props) => {
   const { dispatch, data, view: View, countInCart } = props
   data.price = round(data.price)
   const [count, setCount] = useState(countInCart || 1)

@@ -6,12 +6,12 @@ import { CartContext } from "../../../state/cart"
 import { round } from "../../../utils"
 import "../panel.css"
 
-const Cart = props => {
+const Cart = (props) => {
   const [state, dispatch] = useContext(CartContext)
 
   const cartTotal = () => {
     let cartTotal = 0
-    state.forEach(item => {
+    state.forEach((item) => {
       return (cartTotal += item.price * item.count)
     })
     return round(cartTotal)

@@ -8,7 +8,7 @@ import Breadcrumbs from "../components/breadcrumbs"
 import Pagination from "../components/pagination"
 import SubcategoryLink from "../components/subcategoryLink"
 
-const CategoryView = props => {
+const CategoryView = (props) => {
   const products = props.data.allProductsJson.edges
   const {
     category,
@@ -19,7 +19,7 @@ const CategoryView = props => {
 
   const subcategories2 = (
     <div className="subcategories">
-      {subcategories.map(i => (
+      {subcategories.map((i) => (
         <SubcategoryLink to={`/${slugify(i.name.toLowerCase())}`} key={i._id}>
           {i.name}
         </SubcategoryLink>

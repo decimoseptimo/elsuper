@@ -5,10 +5,10 @@ import SEO from "../components/seo"
 import ProductGrid from "../components/product/productGrid"
 import Pagination from "../components/pagination"
 
-const ProductIndex = props => {
+const ProductIndex = (props) => {
   const products = props.data.allProductsJson.edges
 
-  const handlePageChange = page => {
+  const handlePageChange = (page) => {
     page === 1 ? navigate(`/`) : navigate(`/${page}`)
   }
 

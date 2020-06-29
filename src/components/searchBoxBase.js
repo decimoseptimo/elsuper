@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import Highlighter from "react-highlight-words"
 
-const getSuggestionValue = suggestion => suggestion.title
+const getSuggestionValue = (suggestion) => suggestion.title
 
 const renderSuggestion = ({title}, asd) => <div className="title">
   <Highlighter
@@ -14,9 +14,15 @@ const renderSuggestion = ({title}, asd) => <div className="title">
   />
 </div>
 
+<<<<<<< HEAD
 const SearchBoxBase = props => {
   const {view:View, query, setQuery, handleSearch, dispatch} = props
   let {results:suggestions} = props
+=======
+const SearchBoxBase = (props) => {
+  const { view: View, query, setQuery, handleSearch, dispatch } = props
+  let { results: suggestions } = props
+>>>>>>> d5bb38a... Prettier 'src' folder (newest prettier@v2)
   const [inputRef, setInputRef] = useState()
   const [value, setValue] = useState(query)
 

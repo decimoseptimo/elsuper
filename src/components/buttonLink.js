@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import css from "styled-jsx/css"
 
-const ButtonLink = props => {
+const ButtonLink = (props) => {
   const { className, styles } = css.resolve`
     a {
       padding: 0.9rem 1.5rem;

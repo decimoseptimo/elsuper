@@ -3,7 +3,7 @@ import { FaShoppingCart } from "react-icons/fa"
 
 import BaseButton from "./baseButton"
 
-const ButtonCart = props => (
+const ButtonCart = (props) => (
   <>
     <BaseButton {...props} className="buttonCart">
       <>

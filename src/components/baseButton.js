@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-const BaseButton = props => (
+const BaseButton = (props) => (
   <>
     <button {...props} className={`baseButton ${props.className}`}>{props.children}</button>
     <style jsx>{`

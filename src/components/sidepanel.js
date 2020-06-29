@@ -1,11 +1,12 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-const Sidepanel = props => (
+const Sidepanel = (props) => (
   <>
     <div
-      className={`sidepanel ${props.className} ${props.right &&
-        "right"}  ${props.isOpen && "isOpen"}`}
+      className={`sidepanel ${props.className} ${props.right && "right"}  ${
+        props.isOpen && "isOpen"
+      }`}
     >
       {props.children}
     </div>

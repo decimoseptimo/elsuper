@@ -7,7 +7,7 @@ import SEO from "../components/seo"
 import ProductGrid from "../components/product/productGrid"
 import Pagination from "../components/pagination"
 
-const TagView = props => {
+const TagView = (props) => {
   const products = props.data.allProductsJson.edges
   const { tag } = props.pageContext
 

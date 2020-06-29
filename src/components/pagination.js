@@ -3,7 +3,7 @@ import { default as RcPagination } from "rc-pagination"
 import "rc-pagination/assets/index.css"
 import es_ES from "rc-pagination/lib/locale/es_ES"
 
-const Pagination = props => {
+const Pagination = (props) => {
   return (
     <div className="paginationWrapper">
       <RcPagination locale={es_ES} {...props} />

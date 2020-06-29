@@ -6,7 +6,7 @@ import BaseButton from "../../../baseButton"
 import RegisterForm from "./registerForm"
 import PasswordResetForm from "./passwordResetForm"
 
-const LoginForm = props => {
+const LoginForm = (props) => {
   const { register, handleSubmit, errors } = useForm()
   const { onSubmit, handleClick } = props
 

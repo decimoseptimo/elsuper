@@ -1,6 +1,6 @@
 import React from "react"
 
-const ProductSidebar = props => {
+const ProductSidebar = (props) => {
   return (
     <div className="product-sidebar">
       <div className="block">

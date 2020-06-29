@@ -19,12 +19,12 @@ const InputNumber = ({
   // console.log(value)
 
   //returns formatted string (e.g. if precision=1, formats 1.01 to "1.0")
-  const formatToString = value => {
+  const formatToString = (value) => {
     return parseFloat(value).toFixed(precision)
   }
 
   //returns formatted number (e.g. if precision=1, formats 1.01 to 1)
-  const formatToNumber = value => {
+  const formatToNumber = (value) => {
     return parseFloat(parseFloat(value).toFixed(precision))
   }
 
@@ -47,7 +47,7 @@ const InputNumber = ({
     if (onChange && !skipOnChange) onChange(formatToNumber(value))
   }
 
-  const getValidValue = value => {
+  const getValidValue = (value) => {
     // console.log("getValidValue")
     // console.log(value)
 
@@ -92,13 +92,13 @@ const InputNumber = ({
     setValues(value + step)
   }
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     setStringValue(e.target.value)
   }
 
   let skipHandleBlur = false
 
-  const handleKeyDown = e => {
+  const handleKeyDown = (e) => {
     if (e.key === "Enter") {
       e.target.blur()
     } else if (e.key === "Escape") {
@@ -108,7 +108,7 @@ const InputNumber = ({
     }
   }
 
-  const handleBlur = e => {
+  const handleBlur = (e) => {
     if (!skipHandleBlur) {
       const validValue = getValidValue(e.target.value)
       if (validValue) setValues(validValue)

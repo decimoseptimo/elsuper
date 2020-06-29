@@ -5,7 +5,7 @@ import  { Link } from "gatsby"
 import Button from "../../../button"
 import LoginForm from "./loginForm"
 
-const RegisterForm = props => {
+const RegisterForm = (props) => {
   const { register, handleSubmit, errors } = useForm()
   const {onSubmit, handleClick} = props
 

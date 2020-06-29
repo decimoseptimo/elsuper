@@ -26,11 +26,11 @@ const CategoriesMenu = () => {
 
   const [miscState, miscDispatch] = useContext(MiscContext)
   const propsCategories = data.allCategoriesJson.edges
-  const categories = propsCategories.map(i => i.node)
+  const categories = propsCategories.map((i) => i.node)
   const rootCategories = getChildren(categories, null)
   const categoryTree = []
 
-  rootCategories.forEach(i => {
+  rootCategories.forEach((i) => {
     const allSubcategories = getCategoryTree(categories, i)
     categoryTree.push(...allSubcategories)
   })
@@ -51,7 +51,7 @@ const CategoriesMenu = () => {
       to={`/${slugify(name.toLowerCase())}`}
       className={className}
       activeClassName="active"
-      onClick={event => {
+      onClick={(event) => {
         //prevent trigger collapse
         event.stopPropagation()
         miscDispatch({ type: "TOGGLE_CATEGORIES_OPEN" })
@@ -67,7 +67,7 @@ const CategoriesMenu = () => {
     </Panel>
   )
 
-  const generateCollapse = obj => (
+  const generateCollapse = (obj) => (
     <Collapse accordion expandIcon={expandIcon}>
       {obj.map(({ _id, name, children }) => {
         return children ? (

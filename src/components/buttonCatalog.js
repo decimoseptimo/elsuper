@@ -1,7 +1,7 @@
 import React from "react"
 import { FaBars } from "react-icons/fa"
 
-const ButtonCatalog = props => (
+const ButtonCatalog = (props) => (
   <>
     <div className="barsButton">
       <FaBars color="#e0b324" />

@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form"
 import Button from "../../../button"
 import LoginForm from "./loginForm"
 
-const PasswordResetForm = props => {
+const PasswordResetForm = (props) => {
   const { register, handleSubmit, errors } = useForm()
   const {onSubmit, handleClick} = props
 

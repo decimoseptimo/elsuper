@@ -5,18 +5,18 @@ import slugify from "slugify"
 import SEO from "../components/seo"
 import { getChildren, getCategoryTree } from "../utils"
 
-const Categorias = props => {
+const Categorias = (props) => {
   const propsCategories = props.data.allCategoriesJson.edges
-  const categories = propsCategories.map(i => i.node)
+  const categories = propsCategories.map((i) => i.node)
   const rootCategories = getChildren(categories, null)
   const categoryTree = []
 
-  rootCategories.forEach(i => {
+  rootCategories.forEach((i) => {
     const allSubcategories = getCategoryTree(categories, i)
     categoryTree.push(...allSubcategories)
   })
 
-  const getCategoriesList = obj => {
+  const getCategoriesList = (obj) => {
     return (
       <ul className="categoryList">
         {obj.map(({ _id, name, children }) => {

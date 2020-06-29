@@ -1,7 +1,7 @@
 import React from "react"
 import nl2br from "react-nl2br"
 
-const ProductSummary = props => {
+const ProductSummary = (props) => {
   const {
     data,
     count,
@@ -24,7 +24,7 @@ const ProductSummary = props => {
           data={data}
           value={count}
           dispatch={dispatch}
-          onChange={value => {
+          onChange={(value) => {
             // console.log(`onChange: ${value}`)
             setCount(value)
             if (countInCart)

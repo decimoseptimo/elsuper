@@ -3,7 +3,7 @@ import { getLocalState, setLocalState } from "./localState"
 
 export const CartContext = React.createContext()
 
-export const CartProvider = props => {
+export const CartProvider = (props) => {
   const initialState = getLocalState() || []
   const useReducer1 = useReducer(cartReducer, initialState)
   setLocalState(useReducer1[0])
@@ -35,13 +35,13 @@ const cartReducer = (state, action) => {
         },
       ]
     case "REMOVE_CART_ITEM":
-      return state.filter(i => {
+      return state.filter((i) => {
         return i._id !== action._id
       })
     case "EMPTY_CART":
       return []
     case "UPDATE_CART_ITEM":
-      return state.map(i => {
+      return state.map((i) => {
         if (i._id === action._id) {
           return { ...i, count: action.count }
         }
@@ -53,11 +53,11 @@ const cartReducer = (state, action) => {
 }
 
 const itemExists = (state, _id) => {
-  let index = state.findIndex(i => i._id === _id)
+  let index = state.findIndex((i) => i._id === _id)
   if (index >= 0) return true
   return false
 }
 
 export const findIndex = (state, _id) => {
-  return state.findIndex(i => i._id === _id)
+  return state.findIndex((i) => i._id === _id)
 }

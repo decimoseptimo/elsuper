@@ -9,7 +9,7 @@ import ProductSummary from "../components/product/productSummary"
 import ProductSidebar from "../components/product/productSidebar"
 import { CartContext, findIndex } from "../state/cart"
 
-const ProductView = props => {
+const ProductView = (props) => {
   const { _id, title, images } = props.data.productsJson
   const [state, dispatch] = useContext(CartContext)
   const { allSupercategories } = props.pageContext

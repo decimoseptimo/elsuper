@@ -5,7 +5,7 @@ import slugify from "slugify"
 import SEO from "../components/seo"
 import Image from "../components/image"
 
-const Tags = props => {
+const Tags = (props) => {
   const categories = props.data.allProductsJson.group
 
   return (
@@ -14,7 +14,7 @@ const Tags = props => {
       <h1>Tags</h1>
 
       <ul>
-        {categories.map(tag => (
+        {categories.map((tag) => (
           <li>
             <Link to={`/${slugify(tag.fieldValue)}`}>
               {tag.fieldValue} ({tag.totalCount})

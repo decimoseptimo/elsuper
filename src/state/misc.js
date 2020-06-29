@@ -2,7 +2,7 @@ import React, { useReducer } from "react"
 
 export const MiscContext = React.createContext()
 
-export const MiscProvider = props => {
+export const MiscProvider = (props) => {
   return (
     <MiscContext.Provider
       value={useReducer(miscReducer, {

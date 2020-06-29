@@ -5,7 +5,7 @@ import ProductGrid from "../components/product/productGrid"
 import { MiscContext } from "../state/misc"
 import useSearch from "../components/useSearch"
 
-const Buscar = props => {
+const Buscar = (props) => {
   console.log("buscar!")
   const [state, dispatch] = useContext(MiscContext)
   let query = ""
@@ -21,7 +21,7 @@ const Buscar = props => {
   const products = useSearch(query)
 
   // ProductGrid expects a graphql-like result (i.e. 'node' element)
-  const normalizedProducts = products.map(value => {
+  const normalizedProducts = products.map((value) => {
     return { node: value }
   })
 
