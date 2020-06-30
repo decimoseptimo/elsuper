@@ -50,17 +50,28 @@ const Pagination = (props) => {
           line-height: 3rem;
         }
 
-        .rc-pagination-prev a,
-        .rc-pagination-next a {
-          color: #96588a;
+        .rc-pagination-prev button:after {
+          content: ${`"\\2039"`};
+          display: block;
         }
-        .rc-pagination-prev a:after,
-        .rc-pagination-next a:after {
-          margin-top: -3px;
+        .rc-pagination-next button:after {
+          content: ${`"\\203A"`};
+          display: block;
+        }
+
+        .rc-pagination-prev button,
+        .rc-pagination-next button {
+          color: #96588a;
+          border: 0;
+          background: 0;
+        }
+        .rc-pagination-prev button:after,
+        .rc-pagination-next button:after {
+          margin-top: -2px;
           font-size: 2.3rem;
         }
 
-        .rc-pagination-disabled a {
+        .rc-pagination-disabled button {
           color: #ccc;
         }
 
