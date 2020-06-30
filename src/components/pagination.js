@@ -64,10 +64,12 @@ const Pagination = (props) => {
           color: #96588a;
           border: 0;
           background: 0;
+          width: 100%;
+          height: 100%;
         }
         .rc-pagination-prev button:after,
         .rc-pagination-next button:after {
-          margin-top: -2px;
+          margin-top: -7px;
           font-size: 2.3rem;
         }
 

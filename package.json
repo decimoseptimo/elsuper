@@ -41,7 +41,7 @@
     "slick-carousel": "^1.8.1",
     "slugify": "^1.4.4",
     "styled-jsx": "^3.3.0",
-    "typeface-source-sans-pro": "^1.1.5"
+    "typeface-source-sans-pro": "0.0.75"
   },
   "devDependencies": {
     "mark.js": "^8.11.1",
