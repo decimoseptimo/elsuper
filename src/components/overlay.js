@@ -4,17 +4,11 @@ import PropTypes from "prop-types"
 const Overlay = (props) => (
   <>
     <div
-<<<<<<< HEAD
-      className={`overlay ${(props.isCategoriesOpen || props.isMyAccountOpen || props.isCartOpen) &&
-        "visible"}`}
-      onClick={e => {
-=======
       className={`overlay ${
         (props.isCategoriesOpen || props.isMyAccountOpen || props.isCartOpen) &&
         "visible"
       }`}
       onClick={(e) => {
->>>>>>> d5bb38a... Prettier 'src' folder (newest prettier@v2)
         props.dispatch({ type: "CLOSE_CATEGORIES" })
         props.dispatch({ type: "CLOSE_CART" })
         props.dispatch({ type: "CLOSE_MY_ACCOUNT" })
