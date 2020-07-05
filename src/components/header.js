@@ -11,11 +11,6 @@ import BaseButton from "./baseButton"
 import ButtonCart from "./buttonCart"
 import ButtonCatalog from "./buttonCatalog"
 
-import Search from "./search"
-// import SearchBoxBase from "./searchBoxBase"
-// import SearchBox from "./searchBox"
-// import SearchBoxMobile from "./searchBoxMobile"
-
 const Header = () => {
   const [state, dispatch] = useContext(CartContext)
   const [miscState, miscDispatch] = useContext(MiscContext)
@@ -48,7 +43,6 @@ const Header = () => {
       </div>
       <div className="col-b">
         <div className="searchBoxWrapper">
-          <Search />
         </div>
       </div>
       <div className="col-c">
