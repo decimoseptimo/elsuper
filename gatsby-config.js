@@ -7,6 +7,12 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
+      resolve: "gatsby-plugin-webpack-bundle-analyser-v2",
+      options: {
+        disable: true,
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
@@ -89,7 +95,7 @@ module.exports = {
         // List of keys to index. The values of the keys are taken from the
         // normalizer function below.
         // Default: all fields
-        index: ['title'],
+        index: ["title"],
 
         // List of keys to store and make available in your UI. The values of
         // the keys are taken from the normalizer function below.
