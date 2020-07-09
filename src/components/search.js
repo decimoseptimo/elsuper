@@ -22,14 +22,18 @@ const Search = (props) => {
   `)
   const { index, store } = data.localSearchProducts
   const [state, dispatch] = useContext(MiscContext)
-  const querystring = (() => {try { return props.search.p } catch { return "" }})()
+  const querystring = (() => {
+    try {
+      return props.search.p
+    } catch {
+      return ""
+    }
+  })()
   const [query, setQuery] = useState(querystring)
-  useEffect(
-    () => {
-      //console.log("useEffect")
-      setQuery(querystring)
-    }, [querystring]
-  )
+  useEffect(() => {
+    //console.log("useEffect")
+    setQuery(querystring)
+  }, [querystring])
 
   if (
     props.location.pathname === "/buscar/" &&
@@ -61,7 +65,7 @@ const Search = (props) => {
       type: "SET_MOBILE_SEARCH_OPEN",
       isMobileSearchOpen: false,
     })
-    navigate(`/buscar/?p=${query}`,{
+    navigate(`/buscar/?p=${query}`, {
       state: { query },
     })
   }

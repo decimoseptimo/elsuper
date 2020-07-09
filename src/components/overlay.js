@@ -1,21 +1,9 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-const Overlay = (props) => (
+const Overlay = ({ isActive=false, onClick }) => (
   <>
-    <div
-      className={`overlay ${
-        (props.isCategoriesOpen || props.isMyAccountOpen || props.isCartOpen) &&
-        "visible"
-      }`}
-      onClick={(e) => {
-        props.dispatch({ type: "CLOSE_CATEGORIES" })
-        props.dispatch({ type: "CLOSE_CART" })
-        props.dispatch({ type: "CLOSE_MY_ACCOUNT" })
-      }}
-    >
-      {props.children}
-    </div>
+    <div className={`overlay ${isActive && "visible"}`} onClick={onClick} />
     <style jsx>{`
       .overlay {
         position: fixed;
@@ -37,10 +25,8 @@ const Overlay = (props) => (
 )
 
 Overlay.propTypes = {
-  isCategoriesOpen: PropTypes.bool.isRequired,
-  isMyAccountOpen: PropTypes.bool.isRequired,
-  isCartOpen: PropTypes.bool.isRequired,
-  dispatch: PropTypes.func.isRequired,
+  // isActive: PropTypes.bool.isRequired,
+  onClick: PropTypes.func.isRequired,
 }
 
 export default Overlay

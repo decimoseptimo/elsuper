@@ -44,6 +44,7 @@
     "typeface-source-sans-pro": "0.0.75"
   },
   "devDependencies": {
+    "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.10",
     "mark.js": "^8.11.1",
     "prettier": "^2.0.5"
   },
