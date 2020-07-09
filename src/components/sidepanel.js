@@ -5,7 +5,7 @@ const Sidepanel = (props) => (
   <>
     <div
       className={`sidepanel ${props.className} ${props.right && "right"}  ${
-        props.isOpen && "isOpen"
+        props.isActive && "isActive"
       }`}
     >
       {props.children}
@@ -24,7 +24,7 @@ const Sidepanel = (props) => (
         transform: translate3d(-100%, 0px, 0px);
       }
 
-      .sidepanel.isOpen {
+      .sidepanel.isActive {
         transform: translate3d(0, 0px, 0px);
       }
 
@@ -33,7 +33,7 @@ const Sidepanel = (props) => (
         transform: translate3d(100%, 0px, 0px);
       }
 
-      .sidepanel.right.isOpen {
+      .sidepanel.right.isActive {
         transform: translate3d(0, 0px, 0px);
       }
 
@@ -72,7 +72,7 @@ const Sidepanel = (props) => (
 
 Sidepanel.propTypes = {
   children: PropTypes.element.isRequired,
-  isOpen: PropTypes.bool.isRequired,
+  isActive: PropTypes.bool.isRequired,
 }
 
 export default Sidepanel

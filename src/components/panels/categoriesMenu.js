@@ -49,6 +49,7 @@ const CategoriesMenu = () => {
     <Link
       key={_id}
       to={`/${slugify(name.toLowerCase())}`}
+      replace
       className={className}
       activeClassName="active"
       onClick={(event) => {

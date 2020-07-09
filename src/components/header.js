@@ -1,5 +1,6 @@
 import React, { useContext } from "react"
-import { Link } from "gatsby"
+import { Link /* , navigate */ } from "gatsby"
+import { navigate } from "@reach/router" //enables navigate(-1) see: https://github.com/gatsbyjs/gatsby/issues/5987
 // import { FaSearch, FaUser, FaRegUser, FaRegUserCircle } from "react-icons/fa"
 import { FiShoppingCart, FiUser, FiSearch } from "react-icons/fi"
 // import { IoMdSearch, IoIosSearch } from "react-icons/io"
@@ -16,21 +17,45 @@ import Search from "./search"
 // import SearchBox from "./searchBox"
 // import SearchBoxMobile from "./searchBoxMobile"
 
-const Header = () => {
+const Header = ({ location }) => {
   const [state, dispatch] = useContext(CartContext)
   const [miscState, miscDispatch] = useContext(MiscContext)
+
+  const setActiveSidebar = (value) => {
+    const activeSidebar = location.state?.activeSidebar
+    // console.log("activeSidebar")
+    // console.log(activeSidebar)
+    // console.log(value)
+
+    if (activeSidebar === undefined) {
+      navigate(location.pathname, {
+        state: { activeSidebar: value },
+      })
+    } else if (activeSidebar === null) {
+      navigate(location.pathname, {
+        state: { activeSidebar: value },
+        replace: true,
+      })
+    } else if (activeSidebar !== value) {
+      navigate(location.pathname, {
+        state: { activeSidebar: value },
+        replace: true,
+      })
+    } else if (activeSidebar === value){
+      // navigate(location.pathname, {
+      //   replace: true,
+      // })
+      navigate(-1)
+    }
+  }
 
   return (
     <div className="row">
       <div className="col-a">
         <BaseButton
           className="buttonCatalog"
-          aria-label="search button"
-          onClick={() => {
-            miscDispatch({ type: "TOGGLE_CATEGORIES_OPEN" })
-            miscDispatch({ type: "CLOSE_MY_ACCOUNT" })
-            miscDispatch({ type: "CLOSE_CART" })
-          }}
+          aria-label="categories button"
+          onClick={() => setActiveSidebar("categoriesMenu")}
         >
           <ButtonCatalog />
         </BaseButton>
@@ -67,21 +92,13 @@ const Header = () => {
         <BaseButton
           className="buttonUser"
           aria-label="my-account button"
-          onClick={() => {
-            miscDispatch({ type: "TOGGLE_MY_ACCOUNT_OPEN" })
-            miscDispatch({ type: "CLOSE_CART" })
-            miscDispatch({ type: "CLOSE_CATEGORIES" })
-          }}
+          onClick={() => setActiveSidebar("userAccount")}
         >
           <FiUser color="white" />
         </BaseButton>
         <ButtonCart
           count={state.length}
-          onClick={() => {
-            miscDispatch({ type: "TOGGLE_CART_OPEN" })
-            miscDispatch({ type: "CLOSE_CATEGORIES" })
-            miscDispatch({ type: "CLOSE_MY_ACCOUNT" })
-          }}
+          onClick={() => setActiveSidebar("cart")}
         />
       </div>
       <style jsx global>{`
