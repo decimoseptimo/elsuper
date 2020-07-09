@@ -39,7 +39,7 @@ const CartItem = (props) => {
       <tr>
         <td>{image}</td>
         <td>
-          <Link to={`/${slug}/`}>{title}</Link>
+          <Link to={`/${slug}/`} replace>{title}</Link>
         </td>
         <td>
           ${price} {unit}

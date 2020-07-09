@@ -1,5 +1,6 @@
 import React, { useContext } from "react"
-import { Link } from "gatsby"
+// import { Link /* , navigate */ } from "gatsby"
+import { Link, navigate } from "@reach/router" //enables navigate(-1) see: https://github.com/gatsbyjs/gatsby/issues/5987
 // import { FaSearch, FaUser, FaRegUser, FaRegUserCircle } from "react-icons/fa"
 import { FiShoppingCart, FiUser, FiSearch } from "react-icons/fi"
 // import { IoMdSearch, IoIosSearch } from "react-icons/io"
@@ -16,34 +17,59 @@ import Search from "./search"
 // import SearchBox from "./searchBox"
 // import SearchBoxMobile from "./searchBoxMobile"
 
-const Header = () => {
+const Header = ({ location }) => {
   const [state, dispatch] = useContext(CartContext)
   const [miscState, miscDispatch] = useContext(MiscContext)
+
+  console.log(location)
+
+  const getActiveSidebar = () => location.state?.activeSidebar
+
+  const setActiveSidebar = (value) => {
+    const activeSidebar = getActiveSidebar()
+
+    // first value (uninitialized): go, push state
+    if (activeSidebar === undefined) {
+      navigate(location.pathname, {
+        state: { activeSidebar: value },
+      })
+    }
+    // same value: go back
+    else if (activeSidebar === value) {
+      navigate(-1)
+    }
+    // new value: go, replace state
+    else {
+      navigate(location.pathname, {
+        state: { activeSidebar: value },
+        replace: true,
+      })
+    }
+  }
+
+  const Logo = () =>
+    getActiveSidebar() ? (
+      <Link to="/" replace state={{ activeSidebar: null }} className="logo">
+        ELSUPER
+      </Link>
+    ) : (
+      <Link to="/" className="logo">
+        ELSUPER
+      </Link>
+    )
 
   return (
     <div className="row">
       <div className="col-a">
         <BaseButton
           className="buttonCatalog"
-          aria-label="search button"
-          onClick={() => {
-            miscDispatch({ type: "TOGGLE_CATEGORIES_OPEN" })
-            miscDispatch({ type: "CLOSE_MY_ACCOUNT" })
-            miscDispatch({ type: "CLOSE_CART" })
-          }}
+          aria-label="categories button"
+          onClick={() => setActiveSidebar("categoriesMenu")}
         >
           <ButtonCatalog />
         </BaseButton>
         <h1>
-          <Link
-            to="/"
-            style={{
-              color: `white`,
-              textDecoration: `none`,
-            }}
-          >
-            ELSUPER
-          </Link>
+          <Logo />
         </h1>
       </div>
       <div className="col-b">
@@ -67,24 +93,21 @@ const Header = () => {
         <BaseButton
           className="buttonUser"
           aria-label="my-account button"
-          onClick={() => {
-            miscDispatch({ type: "TOGGLE_MY_ACCOUNT_OPEN" })
-            miscDispatch({ type: "CLOSE_CART" })
-            miscDispatch({ type: "CLOSE_CATEGORIES" })
-          }}
+          onClick={() => setActiveSidebar("userAccount")}
         >
           <FiUser color="white" />
         </BaseButton>
         <ButtonCart
           count={state.length}
-          onClick={() => {
-            miscDispatch({ type: "TOGGLE_CART_OPEN" })
-            miscDispatch({ type: "CLOSE_CATEGORIES" })
-            miscDispatch({ type: "CLOSE_MY_ACCOUNT" })
-          }}
+          onClick={() => setActiveSidebar("cart")}
         />
       </div>
       <style jsx global>{`
+        .logo {
+          color: white;
+          text-decoration: none;
+        }
+
         .buttonCatalog {
           padding: 0 5px 0 0;
         }

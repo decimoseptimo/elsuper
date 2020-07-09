@@ -1,7 +1,9 @@
-import React, { useContext } from "react"
+import React /* useContext */ from "react"
 import PropTypes from "prop-types"
 import SimpleBar from "simplebar-react"
 import "simplebar/dist/simplebar.min.css"
+// import { navigate } from "gatsby"
+import { navigate } from "@reach/router" //enables navigate(-1) see: https://github.com/gatsbyjs/gatsby/issues/5987
 
 import Header from "./header"
 import Overlay from "./overlay"
@@ -9,37 +11,31 @@ import Sidepanel from "./sidepanel"
 import Menu from "./panels/categoriesMenu"
 import UserAccount from "./panels/userAccount/userAccount"
 import Cart from "./panels/cart/cart"
-import { MiscContext } from "../state/misc"
 import "./layout.css"
 
-const Layout = ({ children }) => {
-  const [state, dispatch] = useContext(MiscContext)
+const Layout = ({ location, children }) => {
+  const activeSidebar = location.state?.activeSidebar
 
   return (
     <>
       <div className="body">
         <div className="header-wrapper">
           <header>
-            <Header />
+            <Header location={location} />
           </header>
         </div>
-        <Overlay
-          isCategoriesOpen={state.isCategoriesOpen}
-          isMyAccountOpen={state.isMyAccountOpen}
-          isCartOpen={state.isCartOpen}
-          dispatch={dispatch}
-        />
-        <Sidepanel isOpen={state.isCategoriesOpen}>
+        <Overlay isActive={activeSidebar} onClick={(e) => navigate(-1)} />
+        <Sidepanel isActive={activeSidebar === "categoriesMenu"}>
           <SimpleBar style={{ maxHeight: "100%", width: "100%" }}>
             <Menu />
           </SimpleBar>
         </Sidepanel>
-        <Sidepanel right isOpen={state.isMyAccountOpen}>
+        <Sidepanel right isActive={activeSidebar === "userAccount"}>
           <SimpleBar style={{ maxHeight: "100%", width: "100%" }}>
             <UserAccount />
           </SimpleBar>
         </Sidepanel>
-        <Sidepanel right isOpen={state.isCartOpen}>
+        <Sidepanel right isActive={activeSidebar === "cart"}>
           <SimpleBar style={{ maxHeight: "100%", width: "100%" }}>
             <Cart />
           </SimpleBar>
