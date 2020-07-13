@@ -3,7 +3,6 @@ import { Link } from "gatsby"
 import Img from "gatsby-image"
 
 import Image from "../image"
-import useHasMounted from "../useHasMounted"
 
 const ProductCard = (props) => {
   const {
@@ -14,6 +13,7 @@ const ProductCard = (props) => {
     countInCart,
     InputNumber,
     ToggleButton,
+    hasMountedAndHasValue
   } = props
 
   const image = data.images ? (
@@ -22,15 +22,8 @@ const ProductCard = (props) => {
     <Image />
   )
 
-  //see: https://github.com/gatsbyjs/gatsby/issues/17914
-  // https://joshwcomeau.com/react/the-perils-of-rehydration/
-  const hasMounted = useHasMounted()
-
   return (
-    <div
-      key={hasMounted}
-      className={`productCard ${countInCart ? "active" : ""}`}
-    >
+    <div key={hasMountedAndHasValue} className={`productCard ${countInCart ? "active" : ""}`}>
       <Link to={`/${data.slug}/`}>{image}</Link>
       <div className="subtitle row">
         <span className="price">

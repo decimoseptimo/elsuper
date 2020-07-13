@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 
 import Button from "../button"
 import AsInputNumber from "../inputNumber"
+import useHasMountedAndHasValue from "../useHasMountedAndHasValue"
 import { round } from "../../utils"
 
 const AddButton = (props) => {
@@ -87,6 +88,11 @@ const ProductBase = (props) => {
   data.price = round(data.price)
   const [count, setCount] = useState(countInCart || 1)
 
+  // Two-pass rendering technique, see:
+  // https://github.com/gatsbyjs/gatsby/issues/17914
+  // https://joshwcomeau.com/react/the-perils-of-rehydration/
+  const hasMountedAndHasValue = useHasMountedAndHasValue(countInCart)
+
   useEffect(() => {
     if (countInCart) setCount(countInCart)
   }, [countInCart])
@@ -99,6 +105,7 @@ const ProductBase = (props) => {
     countInCart,
     ToggleButton,
     InputNumber,
+    hasMountedAndHasValue,
   }
 
   return <View {...viewProps} />

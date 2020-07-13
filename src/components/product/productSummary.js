@@ -10,10 +10,11 @@ const ProductSummary = (props) => {
     countInCart,
     InputNumber,
     ToggleButton,
+    hasMountedAndHasValue
   } = props
 
   return (
-    <div className="productSummary">
+    <div key={hasMountedAndHasValue} className="productSummary">
       <h1 className="item title">{data.title}</h1>
       <p className="item price">
         ${data.price} {data.unit}
