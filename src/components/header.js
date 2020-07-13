@@ -21,7 +21,7 @@ const Header = ({ location }) => {
   const [state, dispatch] = useContext(CartContext)
   const [miscState, miscDispatch] = useContext(MiscContext)
 
-  console.log(location)
+  // console.log(location)
 
   const getActiveSidebar = () => location.state?.activeSidebar
 
