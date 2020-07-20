@@ -1,13 +1,13 @@
 import React from "react"
 import { FaBars } from "react-icons/fa"
 
-const ButtonCatalog = (props) => (
+const IconBars = (props) => (
   <>
-    <div className="barsButton">
+    <div className="iconBars">
       <FaBars color="#e0b324" />
     </div>
     <style jsx>{`
-      .barsButton {
+      .iconBars {
         border: 1px solid #e0b324;
         padding: .2rem .3rem;
         border-radius: 3px;
@@ -19,4 +19,4 @@ const ButtonCatalog = (props) => (
   </>
 )
 
-export default ButtonCatalog
+export default IconBars

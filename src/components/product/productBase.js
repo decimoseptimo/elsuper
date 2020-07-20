@@ -52,14 +52,14 @@ const ToggleButton = (props) => {
 
   return !countInCart ? (
     <AddButton
-      className={`toggleButton addButton ${addClassName}`}
+      className={`toggleButton ${addClassName}`}
       dispatch={dispatch}
       data={data}
       count={count}
     />
   ) : (
     <RemoveButton
-      className={`toggleButton removeButton ${removeClassName}`}
+      className={`toggleButton ${removeClassName}`}
       dispatch={dispatch}
       _id={data._id}
     />
@@ -103,6 +103,7 @@ const ProductBase = (props) => {
     dispatch,
     setCount,
     countInCart,
+    AddButton,
     ToggleButton,
     InputNumber,
     hasMountedAndHasValue,
