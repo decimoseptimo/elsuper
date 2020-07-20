@@ -3,12 +3,12 @@ import { FaShoppingCart } from "react-icons/fa"
 
 import BaseButton from "./baseButton"
 
-const ButtonCart = (props) => (
+const ButtonCart = ({count, onClick}) => (
   <>
-    <BaseButton {...props} className="buttonCart">
+    <BaseButton className="buttonCart" aria-label="cart button" onClick={onClick}>
       <>
         <FaShoppingCart color="white" />
-        <span className="cart-count">{props.count}</span>
+        <span className="cart-count">{count}</span>
       </>
     </BaseButton>
     <style jsx global>{`

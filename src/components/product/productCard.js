@@ -7,13 +7,13 @@ import Image from "../image"
 const ProductCard = (props) => {
   const {
     data,
-    count,
-    setCount,
+    // count,
+    // setCount,
     dispatch,
     countInCart,
     InputNumber,
-    ToggleButton,
-    hasMountedAndHasValue
+    AddButton,
+    hasMountedAndHasValue,
   } = props
 
   const image = data.images ? (
@@ -22,8 +22,39 @@ const ProductCard = (props) => {
     <Image />
   )
 
+  const button = countInCart ? (
+    <InputNumber
+      className="style2"
+      data={data}
+      value={countInCart}
+      dispatch={dispatch}
+      onChange={(value) => {
+        // console.log(`onChange: ${value}`)
+        if (countInCart)
+          dispatch({
+            type: "UPDATE_CART_ITEM",
+            _id: data._id,
+            count: value,
+          })
+      }}
+      onDelete={() => {
+        dispatch({ type: "REMOVE_CART_ITEM", _id: data._id })
+      }}
+    />
+  ) : (
+    <AddButton
+      className={`toggleButton style2 round`}
+      dispatch={dispatch}
+      data={data}
+      count={countInCart || 1}
+    />
+  )
+
   return (
-    <div key={hasMountedAndHasValue} className={`productCard ${countInCart ? "active" : ""}`}>
+    <div
+      key={hasMountedAndHasValue}
+      className={`productCard ${countInCart ? "active" : ""}`}
+    >
       <Link to={`/${data.slug}/`}>{image}</Link>
       <div className="subtitle row">
         <span className="price">
@@ -33,33 +64,7 @@ const ProductCard = (props) => {
         <span className="unit">{data.unit}</span>
       </div>
       <h2 className="title row">{data.title}</h2>
-      <InputNumber
-        className="style2"
-        data={data}
-        value={countInCart}
-        dispatch={dispatch}
-        onChange={(value) => {
-          // console.log(`onChange: ${value}`)
-          if (countInCart)
-            dispatch({
-              type: "UPDATE_CART_ITEM",
-              _id: data._id,
-              count: value,
-            })
-        }}
-        onDelete={() => {
-          dispatch({ type: "REMOVE_CART_ITEM", _id: data._id })
-        }}
-      />
-      <ToggleButton
-        addClassName="style2 round"
-        removeClassName="style2 round"
-        data={data}
-        count={countInCart || 1}
-        dispatch={dispatch}
-        countInCart={countInCart}
-      />
-
+      {button}
       <style jsx global>{`
         .productCard {
           padding: 1rem 1rem 1rem;

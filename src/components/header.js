@@ -1,27 +1,19 @@
 import React, { useContext } from "react"
-// import { Link /* , navigate */ } from "gatsby"
 import { Link, navigate } from "@reach/router" //enables navigate(-1) see: https://github.com/gatsbyjs/gatsby/issues/5987
-// import { FaSearch, FaUser, FaRegUser, FaRegUserCircle } from "react-icons/fa"
-import { FiShoppingCart, FiUser, FiSearch } from "react-icons/fi"
-// import { IoMdSearch, IoIosSearch } from "react-icons/io"
+import { FiUser } from "react-icons/fi"
 import { MdSearch } from "react-icons/md"
 
 import { CartContext } from "../state/cart"
 import { MiscContext } from "../state/misc"
 import BaseButton from "./baseButton"
 import ButtonCart from "./buttonCart"
-import ButtonCatalog from "./buttonCatalog"
+import IconBars from "./iconBars"
 
 import Search from "./search"
-// import SearchBoxBase from "./searchBoxBase"
-// import SearchBox from "./searchBox"
-// import SearchBoxMobile from "./searchBoxMobile"
 
 const Header = ({ location }) => {
   const [state, dispatch] = useContext(CartContext)
   const [miscState, miscDispatch] = useContext(MiscContext)
-
-  // console.log(location)
 
   const getActiveSidebar = () => location.state?.activeSidebar
 
@@ -62,11 +54,11 @@ const Header = ({ location }) => {
     <div className="row">
       <div className="col-a">
         <BaseButton
-          className="buttonCatalog"
+          className="buttonCategories"
           aria-label="categories button"
           onClick={() => setActiveSidebar("categoriesMenu")}
         >
-          <ButtonCatalog />
+          <IconBars />
         </BaseButton>
         <h1>
           <Logo />
@@ -108,7 +100,7 @@ const Header = ({ location }) => {
           text-decoration: none;
         }
 
-        .buttonCatalog {
+        .buttonCategories {
           padding: 0 5px 0 0;
         }
 
