@@ -18,11 +18,6 @@ const RegisterForm = (props) => {
         {errors.firstName && <div className="error">Nombre es requerido</div>}
       </div>
       <div className="field">
-        <label htmlFor="lastName" className="visuallyHidden">Apellido</label>
-        <input id="lastName" type="text" placeholder="Apellido" name="lastName" ref={register({required: true, maxLength: 100})} />
-        {errors.lastName && <div className="error">Apellido es requerido</div>}
-      </div>
-      <div className="field">
         <label htmlFor="email" className="visuallyHidden">Correo electrónico</label>
         <input id="email" type="text" placeholder="Correo electrónico" name="email" ref={register({required: true, pattern: /^\S+@\S+$/i})} />
         {errors.email && <div className="error">Correo electrónico es requerido</div>}
