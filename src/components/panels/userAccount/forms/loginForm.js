@@ -65,7 +65,7 @@ const LoginForm = (props) => {
           </BaseButton>
         </div>
         <Button className="primary fluid">Iniciar Sesión</Button>
-        <p>
+        <p className="legend">
           Al iniciar sesión, aceptas nuestras{" "}
           <Link to="/#">Condiciones de uso</Link> y{" "}
           <Link to="/#">Aviso de privacidad.</Link>
@@ -77,7 +77,7 @@ const LoginForm = (props) => {
         <Button
           type="button"
           onClick={() => handleClick(() => RegisterForm)}
-          className="fluid round"
+          className="default fluid round"
         >
           Crear cuenta
         </Button>

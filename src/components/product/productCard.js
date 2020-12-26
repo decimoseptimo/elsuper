@@ -43,7 +43,7 @@ const ProductCard = (props) => {
     />
   ) : (
     <AddButton
-      className={`toggleButton style2 round`}
+      className={`primary2 round`}
       dispatch={dispatch}
       data={data}
       count={countInCart || 1}

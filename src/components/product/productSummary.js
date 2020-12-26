@@ -9,9 +9,27 @@ const ProductSummary = (props) => {
     dispatch,
     countInCart,
     InputNumber,
-    ToggleButton,
-    hasMountedAndHasValue
+    AddButton,
+    RemoveButton,
+    hasMountedAndHasValue,
   } = props
+
+  const ToggleButton = () => {
+    return !countInCart ? (
+      <AddButton
+        className={`toggleButton primary`}
+        dispatch={dispatch}
+        data={data}
+        count={count}
+      />
+    ) : (
+      <RemoveButton
+        className={`toggleButton primary primary-active`}
+        dispatch={dispatch}
+        _id={data._id}
+      />
+    )
+  }
 
   return (
     <div key={hasMountedAndHasValue} className="productSummary">
@@ -63,11 +81,6 @@ const ProductSummary = (props) => {
         .productSummary .cartInputs {
           display: flex;
           margin-bottom: 1.6rem;
-        }
-
-        .productSummary .updateInput {
-          display: inline-flex;
-          margin-bottom: 0;
         }
 
         .productSummary .toggleButton {
