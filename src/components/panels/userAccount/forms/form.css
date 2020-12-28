@@ -2,65 +2,75 @@
 .form input[type="password"],
 .form input[type="submit"],
 .form input[type="email"] {
-    width: 100%;
-    padding: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 3px;
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 3px;
 }
 
 .form .field {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 .form .error {
-    margin-top: .5rem;
-    /* color: firebrick; */
-    color: indianred;
+  margin-top: 0.5rem;
+  /* color: firebrick; */
+  color: indianred;
 }
 
 .form .remember label {
-    position: relative;
-    top: -.15rem;
-    padding-left: .2rem;
-    cursor: pointer;
+  position: relative;
+  top: -0.15rem;
+  padding-left: 0.2rem;
+  cursor: pointer;
 }
 
 .form .remember .forgotPassword {
-    float: right;
-    color: #333;
+  float: right;
+  color: #333;
 }
 
 .form .pre-button {
-    position: relative;
-    text-align: center;
+  position: relative;
+  text-align: center;
+}
+
+.form .legend {
+  opacity: 0.8;
+  text-align: center;
+  font-size: 12px;
+}
+
+.form .legend a {
+  color: #004080;
 }
 
 .form .pre-button:after {
-    position: absolute;
-    content: '';
-    height: 1px;
-    bottom: 8px;
-    left: 0;
-    z-index: -1;
-    background: #666;
-    width: 100%;
-    opacity: .3;
+  position: absolute;
+  content: "";
+  height: 1px;
+  bottom: 8px;
+  left: 0;
+  z-index: -1;
+  background: #666;
+  width: 100%;
+  opacity: 0.3;
 }
 
 .form .pre-button span {
-    background: #fff;
-    padding: 0 .5rem;
-    font-style: italic;
-    color: rgba(0,0,0,.7);
+  background: #fff;
+  padding: 0 0.5rem;
+  font-style: italic;
+  color: rgba(0, 0, 0, 0.7);
 }
 
 .form .visuallyHidden {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
 }

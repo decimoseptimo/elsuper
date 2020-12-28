@@ -2,6 +2,7 @@ import React, { useContext } from "react"
 import { graphql, Link, useStaticQuery } from "gatsby"
 import slugify from "slugify"
 import Collapse, { Panel } from "rc-collapse"
+import motion from "../utils/motionUtil"
 import "rc-collapse/assets/index.css"
 import { IconContext } from "react-icons"
 import { AiOutlineRight } from "react-icons/ai"
@@ -69,12 +70,17 @@ const CategoriesMenu = () => {
   )
 
   const generateCollapse = (obj) => (
-    <Collapse accordion expandIcon={expandIcon}>
+    <Collapse accordion expandIcon={expandIcon} openMotion={motion}>
       {obj.map(({ _id, name, children }) => {
         return children ? (
           getPanel(_id, name, children)
         ) : (
-          <ItemLink key={_id} id={_id} name={name} className="rc-collapse-item" />
+          <ItemLink
+            key={_id}
+            id={_id}
+            name={name}
+            className="rc-collapse-item"
+          />
         )
       })}
     </Collapse>
@@ -88,7 +94,7 @@ const CategoriesMenu = () => {
         .categoryTitle {
           text-transform: uppercase;
           font-size: 1rem;
-          font-family: Lato,Helvetica Neue,Arial,Helvetica,sans-serif;
+          font-family: Lato, Helvetica Neue, Arial, Helvetica, sans-serif;
         }
 
         /* First level */

@@ -8,7 +8,7 @@ import { round } from "../../utils"
 const AddButton = (props) => {
   return (
     <Button
-      className={`primary ${props.className}`}
+      className={`${props.className}`}
       onClick={() => {
         props.dispatch({
           type: "ADD_CART_ITEM",
@@ -26,7 +26,7 @@ const RemoveButton = (props) => {
   return (
     <>
       <Button
-        className={`primary primary-active ${props.className}`}
+        className={`${props.className}`}
         onClick={() => {
           props.dispatch({
             type: "REMOVE_CART_ITEM",
@@ -37,32 +37,6 @@ const RemoveButton = (props) => {
         Remover
       </Button>
     </>
-  )
-}
-
-const ToggleButton = (props) => {
-  const {
-    data,
-    countInCart,
-    count,
-    dispatch,
-    addClassName,
-    removeClassName,
-  } = props
-
-  return !countInCart ? (
-    <AddButton
-      className={`toggleButton ${addClassName}`}
-      dispatch={dispatch}
-      data={data}
-      count={count}
-    />
-  ) : (
-    <RemoveButton
-      className={`toggleButton ${removeClassName}`}
-      dispatch={dispatch}
-      _id={data._id}
-    />
   )
 }
 
@@ -104,7 +78,7 @@ const ProductBase = (props) => {
     setCount,
     countInCart,
     AddButton,
-    ToggleButton,
+    RemoveButton,
     InputNumber,
     hasMountedAndHasValue,
   }

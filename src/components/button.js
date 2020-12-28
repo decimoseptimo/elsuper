@@ -1,17 +1,13 @@
 import React from "react"
 
 const Button = (props) => {
-  // const propsClone = Object.assign({}, props)
-  // delete propsClone.className
-
   return (
     <>
-      <button {...props} className={`button ${props.className}`}>
+      <button {...props} className={`${props.className}`}>
         {props.children}
       </button>
-      {/*<button className={`button ${props.className}`} {...propsClone}>{props.children}</button>*/}
-      <style jsx global>{`
-        .button {
+      <style jsx>{`
+         {
           padding: 0.91rem 1.8rem;
           border: 1px solid #ddd;
           cursor: pointer;
@@ -22,38 +18,41 @@ const Button = (props) => {
             "Lucida Grande", sans-serif;
         }
 
-        .button.fluid {
+        .fluid {
           width: 100%;
         }
 
-        .button.round {
+        .round {
           border-radius: 3px;
         }
 
-        .button.primary {
+        .default {
+          background: linear-gradient(to bottom, #f9f9f9, #dfdfdf);
+          color: #333;
+        }
+
+        .primary {
           color: #fff;
-          font-weight: 600;
           background-color: #96588a;
           border-color: #96588a;
+          font-weight: 600;
           font-style: italic;
         }
 
-        .button.primary-active {
+        .primary-active {
           background-color: #613458;
-          color: #fff;
         }
 
-        /* Style2 */
-        .button.style2 {
-          text-transform: uppercase;
-          font-style: normal;
-          background: #fff;
+        .primary2 {
           width: 100%;
+          text-transform: uppercase;
+          font-weight: 600;
+          background: #fff;
           color: #96588a;
           border-color: #eee;
         }
 
-        .button.style2.primary-active {
+        .primary2-active {
           // background-color: #613458;
           color: indianred;
         }
