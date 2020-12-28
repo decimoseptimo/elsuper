@@ -7,16 +7,20 @@ const Pagination = (props) => {
   return (
     <div className="paginationWrapper">
       <RcPagination locale={es_ES} {...props} />
+
       <style jsx global>{`
         .paginationWrapper {
           display: flex;
           justify-content: center;
           margin-top: 3rem;
         }
-        
+
         .rc-pagination {
-          font-family: Lato, Helvetica Neue, Arial, Helvetica, sans-serif;
           font-size: 1rem;
+        }
+
+        .rc-pagination-item {
+          font-family: Lato, Helvetica Neue, Arial, Helvetica, sans-serif;
         }
 
         .rc-pagination li {
@@ -33,6 +37,33 @@ const Pagination = (props) => {
           background-color: rgba(0, 0, 0, 0.05);
           border-radius: 0;
           transition: background 0.1s ease;
+        }
+
+        .rc-pagination-prev .rc-pagination-item-link,
+        .rc-pagination-next .rc-pagination-item-link {
+          border: 0;
+          background: none;
+        }
+
+        .rc-pagination-disabled,
+        .rc-pagination-disabled:hover,
+        .rc-pagination-disabled:focus {
+          cursor: default;
+        }
+
+        .rc-pagination-prev:focus .rc-pagination-item-link,
+        .rc-pagination-next:focus .rc-pagination-item-link,
+        .rc-pagination-prev:hover .rc-pagination-item-link,
+        .rc-pagination-next:hover .rc-pagination-item-link {
+          color: #96588a;
+          border-color: none;
+        }
+
+        .rc-pagination-disabled .rc-pagination-item-link,
+        .rc-pagination-disabled:hover .rc-pagination-item-link,
+        .rc-pagination-disabled:focus .rc-pagination-item-link {
+          cursor: default;
+          color: #ccc;
         }
 
         .rc-pagination-prev,
@@ -66,6 +97,7 @@ const Pagination = (props) => {
           background: 0;
           width: 100%;
           height: 100%;
+          font-family: Lato, Helvetica Neue, Arial, Helvetica, sans-serif;
         }
         .rc-pagination-prev button:after,
         .rc-pagination-next button:after {
@@ -91,6 +123,11 @@ const Pagination = (props) => {
         .rc-pagination-item:hover {
           background-color: rgba(0, 0, 0, 0.05);
           border-radius: 0;
+        }
+
+        .rc-pagination-item:focus a,
+        .rc-pagination-item:hover a {
+          color: #96588a;
         }
 
         .rc-pagination-item a {
