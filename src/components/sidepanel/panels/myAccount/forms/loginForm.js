@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form"
 import { Link } from "gatsby"
 
 import Button from "../../../button"
-import BaseButton from "../../../baseButton"
+import BaseButton from "../../../../baseButton"
 import RegisterForm from "./registerForm"
 import PasswordResetForm from "./passwordResetForm"
 
