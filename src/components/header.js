@@ -8,7 +8,6 @@ import { MiscContext } from "../state/misc"
 import BaseButton from "./baseButton"
 import ButtonCart from "./buttonCart"
 import IconBars from "./iconBars"
-
 import Search from "./search"
 
 const Header = ({ location }) => {

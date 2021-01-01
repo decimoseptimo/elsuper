@@ -3,16 +3,18 @@ import Highlighter from "react-highlight-words"
 
 const getSuggestionValue = (suggestion) => suggestion.title
 
-const renderSuggestion = ({title}, asd) => <div className="title">
-  <Highlighter
-    highlightTag={({ children, highlightIndex }) => (
-      <b className="highlighted-text">{children}</b>
-    )}
-    searchWords={asd.query.split(" ")}
-    autoEscape={true}
-    textToHighlight={title}
-  />
-</div>
+const renderSuggestion = ({ title }, asd) => (
+  <div className="title">
+    <Highlighter
+      highlightTag={({ children, highlightIndex }) => (
+        <b className="highlighted-text">{children}</b>
+      )}
+      searchWords={asd.query.split(" ")}
+      autoEscape={true}
+      textToHighlight={title}
+    />
+  </div>
+)
 
 const SearchBoxBase = (props) => {
   const { view: View, query, setQuery, handleSearch, dispatch } = props
@@ -22,12 +24,10 @@ const SearchBoxBase = (props) => {
 
   //console.log("SearchBoxBase")
 
-  useEffect(
-    () => {
-      //console.log("useEffect")
-      setValue(query)
-    }, [query]
-  )
+  useEffect(() => {
+    //console.log("useEffect")
+    setValue(query)
+  }, [query])
 
   const setInputRef2 = (autosuggest) => {
     //console.log("setInputRef2:")
@@ -49,7 +49,7 @@ const SearchBoxBase = (props) => {
 
   const onKeyDown = (event) => {
     //console.log('onKeyDown')
-    if (event.key === 'Enter' && value !== "") {
+    if (event.key === "Enter" && value !== "") {
       inputRef.blur()
       handleSearch(value)
     }
@@ -76,7 +76,7 @@ const SearchBoxBase = (props) => {
     placeholder: "Buscar productos",
     value,
     onChange,
-    onKeyDown
+    onKeyDown,
   }
 
   const autosuggestProps = {
@@ -91,12 +91,10 @@ const SearchBoxBase = (props) => {
     clearInput,
     inputRef,
     focusInputOnSuggestionClick: false,
-    ref: setInputRef2
+    ref: setInputRef2,
   }
 
-  return (
-    <View {...autosuggestProps} />
-  )
+  return <View {...autosuggestProps} />
 }
 
 export default SearchBoxBase

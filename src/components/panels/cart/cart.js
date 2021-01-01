@@ -1,5 +1,6 @@
 import React, { useContext } from "react"
 import Button from "../../button"
+import { navigate } from "@reach/router"
 
 import CartItem from "./cartItem"
 import { CartContext } from "../../../state/cart"
@@ -55,13 +56,19 @@ const Cart = (props) => {
               <div className="cart-total">Total ${cartTotal()}</div>
             </div>
             <div className="btn-wrapper">
-              <Button className="fluid primary">Proceder al pago</Button>
+              <Button
+                className="fluid primary"
+                onClick={() => navigate("/?finalizar-compra")}
+              >
+                Proceder al pago
+              </Button>
             </div>
           </>
         ) : (
           <p>Los productos que agregues apareceran aquí.</p>
         )}
       </div>
+
       <style jsx>{`
         .cart {
           min-width: 300px;

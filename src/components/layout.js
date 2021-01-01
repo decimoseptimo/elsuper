@@ -2,7 +2,6 @@ import React /* useContext */ from "react"
 import PropTypes from "prop-types"
 import SimpleBar from "simplebar-react"
 import "simplebar/dist/simplebar.min.css"
-// import { navigate } from "gatsby"
 import { navigate } from "@reach/router" //enables navigate(-1) see: https://github.com/gatsbyjs/gatsby/issues/5987
 
 import Header from "./header"

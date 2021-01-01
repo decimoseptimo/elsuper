@@ -1,0 +1,36 @@
+[
+  {
+    "id": "6098309854873541",
+    "username": "demo",
+    "name": "Jose Perez",
+    "email": "jose@example.com",
+    "password": "demo",
+    "addresses": [
+      {
+        "fullName": "Jose perez",
+        "addressLine1": "av. caliente no 2233",
+        "postalCode": "22255",
+        "state": "Baja California",
+        "city": "Mexicali",
+        "addressLine2": "Villa Verde",
+        "phone": "6865553345"
+      },
+      {
+        "fullName": "Armando Relajo",
+        "addressLine1": "av. frio no 3344",
+        "postalCode": "27245",
+        "state": "Baja California",
+        "city": "Mexicali",
+        "addressLine2": "Residencias Imperiales",
+        "phone": "6865467680"
+      }
+    ],
+    "cards": [
+      {
+        "number": "3545668644245599",
+        "expirationDate": "11/25",
+        "addressId": "0"
+      }
+    ]
+  }
+]
