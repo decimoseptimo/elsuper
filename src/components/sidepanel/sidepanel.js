@@ -73,6 +73,7 @@ const Sidepanel = (props) => (
 Sidepanel.propTypes = {
   children: PropTypes.element.isRequired,
   isActive: PropTypes.bool.isRequired,
+  right: PropTypes.bool,
 }
 
 export default Sidepanel

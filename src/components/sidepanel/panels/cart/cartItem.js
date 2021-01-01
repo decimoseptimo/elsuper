@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
 
-import InputNumber from "../../inputNumber"
-import Image from "../../image"
-import { round } from "../../../utils"
+import InputNumber from "../../../inputNumber"
+import Image from "../../../image"
+import { round } from "../../../../utils"
 
 const CartItem = (props) => {
   const {
@@ -39,7 +39,9 @@ const CartItem = (props) => {
       <tr>
         <td>{image}</td>
         <td>
-          <Link to={`/${slug}/`} replace>{title}</Link>
+          <Link to={`/${slug}/`} replace>
+            {title}
+          </Link>
         </td>
         <td>
           ${price} {unit}

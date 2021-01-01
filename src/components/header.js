@@ -1,5 +1,5 @@
 import React, { useContext } from "react"
-import { Link, navigate } from "@reach/router" //enables navigate(-1) see: https://github.com/gatsbyjs/gatsby/issues/5987
+import { Link } from "gatsby"
 import { FiUser } from "react-icons/fi"
 import { MdSearch } from "react-icons/md"
 
@@ -8,47 +8,16 @@ import { MiscContext } from "../state/misc"
 import BaseButton from "./baseButton"
 import ButtonCart from "./buttonCart"
 import IconBars from "./iconBars"
-
 import Search from "./search"
+import * as Routes from "./sidepanel/routes"
 
-const Header = ({ location }) => {
-  const [state, dispatch] = useContext(CartContext)
-  const [miscState, miscDispatch] = useContext(MiscContext)
-
-  const getActiveSidebar = () => location.state?.activeSidebar
-
-  const setActiveSidebar = (value) => {
-    const activeSidebar = getActiveSidebar()
-
-    // first value (uninitialized): go, push state
-    if (activeSidebar === undefined) {
-      navigate(location.pathname, {
-        state: { activeSidebar: value },
-      })
-    }
-    // same value: go back
-    else if (activeSidebar === value) {
-      navigate(-1)
-    }
-    // new value: go, replace state
-    else {
-      navigate(location.pathname, {
-        state: { activeSidebar: value },
-        replace: true,
-      })
-    }
-  }
-
-  const Logo = () =>
-    getActiveSidebar() ? (
-      <Link to="/" replace state={{ activeSidebar: null }} className="logo">
-        ELSUPER
-      </Link>
-    ) : (
-      <Link to="/" className="logo">
-        ELSUPER
-      </Link>
-    )
+const Header = ({
+  location,
+  setRoutes,
+  getFromRoutesHistory,
+}) => {
+  const [state /* , dispatch */] = useContext(CartContext)
+  const [, /* miscState */ miscDispatch] = useContext(MiscContext)
 
   return (
     <div className="row">
@@ -56,12 +25,18 @@ const Header = ({ location }) => {
         <BaseButton
           className="buttonCategories"
           aria-label="categories button"
-          onClick={() => setActiveSidebar("categoriesMenu")}
+          onClick={() =>
+            setRoutes( location,
+              getFromRoutesHistory(Routes.CATEGORIES) || [Routes.CATEGORIES]
+            )
+          }
         >
           <IconBars />
         </BaseButton>
         <h1>
-          <Logo />
+          <Link to="/" className="logo">
+            ELSUPER
+          </Link>
         </h1>
       </div>
       <div className="col-b">
@@ -85,19 +60,27 @@ const Header = ({ location }) => {
         <BaseButton
           className="buttonUser"
           aria-label="my-account button"
-          onClick={() => setActiveSidebar("userAccount")}
+          onClick={() =>
+            setRoutes( location,
+              getFromRoutesHistory(Routes.MY_ACCOUNT) || [Routes.MY_ACCOUNT]
+            )
+          }
         >
           <FiUser color="white" />
         </BaseButton>
         <ButtonCart
           count={state.length}
-          onClick={() => setActiveSidebar("cart")}
+          onClick={() =>
+            setRoutes( location,getFromRoutesHistory(Routes.CART) || [Routes.CART])
+          }
         />
       </div>
+
       <style jsx global>{`
         .logo {
           color: white;
           text-decoration: none;
+          cursor: pointer;
         }
 
         .buttonCategories {

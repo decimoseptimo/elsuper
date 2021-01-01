@@ -1,43 +1,81 @@
-import React /* useContext */ from "react"
+import React, { useEffect } from "react"
 import PropTypes from "prop-types"
 import SimpleBar from "simplebar-react"
 import "simplebar/dist/simplebar.min.css"
-// import { navigate } from "gatsby"
-import { navigate } from "@reach/router" //enables navigate(-1) see: https://github.com/gatsbyjs/gatsby/issues/5987
 
 import Header from "./header"
 import Overlay from "./overlay"
+// import Auth from "./panels/myAccount/auth"
+import Router, { useGetRoutes, setRoutes, useRoutesHistory } from "./router"
 import Sidepanel from "./sidepanel"
-import Menu from "./panels/categoriesMenu"
-import UserAccount from "./panels/userAccount/userAccount"
-import Cart from "./panels/cart/cart"
+import * as Routes from "./sidepanel/routes"
+import {
+  Categories,
+  Cart,
+  Shipping,
+  Payment,
+  Pay,
+  MyAccount,
+  Profile,
+  Cards,
+  Addresses,
+  Orders,
+} from "./sidepanel/panels"
 import "./layout.css"
 
 const Layout = ({ location, children }) => {
-  const activeSidebar = location.state?.activeSidebar
+  const { getFromRoutesHistory, setToRoutesHistory } = useRoutesHistory()
+  const routes = useGetRoutes()
+  const sidepanelRoute = routes[0]
+  const myAccountRoute = getFromRoutesHistory(Routes.MY_ACCOUNT)?.[1]
+  const cartRoute = getFromRoutesHistory(Routes.CART)?.[1]
+
+  useEffect(() => {
+    setToRoutesHistory(routes)
+  }, [routes.toString()])
 
   return (
     <>
       <div className="body">
         <div className="header-wrapper">
           <header>
-            <Header location={location} />
+            <Header
+              location={location}
+              setRoutes={setRoutes}
+              getFromRoutesHistory={getFromRoutesHistory}
+            />
           </header>
         </div>
-        <Overlay isActive={activeSidebar} onClick={(e) => navigate(-1)} />
-        <Sidepanel isActive={activeSidebar === "categoriesMenu"}>
+        <Overlay
+          isActive={Routes.MAIN_SIDEPANELS.includes(sidepanelRoute)}
+          onClick={(e) => setRoutes(location, routes)}
+        />
+        <Sidepanel isActive={sidepanelRoute === Routes.CATEGORIES}>
           <SimpleBar style={{ maxHeight: "100%", width: "100%" }}>
-            <Menu />
+            <Categories />
           </SimpleBar>
         </Sidepanel>
-        <Sidepanel right isActive={activeSidebar === "userAccount"}>
+        <Sidepanel right isActive={sidepanelRoute === Routes.MY_ACCOUNT}>
           <SimpleBar style={{ maxHeight: "100%", width: "100%" }}>
-            <UserAccount />
+            <Router activeRoute={myAccountRoute}>
+              <MyAccount default />
+              {/* <Auth route={Routes.AUTH} /> */}
+              <Profile private route={Routes.PROFILE} />
+              <Orders private route={Routes.ORDERS} />
+              <Cards private route={Routes.CARDS} />
+              <Addresses private route={Routes.ADDRESSES} />
+            </Router>
           </SimpleBar>
         </Sidepanel>
-        <Sidepanel right isActive={activeSidebar === "cart"}>
+        <Sidepanel right isActive={sidepanelRoute === Routes.CART}>
           <SimpleBar style={{ maxHeight: "100%", width: "100%" }}>
-            <Cart />
+            <Router activeRoute={cartRoute}>
+              <Cart default />
+              {/* <Auth route={Routes.AUTH} /> */}
+              <Shipping private route={Routes.SHIPPING} />
+              <Payment private route={Routes.PAYMENT} />
+              <Pay private route={Routes.PAY} />
+            </Router>
           </SimpleBar>
         </Sidepanel>
         <div className="main-wrapper">
@@ -49,6 +87,7 @@ const Layout = ({ location, children }) => {
           </footer>
         </div>
       </div>
+
       <style jsx>{`
         .body {
           padding-top: 0;

@@ -1,13 +1,16 @@
 import React, { useContext } from "react"
-import Button from "../../button"
 
+import Button from "../../../button"
 import CartItem from "./cartItem"
-import { CartContext } from "../../../state/cart"
-import { round } from "../../../utils"
+import { CartContext } from "../../../../state/cart"
+import { round } from "../../../../utils"
+import { navigate, useGetRelativeUrl } from "../../../router"
+import { CART, SHIPPING } from "../../routes"
 import "../panel.css"
 
 const Cart = (props) => {
   const [state, dispatch] = useContext(CartContext)
+  const url = useGetRelativeUrl(CART, SHIPPING)
 
   const cartTotal = () => {
     let cartTotal = 0
@@ -55,13 +58,14 @@ const Cart = (props) => {
               <div className="cart-total">Total ${cartTotal()}</div>
             </div>
             <div className="btn-wrapper">
-              <Button className="fluid primary">Proceder al pago</Button>
+                <Button className="fluid primary" onClick={()=>navigate(url)}>Proceder al pago</Button>
             </div>
           </>
         ) : (
           <p>Los productos que agregues apareceran aquí.</p>
         )}
       </div>
+
       <style jsx>{`
         .cart {
           min-width: 300px;
