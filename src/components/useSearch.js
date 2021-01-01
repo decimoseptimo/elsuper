@@ -15,7 +15,7 @@ const useSearch = (query) => {
     }
   `)
   const { index, store } = data.localSearchProducts
-  const results = useFlexSearch(query, index, JSON.parse(store))
+  const results = useFlexSearch(query, index, store)
   return results
 }
 

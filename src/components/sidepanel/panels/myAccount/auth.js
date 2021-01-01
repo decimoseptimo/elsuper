@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { navigate } from "@reach/router"
 
 import LoginForm from "./forms/loginForm"
 // import RegisterForm from "./myAccount/registerForm"
@@ -6,20 +7,25 @@ import LoginForm from "./forms/loginForm"
 import "../panel.css"
 import "./forms/form.css"
 
-const UserAccount = (props) => {
+const Auth = (props) => {
   const [activeForm, setActiveForm] = useState(() => LoginForm)
-  const onSubmit = (data) => console.log(data)
+  const onSubmit = (data) => {
+    console.log(data)
+    navigate("?mi-cuenta")
+  }
   const handleClick = (value) => setActiveForm(value)
   const formProps = { onSubmit, handleClick: handleClick.bind(this) }
 
-  return <div className="panel userAccount">
+  return (
+    <div className="panel myAccount">
       {React.createElement(activeForm, formProps, null)}
       <style jsx>{`
-      .panel.userAccount {
-        margin-bottom: 2rem;
-      }
+        .panel.myAccount {
+          margin-bottom: 2rem;
+        }
       `}</style>
-  </div>
+    </div>
+  )
 }
 
-export default UserAccount
+export default Auth

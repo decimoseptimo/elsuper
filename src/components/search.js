@@ -22,13 +22,7 @@ const Search = (props) => {
   `)
   const { index, store } = data.localSearchProducts
   const [state, dispatch] = useContext(MiscContext)
-  const querystring = (() => {
-    try {
-      return props.search.p
-    } catch {
-      return ""
-    }
-  })()
+  const querystring = props?.search?.p ?? ""
   const [query, setQuery] = useState(querystring)
   useEffect(() => {
     //console.log("useEffect")
@@ -41,14 +35,14 @@ const Search = (props) => {
     props.search.p &&
     !state.query
   ) {
-    //console.log('dispatch')
+    // console.log("dispatch")
     dispatch({
       type: "SET_QUERY",
       query: query,
     })
   }
 
-  const results = useFlexSearch(query, index, JSON.parse(store))
+  const results = useFlexSearch(query, index, store)
 
   // const mql = window.matchMedia("(min-width: 570px)")
   // console.log("mql:")
@@ -71,7 +65,7 @@ const Search = (props) => {
   }
 
   const searchBoxProps = {
-    results: normalizeResults.slice(0, 10),
+    results: normalizeResults.slice(0, 10) || null,
     query,
     setQuery,
     dispatch,

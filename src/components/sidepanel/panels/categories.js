@@ -1,15 +1,15 @@
 import React, { useContext } from "react"
 import { graphql, Link, useStaticQuery } from "gatsby"
 import slugify from "slugify"
-import Collapse, { Panel } from "rc-collapse"
+import Collapse from "rc-collapse"
 import "rc-collapse/assets/index.css"
 import { IconContext } from "react-icons"
 import { AiOutlineRight } from "react-icons/ai"
 
-import { getChildren, getCategoryTree } from "../../utils"
-import { MiscContext } from "../../state/misc"
+import { getChildren, getCategoryTree } from "../../../utils"
+import { MiscContext } from "../../../state/misc"
 
-const CategoriesMenu = () => {
+const Categories = () => {
   const data = useStaticQuery(graphql`
     query {
       allCategoriesJson {
@@ -24,7 +24,7 @@ const CategoriesMenu = () => {
     }
   `)
 
-  const [miscState, miscDispatch] = useContext(MiscContext)
+  const [/* miscState */, miscDispatch] = useContext(MiscContext)
   const propsCategories = data.allCategoriesJson.edges
   const categories = propsCategories.map((i) => i.node)
   const rootCategories = getChildren(categories, null)
@@ -37,17 +37,15 @@ const CategoriesMenu = () => {
 
   const { Panel } = Collapse
 
-  const expandIcon = ({ isActive }) => (
+  const expandIcon = (props) =>
     <IconContext.Provider
-      value={!isActive ? { style: { transform: "rotate(90deg)" } } : {}}
+      value={!props.isActive ? { style: { transform: "rotate(90deg)" } } : {}}
     >
       <AiOutlineRight />
     </IconContext.Provider>
-  )
 
-  const ItemLink = ({ _id, name, className }) => (
+  const ItemLink = ({ name, className='' }) => (
     <Link
-      key={_id}
       to={`/${slugify(name.toLowerCase())}`}
       replace
       className={className}
@@ -63,7 +61,7 @@ const CategoriesMenu = () => {
   )
 
   const getPanel = (_id, name, children) => (
-    <Panel key={_id} header={<ItemLink _id={_id} name={name} />}>
+    <Panel key={_id} header={<ItemLink name={name} />}>
       {generateCollapse(children)}
     </Panel>
   )
@@ -74,7 +72,11 @@ const CategoriesMenu = () => {
         return children ? (
           getPanel(_id, name, children)
         ) : (
-          <ItemLink key={_id} id={_id} name={name} className="rc-collapse-item" />
+          <ItemLink
+            key={_id}
+            name={name}
+            className="rc-collapse-item"
+          />
         )
       })}
     </Collapse>
@@ -88,7 +90,7 @@ const CategoriesMenu = () => {
         .categoryTitle {
           text-transform: uppercase;
           font-size: 1rem;
-          font-family: Lato,Helvetica Neue,Arial,Helvetica,sans-serif;
+          font-family: Lato, Helvetica Neue, Arial, Helvetica, sans-serif;
         }
 
         /* First level */
@@ -191,4 +193,4 @@ const CategoriesMenu = () => {
   )
 }
 
-export default CategoriesMenu
+export default Categories
