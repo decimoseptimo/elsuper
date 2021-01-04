@@ -48,7 +48,7 @@ const Search = (props) => {
     })
   }
 
-  const results = useFlexSearch(query, index, JSON.parse(store))
+  const results = useFlexSearch(query, index, store)
 
   // const mql = window.matchMedia("(min-width: 570px)")
   // console.log("mql:")

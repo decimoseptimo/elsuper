@@ -37,7 +37,7 @@ const Layout = ({ location, children }) => {
         </Sidepanel>
         <Sidepanel right isActive={activeSidebar === "cart"}>
           <SimpleBar style={{ maxHeight: "100%", width: "100%" }}>
-            <Cart />
+            <Cart location={location} />
           </SimpleBar>
         </Sidepanel>
         <div className="main-wrapper">

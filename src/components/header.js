@@ -8,39 +8,38 @@ import { MiscContext } from "../state/misc"
 import BaseButton from "./baseButton"
 import ButtonCart from "./buttonCart"
 import IconBars from "./iconBars"
-
 import Search from "./search"
+
+export const getActiveSidebar = (location) => location.state?.activeSidebar
+
+export const setActiveSidebar = (location, value) => {
+  const activeSidebar = getActiveSidebar(location)
+
+  // first value (uninitialized): go, push state
+  if (activeSidebar === undefined) {
+    navigate(location.pathname, {
+      state: { activeSidebar: value },
+    })
+  }
+  // same value: go back
+  else if (activeSidebar === value) {
+    navigate(-1)
+  }
+  // new value: go, replace state
+  else {
+    navigate(location.pathname, {
+      state: { activeSidebar: value },
+      replace: true,
+    })
+  }
+}
 
 const Header = ({ location }) => {
   const [state, dispatch] = useContext(CartContext)
   const [miscState, miscDispatch] = useContext(MiscContext)
 
-  const getActiveSidebar = () => location.state?.activeSidebar
-
-  const setActiveSidebar = (value) => {
-    const activeSidebar = getActiveSidebar()
-
-    // first value (uninitialized): go, push state
-    if (activeSidebar === undefined) {
-      navigate(location.pathname, {
-        state: { activeSidebar: value },
-      })
-    }
-    // same value: go back
-    else if (activeSidebar === value) {
-      navigate(-1)
-    }
-    // new value: go, replace state
-    else {
-      navigate(location.pathname, {
-        state: { activeSidebar: value },
-        replace: true,
-      })
-    }
-  }
-
   const Logo = () =>
-    getActiveSidebar() ? (
+    getActiveSidebar(location) ? (
       <Link to="/" replace state={{ activeSidebar: null }} className="logo">
         ELSUPER
       </Link>
@@ -56,7 +55,7 @@ const Header = ({ location }) => {
         <BaseButton
           className="buttonCategories"
           aria-label="categories button"
-          onClick={() => setActiveSidebar("categoriesMenu")}
+          onClick={() => setActiveSidebar(location, "categoriesMenu")}
         >
           <IconBars />
         </BaseButton>
@@ -85,13 +84,13 @@ const Header = ({ location }) => {
         <BaseButton
           className="buttonUser"
           aria-label="my-account button"
-          onClick={() => setActiveSidebar("userAccount")}
+          onClick={() => setActiveSidebar(location, "userAccount")}
         >
           <FiUser color="white" />
         </BaseButton>
         <ButtonCart
           count={state.length}
-          onClick={() => setActiveSidebar("cart")}
+          onClick={() => setActiveSidebar(location, "cart")}
         />
       </div>
       <style jsx global>{`

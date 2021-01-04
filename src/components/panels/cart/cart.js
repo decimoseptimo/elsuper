@@ -4,9 +4,10 @@ import Button from "../../button"
 import CartItem from "./cartItem"
 import { CartContext } from "../../../state/cart"
 import { round } from "../../../utils"
+import { setActiveSidebar } from "../../header"
 import "../panel.css"
 
-const Cart = (props) => {
+const Cart = ({ location }) => {
   const [state, dispatch] = useContext(CartContext)
 
   const cartTotal = () => {
@@ -55,7 +56,12 @@ const Cart = (props) => {
               <div className="cart-total">Total ${cartTotal()}</div>
             </div>
             <div className="btn-wrapper">
-              <Button className="fluid primary">Proceder al pago</Button>
+              <Button
+                className="fluid primary"
+                onClick={() => setActiveSidebar(location, "userAccount")}
+              >
+                Proceder al pago
+              </Button>
             </div>
           </>
         ) : (
