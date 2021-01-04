@@ -186,6 +186,7 @@ const InputNumber = ({
       /* Style3 */
       .inputNumber.style3 {
         background: #fff;
+        display: inline-flex;
       }
       
       .inputNumber.style3 input {
