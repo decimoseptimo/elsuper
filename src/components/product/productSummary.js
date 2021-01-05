@@ -61,7 +61,11 @@ const ProductSummary = (props) => {
           countInCart={countInCart}
         />
       </div>
-      <p className="item">{nl2br(data.description)}</p>
+      {/* <p className="item">{nl2br(data.description)}</p> */}
+      <p className="item">
+        En ELSUPER encuentras todo tipo de articulos para tu hogar y alacena.
+        Proximamente agregaremos una descripcion cool a este producto.
+      </p>
 
       <style jsx global>{`
         .productSummary .item {
