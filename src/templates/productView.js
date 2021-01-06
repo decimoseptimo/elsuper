@@ -49,9 +49,7 @@ const ProductView = (props) => {
         {`
           .row {}
 
-          .col {
-            // border: 1px solid red;
-          }
+          .col {}
 
           .col-a {
             margin-bottom: 1rem;
