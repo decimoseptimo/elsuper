@@ -94,7 +94,7 @@ const ProductSummary = (props) => {
 
         @media screen and (min-width: 1100px) {
           .productSummary .toggleButton {
-            flex: 0;
+            {/* flex: 0; */}
           }
         }
 

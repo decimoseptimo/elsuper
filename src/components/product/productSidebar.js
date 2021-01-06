@@ -14,13 +14,12 @@ const { className, styles } = css.resolve`
 const ProductSidebar = (props) => {
   return (
     <div className="product-sidebar">
-      {/* <div className="block"></div> */}
       <div className="block">
         <h3>
           Envio gratis
           <MdLocalShipping className={className} />
         </h3>
-        <p>En tus compras con un monto minimo de 499$</p>
+        <p>En tus compras con un monto minimo de $499</p>
       </div>
       <div className="block">
         <h3>
@@ -28,11 +27,10 @@ const ProductSidebar = (props) => {
           <AiFillCreditCard className={className} />
         </h3>
         <p>
-          Aceptamos las principales tarjetas credito y debito. Y pago en
+          Aceptamos las principales tarjetas de credito y debito. Y pago en
           efectivo a contra-entrega
         </p>
       </div>
-      {/* <div className="block"></div> */}
 
       {styles}
       <style jsx>{`
@@ -40,13 +38,18 @@ const ProductSidebar = (props) => {
         }
 
         .block {
-          margin-bottom: 1rem;
           padding: 1rem;
-          background-color: #eee;
-          //box-shadow: 0 1px 2px #dfdfdf;
           position: relative;
-          color: #666;
+          color: #888;
+          border: 1px dotted #ddd;
           border-radius: 3px;
+        }
+        .block:first-child {
+          border-radius: 3px 3px 0 0;
+          border-bottom: 0;
+        }
+        .block:last-child {
+          border-radius: 0 0 3px 3px;
         }
 
         h3 {
@@ -57,7 +60,6 @@ const ProductSidebar = (props) => {
           font-family: "Source Sans Pro", HelveticaNeue-Light,
             "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial,
             "Lucida Grande", sans-serif;
-          color: #555;
         }
 
         h3 .svg {
@@ -70,12 +72,6 @@ const ProductSidebar = (props) => {
           margin: 0;
         }
 
-         {
-          /* .shop-item .button {
-          margin-bottom: 0.3rem;
-        } */
-        }
-
         @media screen and (min-width: 550px) {
           .product-sidebar {
             display: grid;
@@ -84,14 +80,14 @@ const ProductSidebar = (props) => {
             grid-column-gap: 1rem;
             grid-row-gap: 5rem;
           }
-        }
 
-         {
-          /* @media screen and (min-width: 800px) {
-          .product-sidebar {
-            grid-template-columns: 1fr 1fr 1fr 1fr;
+          .block:first-child {
+            border-radius: 3px;
+            border-bottom: 1px dotted #ddd;
           }
-        } */
+          .block:last-child {
+            border-radius: 3px;
+          }
         }
 
         @media screen and (min-width: 1100px) {
@@ -99,7 +95,12 @@ const ProductSidebar = (props) => {
             display: block;
           }
 
-          .block {
+          .block:first-child {
+            border-radius: 3px 3px 0 0;
+            border-bottom: 0;
+          }
+          .block:last-child {
+            border-radius: 0 0 3px 3px;
           }
         }
       `}</style>
