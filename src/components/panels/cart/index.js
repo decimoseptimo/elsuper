@@ -1,14 +1,24 @@
 import React, { useContext } from "react"
-import Button from "../../button"
-import { navigate } from "@reach/router"
+import { Link } from "@reach/router"
 
+import Button from "../../button"
 import CartItem from "./cartItem"
 import { CartContext } from "../../../state/cart"
 import { round } from "../../../utils"
+import { useGetRelativeUrl } from "../../router"
+import { CART, SHIPPING } from "../../routes"
 import "../panel.css"
 
-const Cart = (props) => {
+const Cart = () => {
   const [state, dispatch] = useContext(CartContext)
+  const url = useGetRelativeUrl(CART, SHIPPING)
+
+  // console.log(useGetRelativeUrl())
+  // console.log(useGetRelativeUrl(["asd", "123"]))
+  // console.log(useGetRelativeUrl([null, "123"]))
+  // console.log(useGetRelativeUrl(["asd", null]))
+  // console.log(useGetRelativeUrl(["", "123"]))
+  // console.log(useGetRelativeUrl(["asd", ""]))
 
   const cartTotal = () => {
     let cartTotal = 0
@@ -56,12 +66,9 @@ const Cart = (props) => {
               <div className="cart-total">Total ${cartTotal()}</div>
             </div>
             <div className="btn-wrapper">
-              <Button
-                className="fluid primary"
-                onClick={() => navigate("/?finalizar-compra")}
-              >
-                Proceder al pago
-              </Button>
+              <Link to={url}>
+                <Button className="fluid primary">Proceder al pago</Button>
+              </Link>
             </div>
           </>
         ) : (

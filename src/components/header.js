@@ -9,45 +9,30 @@ import BaseButton from "./baseButton"
 import ButtonCart from "./buttonCart"
 import IconBars from "./iconBars"
 import Search from "./search"
+import { getRelativeUrl } from "./router"
+import * as Routes from "./routes"
 
-const Header = ({ location }) => {
+const Header = ({ location, activeSidebar }) => {
   const [state, dispatch] = useContext(CartContext)
   const [miscState, miscDispatch] = useContext(MiscContext)
-
-  const getActiveSidebar = () => location.state?.activeSidebar
+  const deroutedUrl = getRelativeUrl(location, false)
 
   const setActiveSidebar = (value) => {
-    const activeSidebar = getActiveSidebar()
-
-    // first value (uninitialized): go, push state
+    // uninitialized value: go, push state
     if (activeSidebar === undefined) {
-      navigate(location.pathname, {
-        state: { activeSidebar: value },
-      })
+      navigate(getRelativeUrl(location, value))
     }
     // same value: go back
     else if (activeSidebar === value) {
-      navigate(-1)
+      navigate(deroutedUrl)
     }
     // new value: go, replace state
     else {
-      navigate(location.pathname, {
-        state: { activeSidebar: value },
+      navigate(getRelativeUrl(location, value), {
         replace: true,
       })
     }
   }
-
-  const Logo = () =>
-    getActiveSidebar() ? (
-      <Link to="/" replace state={{ activeSidebar: null }} className="logo">
-        ELSUPER
-      </Link>
-    ) : (
-      <Link to="/" className="logo">
-        ELSUPER
-      </Link>
-    )
 
   return (
     <div className="row">
@@ -55,12 +40,14 @@ const Header = ({ location }) => {
         <BaseButton
           className="buttonCategories"
           aria-label="categories button"
-          onClick={() => setActiveSidebar("categoriesMenu")}
+          onClick={() => setActiveSidebar(Routes.CATEGORIES)}
         >
           <IconBars />
         </BaseButton>
         <h1>
-          <Logo />
+          <Link to="/" className="logo">
+            ELSUPER
+          </Link>
         </h1>
       </div>
       <div className="col-b">
@@ -84,15 +71,16 @@ const Header = ({ location }) => {
         <BaseButton
           className="buttonUser"
           aria-label="my-account button"
-          onClick={() => setActiveSidebar("userAccount")}
+          onClick={() => setActiveSidebar(Routes.MY_ACCOUNT)}
         >
           <FiUser color="white" />
         </BaseButton>
         <ButtonCart
           count={state.length}
-          onClick={() => setActiveSidebar("cart")}
+          onClick={() => setActiveSidebar(miscState.cartRoute || Routes.CART)}
         />
       </div>
+
       <style jsx global>{`
         .logo {
           color: white;

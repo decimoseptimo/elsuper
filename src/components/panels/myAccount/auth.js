@@ -7,7 +7,7 @@ import LoginForm from "./forms/loginForm"
 import "../panel.css"
 import "./forms/form.css"
 
-const UserAccount = (props) => {
+const Auth = (props) => {
   const [activeForm, setActiveForm] = useState(() => LoginForm)
   const onSubmit = (data) => {
     console.log(data)
@@ -17,10 +17,10 @@ const UserAccount = (props) => {
   const formProps = { onSubmit, handleClick: handleClick.bind(this) }
 
   return (
-    <div className="panel userAccount">
+    <div className="panel myAccount">
       {React.createElement(activeForm, formProps, null)}
       <style jsx>{`
-        .panel.userAccount {
+        .panel.myAccount {
           margin-bottom: 2rem;
         }
       `}</style>
@@ -28,4 +28,4 @@ const UserAccount = (props) => {
   )
 }
 
-export default UserAccount
+export default Auth

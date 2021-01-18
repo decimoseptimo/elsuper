@@ -4,39 +4,77 @@ import SimpleBar from "simplebar-react"
 import "simplebar/dist/simplebar.min.css"
 import { navigate } from "@reach/router" //enables navigate(-1) see: https://github.com/gatsbyjs/gatsby/issues/5987
 
+import Router from "./router"
 import Header from "./header"
 import Overlay from "./overlay"
 import Sidepanel from "./sidepanel"
-import Menu from "./panels/categoriesMenu"
-import UserAccount from "./panels/userAccount/userAccount"
-import Cart from "./panels/cart/cart"
+import CategoriesMenu from "./panels/categoriesMenu"
+// import Auth from "./panels/myAccount/auth"
+import { useGetRoute, useGetRelativeUrl } from "./router"
+import * as Routes from "./routes"
+import Cart from "./panels/cart/"
+import Shipping from "./panels/cart/shipping"
+import Payment from "./panels/cart/payment"
+import Pay from "./panels/cart/pay"
+import MyAccount from "./panels/myAccount"
+import Profile from "./panels/myAccount/profile"
+import Cards from "./panels/myAccount/cards"
+import Addresses from "./panels/myAccount/addresses"
+import Orders from "./panels/myAccount/orders"
 import "./layout.css"
 
 const Layout = ({ location, children }) => {
-  const activeSidebar = location.state?.activeSidebar
+  const [sidebarRoute, sidebarPageRoute] = useGetRoute()
+  const sidebars = [Routes.CATEGORIES, Routes.MY_ACCOUNT, Routes.CART]
+  const deroutedUrl = useGetRelativeUrl(false)
+
+  // console.log(":")
+  // console.log(deroutedUrl)
+  // console.log(useGetRelativeUrl("a", "a"))
+  // console.log(useGetRelativeUrl("a"))
+  // console.log(useGetRelativeUrl(null))
+  // console.log(useGetRelativeUrl(undefined))
+  // console.log(useGetRelativeUrl(""))
+  // console.log(useGetRelativeUrl())
 
   return (
     <>
       <div className="body">
         <div className="header-wrapper">
           <header>
-            <Header location={location} />
+            <Header location={location} activeSidebar={sidebarRoute} />
           </header>
         </div>
-        <Overlay isActive={activeSidebar} onClick={(e) => navigate(-1)} />
-        <Sidepanel isActive={activeSidebar === "categoriesMenu"}>
+        <Overlay
+          isActive={sidebars.includes(sidebarRoute)}
+          onClick={(e) => navigate(deroutedUrl)}
+        />
+        <Sidepanel isActive={sidebarRoute === Routes.CATEGORIES}>
           <SimpleBar style={{ maxHeight: "100%", width: "100%" }}>
-            <Menu />
+            <CategoriesMenu />
           </SimpleBar>
         </Sidepanel>
-        <Sidepanel right isActive={activeSidebar === "userAccount"}>
+        <Sidepanel right isActive={sidebarRoute === Routes.MY_ACCOUNT}>
           <SimpleBar style={{ maxHeight: "100%", width: "100%" }}>
-            <UserAccount />
+            <Router activeRoute={sidebarPageRoute}>
+              <MyAccount default />
+              {/* <Auth route={Routes.AUTH} /> */}
+              <Profile private route={Routes.PROFILE} />
+              <Orders private route={Routes.ORDERS} />
+              <Cards private route={Routes.CARDS} />
+              <Addresses private route={Routes.ADDRESSES} />
+            </Router>
           </SimpleBar>
         </Sidepanel>
-        <Sidepanel right isActive={activeSidebar === "cart"}>
+        <Sidepanel right isActive={sidebarRoute === Routes.CART}>
           <SimpleBar style={{ maxHeight: "100%", width: "100%" }}>
-            <Cart />
+            <Router activeRoute={sidebarPageRoute}>
+              <Cart default />
+              {/* <Auth route={Routes.AUTH} /> */}
+              <Shipping private route={Routes.SHIPPING} />
+              <Payment private route={Routes.PAYMENT} />
+              <Pay private route={Routes.PAY} />
+            </Router>
           </SimpleBar>
         </Sidepanel>
         <div className="main-wrapper">
@@ -48,6 +86,7 @@ const Layout = ({ location, children }) => {
           </footer>
         </div>
       </div>
+
       <style jsx>{`
         .body {
           padding-top: 0;

@@ -8,6 +8,8 @@ export const MiscProvider = (props) => {
       value={useReducer(miscReducer, {
         isMobileSearchOpen: false,
         query: null,
+        myAccountRoute: null,
+        cartRoute: null,
       })}
     >
       {props.children}
@@ -22,6 +24,10 @@ const miscReducer = (state, action) => {
       return { ...state, isMobileSearchOpen: action.isMobileSearchOpen }
     case "SET_QUERY":
       return { ...state, query: action.query }
+    case "SET_MY_ACCOUNT_ROUTE":
+      return { ...state, myAccountRoute: action.myAccountRoute }
+    case "SET_CART_ROUTE":
+      return { ...state, cartRoute: action.cartRoute }
     default:
       return state
   }
