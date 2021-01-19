@@ -1,62 +1,52 @@
-import React /* useContext */ from "react"
+import React/* , {useContext} */ from "react"
 import PropTypes from "prop-types"
 import SimpleBar from "simplebar-react"
 import "simplebar/dist/simplebar.min.css"
 import { navigate } from "@reach/router" //enables navigate(-1) see: https://github.com/gatsbyjs/gatsby/issues/5987
 
-import Router from "./router"
 import Header from "./header"
 import Overlay from "./overlay"
-import Sidepanel from "./sidepanel"
-import CategoriesMenu from "./panels/categoriesMenu"
 // import Auth from "./panels/myAccount/auth"
-import { useGetRoute, useGetRelativeUrl } from "./router"
+import Router, { useGetRoute, useGetRelativeUrl } from "./router"
 import * as Routes from "./routes"
-import Cart from "./panels/cart/"
-import Shipping from "./panels/cart/shipping"
-import Payment from "./panels/cart/payment"
-import Pay from "./panels/cart/pay"
-import MyAccount from "./panels/myAccount"
-import Profile from "./panels/myAccount/profile"
-import Cards from "./panels/myAccount/cards"
-import Addresses from "./panels/myAccount/addresses"
-import Orders from "./panels/myAccount/orders"
+import Sidepanel from "./sidepanel"
+import CategoriesMenu from "./sidepanel/panels/categories"
+import Cart from "./sidepanel/panels/cart"
+import Shipping from "./sidepanel/panels/cart/shipping"
+import Payment from "./sidepanel/panels/cart/payment"
+import Pay from "./sidepanel/panels/cart/pay"
+import MyAccount from "./sidepanel/panels/myAccount"
+import Profile from "./sidepanel/panels/myAccount/profile"
+import Cards from "./sidepanel/panels/myAccount/cards"
+import Addresses from "./sidepanel/panels/myAccount/addresses"
+import Orders from "./sidepanel/panels/myAccount/orders"
 import "./layout.css"
 
 const Layout = ({ location, children }) => {
-  const [sidebarRoute, sidebarPageRoute] = useGetRoute()
-  const sidebars = [Routes.CATEGORIES, Routes.MY_ACCOUNT, Routes.CART]
+  const activeRoute = useGetRoute()
   const deroutedUrl = useGetRelativeUrl(false)
-
-  // console.log(":")
-  // console.log(deroutedUrl)
-  // console.log(useGetRelativeUrl("a", "a"))
-  // console.log(useGetRelativeUrl("a"))
-  // console.log(useGetRelativeUrl(null))
-  // console.log(useGetRelativeUrl(undefined))
-  // console.log(useGetRelativeUrl(""))
-  // console.log(useGetRelativeUrl())
+  const sidepanels = [Routes.CATEGORIES, Routes.MY_ACCOUNT, Routes.CART]
 
   return (
     <>
       <div className="body">
         <div className="header-wrapper">
           <header>
-            <Header location={location} activeSidebar={sidebarRoute} />
+            <Header location={location} activeSidepanel={activeRoute[0]} />
           </header>
         </div>
         <Overlay
-          isActive={sidebars.includes(sidebarRoute)}
+          isActive={sidepanels.includes(activeRoute[0])}
           onClick={(e) => navigate(deroutedUrl)}
         />
-        <Sidepanel isActive={sidebarRoute === Routes.CATEGORIES}>
+        <Sidepanel isActive={activeRoute[0] === Routes.CATEGORIES}>
           <SimpleBar style={{ maxHeight: "100%", width: "100%" }}>
             <CategoriesMenu />
           </SimpleBar>
         </Sidepanel>
-        <Sidepanel right isActive={sidebarRoute === Routes.MY_ACCOUNT}>
+        <Sidepanel right isActive={activeRoute[0] === Routes.MY_ACCOUNT}>
           <SimpleBar style={{ maxHeight: "100%", width: "100%" }}>
-            <Router activeRoute={sidebarPageRoute}>
+            <Router activeRoute={activeRoute[1]}>
               <MyAccount default />
               {/* <Auth route={Routes.AUTH} /> */}
               <Profile private route={Routes.PROFILE} />
@@ -66,9 +56,9 @@ const Layout = ({ location, children }) => {
             </Router>
           </SimpleBar>
         </Sidepanel>
-        <Sidepanel right isActive={sidebarRoute === Routes.CART}>
+        <Sidepanel right isActive={activeRoute[0] === Routes.CART}>
           <SimpleBar style={{ maxHeight: "100%", width: "100%" }}>
-            <Router activeRoute={sidebarPageRoute}>
+            <Router activeRoute={activeRoute[1]}>
               <Cart default />
               {/* <Auth route={Routes.AUTH} /> */}
               <Shipping private route={Routes.SHIPPING} />

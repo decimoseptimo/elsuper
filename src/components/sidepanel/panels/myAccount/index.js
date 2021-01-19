@@ -1,11 +1,18 @@
 import React from "react"
 import { Link } from "@reach/router"
 
-import Button from "../../button"
-import { useGetRelativeUrl } from "../../router"
-import { MY_ACCOUNT, PROFILE, ORDERS, CARDS, ADDRESSES, LOG_OUT } from "../../routes"
+import Button from "../../../button"
+import { useGetRelativeUrl } from "../../../router"
+import {
+  MY_ACCOUNT,
+  PROFILE,
+  ORDERS,
+  CARDS,
+  ADDRESSES,
+  LOG_OUT,
+} from "../../../routes"
 
-const MyAccount = () => {
+const MyAccount = (props) => {
   const profileUrl = useGetRelativeUrl(MY_ACCOUNT, PROFILE)
   const ordersUrl = useGetRelativeUrl(MY_ACCOUNT, ORDERS)
   const cardsUrl = useGetRelativeUrl(MY_ACCOUNT, CARDS)

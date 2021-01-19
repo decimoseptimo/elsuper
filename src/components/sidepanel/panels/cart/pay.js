@@ -1,7 +1,7 @@
 import React from "react"
 // import { Link } from "@reach/router"
 
-import Button from "../../button"
+import Button from "../../../button"
 
 function Pay(props) {
   return (

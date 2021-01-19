@@ -1,24 +1,17 @@
 import React, { useContext } from "react"
 import { Link } from "@reach/router"
 
-import Button from "../../button"
+import Button from "../../../button"
 import CartItem from "./cartItem"
-import { CartContext } from "../../../state/cart"
-import { round } from "../../../utils"
-import { useGetRelativeUrl } from "../../router"
-import { CART, SHIPPING } from "../../routes"
+import { CartContext } from "../../../../state/cart"
+import { round } from "../../../../utils"
+import { useGetRelativeUrl } from "../../../router"
+import { CART, SHIPPING } from "../../../routes"
 import "../panel.css"
 
-const Cart = () => {
+const Cart = (props) => {
   const [state, dispatch] = useContext(CartContext)
   const url = useGetRelativeUrl(CART, SHIPPING)
-
-  // console.log(useGetRelativeUrl())
-  // console.log(useGetRelativeUrl(["asd", "123"]))
-  // console.log(useGetRelativeUrl([null, "123"]))
-  // console.log(useGetRelativeUrl(["asd", null]))
-  // console.log(useGetRelativeUrl(["", "123"]))
-  // console.log(useGetRelativeUrl(["asd", ""]))
 
   const cartTotal = () => {
     let cartTotal = 0

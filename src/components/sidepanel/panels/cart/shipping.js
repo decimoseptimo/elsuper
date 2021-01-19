@@ -1,9 +1,9 @@
 import React from "react"
 import { Link } from "@reach/router"
 
-import Button from "../../button"
-import { CART, PAYMENT } from "../../routes"
-import { useGetRelativeUrl } from "../../router"
+import Button from "../../../button"
+import { CART, PAYMENT } from "../../../routes"
+import { useGetRelativeUrl } from "../../../router"
 
 function Shipping(props) {
   const url = useGetRelativeUrl(CART, PAYMENT)

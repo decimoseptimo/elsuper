@@ -2,7 +2,11 @@ import PropTypes from "prop-types"
 import queryString from "query-string"
 import { useLocation } from "@reach/router"
 
-//returns routes stored in the 'i' query param as an array of strings (e.g. [sidebar,component])
+/**
+ * Parses the querystring and gets the "route" (the 'i' query param) as an array of strings
+ * @param {Object} location
+ * @returns {string[]} the parsed route
+ */
 export const getRoute = (location) => {
   const searchAsObj = queryString.parse(location.search, {
     arrayFormat: "comma",
@@ -24,10 +28,13 @@ export const getRoute = (location) => {
 //hook version
 export const useGetRoute = () => getRoute(useLocation())
 
-// Accepts up to 2 non-empty strings, else is ignored [e.g. getRelativeUrl("route1","route2")],
-// Returns the current relative url with updated routes (the 'i' query param) [e.g. /&i=route1,route2#hash]
-// But if route1 is falsy, returns the current relative url with no routes [e.g. /?#hash]
-export const getRelativeUrl = (location, route1 = null, route2 = null) => {
+/**
+ * Clones the current relative url, but replacing the given route (the 'i' query param)
+ * @param {Object} location
+ * @param {...string} routes multiple non-empty strings. "" or else is ignored
+ * @returns {string} the updated url
+ */
+export const getRelativeUrl = (location, ...routes) => {
   const { pathname, search, hash } = location
 
   let searchAsObj = queryString.parse(search, {
@@ -35,14 +42,8 @@ export const getRelativeUrl = (location, route1 = null, route2 = null) => {
     sort: false,
   })
 
-  searchAsObj.i = []
-
-  if (route1 && typeof route1 === "string") searchAsObj.i[0] = route1
-  if (route2 && typeof route2 === "string") searchAsObj.i[1] = route2
-
-  if (!route1) delete searchAsObj.i
-
-  console.log(searchAsObj.i)
+  //filter-in non empty strings
+  searchAsObj.i = routes.filter((route) => route && typeof route === "string")
 
   const newSearch = queryString.stringify(searchAsObj, {
     arrayFormat: "comma",
@@ -52,43 +53,9 @@ export const getRelativeUrl = (location, route1 = null, route2 = null) => {
   return pathname + (newSearch.length ? `?${newSearch}` : "") + hash
 }
 
-// export const getRelativeUrl = (location, route1 = null, route2 = null) => {
-//   const { pathname, search, hash } = location
-
-//   let searchAsObj = queryString.parse(search, {
-//     arrayFormat: "comma",
-//     sort: false,
-//   })
-
-//   const getRoutes = (i) => {
-//     if (!i) return []
-//     if (!Array.isArray(i)) return [i]
-//     return i
-//   }
-//   let routes = getRoutes(searchAsObj?.i)
-
-//   if (route1 && typeof route1 === "string") routes[0] = route1
-//   if (route2 && typeof route2 === "string") routes[1] = route2
-
-//   searchAsObj.i = routes
-
-//   if (!route1) delete searchAsObj.i
-
-//   console.log(searchAsObj.i)
-
-//   const newSearch = queryString.stringify(searchAsObj, {
-//     arrayFormat: "comma",
-//     sort: false,
-//   })
-
-//   console.log(newSearch)
-
-//   return newSearch.length ? pathname + "?" + newSearch + hash : pathname + hash
-// }
-
 //hook version
-export const useGetRelativeUrl = (route1 = null, route2 = null) =>
-  getRelativeUrl(useLocation(), route1, route2)
+export const useGetRelativeUrl = (...routes) =>
+  getRelativeUrl(useLocation(), ...routes)
 
 //
 export default function Router({ activeRoute, children }) {

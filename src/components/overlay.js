@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-const Overlay = ({ isActive=false, onClick }) => (
+const Overlay = ({ isActive = false, onClick }) => (
   <>
     <div className={`overlay ${isActive && "visible"}`} onClick={onClick} />
     <style jsx>{`

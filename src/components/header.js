@@ -12,18 +12,18 @@ import Search from "./search"
 import { getRelativeUrl } from "./router"
 import * as Routes from "./routes"
 
-const Header = ({ location, activeSidebar }) => {
-  const [state, dispatch] = useContext(CartContext)
+const Header = ({ location, activeSidepanel }) => {
+  const [state /* , dispatch */] = useContext(CartContext)
   const [miscState, miscDispatch] = useContext(MiscContext)
-  const deroutedUrl = getRelativeUrl(location, false)
+  const deroutedUrl = getRelativeUrl(location)
 
-  const setActiveSidebar = (value) => {
+  const setActiveSidepanel = (value) => {
     // uninitialized value: go, push state
-    if (activeSidebar === undefined) {
+    if (activeSidepanel === undefined) {
       navigate(getRelativeUrl(location, value))
     }
     // same value: go back
-    else if (activeSidebar === value) {
+    else if (activeSidepanel === value) {
       navigate(deroutedUrl)
     }
     // new value: go, replace state
@@ -40,7 +40,7 @@ const Header = ({ location, activeSidebar }) => {
         <BaseButton
           className="buttonCategories"
           aria-label="categories button"
-          onClick={() => setActiveSidebar(Routes.CATEGORIES)}
+          onClick={() => setActiveSidepanel(Routes.CATEGORIES)}
         >
           <IconBars />
         </BaseButton>
@@ -71,13 +71,13 @@ const Header = ({ location, activeSidebar }) => {
         <BaseButton
           className="buttonUser"
           aria-label="my-account button"
-          onClick={() => setActiveSidebar(Routes.MY_ACCOUNT)}
+          onClick={() => setActiveSidepanel(Routes.MY_ACCOUNT)}
         >
           <FiUser color="white" />
         </BaseButton>
         <ButtonCart
           count={state.length}
-          onClick={() => setActiveSidebar(miscState.cartRoute || Routes.CART)}
+          onClick={() => setActiveSidepanel(miscState.cartRoute || Routes.CART)}
         />
       </div>
 

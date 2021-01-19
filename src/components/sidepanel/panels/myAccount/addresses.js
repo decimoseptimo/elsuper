@@ -1,17 +1,17 @@
 import React from "react"
 import { Link } from "gatsby"
 
-import Button from "../../button"
-import { useGetRelativeUrl } from "../../router"
-import { MY_ACCOUNT } from "../../routes"
+import Button from "../../../button"
+import { useGetRelativeUrl } from "../../../router"
+import { MY_ACCOUNT } from "../../../routes"
 
-const Profile = (props) => {
+const Addresses = (props) => {
   const url = useGetRelativeUrl(MY_ACCOUNT)
 
   return (
     <>
       <div className="panel cart">
-        <h2 className="title">Datos Personales</h2>
+        <h2 className="title">Direcciones</h2>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis non odit
           sordidos, vanos, leves, futtiles
@@ -24,4 +24,4 @@ const Profile = (props) => {
   )
 }
 
-export default Profile
+export default Addresses
