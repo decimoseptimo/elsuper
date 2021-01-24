@@ -2,34 +2,48 @@ import PropTypes from "prop-types"
 import queryString from "query-string"
 import { useLocation } from "@reach/router"
 
-/**
- * Parses the querystring and gets the "route" (the 'i' query param) as an array of strings
+/** 
+ * Get queryParams from location.search (querystring)
  * @param {Object} location
- * @returns {string[]} the parsed route
- */
-export const getRoute = (location) => {
-  const searchAsObj = queryString.parse(location.search, {
+ * @returns {Object} queryParams
+*/
+export const getQueryParams = (location) => {
+  return queryString.parse(location.search, {
     arrayFormat: "comma",
     sort: false,
   })
-  //remove invalid values, these options aren't available in parse() see:
-  //https://github.com/sindresorhus/query-string/issues/258
-  const i =
-    queryString.parse(
-      queryString.stringify(searchAsObj, {
-        skipNull: true,
-        skipEmptyString: true,
-      })
-    )?.i ?? []
-
-  return typeof i === "string" ? [i] : i
 }
 
 //hook version
-export const useGetRoute = () => getRoute(useLocation())
+export const useGetQueryParams = () => getQueryParams(useLocation())
 
 /**
- * Clones the current relative url, but replacing the given route (the 'i' query param)
+ * Get routes from queryParams
+ * @param {Object} location
+ * @returns {Array<string>} routes
+ */
+export const getRoutes = (location) => {
+  const queryParams = getQueryParams(location)?.i ?? []
+  return !Array.isArray(queryParams) ? [queryParams] : queryParams
+}
+
+//hook version
+export const useGetRoutes = () => getRoutes(useLocation())
+
+/**
+ * Converts queryParams to querystring
+ * @param {Object} queryParams
+ * @return {string} querystring
+ */
+export const queryParamsAsString = (queryParams) => {
+  return queryString.stringify(queryParams, {
+    arrayFormat: "comma",
+    sort: false,
+  })
+}
+
+/**
+ * Clones the current relative url, but replacing the given routes
  * @param {Object} location
  * @param {...string} routes multiple non-empty strings. "" or else is ignored
  * @returns {string} the updated url
@@ -57,7 +71,7 @@ export const getRelativeUrl = (location, ...routes) => {
 export const useGetRelativeUrl = (...routes) =>
   getRelativeUrl(useLocation(), ...routes)
 
-//
+//** Receives multiple children and renders the one whose routes matches the activeRoute */
 export default function Router({ activeRoute, children }) {
   let el
   if (!activeRoute) {

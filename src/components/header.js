@@ -9,28 +9,42 @@ import BaseButton from "./baseButton"
 import ButtonCart from "./buttonCart"
 import IconBars from "./iconBars"
 import Search from "./search"
-import { getRelativeUrl } from "./router"
+import { /* getFromRoutesHistory, */ getRelativeUrl } from "./router"
 import * as Routes from "./routes"
 
-const Header = ({ location, activeSidepanel }) => {
+const Header = ({
+  location,
+  activeRoute,
+  routesHistory,
+  getFromRoutesHistory,
+}) => {
   const [state /* , dispatch */] = useContext(CartContext)
-  const [miscState, miscDispatch] = useContext(MiscContext)
+  const [, /* miscState */ miscDispatch] = useContext(MiscContext)
   const deroutedUrl = getRelativeUrl(location)
 
-  const setActiveSidepanel = (value) => {
-    // uninitialized value: go, push state
-    if (activeSidepanel === undefined) {
-      navigate(getRelativeUrl(location, value))
+  /**
+   * Compares the activeRoute with the given route, and navigates according to a 'sidepanel logic'
+   * @param {string} route
+   */
+  const setRoutes = (route) => {
+    // unset route: set route (push state)
+    if (activeRoute === undefined) {
+      navigate(
+        getRelativeUrl(location, ...(getFromRoutesHistory(route) || [route]))
+      )
     }
-    // same value: go back
-    else if (activeSidepanel === value) {
+    // same route: unset route
+    else if (activeRoute === route) {
       navigate(deroutedUrl)
     }
-    // new value: go, replace state
+    // new route: set route (replace state)
     else {
-      navigate(getRelativeUrl(location, value), {
-        replace: true,
-      })
+      navigate(
+        getRelativeUrl(location, ...(getFromRoutesHistory(route) || [route])),
+        {
+          replace: true,
+        }
+      )
     }
   }
 
@@ -40,7 +54,7 @@ const Header = ({ location, activeSidepanel }) => {
         <BaseButton
           className="buttonCategories"
           aria-label="categories button"
-          onClick={() => setActiveSidepanel(Routes.CATEGORIES)}
+          onClick={() => setRoutes(Routes.CATEGORIES)}
         >
           <IconBars />
         </BaseButton>
@@ -71,13 +85,13 @@ const Header = ({ location, activeSidepanel }) => {
         <BaseButton
           className="buttonUser"
           aria-label="my-account button"
-          onClick={() => setActiveSidepanel(Routes.MY_ACCOUNT)}
+          onClick={() => setRoutes(Routes.MY_ACCOUNT)}
         >
           <FiUser color="white" />
         </BaseButton>
         <ButtonCart
           count={state.length}
-          onClick={() => setActiveSidepanel(miscState.cartRoute || Routes.CART)}
+          onClick={() => setRoutes(Routes.CART)}
         />
       </div>
 

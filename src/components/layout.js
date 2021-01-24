@@ -1,4 +1,4 @@
-import React/* , {useContext} */ from "react"
+import React, { useState, useEffect } from "react"
 import PropTypes from "prop-types"
 import SimpleBar from "simplebar-react"
 import "simplebar/dist/simplebar.min.css"
@@ -7,10 +7,15 @@ import { navigate } from "@reach/router" //enables navigate(-1) see: https://git
 import Header from "./header"
 import Overlay from "./overlay"
 // import Auth from "./panels/myAccount/auth"
-import Router, { useGetRoute, useGetRelativeUrl } from "./router"
+import Router, {
+  useGetRoutes,
+  useGetRelativeUrl,
+  // getFromRoutesHistory,
+  // setToRoutesHistory,
+} from "./router"
 import * as Routes from "./routes"
 import Sidepanel from "./sidepanel"
-import CategoriesMenu from "./sidepanel/panels/categories"
+import Categories from "./sidepanel/panels/categories"
 import Cart from "./sidepanel/panels/cart"
 import Shipping from "./sidepanel/panels/cart/shipping"
 import Payment from "./sidepanel/panels/cart/payment"
@@ -23,30 +28,71 @@ import Orders from "./sidepanel/panels/myAccount/orders"
 import "./layout.css"
 
 const Layout = ({ location, children }) => {
-  const activeRoute = useGetRoute()
-  const deroutedUrl = useGetRelativeUrl(false)
-  const sidepanels = [Routes.CATEGORIES, Routes.MY_ACCOUNT, Routes.CART]
+  const [routesHistory, setRoutesHistory] = useState([])
+
+  /**
+   * Get routes from routesHistory
+   * @param {string} route
+   * @returns {Array<string> | undefined}
+   */
+  const getFromRoutesHistory = (route) => {
+    const index = routesHistory.findIndex((el) => el[0] === route)
+    return routesHistory?.[index]
+  }
+
+  /**
+   * Add routes to routesHistory
+   * @param {Array<string>} route
+   */
+  const setToRoutesHistory = (route) => {
+    //no route, bail
+    if (!route.length) return
+    //if found, replace
+    const index = routesHistory.findIndex((el) => el[0] === route[0])
+    if (index >= 0) {
+      const newArray = [...routesHistory]
+      newArray[index] = route
+      setRoutesHistory(newArray)
+    }
+    //else push
+    else setRoutesHistory([...routesHistory, route])
+  }
+
+  const routes = useGetRoutes()
+  const sidepanelRoute = routes[0]
+  const myAccountRoute = getFromRoutesHistory(Routes.MY_ACCOUNT)?.[1]
+  const cartRoute = getFromRoutesHistory(Routes.CART)?.[1]
+  const deroutedUrl = useGetRelativeUrl()
+
+  useEffect(() => {
+    setToRoutesHistory(routes)
+  }, [JSON.stringify(routes)])
 
   return (
     <>
       <div className="body">
         <div className="header-wrapper">
           <header>
-            <Header location={location} activeSidepanel={activeRoute[0]} />
+            <Header
+              location={location}
+              activeRoute={sidepanelRoute}
+              routesHistory={routesHistory}
+              getFromRoutesHistory={getFromRoutesHistory}
+            />
           </header>
         </div>
         <Overlay
-          isActive={sidepanels.includes(activeRoute[0])}
+          isActive={Routes.MAIN_SIDEPANELS.includes(sidepanelRoute)}
           onClick={(e) => navigate(deroutedUrl)}
         />
-        <Sidepanel isActive={activeRoute[0] === Routes.CATEGORIES}>
+        <Sidepanel isActive={sidepanelRoute === Routes.CATEGORIES}>
           <SimpleBar style={{ maxHeight: "100%", width: "100%" }}>
-            <CategoriesMenu />
+            <Categories />
           </SimpleBar>
         </Sidepanel>
-        <Sidepanel right isActive={activeRoute[0] === Routes.MY_ACCOUNT}>
+        <Sidepanel right isActive={sidepanelRoute === Routes.MY_ACCOUNT}>
           <SimpleBar style={{ maxHeight: "100%", width: "100%" }}>
-            <Router activeRoute={activeRoute[1]}>
+            <Router activeRoute={myAccountRoute}>
               <MyAccount default />
               {/* <Auth route={Routes.AUTH} /> */}
               <Profile private route={Routes.PROFILE} />
@@ -56,9 +102,9 @@ const Layout = ({ location, children }) => {
             </Router>
           </SimpleBar>
         </Sidepanel>
-        <Sidepanel right isActive={activeRoute[0] === Routes.CART}>
+        <Sidepanel right isActive={sidepanelRoute === Routes.CART}>
           <SimpleBar style={{ maxHeight: "100%", width: "100%" }}>
-            <Router activeRoute={activeRoute[1]}>
+            <Router activeRoute={cartRoute}>
               <Cart default />
               {/* <Auth route={Routes.AUTH} /> */}
               <Shipping private route={Routes.SHIPPING} />

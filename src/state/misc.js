@@ -8,8 +8,7 @@ export const MiscProvider = (props) => {
       value={useReducer(miscReducer, {
         isMobileSearchOpen: false,
         query: null,
-        myAccountRoute: null,
-        cartRoute: null,
+        // lastRoutes: []
       })}
     >
       {props.children}
