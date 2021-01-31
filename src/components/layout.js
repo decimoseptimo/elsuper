@@ -3,13 +3,16 @@ import PropTypes from "prop-types"
 import SimpleBar from "simplebar-react"
 import "simplebar/dist/simplebar.min.css"
 import { navigate } from "@reach/router" //enables navigate(-1) see: https://github.com/gatsbyjs/gatsby/issues/5987
+import queryString from "query-string"
 
 import Header from "./header"
 import Overlay from "./overlay"
 // import Auth from "./panels/myAccount/auth"
 import Router, {
+  getRoutes,
   useGetRoutes,
   useGetRelativeUrl,
+  getRelativeUrl,
   // getFromRoutesHistory,
   // setToRoutesHistory,
 } from "./router"
@@ -58,6 +61,110 @@ const Layout = ({ location, children }) => {
     else setRoutesHistory([...routesHistory, route])
   }
 
+  /**
+   *
+   * @param {string} url
+   * @return {Array<string>}
+   */
+  const getRoutesFromUrl = (url) => {
+    const qs = queryString.extract(url)
+    const location = { search: qs }
+    return getRoutes(location)
+  }
+
+  const prevPath = location.state?.prevPath ?? ""
+  const prevRoutesFallback = getRoutesFromUrl(prevPath)
+
+  /**
+   * Manipulates the history object (HTML Browser API) in order to **sort of** mimic the back-button functionality
+   * available in native mobile apps. By adding URLs that represent UI states. It also ignores certain URLs in order
+   * to avoid adding UI states that provide no significant UX value. The following manipulations are available:
+   * push - adds new state
+   * replace, goback - effectively ignores state
+   * @param {Array<string>} nextRoutes
+   */
+  const setRoutes = (nextRoutes) => {
+    const prevRoutes = location.state?.prevRoutes || prevRoutesFallback
+    const replace = location.state?.replace
+    const push = location.state?.push
+    const differentOpen = !!routes?.length && routes.toString() !== nextRoutes.toString()
+    const differentClosed =
+      !routes?.length && prevRoutes.toString() !== nextRoutes.toString()
+    console.log(`
+---
+  prev: ${prevRoutes}
+  curr: ${routes}
+  next: ${nextRoutes}
+  push: ${push}
+  replace: ${replace}
+  differentOpen: ${differentOpen}
+  differentClosed: ${differentClosed}
+`)
+    // unset:
+    if (!routes.length) {
+      console.log("1. unset")
+      if (replace) {
+        console.log(" 1 replace")
+        navigate(getRelativeUrl(location, ...nextRoutes), {
+          replace: true,
+          state: { replace: true, prevRoutes: routes },
+        })
+        // same
+      } else if (push && !differentOpen && !differentClosed) {
+        console.log(" 2 goback")
+        navigate(-1)
+      } else {
+        console.log(" 3 push")
+        navigate(getRelativeUrl(location, ...nextRoutes), {
+          state: { push: true, prevRoutes: routes },
+        })
+      }
+    }
+    // same:
+    else if (routes.toString() === nextRoutes.toString()) {
+      console.log("2. same")
+      if (replace) {
+        console.log(" 1 replace")
+        navigate(deroutedUrl, {
+          replace: true,
+          state: { replace: true, prevRoutes: routes },
+        })
+      } else if (push) {
+        console.log(" 2 goback")
+        navigate(-1)
+      } else {
+        console.log(" 3 push")
+        navigate(deroutedUrl, {
+          state: {
+            push: true,
+            prevRoutes: routes,
+          },
+        })
+      }
+    }
+    // different:
+    else {
+      console.log("3.")
+      if (replace) {
+        console.log(" 1 replace")
+        navigate(getRelativeUrl(location, ...nextRoutes), {
+          replace: true,
+          state: { replace: true, prevRoutes: routes },
+        })
+      } else {
+        console.log(" 2")
+        console.log(routes.length === 1 ? "replace" : "push")
+        navigate(getRelativeUrl(location, ...nextRoutes), {
+          replace: routes.length === 1 ? true : false,
+          state: {
+            replace: routes.length === 1 ? true : false,
+            prevRoutes: routes,
+          },
+        })
+      }
+    }
+  }
+
   const routes = useGetRoutes()
   const sidepanelRoute = routes[0]
   const myAccountRoute = getFromRoutesHistory(Routes.MY_ACCOUNT)?.[1]
@@ -66,7 +173,7 @@ const Layout = ({ location, children }) => {
 
   useEffect(() => {
     setToRoutesHistory(routes)
-  }, [JSON.stringify(routes)])
+  }, [routes.toString()])
 
   return (
     <>
@@ -74,15 +181,16 @@ const Layout = ({ location, children }) => {
         <div className="header-wrapper">
           <header>
             <Header
-              location={location}
+              // location={location}
               routes={routes}
+              setRoutes={setRoutes}
               getFromRoutesHistory={getFromRoutesHistory}
             />
           </header>
         </div>
         <Overlay
           isActive={Routes.MAIN_SIDEPANELS.includes(sidepanelRoute)}
-          onClick={(e) => navigate(deroutedUrl)}
+          onClick={(e) => setRoutes(routes)}
         />
         <Sidepanel isActive={sidepanelRoute === Routes.CATEGORIES}>
           <SimpleBar style={{ maxHeight: "100%", width: "100%" }}>

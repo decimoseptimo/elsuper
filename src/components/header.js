@@ -1,5 +1,5 @@
-import React, { useState, useContext } from "react"
-import { Link, navigate } from "@reach/router" //enables navigate(-1) see: https://github.com/gatsbyjs/gatsby/issues/5987
+import React, { /* useState, */ useContext } from "react"
+import { Link /* , navigate */ } from "@reach/router" //enables navigate(-1) see: https://github.com/gatsbyjs/gatsby/issues/5987
 import { FiUser } from "react-icons/fi"
 import { MdSearch } from "react-icons/md"
 
@@ -9,92 +9,17 @@ import BaseButton from "./baseButton"
 import ButtonCart from "./buttonCart"
 import IconBars from "./iconBars"
 import Search from "./search"
-import { /* getFromRoutesHistory, */ getRelativeUrl } from "./router"
+// import { /* getFromRoutesHistory, */ getRelativeUrl } from "./router"
 import * as Routes from "./routes"
 
-const Header = ({ location, routes, getFromRoutesHistory }) => {
+const Header = ({
+  /* location, */ routes,
+  setRoutes,
+  getFromRoutesHistory,
+}) => {
   const [state /* , dispatch */] = useContext(CartContext)
-  const [/* miscState */, miscDispatch] = useContext(MiscContext)
-  const deroutedUrl = getRelativeUrl(location)
-
-  /**
-   * Manipulates the history object (HTML Browser API) in order to **sort of** mimic the back-button functionality
-   * available in native mobile apps. By adding URLs that represent UI states. It also ignores certain URLs in order
-   * to avoid adding UI states that provide no significant UX value. The following manipulations are available:
-   * push - adds new state
-   * replace, goback - effectively ignores state
-   * @param {string} nextRoutes
-   */
-  const setRoutes = (nextRoutes) => {
-    const replace = location.state?.replace
-    const push = location.state?.push
-/*     console.log(`
----
-  curr: ${routes}
-  next: ${nextRoutes}
-  push: ${push}
-  replace: ${replace}
-`) */
-    // unset:
-    if (!routes.length) {
-      //console.log("1. unset")
-      if (replace) {
-        //console.log(" 1 replace")
-        navigate(getRelativeUrl(location, ...nextRoutes), {
-          replace: true,
-          state: { replace: true },
-        })
-        // same
-      } else if (push) {
-        //console.log(" 2 goback")
-        navigate(-1)
-      }
-      else {
-        //console.log(" 3 push")
-        navigate(getRelativeUrl(location, ...nextRoutes), {
-          state: { push: true },
-        })
-      }
-    }
-    // same:
-    else if (routes.toString() === nextRoutes.toString()) {
-      //console.log("2. same")
-      if (replace) {
-        //console.log(" 1 replace")
-        navigate(deroutedUrl, {
-          replace: true,
-          state: { replace: true },
-        })
-      } else if (push) {
-        //console.log(" 2 goback")
-        navigate(-1)
-      }
-      else {
-        //console.log(" 3 push")
-        navigate(deroutedUrl, {
-          state: { push: true },
-        })
-      }
-    }
-    // different:
-    else {
-      //console.log("3.")
-      if (replace) {
-        //console.log(" 1 replace")
-        navigate(getRelativeUrl(location, ...nextRoutes), {
-          replace: true,
-          state: { replace: true },
-        })
-      } else {
-        //console.log(" 2")
-        //console.log(routes.length === 1 ? "replace" : "push")
-        navigate(getRelativeUrl(location, ...nextRoutes), {
-          replace: routes.length === 1 ? true : false,
-          state: { replace: true },
-        })
-      }
-    }
-  }
+  const [, /* miscState */ miscDispatch] = useContext(MiscContext)
+  // const deroutedUrl = getRelativeUrl(location)
 
   return (
     <div className="row">
@@ -110,10 +35,8 @@ const Header = ({ location, routes, getFromRoutesHistory }) => {
         >
           <IconBars />
         </BaseButton>
-        <h1>
-          <Link to="/" className="logo">
-            ELSUPER
-          </Link>
+        <h1 className="logo" onClick={() => setRoutes(routes)}>
+          ELSUPER
         </h1>
       </div>
       <div className="col-b">
@@ -157,6 +80,7 @@ const Header = ({ location, routes, getFromRoutesHistory }) => {
         .logo {
           color: white;
           text-decoration: none;
+          cursor: pointer;
         }
 
         .buttonCategories {
