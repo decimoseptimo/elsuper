@@ -35,8 +35,10 @@ const Header = ({
         >
           <IconBars />
         </BaseButton>
-        <h1 className="logo" onClick={() => setRoutes(routes)}>
-          ELSUPER
+        <h1>
+          <Link to="/" className="logo">
+            ELSUPER
+          </Link>
         </h1>
       </div>
       <div className="col-b">

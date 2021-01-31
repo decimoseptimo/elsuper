@@ -1,12 +1,29 @@
 import PropTypes from "prop-types"
 import queryString from "query-string"
-import { useLocation } from "@reach/router"
+import { navigate as reachRouterNavigate, useLocation } from "@reach/router"
 
-/** 
+/**
+ * Navigate with custom state to preserve scroll position. See:
+ * https://www.joshwcomeau.com/gatsby/the-worlds-sneakiest-route-change/#preserving-scroll-position
+ * NOTE: These types are incomplete. reachRouterNavigate is an overloaded function in typescript,
+ * but function overloading isn't supported in JSDoc. See:
+ * https://github.com/microsoft/TypeScript/issues/25590
+ * @param {string} to
+ * @param {*=} options
+ */
+export const navigate = (to, options) => {
+  if (options) {
+    options.state.disableScrollUpdate = true
+    return reachRouterNavigate(to, options)
+  }
+  return reachRouterNavigate(to, { state: { disableScrollUpdate: true } })
+}
+
+/**
  * Get queryParams from location.search (querystring)
  * @param {Object} location
  * @returns {Object} queryParams
-*/
+ */
 export const getQueryParams = (location) => {
   return queryString.parse(location.search, {
     arrayFormat: "comma",

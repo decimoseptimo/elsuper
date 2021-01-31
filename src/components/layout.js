@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react"
 import PropTypes from "prop-types"
 import SimpleBar from "simplebar-react"
 import "simplebar/dist/simplebar.min.css"
-import { navigate } from "@reach/router" //enables navigate(-1) see: https://github.com/gatsbyjs/gatsby/issues/5987
 import queryString from "query-string"
 
 import Header from "./header"
 import Overlay from "./overlay"
 // import Auth from "./panels/myAccount/auth"
 import Router, {
+  navigate,
   getRoutes,
   useGetRoutes,
   useGetRelativeUrl,

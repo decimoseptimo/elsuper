@@ -1,5 +1,5 @@
 import React from "react"
-// import { Link } from "@reach/router"
+// import { navigate } from "../../../router"
 
 import Button from "../../../button"
 

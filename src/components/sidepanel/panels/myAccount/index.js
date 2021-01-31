@@ -1,8 +1,7 @@
 import React from "react"
-import { Link } from "@reach/router"
 
 import Button from "../../../button"
-import { useGetRelativeUrl } from "../../../router"
+import { navigate, useGetRelativeUrl } from "../../../router"
 import {
   MY_ACCOUNT,
   PROFILE,
@@ -29,21 +28,11 @@ const MyAccount = (props) => {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis non odit
           sordidos, vanos, leves, futtiles
         </p>
-        <Link to={profileUrl}>
-          <Button className="fluid">Datos personales</Button>
-        </Link>
-        <Link to={ordersUrl}>
-          <Button className="fluid">Pedidos</Button>
-        </Link>
-        <Link to={cardsUrl}>
-          <Button className="fluid">Tarjetas</Button>
-        </Link>
-        <Link to={addressesUrl}>
-          <Button className="fluid">Direcciones</Button>
-        </Link>
-        <Link to={logOutUrl}>
-          <Button className="fluid">Cerrar sesion</Button>
-        </Link>
+        <Button className="fluid" onClick={()=>navigate(profileUrl)}>Datos personales</Button>
+        <Button className="fluid" onClick={()=>navigate(ordersUrl)}>Pedidos</Button>
+        <Button className="fluid" onClick={()=>navigate(cardsUrl)}>Tarjetas</Button>
+        <Button className="fluid" onClick={()=>navigate(addressesUrl)}>Direcciones</Button>
+        <Button className="fluid" onClick={()=>navigate(logOutUrl)}>Cerrar sesion</Button>
       </div>
     </>
   )

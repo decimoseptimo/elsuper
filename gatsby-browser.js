@@ -16,6 +16,11 @@ export const onRouteUpdate = ({ location }) => {
   }
 }
 
+export const shouldUpdateScroll = ({ routerProps }) => {
+  const { disableScrollUpdate } = routerProps.location.state || {}
+  return !disableScrollUpdate
+}
+
 export const wrapRootElement = ({ element }) => {
   return (
     <MiscProvider>

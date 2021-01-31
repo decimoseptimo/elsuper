@@ -1,9 +1,8 @@
 import React from "react"
-import { Link } from "@reach/router"
 
 import Button from "../../../button"
 import { CART, PAYMENT } from "../../../routes"
-import { useGetRelativeUrl } from "../../../router"
+import { navigate, useGetRelativeUrl } from "../../../router"
 
 function Shipping(props) {
   const url = useGetRelativeUrl(CART, PAYMENT)
@@ -16,10 +15,7 @@ function Shipping(props) {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis non odit
           sordidos, vanos, leves, futtiles
         </p>
-
-        <Link to={url}>
-          <Button className="fluid primary">Continuar</Button>
-        </Link>
+        <Button className="fluid primary" onClick={()=>navigate(url)}>Continuar</Button>
       </div>
     </>
   )

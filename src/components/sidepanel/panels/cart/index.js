@@ -1,11 +1,10 @@
 import React, { useContext } from "react"
-import { Link } from "@reach/router"
 
 import Button from "../../../button"
 import CartItem from "./cartItem"
 import { CartContext } from "../../../../state/cart"
 import { round } from "../../../../utils"
-import { useGetRelativeUrl } from "../../../router"
+import { navigate, useGetRelativeUrl } from "../../../router"
 import { CART, SHIPPING } from "../../../routes"
 import "../panel.css"
 
@@ -59,9 +58,7 @@ const Cart = (props) => {
               <div className="cart-total">Total ${cartTotal()}</div>
             </div>
             <div className="btn-wrapper">
-              <Link to={url}>
-                <Button className="fluid primary">Proceder al pago</Button>
-              </Link>
+                <Button className="fluid primary" onClick={()=>navigate(url)}>Proceder al pago</Button>
             </div>
           </>
         ) : (
