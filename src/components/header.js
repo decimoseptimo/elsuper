@@ -1,5 +1,5 @@
-import React, { /* useState, */ useContext } from "react"
-import { Link /* , navigate */ } from "@reach/router" //enables navigate(-1) see: https://github.com/gatsbyjs/gatsby/issues/5987
+import React, { useContext } from "react"
+import { Link } from "gatsby"
 import { FiUser } from "react-icons/fi"
 import { MdSearch } from "react-icons/md"
 
@@ -9,17 +9,15 @@ import BaseButton from "./baseButton"
 import ButtonCart from "./buttonCart"
 import IconBars from "./iconBars"
 import Search from "./search"
-// import { /* getFromRoutesHistory, */ getRelativeUrl } from "./router"
 import * as Routes from "./routes"
 
 const Header = ({
-  /* location, */ routes,
+  location,
   setRoutes,
   getFromRoutesHistory,
 }) => {
   const [state /* , dispatch */] = useContext(CartContext)
   const [, /* miscState */ miscDispatch] = useContext(MiscContext)
-  // const deroutedUrl = getRelativeUrl(location)
 
   return (
     <div className="row">
@@ -28,7 +26,7 @@ const Header = ({
           className="buttonCategories"
           aria-label="categories button"
           onClick={() =>
-            setRoutes(
+            setRoutes( location,
               getFromRoutesHistory(Routes.CATEGORIES) || [Routes.CATEGORIES]
             )
           }
@@ -63,7 +61,7 @@ const Header = ({
           className="buttonUser"
           aria-label="my-account button"
           onClick={() =>
-            setRoutes(
+            setRoutes( location,
               getFromRoutesHistory(Routes.MY_ACCOUNT) || [Routes.MY_ACCOUNT]
             )
           }
@@ -73,7 +71,7 @@ const Header = ({
         <ButtonCart
           count={state.length}
           onClick={() =>
-            setRoutes(getFromRoutesHistory(Routes.CART) || [Routes.CART])
+            setRoutes( location,getFromRoutesHistory(Routes.CART) || [Routes.CART])
           }
         />
       </div>

@@ -1,21 +1,11 @@
-import React, { useState, useEffect } from "react"
+import React, { useEffect } from "react"
 import PropTypes from "prop-types"
 import SimpleBar from "simplebar-react"
 import "simplebar/dist/simplebar.min.css"
-import queryString from "query-string"
-
 import Header from "./header"
 import Overlay from "./overlay"
 // import Auth from "./panels/myAccount/auth"
-import Router, {
-  navigate,
-  getRoutes,
-  useGetRoutes,
-  useGetRelativeUrl,
-  getRelativeUrl,
-  // getFromRoutesHistory,
-  // setToRoutesHistory,
-} from "./router"
+import Router, { useGetRoutes, setRoutes, useRoutesHistory } from "./router"
 import * as Routes from "./routes"
 import Sidepanel from "./sidepanel"
 import Categories from "./sidepanel/panels/categories"
@@ -31,145 +21,11 @@ import Orders from "./sidepanel/panels/myAccount/orders"
 import "./layout.css"
 
 const Layout = ({ location, children }) => {
-  const [routesHistory, setRoutesHistory] = useState([])
-
-  /**
-   * Get routes from routesHistory
-   * @param {string} route
-   * @returns {Array<string> | undefined}
-   */
-  const getFromRoutesHistory = (route) => {
-    const index = routesHistory.findIndex((el) => el[0] === route)
-    return routesHistory?.[index]
-  }
-
-  /**
-   * Add routes to routesHistory
-   * @param {Array<string>} route
-   */
-  const setToRoutesHistory = (route) => {
-    //no route, bail
-    if (!route.length) return
-    //if found, replace
-    const index = routesHistory.findIndex((el) => el[0] === route[0])
-    if (index >= 0) {
-      const newArray = [...routesHistory]
-      newArray[index] = route
-      setRoutesHistory(newArray)
-    }
-    //else push
-    else setRoutesHistory([...routesHistory, route])
-  }
-
-  /**
-   *
-   * @param {string} url
-   * @return {Array<string>}
-   */
-  const getRoutesFromUrl = (url) => {
-    const qs = queryString.extract(url)
-    const location = { search: qs }
-    return getRoutes(location)
-  }
-
-  const prevPath = location.state?.prevPath ?? ""
-  const prevRoutesFallback = getRoutesFromUrl(prevPath)
-
-  /**
-   * Manipulates the history object (HTML Browser API) in order to **sort of** mimic the back-button functionality
-   * available in native mobile apps. By adding URLs that represent UI states. It also ignores certain URLs in order
-   * to avoid adding UI states that provide no significant UX value. The following manipulations are available:
-   * push - adds new state
-   * replace, goback - effectively ignores state
-   * @param {Array<string>} nextRoutes
-   */
-  const setRoutes = (nextRoutes) => {
-    const prevRoutes = location.state?.prevRoutes || prevRoutesFallback
-    const replace = location.state?.replace
-    const push = location.state?.push
-    const differentOpen = !!routes?.length && routes.toString() !== nextRoutes.toString()
-    const differentClosed =
-      !routes?.length && prevRoutes.toString() !== nextRoutes.toString()
-    console.log(`
----
-  prev: ${prevRoutes}
-  curr: ${routes}
-  next: ${nextRoutes}
-  push: ${push}
-  replace: ${replace}
-  differentOpen: ${differentOpen}
-  differentClosed: ${differentClosed}
-`)
-    // unset:
-    if (!routes.length) {
-      console.log("1. unset")
-      if (replace) {
-        console.log(" 1 replace")
-        navigate(getRelativeUrl(location, ...nextRoutes), {
-          replace: true,
-          state: { replace: true, prevRoutes: routes },
-        })
-        // same
-      } else if (push && !differentOpen && !differentClosed) {
-        console.log(" 2 goback")
-        navigate(-1)
-      } else {
-        console.log(" 3 push")
-        navigate(getRelativeUrl(location, ...nextRoutes), {
-          state: { push: true, prevRoutes: routes },
-        })
-      }
-    }
-    // same:
-    else if (routes.toString() === nextRoutes.toString()) {
-      console.log("2. same")
-      if (replace) {
-        console.log(" 1 replace")
-        navigate(deroutedUrl, {
-          replace: true,
-          state: { replace: true, prevRoutes: routes },
-        })
-      } else if (push) {
-        console.log(" 2 goback")
-        navigate(-1)
-      } else {
-        console.log(" 3 push")
-        navigate(deroutedUrl, {
-          state: {
-            push: true,
-            prevRoutes: routes,
-          },
-        })
-      }
-    }
-    // different:
-    else {
-      console.log("3.")
-      if (replace) {
-        console.log(" 1 replace")
-        navigate(getRelativeUrl(location, ...nextRoutes), {
-          replace: true,
-          state: { replace: true, prevRoutes: routes },
-        })
-      } else {
-        console.log(" 2")
-        console.log(routes.length === 1 ? "replace" : "push")
-        navigate(getRelativeUrl(location, ...nextRoutes), {
-          replace: routes.length === 1 ? true : false,
-          state: {
-            replace: routes.length === 1 ? true : false,
-            prevRoutes: routes,
-          },
-        })
-      }
-    }
-  }
-
+  const { getFromRoutesHistory, setToRoutesHistory } = useRoutesHistory()
   const routes = useGetRoutes()
   const sidepanelRoute = routes[0]
   const myAccountRoute = getFromRoutesHistory(Routes.MY_ACCOUNT)?.[1]
   const cartRoute = getFromRoutesHistory(Routes.CART)?.[1]
-  const deroutedUrl = useGetRelativeUrl()
 
   useEffect(() => {
     setToRoutesHistory(routes)
@@ -181,8 +37,7 @@ const Layout = ({ location, children }) => {
         <div className="header-wrapper">
           <header>
             <Header
-              // location={location}
-              routes={routes}
+              location={location}
               setRoutes={setRoutes}
               getFromRoutesHistory={getFromRoutesHistory}
             />
@@ -190,7 +45,7 @@ const Layout = ({ location, children }) => {
         </div>
         <Overlay
           isActive={Routes.MAIN_SIDEPANELS.includes(sidepanelRoute)}
-          onClick={(e) => setRoutes(routes)}
+          onClick={(e) => setRoutes(location, routes)}
         />
         <Sidepanel isActive={sidepanelRoute === Routes.CATEGORIES}>
           <SimpleBar style={{ maxHeight: "100%", width: "100%" }}>

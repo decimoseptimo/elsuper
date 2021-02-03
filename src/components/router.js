@@ -1,6 +1,158 @@
+import { useState } from "react"
 import PropTypes from "prop-types"
 import queryString from "query-string"
 import { navigate as reachRouterNavigate, useLocation } from "@reach/router"
+
+/**
+ * Creates routesHistory and returns getter and setter methods
+ */
+export const useRoutesHistory = () => {
+  const [routesHistory, setRoutesHistory] = useState([])
+
+  /**
+   * Get routes from routesHistory
+   * @param {string} route
+   * @returns {Array<string> | undefined}
+   */
+  const getFromRoutesHistory = (route) => {
+    const index = routesHistory.findIndex((el) => el[0] === route)
+    return routesHistory?.[index]
+  }
+
+  /**
+   * Add routes to routesHistory
+   * @param {Array<string>} route
+   */
+  const setToRoutesHistory = (route) => {
+    //no route, bail
+    if (!route.length) return
+    //if found, replace
+    const index = routesHistory.findIndex((el) => el[0] === route[0])
+    if (index >= 0) {
+      const newArray = [...routesHistory]
+      newArray[index] = route
+      setRoutesHistory(newArray)
+    }
+    //else push
+    else setRoutesHistory([...routesHistory, route])
+  }
+
+  return {
+    getFromRoutesHistory,
+    setToRoutesHistory,
+  }
+}
+
+/**
+ * @param {string} url
+ * @return {Array<string>}
+ */
+export const getRoutesFromUrl = (url) => {
+  const qs = queryString.extract(url)
+  const location = { search: qs }
+  return getRoutes(location)
+}
+
+/**
+ * Manipulates the history object (HTML Browser API) in order to **sort of** mimic the back-button functionality
+ * available in native mobile apps. By adding URLs that represent UI states. It also ignores certain URLs in order
+ * to avoid adding UI states that provide no significant UX value. The following manipulations are available:
+ * push - adds new state
+ * replace, goback - effectively ignores state
+ * @param {Object} location
+ * @param {Array<string>} nextRoutes
+ */
+export const setRoutes = (location, nextRoutes) => {
+  const prevPath = location.state?.prevPath ?? ""
+  const prevRoutesFallback = getRoutesFromUrl(prevPath)
+  const prevRoutes = location.state?.prevRoutes || prevRoutesFallback
+  const routes = getRoutes(location)
+  const deroutedUrl = getRelativeUrl(location)
+  const replace = location.state?.replace
+  const push = location.state?.push
+  const differentOpen =
+    !!routes?.length && routes.toString() !== nextRoutes.toString()
+  const differentClosed =
+    !routes?.length && prevRoutes.toString() !== nextRoutes.toString()
+  /* console.log(`
+---
+  prev: ${prevRoutes}
+  curr: ${routes}
+  next: ${nextRoutes}
+  push: ${push}
+  replace: ${replace}
+  differentOpen: ${differentOpen}
+  differentClosed: ${differentClosed}
+`) */
+  // unset:
+  if (!routes.length) {
+    //console.log("1. unset")
+    if (replace) {
+      //console.log(" 1 replace")
+      navigate(getRelativeUrl(location, ...nextRoutes), {
+        replace: true,
+        state: { replace: true, prevRoutes: routes },
+      })
+      // same
+    } else if (push && !differentOpen && !differentClosed) {
+      //console.log(" 2 goback")
+      navigate(-1)
+    } else {
+      //console.log(" 3 push")
+      navigate(getRelativeUrl(location, ...nextRoutes), {
+        state: { push: true, prevRoutes: routes },
+      })
+    }
+  }
+  // same:
+  else if (routes.toString() === nextRoutes.toString()) {
+    //console.log("2. same")
+    if (replace) {
+      //console.log(" 1 replace")
+      navigate(deroutedUrl, {
+        replace: true,
+        state: { replace: true, prevRoutes: routes },
+      })
+    } else if (push) {
+      //console.log(" 2 goback")
+      navigate(-1)
+    } else {
+      //console.log(" 3 push")
+      navigate(deroutedUrl, {
+        state: {
+          push: true,
+          prevRoutes: routes,
+        },
+      })
+    }
+  }
+  // different:
+  else {
+    //console.log("3.")
+    if (replace) {
+      //console.log(" 1 replace")
+      navigate(getRelativeUrl(location, ...nextRoutes), {
+        replace: true,
+        state: { replace: true, prevRoutes: routes },
+      })
+    } else {
+      //console.log(" 2")
+      //console.log(routes.length === 1 ? "replace" : "push")
+      navigate(getRelativeUrl(location, ...nextRoutes), {
+        replace: routes.length === 1 ? true : false,
+        state: {
+          replace: routes.length === 1 ? true : false,
+          prevRoutes: routes,
+        },
+      })
+    }
+  }
+}
+
+/**
+ * Hook version of setRoutes
+ */
+export const useSetRoutes = (nextRoutes) => setRoutes(useLocation(), nextRoutes)
 
 /**
  * Navigate with custom state to preserve scroll position. See:
@@ -31,7 +183,9 @@ export const getQueryParams = (location) => {
   })
 }
 
-//hook version
+/**
+ * Hook version of getQueryParams
+ */
 export const useGetQueryParams = () => getQueryParams(useLocation())
 
 /**
@@ -44,7 +198,9 @@ export const getRoutes = (location) => {
   return !Array.isArray(queryParams) ? [queryParams] : queryParams
 }
 
-//hook version
+/**
+ * Hook version of getRoutes
+ */
 export const useGetRoutes = () => getRoutes(useLocation())
 
 /**
@@ -84,7 +240,9 @@ export const getRelativeUrl = (location, ...routes) => {
   return pathname + (newSearch.length ? `?${newSearch}` : "") + hash
 }
 
-//hook version
+/**
+ * Hook version of getRelativeUrl
+ */
 export const useGetRelativeUrl = (...routes) =>
   getRelativeUrl(useLocation(), ...routes)
 
