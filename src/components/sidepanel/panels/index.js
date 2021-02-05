@@ -1,0 +1,15 @@
+//categories
+export {default as Categories} from "./categories"
+
+//cart
+export {default as Cart} from "./cart"
+export {default as Shipping} from "./cart/shipping"
+export {default as Payment} from "./cart/payment"
+export {default as Pay} from "./cart/pay"
+
+//myAccount
+export {default as MyAccount} from "./myAccount"
+export {default as Profile} from "./myAccount/profile"
+export {default as Cards} from "./myAccount/cards"
+export {default as Addresses} from "./myAccount/addresses"
+export {default as Orders} from "./myAccount/orders"

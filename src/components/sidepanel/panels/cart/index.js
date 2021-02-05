@@ -5,7 +5,7 @@ import CartItem from "./cartItem"
 import { CartContext } from "../../../../state/cart"
 import { round } from "../../../../utils"
 import { navigate, useGetRelativeUrl } from "../../../router"
-import { CART, SHIPPING } from "../../../routes"
+import { CART, SHIPPING } from "../../routes"
 import "../panel.css"
 
 const Cart = (props) => {

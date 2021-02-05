@@ -9,7 +9,7 @@ import {
   CARDS,
   ADDRESSES,
   LOG_OUT,
-} from "../../../routes"
+} from "../../routes"
 
 const MyAccount = (props) => {
   const profileUrl = useGetRelativeUrl(MY_ACCOUNT, PROFILE)
@@ -28,11 +28,21 @@ const MyAccount = (props) => {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis non odit
           sordidos, vanos, leves, futtiles
         </p>
-        <Button className="fluid" onClick={()=>navigate(profileUrl)}>Datos personales</Button>
-        <Button className="fluid" onClick={()=>navigate(ordersUrl)}>Pedidos</Button>
-        <Button className="fluid" onClick={()=>navigate(cardsUrl)}>Tarjetas</Button>
-        <Button className="fluid" onClick={()=>navigate(addressesUrl)}>Direcciones</Button>
-        <Button className="fluid" onClick={()=>navigate(logOutUrl)}>Cerrar sesion</Button>
+        <Button className="fluid" onClick={() => navigate(profileUrl)}>
+          Datos personales
+        </Button>
+        <Button className="fluid" onClick={() => navigate(ordersUrl)}>
+          Pedidos
+        </Button>
+        <Button className="fluid" onClick={() => navigate(cardsUrl)}>
+          Tarjetas
+        </Button>
+        <Button className="fluid" onClick={() => navigate(addressesUrl)}>
+          Direcciones
+        </Button>
+        <Button className="fluid" onClick={() => navigate(logOutUrl)}>
+          Cerrar sesion
+        </Button>
       </div>
     </>
   )

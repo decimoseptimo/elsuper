@@ -9,7 +9,7 @@ import BaseButton from "./baseButton"
 import ButtonCart from "./buttonCart"
 import IconBars from "./iconBars"
 import Search from "./search"
-import * as Routes from "./routes"
+import * as Routes from "./sidepanel/routes"
 
 const Header = ({
   location,

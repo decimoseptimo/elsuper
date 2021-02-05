@@ -2,7 +2,7 @@ import React from "react"
 
 import Button from "../../../button"
 import { navigate, useGetRelativeUrl } from "../../../router"
-import { CART, PAY } from "../../../routes"
+import { CART, PAY } from "../../routes"
 
 function Payment(props) {
   const url = useGetRelativeUrl(CART, PAY)
@@ -15,7 +15,9 @@ function Payment(props) {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis non odit
           sordidos, vanos, leves, futtiles
         </p>
-        <Button className="fluid primary" onClick={()=>navigate(url)}>Continuar</Button>
+        <Button className="fluid primary" onClick={() => navigate(url)}>
+          Continuar
+        </Button>
       </div>
     </>
   )

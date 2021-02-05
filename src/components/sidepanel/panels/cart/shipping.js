@@ -1,7 +1,7 @@
 import React from "react"
 
 import Button from "../../../button"
-import { CART, PAYMENT } from "../../../routes"
+import { CART, PAYMENT } from "../../routes"
 import { navigate, useGetRelativeUrl } from "../../../router"
 
 function Shipping(props) {
@@ -15,7 +15,9 @@ function Shipping(props) {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis non odit
           sordidos, vanos, leves, futtiles
         </p>
-        <Button className="fluid primary" onClick={()=>navigate(url)}>Continuar</Button>
+        <Button className="fluid primary" onClick={() => navigate(url)}>
+          Continuar
+        </Button>
       </div>
     </>
   )

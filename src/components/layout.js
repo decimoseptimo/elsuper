@@ -2,22 +2,25 @@ import React, { useEffect } from "react"
 import PropTypes from "prop-types"
 import SimpleBar from "simplebar-react"
 import "simplebar/dist/simplebar.min.css"
+
 import Header from "./header"
 import Overlay from "./overlay"
 // import Auth from "./panels/myAccount/auth"
 import Router, { useGetRoutes, setRoutes, useRoutesHistory } from "./router"
-import * as Routes from "./routes"
 import Sidepanel from "./sidepanel"
-import Categories from "./sidepanel/panels/categories"
-import Cart from "./sidepanel/panels/cart"
-import Shipping from "./sidepanel/panels/cart/shipping"
-import Payment from "./sidepanel/panels/cart/payment"
-import Pay from "./sidepanel/panels/cart/pay"
-import MyAccount from "./sidepanel/panels/myAccount"
-import Profile from "./sidepanel/panels/myAccount/profile"
-import Cards from "./sidepanel/panels/myAccount/cards"
-import Addresses from "./sidepanel/panels/myAccount/addresses"
-import Orders from "./sidepanel/panels/myAccount/orders"
+import * as Routes from "./sidepanel/routes"
+import {
+  Categories,
+  Cart,
+  Shipping,
+  Payment,
+  Pay,
+  MyAccount,
+  Profile,
+  Cards,
+  Addresses,
+  Orders,
+} from "./sidepanel/panels"
 import "./layout.css"
 
 const Layout = ({ location, children }) => {

@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 
 import Button from "../../../button"
 import { useGetRelativeUrl } from "../../../router"
-import { MY_ACCOUNT } from "../../../routes"
+import { MY_ACCOUNT } from "../../routes"
 
 const Orders = (props) => {
   const url = useGetRelativeUrl(MY_ACCOUNT)
