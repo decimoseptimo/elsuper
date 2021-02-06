@@ -20,30 +20,35 @@ const MyAccount = (props) => {
 
   return (
     <>
-      <div className="panel cart">
+      <div className={`jsx-8256865853 panel cart`}>
         <h2 className="title">
-          Mi cuenta <span className="subtitle">Jose Perez</span>
+          Mi cuenta <span className="subtitle">Juan Hernández</span>
         </h2>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis non odit
           sordidos, vanos, leves, futtiles
         </p>
-        <Button className="fluid" onClick={() => navigate(profileUrl)}>
+        <Button className="fluid round" onClick={() => navigate(profileUrl)}>
           Datos personales
         </Button>
-        <Button className="fluid" onClick={() => navigate(ordersUrl)}>
+        <Button className="fluid round" onClick={() => navigate(ordersUrl)}>
           Pedidos
         </Button>
-        <Button className="fluid" onClick={() => navigate(cardsUrl)}>
+        <Button className="fluid round" onClick={() => navigate(cardsUrl)}>
           Tarjetas
         </Button>
-        <Button className="fluid" onClick={() => navigate(addressesUrl)}>
+        <Button className="fluid round" onClick={() => navigate(addressesUrl)}>
           Direcciones
         </Button>
-        <Button className="fluid" onClick={() => navigate(logOutUrl)}>
+        <Button className="fluid round" onClick={() => navigate(logOutUrl)}>
           Cerrar sesion
         </Button>
       </div>
+      <style jsx global>{`
+        .jsx-8256865853 button {
+          margin-bottom: 0.4rem;
+        }
+      `}</style>
     </>
   )
 }
