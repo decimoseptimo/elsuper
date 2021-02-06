@@ -74,7 +74,7 @@ export const setRoutes = (location, nextRoutes) => {
     !!routes?.length && routes.toString() !== nextRoutes.toString()
   const differentClosed =
     !routes?.length && prevRoutes.toString() !== nextRoutes.toString()
-  /* console.log(`
+/*   //console.log(`
 ---
   prev: ${prevRoutes}
   curr: ${routes}
@@ -129,7 +129,11 @@ export const setRoutes = (location, nextRoutes) => {
   // different:
   else {
     //console.log("3.")
-    if (replace) {
+    //previous
+    if (prevRoutes.toString() === nextRoutes.toString()) {
+      //console.log(" 0 goback")
+      navigate(-1)
+    } else if (replace) {
       //console.log(" 1 replace")
       navigate(getRelativeUrl(location, ...nextRoutes), {
         replace: true,

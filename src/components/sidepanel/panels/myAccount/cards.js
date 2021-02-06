@@ -1,12 +1,12 @@
 import React from "react"
-import { Link } from "gatsby"
+import { useLocation } from "@reach/router"
 
 import Button from "../../../button"
-import { useGetRelativeUrl } from "../../../router"
+import { setRoutes } from "../../../router"
 import { MY_ACCOUNT } from "../../routes"
 
 const Cards = (props) => {
-  const url = useGetRelativeUrl(MY_ACCOUNT)
+  const location = useLocation()
 
   return (
     <>
@@ -16,9 +16,12 @@ const Cards = (props) => {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis non odit
           sordidos, vanos, leves, futtiles
         </p>
-        <Link to={url}>
-          <Button className="fluid">Volver</Button>
-        </Link>
+        <Button
+          className="fluid round"
+          onClick={() => setRoutes(location, [MY_ACCOUNT])}
+        >
+          Volver
+        </Button>
       </div>
     </>
   )
