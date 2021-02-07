@@ -3,7 +3,6 @@ import { graphql, Link } from "gatsby"
 import slugify from "slugify"
 
 import SEO from "../components/seo"
-import Image from "../components/image"
 
 const Tags = (props) => {
   const categories = props.data.allProductsJson.group

@@ -4,17 +4,16 @@ import Img from "gatsby-image"
 
 import Image from "../image"
 
-const ProductCard = (props) => {
-  const {
-    data,
-    // count,
-    // setCount,
-    dispatch,
-    countInCart,
-    InputNumber,
-    AddButton,
-    hasMountedAndHasValue,
-  } = props
+const ProductCard = ({
+  data,
+  // count,
+  // setCount,
+  dispatch,
+  countInCart,
+  InputNumber,
+  AddButton,
+  hasMountedAndHasValue,
+}) => {
 
   const image = data.images ? (
     <Img fluid={data.images[0].childImageSharp.fluid} alt={data.title} />

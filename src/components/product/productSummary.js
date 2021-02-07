@@ -1,20 +1,17 @@
 import React from "react"
-import nl2br from "react-nl2br"
 
-const ProductSummary = (props) => {
-  const {
-    data,
-    count,
-    setCount,
-    dispatch,
-    countInCart,
-    InputNumber,
-    AddButton,
-    RemoveButton,
-    hasMountedAndHasValue,
-  } = props
-
-  const ToggleButton = () => {
+const ProductSummary = ({
+  data,
+  count,
+  setCount,
+  dispatch,
+  countInCart,
+  InputNumber,
+  AddButton,
+  RemoveButton,
+  hasMountedAndHasValue,
+}) => {
+  const ToggleButton = (/* {data, count, dispatch, countInCart} */) => {
     return !countInCart ? (
       <AddButton
         className={`toggleButton primary`}
@@ -55,10 +52,10 @@ const ProductSummary = (props) => {
           }}
         />
         <ToggleButton
-          data={data}
-          count={count}
-          dispatch={dispatch}
-          countInCart={countInCart}
+        // data={data}
+        // count={count}
+        // dispatch={dispatch}
+        // countInCart={countInCart}
         />
       </div>
       {/* <p className="item">{nl2br(data.description)}</p> */}
@@ -94,7 +91,9 @@ const ProductSummary = (props) => {
 
         @media screen and (min-width: 1100px) {
           .productSummary .toggleButton {
-            {/* flex: 0; */}
+             {
+              /* flex: 0; */
+            }
           }
         }
 

@@ -1,8 +1,8 @@
 import React, { useEffect } from "react"
 import Autosuggest from "react-autosuggest"
-import { TiArrowLeft } from "react-icons/ti"
+// import { TiArrowLeft } from "react-icons/ti"
 import { IoIosArrowBack } from "react-icons/io"
-import { MdClear, MdClose, MdChevronLeft, MdArrowBack } from "react-icons/md"
+import { MdClose/*, MdClear , MdChevronLeft, MdArrowBack */ } from "react-icons/md"
 
 import BaseButton from "../components/baseButton"
 
@@ -14,14 +14,14 @@ const SearchBoxMobile = React.forwardRef((props, ref) => {
   // console.log('inputRef:')
   // console.log(props.inputRef)
 
-  const icons = [
-    TiArrowLeft,
-    IoIosArrowBack,
-    MdClear,
-    MdClose,
-    MdChevronLeft,
-    MdArrowBack,
-  ]
+  // const icons = [
+  //   TiArrowLeft,
+  //   IoIosArrowBack,
+  //   MdClear,
+  //   MdClose,
+  //   MdChevronLeft,
+  //   MdArrowBack,
+  // ]
 
   useEffect(
     () => {
@@ -110,7 +110,6 @@ const SearchBoxMobile = React.forwardRef((props, ref) => {
 
         .searchOverlay {
           position: fixed;
-          // z-index: 1000;
           width: 100%;
           height: 100%;
           background: rgba(0, 0, 0, 0.3);
@@ -119,19 +118,8 @@ const SearchBoxMobile = React.forwardRef((props, ref) => {
         }
 
         .searchBoxMobile .react-autosuggest__suggestions-list {
-          // width: 100%;
-          // margin-top: 0;
-          // border-top-left-radius: 0;
-          // border-top-right-radius: 0;
-          // max-width: none;
-          // position: absolute;
-          // left: 0;
           z-index: 1;
         }
-
-        // .searchBoxMobile .react-autosuggest__container .prompt {
-        //   border-radius: 0.28571429rem;
-        // }
 
         .searchBoxMobile .react-autosuggest__suggestion {
           border-bottom: none;
@@ -144,22 +132,6 @@ const SearchBoxMobile = React.forwardRef((props, ref) => {
           padding-bottom: 1.4rem;
         }
 
-        // .searchBoxMobile .react-autosuggest__suggestion .title {
-        //   font-weight: normal;
-        // }
-        //
-        // .searchBoxMobile .react-autosuggest__container .action {
-        //   background: none;
-        // }
-        //
-        // .searchBoxMobile .react-autosuggest__container .action:hover {
-        //   background: none;
-        // }
-        //
-        // .searchBoxMobile .react-autosuggest__container {
-        //   width: 100%;
-        // }
-
         .searchBoxMobile .react-autosuggest__container > input {
           color: #888;
           padding: 0.55rem 1rem 0.65rem;
@@ -169,9 +141,6 @@ const SearchBoxMobile = React.forwardRef((props, ref) => {
           margin: 0 3rem;
           padding-left: 0.2rem;
         }
-
-        // .searchBoxMobile .react-autosuggest__container > input:focus {
-        // }
 
         .searchBoxMobile .react-autosuggest__container > input::-webkit-input-placeholder {
           /* Chrome/Opera/Safari */
@@ -193,47 +162,6 @@ const SearchBoxMobile = React.forwardRef((props, ref) => {
           /* Firefox 18- */
           color: #888;
         }
-
-        // .searchBoxMobile .ui.icon.input > i.icon {
-        //   opacity: 0.6;
-        // }
-        //
-        // .searchBoxMobile .ui.icon.input > input:focus ~ i.icon {
-        //   opacity: 0.7;
-        // }
-
-        // .searchBoxMobile .ui.action.input > .button {
-        //   background: #363636;
-        //   border: 1px solid #3e3e3e;
-        //   font-size: 130%;
-        //   padding: 0.55rem 0.65rem 0.65rem 0.75rem;
-        //   color: #737373;
-        // }
-        //
-        // .searchBoxMobile .ui.button .icon svg {
-        //   position: relative;
-        //   top: 1px;
-        //   background: #393939;
-        //   color: #888;
-        // }
-        //
-        // .searchBoxMobile .ui.active.button:active,
-        // .searchBoxMobile .ui.button:active {
-        //   background: #393939;
-        // }
-        //
-        // .searchBoxMobile .ui.button:focus {
-        //   background: #393939;
-        // }
-        //
-        // .searchBoxMobile
-        //   .ui.action.input:not([class*="left action"])
-        //   > input:focus {
-        // }
-        //
-        // .searchBoxMobile .ui.button:hover {
-        //   background-color: #3e3e3e;
-        // }
       `}</style>
     </div>
   )

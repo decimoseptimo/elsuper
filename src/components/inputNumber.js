@@ -31,12 +31,7 @@ const InputNumber = ({
   //TODO should validate 'value' prop?
   const [numberValue, setNumberValue] = useState(value) //valid value as float number
   const [stringValue, setStringValue] = useState(formatToString(value)) //input value as string
-
-  //TODO should validate 'value' prop?
-  useEffect(() => setValues(value, true), [value])
-
-  const revertStringValue = () => setStringValue(formatToString(numberValue))
-
+  
   const setValues = (value, skipOnChange = false) => {
     // console.log("setValues")
     // console.log(value)
@@ -46,6 +41,11 @@ const InputNumber = ({
     setStringValue(formatToString(value))
     if (onChange && !skipOnChange) onChange(formatToNumber(value))
   }
+
+  //TODO should validate 'value' prop?
+  useEffect(() => setValues(value, true), [value])
+
+  const revertStringValue = () => setStringValue(formatToString(numberValue))
 
   const getValidValue = (value) => {
     // console.log("getValidValue")

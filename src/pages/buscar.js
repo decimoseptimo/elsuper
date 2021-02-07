@@ -7,7 +7,7 @@ import useSearch from "../components/useSearch"
 
 const Buscar = (props) => {
   console.log("buscar!")
-  const [state, dispatch] = useContext(MiscContext)
+  const [state,/*  dispatch */] = useContext(MiscContext)
   let query = ""
 
   try {
@@ -32,7 +32,7 @@ const Buscar = (props) => {
       <SEO title="Buscar" keywords={[`gatsby`, `application`, `react`]} />
       <h1>
         {normalizedProducts.length}{" "}
-        {normalizedProducts.length == 1 ? "Resultado" : "Resultados"} para "
+        {normalizedProducts.length === 1 ? "Resultado" : "Resultados"} para "
         {query}"
       </h1>
       <ProductGrid products={normalizedProducts} />{" "}

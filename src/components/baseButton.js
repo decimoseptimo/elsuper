@@ -17,6 +17,8 @@ const BaseButton = (props) => (
 
 BaseButton.propTypes = {
   children: PropTypes.node.isRequired,
+  className: PropTypes.string,
+  onClick: PropTypes.func,
 }
 
 export default BaseButton
