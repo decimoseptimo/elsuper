@@ -2,9 +2,6 @@ import { graphql, useStaticQuery } from "gatsby"
 import { useFlexSearch } from "react-use-flexsearch"
 
 const useSearch = (query) => {
-  console.log("useSearch")
-  console.log(query)
-
   const data = useStaticQuery(graphql`
     query {
       localSearchProducts {

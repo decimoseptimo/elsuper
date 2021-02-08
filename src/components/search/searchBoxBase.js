@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, useRef } from "react"
 import Highlighter from "react-highlight-words"
 
 const getSuggestionValue = (suggestion) => suggestion.title
@@ -19,7 +19,7 @@ const renderSuggestion = ({ title }, asd) => (
 const SearchBoxBase = (props) => {
   const { view: View, query, setQuery, handleSearch, dispatch } = props
   let { results: suggestions } = props
-  const [inputRef, setInputRef] = useState()
+  const inputEl = useRef(null)
   const [value, setValue] = useState(query)
 
   //console.log("SearchBoxBase")
@@ -28,14 +28,6 @@ const SearchBoxBase = (props) => {
     //console.log("useEffect")
     setValue(query)
   }, [query])
-
-  const setInputRef2 = (autosuggest) => {
-    //console.log("setInputRef2:")
-    if (autosuggest !== null) {
-      setInputRef(autosuggest.input)
-      //console.log(inputRef)
-    }
-  }
 
   const clearInput = () => {
     //console.log('clearInput')
@@ -49,8 +41,9 @@ const SearchBoxBase = (props) => {
 
   const onKeyDown = (event) => {
     //console.log('onKeyDown')
+    // console.log(inputEl.current)
     if (event.key === "Enter" && value !== "") {
-      inputRef.blur()
+      inputEl.current.input.blur()
       handleSearch(value)
     }
   }
@@ -67,7 +60,7 @@ const SearchBoxBase = (props) => {
 
   const onSuggestionSelected = (e, asd) => {
     //console.log('onSuggestionSelected')
-    inputRef.blur()
+    inputEl.current.input.blur()
     setQuery(asd.suggestionValue)
     handleSearch(asd.suggestionValue)
   }
@@ -89,9 +82,8 @@ const SearchBoxBase = (props) => {
     inputProps,
     dispatch,
     clearInput,
-    inputRef,
     focusInputOnSuggestionClick: false,
-    ref: setInputRef2,
+    inputEl,
   }
 
   return <View {...autosuggestProps} />

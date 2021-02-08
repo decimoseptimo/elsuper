@@ -1,21 +1,15 @@
-import React, { useContext } from "react"
+import React from "react"
+import queryString from "query-string"
 
 import SEO from "../components/seo"
 import ProductGrid from "../components/product/productGrid"
-import { MiscContext } from "../state/misc"
-import useSearch from "../components/useSearch"
+import useSearch from "../components/search/useSearch"
 
-const Buscar = (props) => {
-  console.log("buscar!")
-  const [state,/*  dispatch */] = useContext(MiscContext)
-  let query = ""
-
-  try {
-    // console.log('1')
-    query = props.location.state.query
-  } catch {
-    // console.log('2')
-    query = state.query
+const Buscar = ({ location }) => {
+  // console.log("buscar!")
+  let query
+  if (typeof window !== `undefined`) {
+    query = queryString.parse(location.search).p
   }
 
   const products = useSearch(query)
@@ -24,8 +18,6 @@ const Buscar = (props) => {
   const normalizedProducts = products.map((value) => {
     return { node: value }
   })
-
-  console.log(normalizedProducts)
 
   return (
     <>

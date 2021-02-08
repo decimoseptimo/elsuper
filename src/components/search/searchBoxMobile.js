@@ -1,36 +1,14 @@
 import React, { useEffect } from "react"
 import Autosuggest from "react-autosuggest"
-// import { TiArrowLeft } from "react-icons/ti"
 import { IoIosArrowBack } from "react-icons/io"
-import { MdClose/*, MdClear , MdChevronLeft, MdArrowBack */ } from "react-icons/md"
+import { MdClose } from "react-icons/md"
 
-import BaseButton from "../components/baseButton"
+import BaseButton from "../baseButton"
 
-// const SearchBoxMobile = props => {
-// https://github.com/reactjs/reactjs.org/issues/2120#issuecomment-589207766
-const SearchBoxMobile = React.forwardRef((props, ref) => {
-
-  // console.log('SearchBoxMobile!')
-  // console.log('inputRef:')
-  // console.log(props.inputRef)
-
-  // const icons = [
-  //   TiArrowLeft,
-  //   IoIosArrowBack,
-  //   MdClear,
-  //   MdClose,
-  //   MdChevronLeft,
-  //   MdArrowBack,
-  // ]
-
-  useEffect(
-    () => {
-      // console.log('--useEffect!')
-      if (props.inputRef !== undefined) {
-        props.inputRef.focus()
-      }
-    },
-  )
+const SearchBoxMobile = (props) => {
+  useEffect(() => {
+    props.inputEl.current.input.focus()
+  })
 
   return (
     <div className="searchBoxMobile">
@@ -46,8 +24,7 @@ const SearchBoxMobile = React.forwardRef((props, ref) => {
       >
         <IoIosArrowBack />
       </BaseButton>
-      {/*<Autosuggest {...props} />*/}
-      <Autosuggest {...props} ref={ref} id="mobile" />
+      <Autosuggest {...props} ref={props.inputEl} id="mobile" />
       {props.inputProps.value && (
         <BaseButton
           onClick={props.clearInput}
@@ -123,7 +100,7 @@ const SearchBoxMobile = React.forwardRef((props, ref) => {
 
         .searchBoxMobile .react-autosuggest__suggestion {
           border-bottom: none;
-          padding: .75rem 1.14285714rem;
+          padding: 0.75rem 1.14285714rem;
         }
         .searchBoxMobile .react-autosuggest__suggestion:first-child {
           padding-top: 1.3rem;
@@ -142,30 +119,39 @@ const SearchBoxMobile = React.forwardRef((props, ref) => {
           padding-left: 0.2rem;
         }
 
-        .searchBoxMobile .react-autosuggest__container > input::-webkit-input-placeholder {
+        .searchBoxMobile
+          .react-autosuggest__container
+          > input::-webkit-input-placeholder {
           /* Chrome/Opera/Safari */
           color: #888;
         }
-        .searchBoxMobile .react-autosuggest__container > input:focus::-webkit-input-placeholder {
+        .searchBoxMobile
+          .react-autosuggest__container
+          > input:focus::-webkit-input-placeholder {
           /* Chrome/Opera/Safari */
           color: #888;
         }
-        .searchBoxMobile .react-autosuggest__container > input::-moz-placeholder {
+        .searchBoxMobile
+          .react-autosuggest__container
+          > input::-moz-placeholder {
           /* Firefox 19+ */
           color: #888;
         }
-        .searchBoxMobile .react-autosuggest__container > input:-ms-input-placeholder {
+        .searchBoxMobile
+          .react-autosuggest__container
+          > input:-ms-input-placeholder {
           /* IE 10+ */
           color: #888;
         }
-        .searchBoxMobile .react-autosuggest__container > input:-moz-placeholder {
+        .searchBoxMobile
+          .react-autosuggest__container
+          > input:-moz-placeholder {
           /* Firefox 18- */
           color: #888;
         }
       `}</style>
     </div>
   )
-// }
-})
+}
 
 export default SearchBoxMobile

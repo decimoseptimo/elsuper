@@ -1,15 +1,10 @@
 import React  from "react"
 import Autosuggest from "react-autosuggest"
 
-// const SearchBox = props => {
-// https://github.com/reactjs/reactjs.org/issues/2120#issuecomment-589207766
-const SearchBox = React.forwardRef((props, ref) => {
-  //console.log("SearchBox")
-
+const SearchBox = props => {
   return (
     <div className="searchBox">
-      {/*<Autosuggest {...props} />*/}
-      <Autosuggest {...props} ref={ref} />
+      <Autosuggest {...props} ref={props.inputEl} />
       <style jsx global>{`
         .react-autosuggest__container {
           position: relative;
@@ -80,7 +75,6 @@ const SearchBox = React.forwardRef((props, ref) => {
       `}</style>
     </div>
   )
-// }
-})
+}
 
 export default SearchBox
