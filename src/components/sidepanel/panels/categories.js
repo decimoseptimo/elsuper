@@ -46,7 +46,7 @@ const Categories = () => {
 
   const ItemLink = ({ name, className='' }) => (
     <Link
-      to={`/${slugify(name.toLowerCase())}`}
+      to={`/${slugify(name.toLowerCase())}/`}
       replace
       className={className}
       activeClassName="active"

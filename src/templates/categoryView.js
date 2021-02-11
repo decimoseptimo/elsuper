@@ -20,17 +20,17 @@ const CategoryView = (props) => {
   const subcategories2 = (
     <div className="subcategories">
       {subcategories.map((i) => (
-        <SubcategoryLink to={`/${slugify(i.name.toLowerCase())}`} key={i._id}>
+        <SubcategoryLink to={`/${slugify(i.name.toLowerCase())}/`} key={i._id}>
           {i.name}
         </SubcategoryLink>
       ))}
     </div>
   )
 
-  const handlePageChange = (e, d) => {
-    d.activePage === 1
-      ? navigate(`/${slugify(category.name.toLowerCase())}`)
-      : navigate(`/${slugify(category.name.toLowerCase())}/${d.activePage}`)
+  const handlePageChange = (page) => {
+    page === 1
+      ? navigate(`/${slugify(category.name.toLowerCase())}/`)
+      : navigate(`/${slugify(category.name.toLowerCase())}/${page}/`)
   }
 
   return (
