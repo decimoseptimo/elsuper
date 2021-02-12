@@ -74,7 +74,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   products.forEach(({ node }) => {
     createPage({
-      path: node.slug,
+      path: node.slug + '/',
       component: productView,
       context: {
         // Data passed to context is available
@@ -124,7 +124,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         allSubcategoriesIds,
         productsCount: products.length,
       },
-      pathPrefix: `/${slugify(i.name.toLowerCase())}`,
+      pathPrefix: `/${slugify(i.name.toLowerCase())}/`,
     })
   }
 
@@ -137,7 +137,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       context: {
         tag: tag.fieldValue,
       },
-      pathPrefix: `/tags/${slugify(tag.fieldValue.toLowerCase())}`,
+      pathPrefix: `/tags/${slugify(tag.fieldValue.toLowerCase())}/`,
     })
   })
 }

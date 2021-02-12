@@ -12,7 +12,7 @@ const Breadcrumbs = ({ data }) => (
         </span>
         {data.map((i) => (
           <span className="item" key={i._id}>
-            <Link to={`/${slugify(i.name.toLowerCase())}`}>{i.name}</Link>
+            <Link to={`/${slugify(i.name.toLowerCase())}/`}>{i.name}</Link>
           </span>
         ))}
       </div>
