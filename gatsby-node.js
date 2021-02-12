@@ -124,7 +124,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         allSubcategoriesIds,
         productsCount: products.length,
       },
-      pathPrefix: `/${slugify(i.name.toLowerCase())}/`,
+      pathPrefix: `/${slugify(i.name.toLowerCase())}`,
     })
   }
 
