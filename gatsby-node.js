@@ -70,6 +70,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     itemsPerPage: 50,
     // itemsPerFirstPage: 3,
     pathPrefix: "/",
+    trailingSlash: true
   })
 
   products.forEach(({ node }) => {
@@ -125,6 +126,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         productsCount: products.length,
       },
       pathPrefix: `/${slugify(i.name.toLowerCase())}`,
+      trailingSlash: true
     })
   }
 
@@ -137,7 +139,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       context: {
         tag: tag.fieldValue,
       },
-      pathPrefix: `/tags/${slugify(tag.fieldValue.toLowerCase())}/`,
+      pathPrefix: `/tags/${slugify(tag.fieldValue.toLowerCase())}`,
+      trailingSlash: true
     })
   })
 }
