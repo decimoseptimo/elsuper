@@ -1,7 +1,7 @@
 const React = require("react")
 const path = require("path")
 const slugify = require("slugify")
-const { paginate } = require("gatsby-awesome-pagination")
+const { paginate } = require("@decimoseptimo/gatsby-awesome-pagination")
 
 const {
   getParentRecursively,
