@@ -1,9 +1,55 @@
+.panel header {
+  display: flex;
+  align-items: baseline;
+}
+
 .panel .title {
-    font-size: 1.7rem;
-    font-family: Lato,Helvetica Neue,Arial,Helvetica,sans-serif;
+  font-size: 1.6rem;
+  font-family: Lato, Helvetica Neue, Arial, Helvetica, sans-serif;
 }
 
 .panel .subtitle {
-    font-weight: normal;
-    font-size: 1.2rem;
+  margin-left: auto;
+  font-weight: normal;
+  font-size: 1.4rem;
+}
+
+.panel > p {
+  margin-top: 0;
+}
+
+/* PANEL CART */
+
+.panel.cart {
+  min-width: 300px;
+}
+
+.panel.cart .subtitle {
+  margin-left: 4px;
+  /* margin-right: 7px; */
+}
+
+.panel .subtitle .text {
+  /* font-weight: 300; */
+  opacity: 0.8;
+}
+
+/* SUB PANEL */
+
+.sub.panel .title {
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+}
+
+.sub.panel .title::before {
+  content: "\2039";
+  font-size: 3.3rem;
+  font-weight: 400;
+  margin-top: -1.4rem;
+  position: absolute;
+}
+
+.sub.panel span {
+  margin-left: 1.6rem;
 }

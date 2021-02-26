@@ -23,21 +23,23 @@ const Cart = (props) => {
   return (
     <>
       <div className="panel cart">
-        <h2 className="title">
-          Carrito <span className="subtitle">${cartTotal()}</span>
-        </h2>
-
+        <header>
+          <h2 className="title">Carrito</h2>
+          <span className="subtitle">
+            <span className="number">${cartTotal()}</span>
+          </span>
+        </header>
         {state.length ? (
           <>
             <table>
               <thead>
                 <tr>
-                  <th />
+                  <th>&nbsp;</th>
                   <th>Producto</th>
                   <th>Precio</th>
                   <th>Cantidad</th>
                   <th className="item-total">A pagar</th>
-                  <th />
+                  <th>&nbsp;</th>
                 </tr>
               </thead>
               <tbody>
@@ -58,7 +60,9 @@ const Cart = (props) => {
               <div className="cart-total">Total ${cartTotal()}</div>
             </div>
             <div className="btn-wrapper">
-                <Button className="fluid primary" onClick={()=>navigate(url)}>Proceder al pago</Button>
+              <Button className="fluid primary" onClick={() => navigate(url)}>
+                Proceder al pago
+              </Button>
             </div>
           </>
         ) : (
@@ -67,10 +71,6 @@ const Cart = (props) => {
       </div>
 
       <style jsx>{`
-        .cart {
-          min-width: 300px;
-        }
-
         .btn-wrapper {
           position: sticky;
           bottom: 0;
@@ -93,10 +93,12 @@ const Cart = (props) => {
         table th {
           text-align: left;
           white-space: nowrap;
+          font-weight: 600;
         }
 
         table th:nth-child(3) {
           min-width: 5.6rem;
+          display: none;
         }
 
         table th:nth-child(4) {
@@ -121,7 +123,7 @@ const Cart = (props) => {
 
         .cart-total {
           text-align: right;
-          font-weight: bold;
+          font-weight: 600;
           margin-top: 2rem;
           margin-right: 0.6rem;
         }
