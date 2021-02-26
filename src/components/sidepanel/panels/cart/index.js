@@ -97,6 +97,7 @@ const Cart = (props) => {
 
         table th:nth-child(3) {
           min-width: 5.6rem;
+          display: none
         }
 
         table th:nth-child(4) {
