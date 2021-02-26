@@ -33,6 +33,11 @@ const Button = (props) => {
           background: linear-gradient(to bottom, #f9f9f9, #dfdfdf);
           color: #333;
         }
+        
+        .default3 {
+          background: linear-gradient(to bottom,#f9f9f9,#f5f5f5);
+          color: #333;
+        }
 
         .primary {
           color: #fff;

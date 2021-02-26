@@ -21,32 +21,49 @@ const MyAccount = (props) => {
   return (
     <>
       <div className={`jsx-8256865853 panel cart`}>
-        <h2 className="title">
-          Mi cuenta <span className="subtitle">Juan Hernández</span>
-        </h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis non odit
-          sordidos, vanos, leves, futtiles
-        </p>
-        <Button className="fluid round" onClick={() => navigate(profileUrl)}>
+        <header>
+          <h2 className="title">Mi cuenta</h2>
+          <span className="subtitle">
+            Juan Hernández (<a href="#">salir</a>)
+          </span>
+        </header>
+        <Button
+          className="fluid round default3"
+          onClick={() => navigate(profileUrl)}
+        >
           Datos personales
         </Button>
-        <Button className="fluid round" onClick={() => navigate(ordersUrl)}>
+        <Button
+          className="fluid round default3"
+          onClick={() => navigate(ordersUrl)}
+        >
           Pedidos
         </Button>
-        <Button className="fluid round" onClick={() => navigate(cardsUrl)}>
+        <Button
+          className="fluid round default3"
+          onClick={() => navigate(cardsUrl)}
+        >
           Tarjetas
         </Button>
-        <Button className="fluid round" onClick={() => navigate(addressesUrl)}>
+        <Button
+          className="fluid round default3"
+          onClick={() => navigate(addressesUrl)}
+        >
           Direcciones
-        </Button>
-        <Button className="fluid round" onClick={() => navigate(logOutUrl)}>
-          Cerrar sesion
         </Button>
       </div>
       <style jsx global>{`
         .jsx-8256865853 button {
           margin-bottom: 0.4rem;
+        }
+
+        .panel header {
+          display: flex;
+          align-items: baseline;
+        }
+
+        .panel .subtitle {
+          margin-left: auto;
         }
       `}</style>
     </>

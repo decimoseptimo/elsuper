@@ -39,7 +39,7 @@ const CartItem = (props) => {
       <tr>
         <td>{image}</td>
         <td>
-          <Link to={`/${slug}/`} replace>
+          <Link to={`/${slug}/`} className="jsx-3546936417" replace>
             {title}
           </Link>
         </td>
@@ -81,6 +81,10 @@ const CartItem = (props) => {
         .gatsby-image-wrapper.thumb {
           width: 3rem;
         }
+
+        td a.jsx-3546936417 {
+          color: #222;
+        }
       `}</style>
       <style jsx>{`
         .delete-button:hover {
@@ -104,9 +108,13 @@ const CartItem = (props) => {
         td {
           padding-right: 1rem;
         }
-
+        
         td.item-total {
           text-align: right;
+        }
+
+        td:nth-child(3) {
+          display: none
         }
 
         td:first-child,
