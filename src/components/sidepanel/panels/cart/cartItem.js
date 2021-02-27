@@ -103,6 +103,7 @@ const CartItem = (props) => {
           background: none;
           border: 0;
           outline: 0;
+          cursor: pointer;
         }
 
         td {

@@ -17,7 +17,7 @@ const Orders = (props) => {
           sordidos, vanos, leves, futtiles
         </p>
         <Button
-          className="fluid round"
+          className="fluid round default3"
           onClick={() => setRoutes(location, [MY_ACCOUNT])}
         >
           Volver

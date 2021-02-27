@@ -8,7 +8,7 @@ const Button = (props) => {
       </button>
       <style jsx>{`
          {
-          padding: 0.91rem 1.8rem;
+          padding: 0.9rem 1.8rem;
           border: 1px solid #ddd;
           cursor: pointer;
           text-decoration: none;
