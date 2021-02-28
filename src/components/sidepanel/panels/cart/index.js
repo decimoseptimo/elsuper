@@ -26,7 +26,6 @@ const Cart = (props) => {
         <header>
           <h2 className="title">Carrito</h2>
           <span className="subtitle">
-            <span className="text">Total </span>
             <span className="number">${cartTotal()}</span>
           </span>
         </header>

@@ -24,7 +24,7 @@ const MyAccount = (props) => {
         <header>
           <h2 className="title">Mi cuenta</h2>
           <span className="subtitle">
-            Juan Hernández (<a href="#">salir</a>)
+          ¡Hola Juan! (<a href="#">salir</a>)
           </span>
         </header>
         <Button
