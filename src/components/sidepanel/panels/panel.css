@@ -1,9 +1,28 @@
+.panel header {
+  display: flex;
+  align-items: baseline;
+}
+
 .panel .title {
-    font-size: 1.7rem;
-    font-family: Lato,Helvetica Neue,Arial,Helvetica,sans-serif;
+  font-size: 1.6rem;
+  font-family: Lato, Helvetica Neue, Arial, Helvetica, sans-serif;
 }
 
 .panel .subtitle {
-    font-weight: normal;
-    font-size: 1.2rem;
+  margin-left: auto;
+  font-weight: normal;
+  font-size: 1.3rem;
+}
+
+.panel.cart {
+  min-width: 300px;
+}
+
+.panel.cart .subtitle {
+  margin-right: 7px;
+}
+
+.panel .subtitle .text {
+  /* font-weight: 300; */
+  opacity: 0.8;
 }

@@ -20,7 +20,7 @@ const MyAccount = (props) => {
 
   return (
     <>
-      <div className={`jsx-8256865853 panel cart`}>
+      <div className={`jsx-8256865853 panel myAccount`}>
         <header>
           <h2 className="title">Mi cuenta</h2>
           <span className="subtitle">
@@ -55,15 +55,6 @@ const MyAccount = (props) => {
       <style jsx global>{`
         .jsx-8256865853 button {
           margin-bottom: 0.4rem;
-        }
-
-        .panel header {
-          display: flex;
-          align-items: baseline;
-        }
-
-        .panel .subtitle {
-          margin-left: auto;
         }
       `}</style>
     </>

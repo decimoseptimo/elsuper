@@ -8,6 +8,7 @@ const Button = (props) => {
       </button>
       <style jsx>{`
          {
+          margin-bottom: 1px; /* fixes bottom border rendering clipped on mobile */
           padding: 0.9rem 1.8rem;
           border: 1px solid #ddd;
           cursor: pointer;
