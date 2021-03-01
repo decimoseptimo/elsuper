@@ -5,6 +5,7 @@ import "simplebar/dist/simplebar.min.css"
 
 import Header from "./header"
 import Overlay from "./overlay"
+import useHasMounted from "./useHasMounted"
 // import Auth from "./panels/myAccount/auth"
 import Router, { useGetRoutes, setRoutes, useRoutesHistory } from "./router"
 import Sidepanel from "./sidepanel"
@@ -29,6 +30,7 @@ const Layout = ({ location, children }) => {
   const sidepanelRoute = routes[0]
   const myAccountRoute = getFromRoutesHistory(Routes.MY_ACCOUNT)?.[1]
   const cartRoute = getFromRoutesHistory(Routes.CART)?.[1]
+  const hasMounted = useHasMounted()
 
   useEffect(() => {
     setToRoutesHistory(routes)
@@ -47,15 +49,16 @@ const Layout = ({ location, children }) => {
           </header>
         </div>
         <Overlay
+          _key={hasMounted}
           isActive={Routes.MAIN_SIDEPANELS.includes(sidepanelRoute)}
           onClick={(e) => setRoutes(location, routes)}
         />
-        <Sidepanel isActive={sidepanelRoute === Routes.CATEGORIES}>
+        <Sidepanel _key={hasMounted} isActive={sidepanelRoute === Routes.CATEGORIES}>
           <SimpleBar style={{ maxHeight: "100%", width: "100%" }}>
             <Categories />
           </SimpleBar>
         </Sidepanel>
-        <Sidepanel right isActive={sidepanelRoute === Routes.MY_ACCOUNT}>
+        <Sidepanel _key={hasMounted} right isActive={sidepanelRoute === Routes.MY_ACCOUNT}>
           <SimpleBar style={{ maxHeight: "100%", width: "100%" }}>
             <Router activeRoute={myAccountRoute}>
               <MyAccount default />
@@ -67,7 +70,7 @@ const Layout = ({ location, children }) => {
             </Router>
           </SimpleBar>
         </Sidepanel>
-        <Sidepanel right isActive={sidepanelRoute === Routes.CART}>
+        <Sidepanel _key={hasMounted} right isActive={sidepanelRoute === Routes.CART}>
           <SimpleBar style={{ maxHeight: "100%", width: "100%" }}>
             <Router activeRoute={cartRoute}>
               <Cart default />
