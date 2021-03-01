@@ -1,14 +1,20 @@
 import React from "react"
-import PropTypes from "prop-types"
 
-const Sidepanel = (props) => (
+const Sidepanel = ({
+  _key,
+  className = "",
+  right = false,
+  isActive,
+  children,
+}) => (
   <>
     <div
-      className={`sidepanel ${props.className} ${props.right && "right"}  ${
-        props.isActive && "isActive"
+      key={_key}
+      className={`sidepanel ${className} ${right && "right"}  ${
+        isActive && "isActive"
       }`}
     >
-      {props.children}
+      {children}
     </div>
     <style jsx global>{`
       .sidepanel {
@@ -69,11 +75,5 @@ const Sidepanel = (props) => (
     `}</style>
   </>
 )
-
-Sidepanel.propTypes = {
-  children: PropTypes.element.isRequired,
-  isActive: PropTypes.bool.isRequired,
-  right: PropTypes.bool,
-}
 
 export default Sidepanel
