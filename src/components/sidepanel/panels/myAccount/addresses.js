@@ -1,7 +1,6 @@
 import React from "react"
 import { useLocation } from "@reach/router"
 
-import Button from "../../../button"
 import { setRoutes } from "../../../router"
 import { MY_ACCOUNT } from "../../routes"
 
@@ -10,18 +9,14 @@ const Addresses = (props) => {
 
   return (
     <>
-      <div className="panel cart">
-        <h2 className="title">Direcciones</h2>
+      <div className="sub panel cart">
+        <h2 onClick={() => setRoutes(location, [MY_ACCOUNT])} className="title">
+        <span>Direcciones</span>
+        </h2>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis non odit
           sordidos, vanos, leves, futtiles
         </p>
-        <Button
-          className="fluid round default3"
-          onClick={() => setRoutes(location, [MY_ACCOUNT])}
-        >
-          Volver
-        </Button>
       </div>
     </>
   )

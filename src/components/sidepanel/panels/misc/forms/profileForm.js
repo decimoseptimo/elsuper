@@ -1,20 +1,32 @@
 import React from "react"
 import { useForm } from "react-hook-form"
-import { Link } from "gatsby"
 
 import Button from "../../../../button"
-import BaseButton from "../../../../baseButton"
-import RegisterForm from "./registerForm"
-import PasswordResetForm from "./passwordResetForm"
+import "./form.css"
 
-const LoginForm = (props) => {
+const ProfileForm = (props) => {
   const { register, handleSubmit, errors } = useForm()
   const { onSubmit, handleClick } = props
 
   return (
-    <div className="form loginForm">
-      <h2 className="title">Iniciar sesión</h2>
+    <div className="form">
+      <h2 onClick={() => handleClick()} className="title">
+        <span>Datos Personales</span>
+      </h2>
       <form className="form" onSubmit={handleSubmit(onSubmit)}>
+        <div className="field">
+          <label htmlFor="name" className="visuallyHidden">
+            Nombre
+          </label>
+          <input
+            id="name"
+            type="text"
+            placeholder="Nombre"
+            name="name"
+            ref={register({ required: true, pattern: /^\S+@\S+$/i })}
+          />
+          {errors.name && <div className="error">Nombre es requerido</div>}
+        </div>
         <div className="field">
           <label htmlFor="email" className="visuallyHidden">
             Correo electrónico
@@ -29,6 +41,19 @@ const LoginForm = (props) => {
           {errors.email && (
             <div className="error">Correo electrónico es requerido</div>
           )}
+        </div>
+        <div className="field">
+          <label htmlFor="phone" className="visuallyHidden">
+            Celular
+          </label>
+          <input
+            id="phone"
+            type="text"
+            placeholder="Celular"
+            name="phone"
+            ref={register({ required: true, pattern: /^\S+@\S+$/i })}
+          />
+          {errors.phone && <div className="error">Celular es requerido</div>}
         </div>
         <div className="field">
           <label htmlFor="password" className="visuallyHidden">
@@ -48,42 +73,12 @@ const LoginForm = (props) => {
             <div className="error">Contraseña es minimo 8 caracteres</div>
           )}
         </div>
-        <div className="field remember">
-          <input
-            type="checkbox"
-            id="remember"
-            name="remember"
-            ref={register()}
-          />
-          <label htmlFor="remember">Recordarme</label>
-          <BaseButton
-            className="forgotPassword"
-            // type="button"
-            onClick={() => handleClick(() => PasswordResetForm)}
-          >
-            ¿Olvidaste tu contraseña?
-          </BaseButton>
-        </div>
-        <Button className="primary fluid">Iniciar Sesión</Button>
-        <p className="legend">
-          Al iniciar sesión, aceptas nuestras{" "}
-          <Link to="/#">Condiciones de uso</Link> y{" "}
-          <Link to="/#">Aviso de privacidad.</Link>
-        </p>
-
-        <p className="pre-button">
-          <span>¿Aún no tienes cuenta?</span>
-        </p>
-        <Button
-          type="button"
-          onClick={() => handleClick(() => RegisterForm)}
-          className="default fluid round"
-        >
-          Crear cuenta
+        <Button className="fluid round default3" onClick={() => {}}>
+          Guardar
         </Button>
       </form>
     </div>
   )
 }
 
-export default LoginForm
+export default ProfileForm
