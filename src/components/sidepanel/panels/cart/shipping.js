@@ -1,16 +1,20 @@
 import React from "react"
+import { useLocation } from "@reach/router"
 
 import Button from "../../../button"
+import { setRoutes, navigate, useGetRelativeUrl } from "../../../router"
 import { CART, PAYMENT } from "../../routes"
-import { navigate, useGetRelativeUrl } from "../../../router"
 
 function Shipping(props) {
+  const location = useLocation()
   const url = useGetRelativeUrl(CART, PAYMENT)
 
   return (
     <>
-      <div className="panel cart">
-        <h2 className="title">Información de envio</h2>
+      <div className="sub panel cart">
+        <h2 onClick={() => setRoutes(location, [CART])} className="title">
+          <span>Información de envio</span>
+        </h2>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis non odit
           sordidos, vanos, leves, futtiles

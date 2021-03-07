@@ -9,9 +9,9 @@ const Addresses = (props) => {
 
   return (
     <>
-      <div className="sub panel cart">
+      <div className="sub panel myAccount">
         <h2 onClick={() => setRoutes(location, [MY_ACCOUNT])} className="title">
-        <span>Direcciones</span>
+          <span>Direcciones</span>
         </h2>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis non odit

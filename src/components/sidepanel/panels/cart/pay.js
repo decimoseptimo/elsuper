@@ -1,13 +1,22 @@
 import React from "react"
-// import { navigate } from "../../../router"
+import { useLocation } from "@reach/router"
 
 import Button from "../../../button"
+import { setRoutes /* , navigate, useGetRelativeUrl  */ } from "../../../router"
+import { CART, PAYMENT } from "../../routes"
 
 function Pay(props) {
+  const location = useLocation()
+
   return (
     <>
-      <div className="panel cart">
-        <h2 className="title">Resumen y pagar</h2>
+      <div className="sub panel cart">
+        <h2
+          onClick={() => setRoutes(location, [CART, PAYMENT])}
+          className="title"
+        >
+          <span>Resumen y pagar</span>
+        </h2>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis non odit
           sordidos, vanos, leves, futtiles

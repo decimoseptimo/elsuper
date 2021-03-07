@@ -14,6 +14,11 @@
   font-size: 1.4rem;
 }
 
+.panel .subtitle .text {
+  /* font-weight: 300; */
+  opacity: 0.8;
+}
+
 .panel > p {
   margin-top: 0;
 }
@@ -27,11 +32,6 @@
 .panel.cart .subtitle {
   margin-left: 4px;
   /* margin-right: 7px; */
-}
-
-.panel .subtitle .text {
-  /* font-weight: 300; */
-  opacity: 0.8;
 }
 
 /* SUB PANEL */

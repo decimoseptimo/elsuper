@@ -9,7 +9,7 @@ const Cards = (props) => {
 
   return (
     <>
-      <div className="sub panel cart">
+      <div className="sub panel myAccount">
         <h2 onClick={() => setRoutes(location, [MY_ACCOUNT])} className="title">
           <span>Tarjetas</span>
         </h2>

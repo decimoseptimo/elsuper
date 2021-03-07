@@ -10,7 +10,7 @@ const Profile = (props) => {
 
   return (
     <>
-      <div className="sub panel cart">
+      <div className="sub panel myAccount">
         <ProfileForm handleClick={() => setRoutes(location, [MY_ACCOUNT])} />
       </div>
     </>
