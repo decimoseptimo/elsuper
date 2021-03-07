@@ -54,7 +54,7 @@ const ProductCard = ({
       key={hasMountedAndHasValue}
       className={`productCard ${countInCart ? "active" : ""}`}
     >
-      <Link to={`/${data.slug}/`}>{image}</Link>
+      <Link to={`/${data.slug}`}>{image}</Link>
       <div className="subtitle row">
         <span className="price">
           <span className="symbol">$</span>

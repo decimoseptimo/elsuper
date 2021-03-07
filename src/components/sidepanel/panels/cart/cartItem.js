@@ -39,7 +39,7 @@ const CartItem = (props) => {
       <tr>
         <td>{image}</td>
         <td>
-          <Link to={`/${slug}/`} className="jsx-3546936417" replace>
+          <Link to={`/${slug}`} className="jsx-3546936417" replace>
             {title}
           </Link>
         </td>
