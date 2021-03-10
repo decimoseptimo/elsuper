@@ -5,8 +5,7 @@ import css from "styled-jsx/css"
 const ButtonAsLink = (props) => {
   const { className, styles } = css.resolve`
     .buttonAsLink {
-      color: #4183c4;
-      background: #fff;
+      color: #3c79b6;
       padding: 0;
     }
   `
