@@ -1,6 +1,6 @@
 import React from "react"
 import slugify from "slugify"
-import { graphql, navigate } from "gatsby"
+import { graphql, Link, navigate } from "gatsby"
 
 import SEO from "../components/seo"
 import ProductGrid from "../components/product/productGrid"
@@ -27,10 +27,25 @@ const CategoryView = (props) => {
     </div>
   )
 
-  const handlePageChange = (page) => {
-    page === 1
+  const handlePageChange = (current) => {
+    current === 1
       ? navigate(`/${slugify(category.name.toLowerCase())}`)
-      : navigate(`/${slugify(category.name.toLowerCase())}/${page}`)
+      : navigate(`/${slugify(category.name.toLowerCase())}/${current}`)
+  }
+
+  const itemRender = (current, type, element) => {
+    if (type === "page") {
+      if (current === 1)
+        return (
+          <Link to={`/${slugify(category.name.toLowerCase())}`}>{current}</Link>
+        )
+      return (
+        <Link to={`/${slugify(category.name.toLowerCase())}/${current}`}>
+          {current}
+        </Link>
+      )
+    }
+    return element
   }
 
   return (
@@ -50,6 +65,7 @@ const CategoryView = (props) => {
         current={props.pageContext.humanPageNumber}
         total={props.pageContext.numberOfPages}
         pageSize={1}
+        itemRender={itemRender}
         onChange={handlePageChange}
       />
       <style jsx global>{`
