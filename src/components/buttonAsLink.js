@@ -6,6 +6,7 @@ const ButtonAsLink = (props) => {
   const { className, styles } = css.resolve`
     .buttonAsLink {
       color: #4183c4;
+      background: #fff;
       padding: 0;
     }
   `
