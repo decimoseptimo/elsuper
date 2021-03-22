@@ -1,31 +1,29 @@
 import React from "react"
 import { useForm } from "react-hook-form"
+import { Link } from "gatsby"
 
 import Button from "../../../../button"
 import "./form.css"
 
-const ProfileForm = (props) => {
+const SignupForm = ({ onSubmit, onLogin }) => {
   const { register, handleSubmit, errors } = useForm()
-  const { onSubmit, handleClick } = props
 
   return (
-    <div className="form">
-      <h2 onClick={() => handleClick()} className="title">
-        <span>Datos Personales</span>
-      </h2>
+    <div className="form registerForm">
+      <h2 className="title">Crear cuenta</h2>
       <form className="form" onSubmit={handleSubmit(onSubmit)}>
         <div className="field">
-          <label htmlFor="name" className="visuallyHidden">
+          <label htmlFor="firstName" className="visuallyHidden">
             Nombre
           </label>
           <input
-            id="name"
+            id="firstName"
             type="text"
             placeholder="Nombre"
-            name="name"
-            ref={register({ required: true, pattern: /^\S+@\S+$/i })}
+            name="firstName"
+            ref={register({ required: true, maxLength: 100 })}
           />
-          {errors.name && <div className="error">Nombre es requerido</div>}
+          {errors.firstName && <div className="error">Nombre es requerido</div>}
         </div>
         <div className="field">
           <label htmlFor="email" className="visuallyHidden">
@@ -41,19 +39,6 @@ const ProfileForm = (props) => {
           {errors.email && (
             <div className="error">Correo electrónico es requerido</div>
           )}
-        </div>
-        <div className="field">
-          <label htmlFor="phone" className="visuallyHidden">
-            Celular
-          </label>
-          <input
-            id="phone"
-            type="text"
-            placeholder="Celular"
-            name="phone"
-            ref={register({ required: true, pattern: /^\S+@\S+$/i })}
-          />
-          {errors.phone && <div className="error">Celular es requerido</div>}
         </div>
         <div className="field">
           <label htmlFor="password" className="visuallyHidden">
@@ -73,12 +58,26 @@ const ProfileForm = (props) => {
             <div className="error">Contraseña es minimo 8 caracteres</div>
           )}
         </div>
-        <Button className="fluid round default3" onClick={() => {}}>
-          Guardar
+        <Button className="primary fluid">Crear cuenta</Button>
+        <p className="legend">
+          Al crear una cuenta, aceptas nuestras{" "}
+          <Link to="/#">Condiciones de uso</Link> y{" "}
+          <Link to="/#">Aviso de privacidad.</Link>
+        </p>
+
+        <p className="pre-button">
+          <span>¿Ya tienes cuenta?</span>
+        </p>
+        <Button
+          type="button"
+          onClick={() => onLogin()}
+          className="default fluid round"
+        >
+          Iniciar Sesión
         </Button>
       </form>
     </div>
   )
 }
 
-export default ProfileForm
+export default SignupForm

@@ -1,12 +1,11 @@
 import React from "react"
 import { useForm } from "react-hook-form"
 
-import Button from "../../../button"
-import LoginForm from "./loginForm"
+import Button from "../../../../button"
+import "./form.css"
 
-const PasswordResetForm = (props) => {
+const PasswordResetForm = ({ onSubmit, onLogin }) => {
   const { register, handleSubmit, errors } = useForm()
-  const { onSubmit, handleClick } = props
 
   return (
     <div className="form PasswordResetForm">
@@ -38,7 +37,7 @@ const PasswordResetForm = (props) => {
         </p>
         <Button
           type="button"
-          onClick={() => handleClick(() => LoginForm)}
+          onClick={() => onLogin()}
           className="default fluid round"
         >
           Iniciar Sesión

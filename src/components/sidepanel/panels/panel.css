@@ -25,6 +25,12 @@
 
 /* PANEL CART */
 
+.panel.myAccount {
+  margin-bottom: 2rem;
+}
+
+/* PANEL CART */
+
 .panel.cart {
   min-width: 300px;
 }

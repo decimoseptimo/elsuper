@@ -6,9 +6,14 @@ import "simplebar/dist/simplebar.min.css"
 import Header from "./header"
 import Overlay from "./overlay"
 import useHasMounted from "./useHasMounted"
-// import Auth from "./panels/myAccount/auth"
-import Router, { useGetRoutes, setRoutes, useRoutesHistory } from "./router"
+import Router, {
+  useGetRoutes,
+  setRoutes,
+  useRoutesHistory,
+  PrivateRoute,
+} from "./router"
 import Sidepanel from "./sidepanel"
+import { useOpenSidepanels } from "./sidepanel/useOpenSidepanels"
 import * as Routes from "./sidepanel/routes"
 import {
   Categories,
@@ -21,19 +26,28 @@ import {
   Cards,
   Addresses,
   Orders,
+  Login,
+  Signup,
+  PasswordReset,
 } from "./sidepanel/panels"
 import "./layout.css"
 
 const Layout = ({ location, children }) => {
   const { getFromRoutesHistory, setToRoutesHistory } = useRoutesHistory()
   const routes = useGetRoutes()
-  const sidepanelRoute = routes[0]
   const myAccountRoute = getFromRoutesHistory(Routes.MY_ACCOUNT)?.[1]
   const cartRoute = getFromRoutesHistory(Routes.CART)?.[1]
   const hasMounted = useHasMounted()
+  const [openSidepanels, setOpenSidepanels] = useOpenSidepanels()
+
+  const onTransitionEnd = (route) => {
+    if (routes[0] === route) setOpenSidepanels(route)
+    else setOpenSidepanels(route, "remove")
+  }
 
   useEffect(() => {
     setToRoutesHistory(routes)
+    if (!!routes[0]) setOpenSidepanels(routes[0])
   }, [routes.toString()])
 
   return (
@@ -50,34 +64,88 @@ const Layout = ({ location, children }) => {
         </div>
         <Overlay
           _key={hasMounted}
-          isActive={Routes.MAIN_SIDEPANELS.includes(sidepanelRoute)}
+          isActive={Routes.MAIN_SIDEPANELS.includes(routes[0])}
           onClick={(e) => setRoutes(location, routes)}
         />
-        <Sidepanel _key={hasMounted} isActive={sidepanelRoute === Routes.CATEGORIES}>
+        <Sidepanel
+          _key={hasMounted}
+          isActive={routes[0] === Routes.CATEGORIES}
+          onTransitionEnd={() => onTransitionEnd(Routes.CATEGORIES)}
+        >
           <SimpleBar style={{ maxHeight: "100%", width: "100%" }}>
             <Categories />
           </SimpleBar>
         </Sidepanel>
-        <Sidepanel _key={hasMounted} right isActive={sidepanelRoute === Routes.MY_ACCOUNT}>
+        <Sidepanel
+          _key={hasMounted}
+          right
+          isActive={routes[0] === Routes.MY_ACCOUNT}
+          onTransitionEnd={() => onTransitionEnd(Routes.MY_ACCOUNT)}
+        >
           <SimpleBar style={{ maxHeight: "100%", width: "100%" }}>
-            <Router activeRoute={myAccountRoute}>
-              <MyAccount default />
-              {/* <Auth route={Routes.AUTH} /> */}
-              <Profile private route={Routes.PROFILE} />
-              <Orders private route={Routes.ORDERS} />
-              <Cards private route={Routes.CARDS} />
-              <Addresses private route={Routes.ADDRESSES} />
+            <Router
+              isActive={openSidepanels[Routes.MY_ACCOUNT]}
+              activeRoute={myAccountRoute}
+            >
+              <PrivateRoute
+                setOpenSidepanels={setOpenSidepanels}
+                default
+                component={MyAccount}
+              />
+              <Login route={Routes.LOGIN} />
+              <Signup route={Routes.SIGNUP} />
+              <PasswordReset route={Routes.PASSWORD_RESET} />
+              <PrivateRoute
+                setOpenSidepanels={setOpenSidepanels}
+                route={Routes.PROFILE}
+                component={Profile}
+              />
+              <PrivateRoute
+                setOpenSidepanels={setOpenSidepanels}
+                route={Routes.ORDERS}
+                component={Orders}
+              />
+              <PrivateRoute
+                setOpenSidepanels={setOpenSidepanels}
+                route={Routes.CARDS}
+                component={Cards}
+              />
+              <PrivateRoute
+                setOpenSidepanels={setOpenSidepanels}
+                route={Routes.ADDRESSES}
+                component={Addresses}
+              />
             </Router>
           </SimpleBar>
         </Sidepanel>
-        <Sidepanel _key={hasMounted} right isActive={sidepanelRoute === Routes.CART}>
+        <Sidepanel
+          _key={hasMounted}
+          right
+          className="cart"
+          isActive={routes[0] === Routes.CART}
+          onTransitionEnd={() => onTransitionEnd(Routes.CART)}
+        >
           <SimpleBar style={{ maxHeight: "100%", width: "100%" }}>
-            <Router activeRoute={cartRoute}>
+            <Router
+              isActive={openSidepanels[Routes.CART]}
+              activeRoute={cartRoute}
+            >
               <Cart default />
-              {/* <Auth route={Routes.AUTH} /> */}
-              <Shipping private route={Routes.SHIPPING} />
-              <Payment private route={Routes.PAYMENT} />
-              <Pay private route={Routes.PAY} />
+              <PrivateRoute
+                setOpenSidepanels={setOpenSidepanels}
+                route={Routes.SHIPPING}
+                component={Shipping}
+              />
+              <PrivateRoute
+                setOpenSidepanels={setOpenSidepanels}
+                route={Routes.PAYMENT}
+                component={Payment}
+              />
+              <PrivateRoute
+                setOpenSidepanels={setOpenSidepanels}
+                route={Routes.PAY}
+                component={Pay}
+              />
             </Router>
           </SimpleBar>
         </Sidepanel>

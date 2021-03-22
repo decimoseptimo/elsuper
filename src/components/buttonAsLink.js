@@ -12,7 +12,7 @@ const ButtonAsLink = (props) => {
 
   return (
     <>
-      <BaseButton className={`buttonAsLink ${className}`}>
+      <BaseButton {...props} className={`buttonAsLink ${className}`}>
         {props.children}
       </BaseButton>
       {styles}

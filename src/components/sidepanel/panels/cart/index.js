@@ -5,12 +5,15 @@ import CartItem from "./cartItem"
 import { CartContext } from "../../../../state/cart"
 import { round } from "../../../../utils"
 import { navigate, useGetRelativeUrl } from "../../../router"
-import { CART, SHIPPING } from "../../routes"
+import { CART, SHIPPING, MY_ACCOUNT, LOGIN } from "../../routes"
 import "../panel.css"
+import { isLoggedIn } from "../../../../utils/auth"
 
 const Cart = (props) => {
   const [state, dispatch] = useContext(CartContext)
-  const url = useGetRelativeUrl(CART, SHIPPING)
+  const nextPrivateUrl = useGetRelativeUrl(CART, SHIPPING)
+  const loginUrl = useGetRelativeUrl(MY_ACCOUNT, LOGIN)
+  const onNextPrivateRoute = () => navigate(isLoggedIn() ? nextPrivateUrl: loginUrl)
 
   const cartTotal = () => {
     let cartTotal = 0
@@ -60,7 +63,7 @@ const Cart = (props) => {
               <div className="cart-total">Total ${cartTotal()}</div>
             </div>
             <div className="btn-wrapper">
-              <Button className="fluid primary" onClick={() => navigate(url)}>
+              <Button className="fluid primary" onClick={onNextPrivateRoute}>
                 Proceder al pago
               </Button>
             </div>

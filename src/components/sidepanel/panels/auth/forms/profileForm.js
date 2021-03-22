@@ -1,30 +1,30 @@
 import React from "react"
 import { useForm } from "react-hook-form"
-import { Link } from "gatsby"
 
-import Button from "../../../button"
-import LoginForm from "./loginForm"
+import Button from "../../../../button"
+import "./form.css"
 
-const RegisterForm = (props) => {
+const ProfileForm = ({ onSubmit, onClick }) => {
   const { register, handleSubmit, errors } = useForm()
-  const { onSubmit, handleClick } = props
 
   return (
-    <div className="form registerForm">
-      <h2 className="title">Crear cuenta</h2>
+    <div className="form">
+      <h2 onClick={() => onClick()} className="title">
+        <span>Datos Personales</span>
+      </h2>
       <form className="form" onSubmit={handleSubmit(onSubmit)}>
         <div className="field">
-          <label htmlFor="firstName" className="visuallyHidden">
+          <label htmlFor="name" className="visuallyHidden">
             Nombre
           </label>
           <input
-            id="firstName"
+            id="name"
             type="text"
             placeholder="Nombre"
-            name="firstName"
-            ref={register({ required: true, maxLength: 100 })}
+            name="name"
+            ref={register({ required: true })}
           />
-          {errors.firstName && <div className="error">Nombre es requerido</div>}
+          {errors.name && <div className="error">Nombre es requerido</div>}
         </div>
         <div className="field">
           <label htmlFor="email" className="visuallyHidden">
@@ -40,6 +40,19 @@ const RegisterForm = (props) => {
           {errors.email && (
             <div className="error">Correo electrónico es requerido</div>
           )}
+        </div>
+        <div className="field">
+          <label htmlFor="phone" className="visuallyHidden">
+            Celular
+          </label>
+          <input
+            id="phone"
+            type="text"
+            placeholder="Celular"
+            name="phone"
+            ref={register({ required: true })}
+          />
+          {errors.phone && <div className="error">Celular es requerido</div>}
         </div>
         <div className="field">
           <label htmlFor="password" className="visuallyHidden">
@@ -59,26 +72,12 @@ const RegisterForm = (props) => {
             <div className="error">Contraseña es minimo 8 caracteres</div>
           )}
         </div>
-        <Button className="primary fluid">Crear cuenta</Button>
-        <p className="legend">
-          Al crear una cuenta, aceptas nuestras{" "}
-          <Link to="/#">Condiciones de uso</Link> y{" "}
-          <Link to="/#">Aviso de privacidad.</Link>
-        </p>
-
-        <p className="pre-button">
-          <span>¿Ya tienes cuenta?</span>
-        </p>
-        <Button
-          type="button"
-          onClick={() => handleClick(() => LoginForm)}
-          className="default fluid round"
-        >
-          Iniciar Sesión
+        <Button className="fluid round default3" onClick={() => {}}>
+          Guardar
         </Button>
       </form>
     </div>
   )
 }
 
-export default RegisterForm
+export default ProfileForm

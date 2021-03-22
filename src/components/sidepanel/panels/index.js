@@ -13,3 +13,9 @@ export {default as Profile} from "./myAccount/profile"
 export {default as Cards} from "./myAccount/cards"
 export {default as Addresses} from "./myAccount/addresses"
 export {default as Orders} from "./myAccount/orders"
+
+//misc
+export {default as Login} from "./auth/login"
+export {default as Logout} from "./auth/logout"
+export {default as Signup} from "./auth/signup"
+export {default as PasswordReset} from "./auth/passwordReset"

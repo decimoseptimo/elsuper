@@ -4,30 +4,34 @@ import { Link } from "gatsby"
 
 import Button from "../../../../button"
 import BaseButton from "../../../../baseButton"
-import RegisterForm from "./registerForm"
-import PasswordResetForm from "./passwordResetForm"
+import "./form.css"
 
-const LoginForm = (props) => {
-  const { register, handleSubmit, errors } = useForm()
-  const { onSubmit, handleClick } = props
+const LoginForm = ({ onSubmit, onPasswordReset, onSignup }) => {
+  const { register, handleSubmit, errors, setError, clearErrors } = useForm()
 
   return (
     <div className="form loginForm">
       <h2 className="title">Iniciar sesión</h2>
-      <form className="form" onSubmit={handleSubmit(onSubmit)}>
+      <form
+        className="form"
+        onSubmit={handleSubmit((data /* , e */) => onSubmit(data, setError))}
+        onChange={() => {
+          clearErrors("auth")
+        }}
+      >
         <div className="field">
-          <label htmlFor="email" className="visuallyHidden">
-            Correo electrónico
+          <label htmlFor="username" className="visuallyHidden">
+            Nombre de usuario
           </label>
           <input
-            id="email"
+            id="username"
             type="text"
-            placeholder="Correo electrónico"
-            name="email"
-            ref={register({ required: true, pattern: /^\S+@\S+$/i })}
+            placeholder="Nombre de usuario"
+            name="username"
+            ref={register({ required: true, minLength: 1, maxLength: 100 })}
           />
-          {errors.email && (
-            <div className="error">Correo electrónico es requerido</div>
+          {errors.username && (
+            <div className="error">Nombre de usuario es requerido</div>
           )}
         </div>
         <div className="field">
@@ -39,13 +43,16 @@ const LoginForm = (props) => {
             type="password"
             placeholder="Contraseña"
             name="password"
-            ref={register({ required: true, minLength: 8, maxLength: 100 })}
+            ref={register({ required: true, minLength: 4, maxLength: 100 })}
           />
           {errors.password && errors.password.type === "required" && (
             <div className="error">Contraseña es requerido</div>
           )}
           {errors.password && errors.password.type === "minLength" && (
-            <div className="error">Contraseña es minimo 8 caracteres</div>
+            <div className="error">Contraseña es minimo 4 caracteres</div>
+          )}
+          {errors.auth && errors.auth.type === "loginFailed" && (
+            <div className="error">{errors.auth.message}</div>
           )}
         </div>
         <div className="field remember">
@@ -59,7 +66,7 @@ const LoginForm = (props) => {
           <BaseButton
             className="forgotPassword"
             // type="button"
-            onClick={() => handleClick(() => PasswordResetForm)}
+            onClick={() => onPasswordReset()}
           >
             ¿Olvidaste tu contraseña?
           </BaseButton>
@@ -76,7 +83,7 @@ const LoginForm = (props) => {
         </p>
         <Button
           type="button"
-          onClick={() => handleClick(() => RegisterForm)}
+          onClick={() => onSignup()}
           className="default fluid round"
         >
           Crear cuenta

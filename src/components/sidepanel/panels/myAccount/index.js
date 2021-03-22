@@ -1,15 +1,27 @@
 import React from "react"
 
+import { logout, getCurrentUser } from "../../../../utils/auth"
 import Button from "../../../button"
 import ButtonAsLink from "../../../buttonAsLink"
 import { navigate, useGetRelativeUrl } from "../../../router"
-import { MY_ACCOUNT, PROFILE, ORDERS, CARDS, ADDRESSES } from "../../routes"
+import {
+  MY_ACCOUNT,
+  PROFILE,
+  ORDERS,
+  CARDS,
+  ADDRESSES,
+  LOGIN,
+} from "../../routes"
 
 const MyAccount = (props) => {
   const profileUrl = useGetRelativeUrl(MY_ACCOUNT, PROFILE)
   const ordersUrl = useGetRelativeUrl(MY_ACCOUNT, ORDERS)
   const cardsUrl = useGetRelativeUrl(MY_ACCOUNT, CARDS)
   const addressesUrl = useGetRelativeUrl(MY_ACCOUNT, ADDRESSES)
+  const loginUrl = useGetRelativeUrl(MY_ACCOUNT, LOGIN)
+  const handleLogout = () => {
+    navigate(loginUrl, { replace: true })
+  }
 
   return (
     <>
@@ -17,7 +29,11 @@ const MyAccount = (props) => {
         <header>
           <h2 className="title">Mi cuenta</h2>
           <span className="subtitle">
-            ¡Hola Juan! (<ButtonAsLink>salir</ButtonAsLink>)
+            ¡Hola {getCurrentUser().name}! (
+            <ButtonAsLink onClick={() => logout(handleLogout)}>
+              salir
+            </ButtonAsLink>
+            )
           </span>
         </header>
         <Button

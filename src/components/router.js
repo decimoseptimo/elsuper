@@ -1,10 +1,15 @@
 import { useState } from "react"
 import PropTypes from "prop-types"
 import queryString from "query-string"
-import { navigate as reachRouterNavigate, useLocation } from "@reach/router"
+import { navigate as rrNavigate, useLocation } from "@reach/router"
+
+import React from "react"
+import { isLoggedIn } from "../utils/auth"
+import { MY_ACCOUNT, LOGIN } from "./sidepanel/routes"
 
 /**
- * Creates routesHistory and returns getter and setter methods
+ * Creates routesHistory and returns getter and setter methods.
+ * routesHistory contains the latest accessed routes by type (route[0])
  */
 export const useRoutesHistory = () => {
   const [routesHistory, setRoutesHistory] = useState([])
@@ -74,7 +79,7 @@ export const setRoutes = (location, nextRoutes) => {
     !!routes?.length && routes.toString() !== nextRoutes.toString()
   const differentClosed =
     !routes?.length && prevRoutes.toString() !== nextRoutes.toString()
-/*   //console.log(`
+  /*  console.log(`
 ---
   prev: ${prevRoutes}
   curr: ${routes}
@@ -128,9 +133,12 @@ export const setRoutes = (location, nextRoutes) => {
   }
   // different:
   else {
-    //console.log("3.")
+    //console.log("3. different")
     //same root && same as previous
-    if (routes[0] === nextRoutes[0] && prevRoutes.toString() === nextRoutes.toString()) {
+    if (
+      routes[0] === nextRoutes[0] &&
+      prevRoutes.toString() === nextRoutes.toString()
+    ) {
       //console.log(" 0 goback")
       navigate(-1)
     } else if (replace) {
@@ -161,18 +169,15 @@ export const useSetRoutes = (nextRoutes) => setRoutes(useLocation(), nextRoutes)
 /**
  * Navigate with custom state to preserve scroll position. See:
  * https://www.joshwcomeau.com/gatsby/the-worlds-sneakiest-route-change/#preserving-scroll-position
- * NOTE: These types are incomplete. reachRouterNavigate is an overloaded function in typescript,
+ * NOTE: These types are incomplete. rrNavigate is an overloaded function in typescript,
  * but function overloading isn't supported in JSDoc. See:
  * https://github.com/microsoft/TypeScript/issues/25590
  * @param {string} to
  * @param {*=} options
  */
 export const navigate = (to, options) => {
-  if (options) {
-    options.state.disableScrollUpdate = true
-    return reachRouterNavigate(to, options)
-  }
-  return reachRouterNavigate(to, { state: { disableScrollUpdate: true } })
+  const rrOptions = { ...options, state: { disableScrollUpdate: true } }
+  return rrNavigate(to, rrOptions)
 }
 
 /**
@@ -250,20 +255,51 @@ export const getRelativeUrl = (location, ...routes) => {
 export const useGetRelativeUrl = (...routes) =>
   getRelativeUrl(useLocation(), ...routes)
 
-//** Receives multiple children and renders the one whose routes matches the activeRoute */
-export default function Router({ activeRoute, children }) {
+/**
+ * Receives multiple children and renders the one whose routes matches the activeRoute
+ */
+export default function Router({ isActive = false, activeRoute, children }) {
+  //bail rendering if not active
+  if (!isActive) return null
   let el
-  if (!activeRoute) {
-    if ((el = children.find((el) => el.props.default))) return el
-  } else {
-    if ((el = children.find((el) => el.props.route === activeRoute))) return el
-    if ((el = children.find((el) => el.props.default))) return el
-  }
-
+  //return active
+  if ((el = children.find((el) => el.props.route === activeRoute))) return el
+  //else return default
+  if ((el = children.find((el) => el.props.default))) return el
+  //else
   return null
 }
-
 Router.propTypes = {
+  isActive: PropTypes.bool,
   activeRoute: PropTypes.string,
   children: PropTypes.arrayOf(PropTypes.node).isRequired,
+}
+
+/**
+ * Prevents component rendering unless the user is logged in
+ */
+export const PrivateRoute = ({
+  setOpenSidepanels,
+  component: Component,
+  ...rest
+}) => {
+  const routes = useGetRoutes()
+  const loginRoutes = [MY_ACCOUNT, LOGIN]
+  const loginUrl = useGetRelativeUrl(...loginRoutes)
+
+  if (!isLoggedIn()) {
+    //bail navigation to loginUrl if we're already there
+    if (loginRoutes.toString() !== routes.toString()) {
+      // setRoutes(location, [MY_ACCOUNT, LOGIN])
+      navigate(loginUrl, { replace: true })
+      // navigate cancels sidepanel's transitionend event (which in turn cancels openSidepanels update)
+      // here we're manually updating it. Better but harder alternatives could be:
+      // - http://reactcommunity.org/react-transition-group/with-react-router
+      // - Prevent navigation to private routes in setRoutes() (e.g. `navigate(isLoggedIn() ? nextPrivateUrl: loginUrl)`)
+      setOpenSidepanels(routes[0], "remove")
+    }
+    return null
+  }
+
+  return <Component {...rest} />
 }

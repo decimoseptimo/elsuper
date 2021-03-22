@@ -3,7 +3,7 @@ import { useLocation } from "@reach/router"
 
 import { setRoutes } from "../../../router"
 import { MY_ACCOUNT } from "../../routes"
-import ProfileForm from "../misc/forms/profileForm"
+import ProfileForm from "../auth/forms/profileForm"
 
 const Profile = (props) => {
   const location = useLocation()
@@ -11,7 +11,10 @@ const Profile = (props) => {
   return (
     <>
       <div className="sub panel myAccount">
-        <ProfileForm handleClick={() => setRoutes(location, [MY_ACCOUNT])} />
+        <ProfileForm
+          onSubmit={() => alert("SERVICE UNAVAILABLE")}
+          onClick={() => setRoutes(location, [MY_ACCOUNT])}
+        />
       </div>
     </>
   )
