@@ -22,16 +22,20 @@ ul {
   padding: 0;
 }
 
-h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child {
+h1:first-child,
+h2:first-child,
+h3:first-child,
+h4:first-child,
+h5:first-child {
   margin-top: 0;
 }
 
 a {
-    color: #4183c4;
-    text-decoration: none;
+  color: #4183c4;
+  text-decoration: none;
 }
 
 p {
-    /*margin: 0 0 1em;*/
-    line-height: 1.4285em;
+  /*margin: 0 0 1em;*/
+  line-height: 1.4285em;
 }

@@ -3,9 +3,13 @@ import { FaShoppingCart } from "react-icons/fa"
 
 import BaseButton from "./baseButton"
 
-const ButtonCart = ({count, onClick}) => (
+const ButtonCart = ({ count, onClick }) => (
   <>
-    <BaseButton className="buttonCart" aria-label="cart button" onClick={onClick}>
+    <BaseButton
+      className="buttonCart"
+      aria-label="cart button"
+      onClick={onClick}
+    >
       <>
         <FaShoppingCart color="white" />
         <span className="cart-count">{count}</span>

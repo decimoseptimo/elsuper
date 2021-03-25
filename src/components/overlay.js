@@ -1,8 +1,12 @@
 import React from "react"
 
-const Overlay = ({_key, isActive = false, onClick }) => (
+const Overlay = ({ _key, isActive = false, onClick }) => (
   <>
-    <div key={_key} className={`overlay ${isActive && "visible"}`} onClick={onClick} />
+    <div
+      key={_key}
+      className={`overlay ${isActive && "visible"}`}
+      onClick={onClick}
+    />
     <style jsx>{`
       .overlay {
         position: fixed;

@@ -57,7 +57,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const products = result.data.products.edges
   const _categories = result.data.categories.edges
-  const categories = _categories.map(i => i.node)
+  const categories = _categories.map((i) => i.node)
   const tags = result.data.tags.group
 
   console.log("products:" + products.length)
@@ -88,7 +88,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   for (const i of categories) {
     const allSupercategories = getParentRecursively(categories, i).reverse()
     const allSubcategories = getChildrenRecursively(categories, i)
-    const allSubcategoriesIds = [i._id, ...allSubcategories.map(i => i._id)]
+    const allSubcategoriesIds = [i._id, ...allSubcategories.map((i) => i._id)]
     const subcategories = getChildren(allSubcategories, i._id)
 
     const result = await graphql(
@@ -128,7 +128,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     })
   }
 
-  tags.forEach(tag => {
+  tags.forEach((tag) => {
     paginate({
       createPage,
       items: tag.edges,

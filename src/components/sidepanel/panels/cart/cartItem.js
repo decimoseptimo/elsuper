@@ -109,13 +109,13 @@ const CartItem = (props) => {
         td {
           padding-right: 1rem;
         }
-        
+
         td.item-total {
           text-align: right;
         }
 
         td:nth-child(3) {
-          display: none
+          display: none;
         }
 
         td:first-child,

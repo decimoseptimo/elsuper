@@ -24,7 +24,7 @@ const Categories = () => {
     }
   `)
 
-  const [/* miscState */, miscDispatch] = useContext(MiscContext)
+  const [, /* miscState */ miscDispatch] = useContext(MiscContext)
   const propsCategories = data.allCategoriesJson.edges
   const categories = propsCategories.map((i) => i.node)
   const rootCategories = getChildren(categories, null)
@@ -37,14 +37,15 @@ const Categories = () => {
 
   const { Panel } = Collapse
 
-  const expandIcon = (props) =>
+  const expandIcon = (props) => (
     <IconContext.Provider
       value={!props.isActive ? { style: { transform: "rotate(90deg)" } } : {}}
     >
       <AiOutlineRight />
     </IconContext.Provider>
+  )
 
-  const ItemLink = ({ name, className='' }) => (
+  const ItemLink = ({ name, className = "" }) => (
     <Link
       to={`/${slugify(name.toLowerCase())}`}
       replace
@@ -72,11 +73,7 @@ const Categories = () => {
         return children ? (
           getPanel(_id, name, children)
         ) : (
-          <ItemLink
-            key={_id}
-            name={name}
-            className="rc-collapse-item"
-          />
+          <ItemLink key={_id} name={name} className="rc-collapse-item" />
         )
       })}
     </Collapse>

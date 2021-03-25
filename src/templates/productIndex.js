@@ -7,7 +7,7 @@ import Pagination from "../components/pagination"
 
 const ProductIndex = (props) => {
   const products = props.data.allProductsJson.edges
-  
+
   const handlePageChange = (current) => {
     current === 1 ? navigate(`/`) : navigate(`/${current}`)
   }

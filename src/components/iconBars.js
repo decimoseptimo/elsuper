@@ -9,7 +9,7 @@ const IconBars = (props) => (
     <style jsx>{`
       .iconBars {
         border: 1px solid #e0b324;
-        padding: .2rem .3rem;
+        padding: 0.2rem 0.3rem;
         border-radius: 3px;
         padding: 4px 4px 1px 4px;
         position: relative;

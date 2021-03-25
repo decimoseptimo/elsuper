@@ -1,7 +1,7 @@
-import React  from "react"
+import React from "react"
 import Autosuggest from "react-autosuggest"
 
-const SearchBox = props => {
+const SearchBox = (props) => {
   return (
     <div className="searchBox">
       <Autosuggest {...props} ref={props.inputEl} />
@@ -68,7 +68,7 @@ const SearchBox = props => {
           color: rgba(0, 0, 0, 0.87);
           line-height: 1.33;
         }
-        
+
         .react-autosuggest__suggestion--highlighted {
           background-color: #f3f4f5;
         }

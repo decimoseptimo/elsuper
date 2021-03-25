@@ -14,7 +14,6 @@ const ProductCard = ({
   AddButton,
   hasMountedAndHasValue,
 }) => {
-
   const image = data.images ? (
     <Img fluid={data.images[0].childImageSharp.fluid} alt={data.title} />
   ) : (

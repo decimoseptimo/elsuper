@@ -13,7 +13,8 @@ const Cart = (props) => {
   const [state, dispatch] = useContext(CartContext)
   const nextPrivateUrl = useGetRelativeUrl(CART, SHIPPING)
   const loginUrl = useGetRelativeUrl(MY_ACCOUNT, LOGIN)
-  const onNextPrivateRoute = () => navigate(isLoggedIn() ? nextPrivateUrl: loginUrl)
+  const onNextPrivateRoute = () =>
+    navigate(isLoggedIn() ? nextPrivateUrl : loginUrl)
 
   const cartTotal = () => {
     let cartTotal = 0

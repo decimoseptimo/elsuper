@@ -11,11 +11,7 @@ import IconBars from "./iconBars"
 import Search from "./search/search"
 import * as Routes from "./sidepanel/routes"
 
-const Header = ({
-  location,
-  setRoutes,
-  getFromRoutesHistory,
-}) => {
+const Header = ({ location, setRoutes, getFromRoutesHistory }) => {
   const [state /* , dispatch */] = useContext(CartContext)
   const [, /* miscState */ miscDispatch] = useContext(MiscContext)
 
@@ -26,7 +22,8 @@ const Header = ({
           className="buttonCategories"
           aria-label="categories button"
           onClick={() =>
-            setRoutes( location,
+            setRoutes(
+              location,
               getFromRoutesHistory(Routes.CATEGORIES) || [Routes.CATEGORIES]
             )
           }
@@ -61,7 +58,8 @@ const Header = ({
           className="buttonUser"
           aria-label="my-account button"
           onClick={() =>
-            setRoutes( location,
+            setRoutes(
+              location,
               getFromRoutesHistory(Routes.MY_ACCOUNT) || [Routes.MY_ACCOUNT]
             )
           }
@@ -71,7 +69,10 @@ const Header = ({
         <ButtonCart
           count={state.length}
           onClick={() =>
-            setRoutes( location,getFromRoutesHistory(Routes.CART) || [Routes.CART])
+            setRoutes(
+              location,
+              getFromRoutesHistory(Routes.CART) || [Routes.CART]
+            )
           }
         />
       </div>

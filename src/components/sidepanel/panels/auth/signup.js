@@ -13,7 +13,7 @@ export default function Signup(props) {
     <>
       <div className="panel">
         <Form
-          onSubmit={() => alert('SERVICE UNAVAILABLE')}
+          onSubmit={() => alert("SERVICE UNAVAILABLE")}
           onLogin={() => setRoutes(location, [MY_ACCOUNT, LOGIN])}
         />
       </div>
