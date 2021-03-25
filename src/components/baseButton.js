@@ -1,10 +1,9 @@
 import React from "react"
-import PropTypes from "prop-types"
 
-const BaseButton = (props) => (
+const BaseButton = ({ children, ...props }) => (
   <>
     <button {...props} className={`baseButton ${props.className}`}>
-      {props.children}
+      {children}
     </button>
     <style jsx>{`
       .baseButton {
@@ -16,11 +15,5 @@ const BaseButton = (props) => (
     `}</style>
   </>
 )
-
-BaseButton.propTypes = {
-  children: PropTypes.node.isRequired,
-  className: PropTypes.string,
-  onClick: PropTypes.func,
-}
 
 export default BaseButton

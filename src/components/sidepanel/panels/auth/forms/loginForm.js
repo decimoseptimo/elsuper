@@ -28,9 +28,11 @@ const LoginForm = ({ onSubmit, onPasswordReset, onSignup }) => {
             type="text"
             placeholder="Nombre de usuario"
             name="username"
-            ref={register({ required: true, minLength: 1, maxLength: 100 })}
+            ref={register({
+              required: true /* , minLength: 1, maxLength: 100 */,
+            })}
           />
-          {errors.username && (
+          {errors.username && errors.username.type === "required" && (
             <div className="error">Nombre de usuario es requerido</div>
           )}
         </div>
@@ -43,7 +45,10 @@ const LoginForm = ({ onSubmit, onPasswordReset, onSignup }) => {
             type="password"
             placeholder="Contraseña"
             name="password"
-            ref={register({ required: true, minLength: 4, maxLength: 100 })}
+            ref={register({
+              required: true,
+              minLength: 4 /* , maxLength: 100  */,
+            })}
           />
           {errors.password && errors.password.type === "required" && (
             <div className="error">Contraseña es requerido</div>
@@ -65,7 +70,7 @@ const LoginForm = ({ onSubmit, onPasswordReset, onSignup }) => {
           <label htmlFor="remember">Recordarme</label>
           <BaseButton
             className="forgotPassword"
-            // type="button"
+            type="button"
             onClick={() => onPasswordReset()}
           >
             ¿Olvidaste tu contraseña?

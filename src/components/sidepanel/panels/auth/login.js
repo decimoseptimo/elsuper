@@ -18,11 +18,12 @@ export default function Login(props) {
           onSubmit={(data, setError) => {
             const result = login(data)
             if (!!result) navigate(myAccountUrl, { replace: true })
-            else
+            else {
               setError("auth", {
                 type: "loginFailed",
                 message: "Nombre de usuario o contraseña invalidos",
               })
+            }
           }}
           onSignup={() => navigate(signupUrl)}
           onPasswordReset={() => navigate(passwordResetUrl)}
