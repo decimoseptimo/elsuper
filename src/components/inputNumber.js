@@ -13,7 +13,7 @@ const InputNumber = ({
   min,
   max,
   onChange,
-  onDelete,
+  onDelete = null,
 }) => {
   // console.log("\nInputNumber!")
   // console.log(value)

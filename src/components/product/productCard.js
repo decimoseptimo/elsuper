@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 
 import Image from "../image"
 
@@ -15,7 +15,10 @@ const ProductCard = ({
   hasMountedAndHasValue,
 }) => {
   const image = data.images ? (
-    <Img fluid={data.images[0].childImageSharp.fluid} alt={data.title} />
+    <GatsbyImage
+      image={data.images[0].childImageSharp.gatsbyImageData}
+      alt={data.title}
+    />
   ) : (
     <Image />
   )

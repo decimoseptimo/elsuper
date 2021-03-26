@@ -2,6 +2,7 @@ import React, { useEffect } from "react"
 import PropTypes from "prop-types"
 import SimpleBar from "simplebar-react"
 import "simplebar/dist/simplebar.min.css"
+import _JSXStyle from "styled-jsx/style"
 
 import Header from "./header"
 import Overlay from "./overlay"
@@ -31,6 +32,12 @@ import {
   PasswordReset,
 } from "./sidepanel/panels"
 import "./layout.css"
+
+// Temp fix for "_JSXStyle is not defined" error
+// https://github.com/vercel/styled-jsx/issues/695#issuecomment-805346577
+if (typeof global !== "undefined") {
+  Object.assign(global, { _JSXStyle })
+}
 
 const Layout = ({ location, children }) => {
   const { getFromRoutesHistory, setToRoutesHistory } = useRoutesHistory()

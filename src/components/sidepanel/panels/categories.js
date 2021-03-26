@@ -3,6 +3,7 @@ import { graphql, Link, useStaticQuery } from "gatsby"
 import slugify from "slugify"
 import Collapse from "rc-collapse"
 import "rc-collapse/assets/index.css"
+import motion from '../../../utils/motionUtil'
 import { IconContext } from "react-icons"
 import { AiOutlineRight } from "react-icons/ai"
 
@@ -68,7 +69,7 @@ const Categories = () => {
   )
 
   const generateCollapse = (obj) => (
-    <Collapse accordion expandIcon={expandIcon}>
+    <Collapse accordion expandIcon={expandIcon} openMotion={motion}>
       {obj.map(({ _id, name, children }) => {
         return children ? (
           getPanel(_id, name, children)
