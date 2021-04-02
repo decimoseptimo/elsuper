@@ -90,31 +90,28 @@ const CategoryView = (props) => {
 
 export default CategoryView
 
-export const pageQuery = graphql`
-  query($allSubcategoriesIds: [String], $skip: Int!, $limit: Int!) {
-    allProductsJson(
-      filter: { parent_id: { in: $allSubcategoriesIds } }
-      skip: $skip
-      limit: $limit
-    ) {
-      edges {
-        node {
-          _id
-          title
-          price
-          unit
-          min_quantity
-          max_quantity
-          slug
-          images {
-            childImageSharp {
-              fluid(maxWidth: 550) {
-                ...GatsbyImageSharpFluid
-              }
-            }
+export const pageQuery = graphql`query ($allSubcategoriesIds: [String], $skip: Int!, $limit: Int!) {
+  allProductsJson(
+    filter: {parent_id: {in: $allSubcategoriesIds}}
+    skip: $skip
+    limit: $limit
+  ) {
+    edges {
+      node {
+        _id
+        title
+        price
+        unit
+        min_quantity
+        max_quantity
+        slug
+        images {
+          childImageSharp {
+            gatsbyImageData(width: 550, layout: CONSTRAINED)
           }
         }
       }
     }
   }
+}
 `

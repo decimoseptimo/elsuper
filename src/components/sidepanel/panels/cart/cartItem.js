@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 
 import InputNumber from "../../../inputNumber"
 import Image from "../../../image"
@@ -21,9 +21,9 @@ const CartItem = (props) => {
 
   const price = round(props.price)
   const image = images ? (
-    <Img
+    <GatsbyImage
+      image={images[0].childImageSharp.gatsbyImageData}
       className="thumb"
-      fluid={images[0].childImageSharp.fluid}
       alt={title}
     />
   ) : (
@@ -31,7 +31,7 @@ const CartItem = (props) => {
   )
 
   const itemTotal = () => {
-    return round(price * count, 2)
+    return round(Number(price) * count, 2)
   }
 
   return (

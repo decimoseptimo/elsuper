@@ -114,28 +114,21 @@ const ProductView = (props) => {
 
 export default ProductView
 
-export const query = graphql`
-  query($_id: String!) {
-    productsJson(_id: { eq: $_id }) {
-      _id
-      title
-      price
-      unit
-      min_quantity
-      max_quantity
-      slug
-      description
-      images {
-        childImageSharp {
-          fluid(maxWidth: 1080) {
-            base64
-            aspectRatio
-            src
-            srcSet
-            sizes
-          }
-        }
+export const query = graphql`query ($_id: String!) {
+  productsJson(_id: {eq: $_id}) {
+    _id
+    title
+    price
+    unit
+    min_quantity
+    max_quantity
+    slug
+    description
+    images {
+      childImageSharp {
+        gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
       }
     }
   }
+}
 `

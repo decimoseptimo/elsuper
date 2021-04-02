@@ -1,6 +1,6 @@
 import React, { useRef, useState, useMemo } from "react"
 import Slider from "react-slick"
-import Image from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import "../../../node_modules/slick-carousel/slick/slick.css"
 import "../../../node_modules/slick-carousel/slick/slick-theme.css"
 
@@ -53,8 +53,8 @@ const ProductGallery = (props) => {
               onMouseOver={() => updateSlide(index)}
               className={`image ${activeThumb === index ? "active" : ""}`}
             >
-              <Image
-                fluid={value.childImageSharp.fluid}
+              <GatsbyImage
+                image={value.childImageSharp.gatsbyImageData}
                 alt={value.title}
                 key={index}
               />
@@ -68,12 +68,13 @@ const ProductGallery = (props) => {
             <Slider className="slider" ref={sliderRef} {...settings}>
               {images.map((value, index) => (
                 <div className="slide" key={index}>
-                  <Image fluid={value.childImageSharp.fluid} />
-                  {/*<img src={value.childImageSharp.fluid.src} />*/}
+                  <GatsbyImage
+                    image={value.childImageSharp.gatsbyImageData}
+                    alt={value.title}
+                  />
                 </div>
               ))}
             </Slider>
-            {/*<Asd/>*/}
           </div>
         ),
         []
