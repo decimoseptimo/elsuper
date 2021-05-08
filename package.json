@@ -42,7 +42,7 @@
     "slick-carousel": "^1.8.1",
     "slugify": "^1.5.0",
     "styled-jsx": "^3.4.4",
-    "typeface-source-sans-pro": "1.1.13"
+    "typeface-source-sans-pro": "0.0.75"
   },
   "devDependencies": {
     "@types/styled-jsx": "^2.2.8",

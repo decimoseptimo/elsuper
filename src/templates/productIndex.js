@@ -37,24 +37,29 @@ const ProductIndex = (props) => {
 
 export default ProductIndex
 
-export const pageQuery = graphql`query ($skip: Int!, $limit: Int!) {
-  allProductsJson(skip: $skip, limit: $limit) {
-    edges {
-      node {
-        _id
-        title
-        price
-        unit
-        min_quantity
-        max_quantity
-        slug
-        images {
-          childImageSharp {
-            gatsbyImageData(width: 550, layout: CONSTRAINED)
+export const pageQuery = graphql`
+  query($skip: Int!, $limit: Int!) {
+    allProductsJson(skip: $skip, limit: $limit) {
+      edges {
+        node {
+          _id
+          title
+          price
+          unit
+          min_quantity
+          max_quantity
+          slug
+          images {
+            childImageSharp {
+              gatsbyImageData(
+                width: 550
+                layout: CONSTRAINED
+                placeholder: BLURRED
+              )
+            }
           }
         }
       }
     }
   }
-}
 `
