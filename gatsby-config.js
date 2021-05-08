@@ -74,13 +74,11 @@ module.exports = {
                   description
                   images {
                     childImageSharp {
-                      fluid(maxWidth: 1080) {
-                        base64
-                        aspectRatio
-                        src
-                        srcSet
-                        sizes
-                      }
+                      gatsbyImageData(
+                        width: 550
+                        layout: CONSTRAINED
+                        placeholder: BLURRED
+                      )
                     }
                   }
                 }
